@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package brij.orders.v1.common;
+
+option go_package = "go.brij.fi/protos/brij/orders/v1/common";
+
+enum RampType {
+  RAMP_TYPE_UNSPECIFIED = 0;
+  RAMP_TYPE_ON_RAMP = 1;
+  RAMP_TYPE_OFF_RAMP = 2;
+}
+

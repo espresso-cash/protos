@@ -1,0 +1,165 @@
+syntax = "proto3";
+
+package brij.orders.v1.partner;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "brij/orders/v1/common/ramp_type.proto";
+
+option go_package = "go.brij.fi/protos/brij/orders/v1/partner";
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  security_definitions: {
+    security: {
+      key: "bearer"
+      value: {
+        type: TYPE_API_KEY
+        in: IN_HEADER
+        name: "Authorization"
+        description: "Authentication token, prefixed by Bearer: Bearer <token>"
+      }
+    }
+  }
+  security: {
+    security_requirement: {key: "bearer"}
+  }
+};
+
+service PartnerService {
+  rpc GetOrder(GetOrderRequest) returns (GetOrderResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/getOrder"
+      body: "*"
+    };
+  }
+
+  rpc AcceptOrder(AcceptOrderRequest) returns (AcceptOrderResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/acceptOrder"
+      body: "*"
+    };
+  }
+
+  rpc RejectOrder(RejectOrderRequest) returns (RejectOrderResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/rejectOrder"
+      body: "*"
+    };
+  }
+
+  rpc CompleteOrder(CompleteOrderRequest) returns (CompleteOrderResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/completeOrder"
+      body: "*"
+    };
+  }
+
+  rpc FailOrder(FailOrderRequest) returns (FailOrderResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/failOrder"
+      body: "*"
+    };
+  }
+
+  rpc GetOrders(GetOrdersRequest) returns (GetOrdersResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/getOrders"
+      body: "*"
+    };
+  }
+
+  rpc UpdateFees(UpdateFeesRequest) returns (UpdateFeesResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/updateFees"
+      body: "*"
+    };
+  }
+}
+
+message GetOrderRequest {
+  string order_id = 1;
+  string external_id = 2;
+}
+
+message GetOrderResponse {
+  string order_id = 1;
+  string created = 2;
+  string status = 3;
+  string partner_public_key = 4;
+  string user_public_key = 5;
+  string comment = 7;
+  brij.orders.v1.common.RampType type = 8;
+  double crypto_amount = 9;
+  string crypto_currency = 10;
+  double fiat_amount = 11;
+  string fiat_currency = 12;
+  string bank_name = 13;
+  string bank_account = 14;
+  string crypto_wallet_address = 15;
+  string transaction = 16;
+  string transaction_id = 17;
+  string external_id = 18;
+  string user_signature = 19;
+  string partner_signature = 20;
+  string user_wallet_address = 21;
+  string wallet_public_key = 22;
+}
+
+message AcceptOrderRequest {
+  string order_id = 1;
+  string bank_name = 2;
+  string bank_account = 3;
+  string crypto_wallet_address = 4;
+  string external_id = 5;
+  string partner_signature = 6;
+}
+
+message AcceptOrderResponse {}
+
+message RejectOrderRequest {
+  string order_id = 1;
+  string reason = 2;
+}
+
+message RejectOrderResponse {}
+
+message CompleteOrderRequest {
+  string order_id = 1;
+  string transaction_id = 2;
+  string external_id = 3;
+}
+
+message CompleteOrderResponse {}
+
+message FailOrderRequest {
+  string order_id = 1;
+  string reason = 2;
+  string external_id = 3;
+}
+
+message FailOrderResponse {}
+
+message GetOrdersRequest {}
+
+message GetOrdersResponse {
+  repeated GetOrderResponse orders = 1;
+}
+
+message UpdateFeesRequest {
+  RampFeeUpdateData on_ramp_fee = 1;
+  RampFeeUpdateData off_ramp_fee = 2;
+  string wallet_address = 3;
+}
+
+message RampFeeUpdateData {
+  double fixed_fee = 1;
+  double percentage_fee = 2;
+  ConversionRate conversion_rates = 3;
+}
+
+message ConversionRate {
+  string crypto_currency = 1;
+  string fiat_currency = 2;
+  double rate = 3;
+}
+
+message UpdateFeesResponse {}
