@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package brij.verifier.v1;
+
+option go_package = "go.brij.fi/protos/brij/verifier/v1";
+
+enum DataType {
+    DATA_TYPE_UNSPECIFIED = 0;
+    DATA_TYPE_PHONE = 1;
+    DATA_TYPE_EMAIL = 2;
+    DATA_TYPE_NAME = 3;
+    DATA_TYPE_BIRTH_DATE = 4;
+    DATA_TYPE_DOCUMENT = 5;
+    DATA_TYPE_BANK_INFO = 6;
+    DATA_TYPE_SELFIE_IMAGE = 7;
+  }
+  
+enum DocumentType {
+  DOCUMENT_TYPE_UNSPECIFIED = 0;
+  DOCUMENT_TYPE_VOTER_ID = 1;
+  DOCUMENT_TYPE_NIN_V2 = 2;
+  DOCUMENT_TYPE_PASSPORT = 3;
+  DOCUMENT_TYPE_ID_CARD = 4;
+}
+
+enum DocumentFieldType {
+  DOCUMENT_FIELD_TYPE_UNSPECIFIED = 0;
+  DOCUMENT_FIELD_TYPE_ID_NUMBER = 1;
+  DOCUMENT_FIELD_TYPE_PHOTO_FRONT = 2;
+  DOCUMENT_FIELD_TYPE_PHOTO_BACK = 3;
+}

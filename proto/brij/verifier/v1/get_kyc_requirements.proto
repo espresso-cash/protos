@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package brij.verifier.v1;
+
+option go_package = "go.brij.fi/protos/brij/verifier/v1";
+
+import "brij/verifier/v1/data.proto";
+
+message GetKycRequirementsRequest {
+  string country = 1;
+}
+
+message GetKycRequirementsResponse {
+  string country = 1;
+  repeated Requirement requirements = 2;
+}
+
+message Requirement {
+  DataType type = 1;
+  Formula formula = 2;
+}
+
+message Formula {
+  message Nested {
+    repeated Formula formulas = 1;
+  }
+
+  message Condition {
+    oneof value {
+      string country_code = 1;
+      DocumentType document_type = 2;
+      DocumentFieldType document_field = 3;
+    }
+  }
+
+  oneof value {
+    Nested and = 1;
+    Nested or = 2;
+    Formula not = 3;
+    bool constant = 4;
+    Condition condition = 5;
+  }
+}

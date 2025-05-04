@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package brij.verifier.v1;
+
+option go_package = "go.brij.fi/protos/brij/verifier/v1";
+
+message ValidateEmailRequest {
+  string code = 1;
+  string data_id = 2;
+}
+
+message ValidateEmailResponse {}

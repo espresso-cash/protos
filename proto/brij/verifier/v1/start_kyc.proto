@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package brij.verifier.v1;
+
+option go_package = "go.brij.fi/protos/brij/verifier/v1";
+
+message StartKycRequest {
+  string country = 1;
+  repeated string data_hashes = 2;
+}
+
+message StartKycResponse {
+  string kyc_id = 1;
+}
