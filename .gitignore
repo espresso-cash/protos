@@ -35,4 +35,4 @@ api.http
 .idea/
 *.iml
 
-gen/openapiv2/
+openapiv2/
