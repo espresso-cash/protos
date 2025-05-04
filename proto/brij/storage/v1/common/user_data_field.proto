@@ -1,0 +1,17 @@
+syntax = 'proto3';
+
+package brij.storage.v1.common;
+
+import "brij/storage/v1/common/data.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = 'go.brij.fi/protos/brij/storage/v1/common';
+
+message UserDataField {
+  string id = 1;
+  DataType type = 2;
+  bytes encrypted_value = 3;
+  string hash = 4;
+  string signature = 5;
+  google.protobuf.Timestamp created_at = 6;
+}

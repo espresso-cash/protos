@@ -1,0 +1,82 @@
+syntax = 'proto3';
+
+package brij.storage.v1.partner;
+
+import "brij/storage/v1/common/kyc_item.proto";
+import "brij/storage/v1/common/user_data_field.proto";
+import "brij/storage/v1/common/validation_data_field.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = 'go.brij.fi/protos/brij/storage/v1/partner';
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  security_definitions: {
+    security: {
+      key: "bearer"
+      value: {
+        type: TYPE_API_KEY
+        in: IN_HEADER
+        name: "Authorization"
+        description: "Authentication token, prefixed by Bearer: Bearer <token>"
+      }
+    }
+  }
+  security: {
+    security_requirement: {key: "bearer"}
+  }
+};
+
+service PartnerService {
+  rpc GetInfo(GetInfoRequest) returns (GetInfoResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/getInfo"
+      body: "*"
+    };
+  }
+
+  rpc GetUserData(GetUserDataRequest) returns (GetUserDataResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/getUserData"
+      body: "*"
+    };
+  }
+
+  rpc GetKycStatus(GetKycStatusRequest) returns (GetKycStatusResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/getKycStatus"
+      body: "*"
+    };
+  }
+}
+
+message GetInfoRequest {
+  string public_key = 1;
+}
+
+message GetInfoResponse {
+  string encrypted_secret_key = 1;
+  string public_key = 2;
+  string wallet_address = 3;
+}
+
+message GetUserDataRequest {
+  string user_public_key = 1;
+  bool include_values = 2;
+}
+
+message GetUserDataResponse {
+  repeated brij.storage.v1.common.UserDataField user_data = 1;
+  repeated brij.storage.v1.common.ValidationDataField validation_data = 2;
+}
+
+message GetKycStatusRequest {
+  string country = 1;
+  string validator_public_key = 2;
+  string user_public_key = 3;
+}
+
+message GetKycStatusResponse {
+  brij.storage.v1.common.KycStatus status = 1;
+  bytes data = 2;
+  bytes signature = 3;
+}

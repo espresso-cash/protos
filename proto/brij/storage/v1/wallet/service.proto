@@ -1,0 +1,188 @@
+syntax = 'proto3';
+
+package brij.storage.v1.wallet;
+
+import "brij/storage/v1/common/data.proto";
+import "brij/storage/v1/common/kyc_item.proto";
+import "brij/storage/v1/common/user_data_field.proto";
+import "brij/storage/v1/common/validation_data_field.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = 'go.brij.fi/protos/brij/storage/v1/wallet';
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  security_definitions: {
+    security: {
+      key: "bearer"
+      value: {
+        type: TYPE_API_KEY
+        in: IN_HEADER
+        name: "Authorization"
+        description: "Authentication token, prefixed by Bearer: Bearer <token>"
+      }
+    }
+  }
+  security: {
+    security_requirement: {key: "bearer"}
+  }
+};
+
+service WalletService {
+  rpc GetPartnerInfo(GetPartnerInfoRequest) returns (GetPartnerInfoResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/getPartnerInfo"
+      body: "*"
+    };
+  }
+
+  rpc InitStorage(InitStorageRequest) returns (InitStorageResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/initStorage"
+      body: "*"
+    };
+  }
+
+  rpc GetInfo(GetInfoRequest) returns (GetInfoResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/getInfo"
+      body: "*"
+    };
+  }
+
+  rpc GrantAccess(GrantAccessRequest) returns (GrantAccessResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/grantAccess"
+      body: "*"
+    };
+  }
+
+  rpc SetUserData(SetUserDataRequest) returns (SetUserDataResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/setUserData"
+      body: "*"
+    };
+  }
+
+  rpc RemoveUserData(RemoveUserDataRequest) returns (RemoveUserDataResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/removeUserData"
+      body: "*"
+    };
+  }
+
+  rpc GetUserData(GetUserDataRequest) returns (GetUserDataResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/getUserData"
+      body: "*"
+    };
+  }
+
+  rpc CheckAccess(CheckAccessRequest) returns (CheckAccessResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/checkAccess"
+      body: "*"
+    };
+  }
+
+  rpc GetKycStatus(GetKycStatusRequest) returns (GetKycStatusResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/getKycStatus"
+      body: "*"
+    };
+  }
+
+  rpc GetWalletProof(GetWalletProofRequest) returns (GetWalletProofResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/getWalletProof"
+      body: "*"
+    };
+  }
+}
+
+message GetPartnerInfoRequest {
+  string id = 1;
+}
+
+message GetPartnerInfoResponse {
+  string name = 1;
+  string public_key = 2;
+  string privacy_url = 3;
+  string terms_url = 4;
+}
+
+message InitStorageRequest {
+  string wallet_address = 1;
+  string message = 2;
+  string encrypted_secret_key = 3;
+  string wallet_proof_signature = 4;
+}
+
+message InitStorageResponse {}
+
+message GetInfoRequest {
+  string public_key = 1;
+  string wallet_address = 2;
+}
+
+message GetInfoResponse {
+  string encrypted_secret_key = 1;
+  string message = 2;
+  string public_key = 3;
+  string wallet_address = 4;
+}
+
+message GrantAccessRequest {
+  string partner_public_key = 1;
+  string encrypted_secret_key = 2;
+}
+
+message GrantAccessResponse {}
+
+message SetUserDataRequest {
+  brij.storage.v1.common.DataType type = 1;
+  bytes encrypted_value = 2;
+  string hash = 3;
+  string signature = 4;
+}
+
+message SetUserDataResponse {}
+
+message RemoveUserDataRequest {
+  string id = 1;
+}
+
+message RemoveUserDataResponse {}
+
+message GetUserDataRequest {
+  bool include_values = 1;
+}
+
+message GetUserDataResponse {
+  repeated brij.storage.v1.common.UserDataField user_data = 1;
+  repeated brij.storage.v1.common.ValidationDataField validation_data = 2;
+}
+
+message CheckAccessRequest {
+  string partner_public_key = 1;
+}
+
+message CheckAccessResponse {
+  bool has_access = 1;
+}
+
+message GetKycStatusRequest {
+  string country = 1;
+  string validator_public_key = 2;
+}
+
+message GetKycStatusResponse {
+  brij.storage.v1.common.KycStatus status = 1;
+}
+
+message GetWalletProofRequest {
+  string wallet_address = 1;
+}
+
+message GetWalletProofResponse {
+  string proof_message = 1;
+}
