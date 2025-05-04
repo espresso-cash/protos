@@ -19,9 +19,13 @@ import (
 const _ = grpc.SupportPackageIsVersion8
 
 const (
-	PartnerService_GetInfo_FullMethodName      = "/brij.storage.v1.partner.PartnerService/GetInfo"
-	PartnerService_GetUserData_FullMethodName  = "/brij.storage.v1.partner.PartnerService/GetUserData"
-	PartnerService_GetKycStatus_FullMethodName = "/brij.storage.v1.partner.PartnerService/GetKycStatus"
+	PartnerService_GetInfo_FullMethodName              = "/brij.storage.v1.partner.PartnerService/GetInfo"
+	PartnerService_GetUserData_FullMethodName          = "/brij.storage.v1.partner.PartnerService/GetUserData"
+	PartnerService_SetValidationData_FullMethodName    = "/brij.storage.v1.partner.PartnerService/SetValidationData"
+	PartnerService_RemoveValidationData_FullMethodName = "/brij.storage.v1.partner.PartnerService/RemoveValidationData"
+	PartnerService_GetKycStatus_FullMethodName         = "/brij.storage.v1.partner.PartnerService/GetKycStatus"
+	PartnerService_CreateKycStatus_FullMethodName      = "/brij.storage.v1.partner.PartnerService/CreateKycStatus"
+	PartnerService_UpdateKycStatus_FullMethodName      = "/brij.storage.v1.partner.PartnerService/UpdateKycStatus"
 )
 
 // PartnerServiceClient is the client API for PartnerService service.
@@ -30,7 +34,11 @@ const (
 type PartnerServiceClient interface {
 	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
 	GetUserData(ctx context.Context, in *GetUserDataRequest, opts ...grpc.CallOption) (*GetUserDataResponse, error)
+	SetValidationData(ctx context.Context, in *SetValidationDataRequest, opts ...grpc.CallOption) (*SetValidationDataResponse, error)
+	RemoveValidationData(ctx context.Context, in *RemoveValidationDataRequest, opts ...grpc.CallOption) (*RemoveValidationDataResponse, error)
 	GetKycStatus(ctx context.Context, in *GetKycStatusRequest, opts ...grpc.CallOption) (*GetKycStatusResponse, error)
+	CreateKycStatus(ctx context.Context, in *CreateKycStatusRequest, opts ...grpc.CallOption) (*CreateKycStatusResponse, error)
+	UpdateKycStatus(ctx context.Context, in *UpdateKycStatusRequest, opts ...grpc.CallOption) (*UpdateKycStatusResponse, error)
 }
 
 type partnerServiceClient struct {
@@ -61,10 +69,50 @@ func (c *partnerServiceClient) GetUserData(ctx context.Context, in *GetUserDataR
 	return out, nil
 }
 
+func (c *partnerServiceClient) SetValidationData(ctx context.Context, in *SetValidationDataRequest, opts ...grpc.CallOption) (*SetValidationDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetValidationDataResponse)
+	err := c.cc.Invoke(ctx, PartnerService_SetValidationData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partnerServiceClient) RemoveValidationData(ctx context.Context, in *RemoveValidationDataRequest, opts ...grpc.CallOption) (*RemoveValidationDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveValidationDataResponse)
+	err := c.cc.Invoke(ctx, PartnerService_RemoveValidationData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *partnerServiceClient) GetKycStatus(ctx context.Context, in *GetKycStatusRequest, opts ...grpc.CallOption) (*GetKycStatusResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetKycStatusResponse)
 	err := c.cc.Invoke(ctx, PartnerService_GetKycStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partnerServiceClient) CreateKycStatus(ctx context.Context, in *CreateKycStatusRequest, opts ...grpc.CallOption) (*CreateKycStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateKycStatusResponse)
+	err := c.cc.Invoke(ctx, PartnerService_CreateKycStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partnerServiceClient) UpdateKycStatus(ctx context.Context, in *UpdateKycStatusRequest, opts ...grpc.CallOption) (*UpdateKycStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateKycStatusResponse)
+	err := c.cc.Invoke(ctx, PartnerService_UpdateKycStatus_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +125,11 @@ func (c *partnerServiceClient) GetKycStatus(ctx context.Context, in *GetKycStatu
 type PartnerServiceServer interface {
 	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
 	GetUserData(context.Context, *GetUserDataRequest) (*GetUserDataResponse, error)
+	SetValidationData(context.Context, *SetValidationDataRequest) (*SetValidationDataResponse, error)
+	RemoveValidationData(context.Context, *RemoveValidationDataRequest) (*RemoveValidationDataResponse, error)
 	GetKycStatus(context.Context, *GetKycStatusRequest) (*GetKycStatusResponse, error)
+	CreateKycStatus(context.Context, *CreateKycStatusRequest) (*CreateKycStatusResponse, error)
+	UpdateKycStatus(context.Context, *UpdateKycStatusRequest) (*UpdateKycStatusResponse, error)
 	mustEmbedUnimplementedPartnerServiceServer()
 }
 
@@ -91,8 +143,20 @@ func (UnimplementedPartnerServiceServer) GetInfo(context.Context, *GetInfoReques
 func (UnimplementedPartnerServiceServer) GetUserData(context.Context, *GetUserDataRequest) (*GetUserDataResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserData not implemented")
 }
+func (UnimplementedPartnerServiceServer) SetValidationData(context.Context, *SetValidationDataRequest) (*SetValidationDataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetValidationData not implemented")
+}
+func (UnimplementedPartnerServiceServer) RemoveValidationData(context.Context, *RemoveValidationDataRequest) (*RemoveValidationDataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveValidationData not implemented")
+}
 func (UnimplementedPartnerServiceServer) GetKycStatus(context.Context, *GetKycStatusRequest) (*GetKycStatusResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetKycStatus not implemented")
+}
+func (UnimplementedPartnerServiceServer) CreateKycStatus(context.Context, *CreateKycStatusRequest) (*CreateKycStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateKycStatus not implemented")
+}
+func (UnimplementedPartnerServiceServer) UpdateKycStatus(context.Context, *UpdateKycStatusRequest) (*UpdateKycStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateKycStatus not implemented")
 }
 func (UnimplementedPartnerServiceServer) mustEmbedUnimplementedPartnerServiceServer() {}
 
@@ -143,6 +207,42 @@ func _PartnerService_GetUserData_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PartnerService_SetValidationData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetValidationDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartnerServiceServer).SetValidationData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartnerService_SetValidationData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartnerServiceServer).SetValidationData(ctx, req.(*SetValidationDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartnerService_RemoveValidationData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveValidationDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartnerServiceServer).RemoveValidationData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartnerService_RemoveValidationData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartnerServiceServer).RemoveValidationData(ctx, req.(*RemoveValidationDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _PartnerService_GetKycStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetKycStatusRequest)
 	if err := dec(in); err != nil {
@@ -157,6 +257,42 @@ func _PartnerService_GetKycStatus_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PartnerServiceServer).GetKycStatus(ctx, req.(*GetKycStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartnerService_CreateKycStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateKycStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartnerServiceServer).CreateKycStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartnerService_CreateKycStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartnerServiceServer).CreateKycStatus(ctx, req.(*CreateKycStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PartnerService_UpdateKycStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateKycStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartnerServiceServer).UpdateKycStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartnerService_UpdateKycStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartnerServiceServer).UpdateKycStatus(ctx, req.(*UpdateKycStatusRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -177,8 +313,24 @@ var PartnerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _PartnerService_GetUserData_Handler,
 		},
 		{
+			MethodName: "SetValidationData",
+			Handler:    _PartnerService_SetValidationData_Handler,
+		},
+		{
+			MethodName: "RemoveValidationData",
+			Handler:    _PartnerService_RemoveValidationData_Handler,
+		},
+		{
 			MethodName: "GetKycStatus",
 			Handler:    _PartnerService_GetKycStatus_Handler,
+		},
+		{
+			MethodName: "CreateKycStatus",
+			Handler:    _PartnerService_CreateKycStatus_Handler,
+		},
+		{
+			MethodName: "UpdateKycStatus",
+			Handler:    _PartnerService_UpdateKycStatus_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

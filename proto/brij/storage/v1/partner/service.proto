@@ -5,6 +5,7 @@ package brij.storage.v1.partner;
 import "brij/storage/v1/common/kyc_item.proto";
 import "brij/storage/v1/common/user_data_field.proto";
 import "brij/storage/v1/common/validation_data_field.proto";
+import "brij/storage/v1/common/validation_status.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -41,9 +42,37 @@ service PartnerService {
     };
   }
 
+  rpc SetValidationData(SetValidationDataRequest) returns (SetValidationDataResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/setValidationData"
+      body: "*"
+    };
+  }
+
+  rpc RemoveValidationData(RemoveValidationDataRequest) returns (RemoveValidationDataResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/removeValidationData"
+      body: "*"
+    };
+  }
+
   rpc GetKycStatus(GetKycStatusRequest) returns (GetKycStatusResponse) {
     option (google.api.http) = {
       post: "/v1/partner/getKycStatus"
+      body: "*"
+    };
+  }
+
+  rpc CreateKycStatus(CreateKycStatusRequest) returns (CreateKycStatusResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/createKycStatus"
+      body: "*"
+    };
+  }
+
+  rpc UpdateKycStatus(UpdateKycStatusRequest) returns (UpdateKycStatusResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/updateKycStatus"
       body: "*"
     };
   }
@@ -69,6 +98,21 @@ message GetUserDataResponse {
   repeated brij.storage.v1.common.ValidationDataField validation_data = 2;
 }
 
+message SetValidationDataRequest {
+  string data_id = 1;
+  brij.storage.v1.common.ValidationStatus status = 2;
+  string hash = 3;
+  string signature = 4;
+}
+
+message SetValidationDataResponse {}
+
+message RemoveValidationDataRequest {
+  string id = 1;
+}
+
+message RemoveValidationDataResponse {}
+
 message GetKycStatusRequest {
   string country = 1;
   string validator_public_key = 2;
@@ -80,3 +124,20 @@ message GetKycStatusResponse {
   bytes data = 2;
   bytes signature = 3;
 }
+
+message CreateKycStatusRequest {
+  bytes data = 1;
+  bytes signature = 2;
+}
+
+message CreateKycStatusResponse {
+  string kyc_id = 1;
+}
+
+message UpdateKycStatusRequest {
+  string kyc_id = 1;
+  bytes data = 2;
+  bytes signature = 3;
+}
+
+message UpdateKycStatusResponse {}
