@@ -73,6 +73,13 @@ service PartnerService {
       body: "*"
     };
   }
+
+  rpc GenerateTransaction(GenerateTransactionRequest) returns (GenerateTransactionResponse) {
+    option (google.api.http) = {
+      post: "/v1/partner/generateTransaction"
+      body: "*"
+    };
+  }
 }
 
 message GetOrderRequest {
@@ -163,3 +170,13 @@ message ConversionRate {
 }
 
 message UpdateFeesResponse {}
+
+message GenerateTransactionRequest {
+  string order_id = 1;
+  string funding_wallet_address = 2;
+  string external_id = 3;
+}
+
+message GenerateTransactionResponse {
+  string transaction = 1;
+}

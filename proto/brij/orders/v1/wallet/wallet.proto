@@ -59,6 +59,13 @@ service WalletService {
       body: "*"
     };
   }
+
+  rpc GenerateTransaction(GenerateTransactionRequest) returns (GenerateTransactionResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/generateTransaction"
+      body: "*"
+    };
+  }
 }
 
 message CreateOnRampOrderRequest {
@@ -150,4 +157,13 @@ message GetQuoteResponse {
 message RampFee {
   double fixed_fee = 1;
   double percentage_fee = 2;
+}
+
+message GenerateTransactionRequest {
+  string order_id = 1;
+  string external_id = 2;
+}
+
+message GenerateTransactionResponse {
+  string transaction = 1;
 }
