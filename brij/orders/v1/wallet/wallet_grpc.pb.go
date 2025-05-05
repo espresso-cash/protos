@@ -19,11 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion8
 
 const (
-	WalletService_CreateOnRampOrder_FullMethodName  = "/brij.orders.v1.wallet.WalletService/CreateOnRampOrder"
-	WalletService_CreateOffRampOrder_FullMethodName = "/brij.orders.v1.wallet.WalletService/CreateOffRampOrder"
-	WalletService_GetOrder_FullMethodName           = "/brij.orders.v1.wallet.WalletService/GetOrder"
-	WalletService_GetOrders_FullMethodName          = "/brij.orders.v1.wallet.WalletService/GetOrders"
-	WalletService_GetQuote_FullMethodName           = "/brij.orders.v1.wallet.WalletService/GetQuote"
+	WalletService_CreateOnRampOrder_FullMethodName   = "/brij.orders.v1.wallet.WalletService/CreateOnRampOrder"
+	WalletService_CreateOffRampOrder_FullMethodName  = "/brij.orders.v1.wallet.WalletService/CreateOffRampOrder"
+	WalletService_GetOrder_FullMethodName            = "/brij.orders.v1.wallet.WalletService/GetOrder"
+	WalletService_GetOrders_FullMethodName           = "/brij.orders.v1.wallet.WalletService/GetOrders"
+	WalletService_GetQuote_FullMethodName            = "/brij.orders.v1.wallet.WalletService/GetQuote"
+	WalletService_GenerateTransaction_FullMethodName = "/brij.orders.v1.wallet.WalletService/GenerateTransaction"
 )
 
 // WalletServiceClient is the client API for WalletService service.
@@ -35,6 +36,7 @@ type WalletServiceClient interface {
 	GetOrder(ctx context.Context, in *GetOrderRequest, opts ...grpc.CallOption) (*GetOrderResponse, error)
 	GetOrders(ctx context.Context, in *GetOrdersRequest, opts ...grpc.CallOption) (*GetOrdersResponse, error)
 	GetQuote(ctx context.Context, in *GetQuoteRequest, opts ...grpc.CallOption) (*GetQuoteResponse, error)
+	GenerateTransaction(ctx context.Context, in *GenerateTransactionRequest, opts ...grpc.CallOption) (*GenerateTransactionResponse, error)
 }
 
 type walletServiceClient struct {
@@ -95,6 +97,16 @@ func (c *walletServiceClient) GetQuote(ctx context.Context, in *GetQuoteRequest,
 	return out, nil
 }
 
+func (c *walletServiceClient) GenerateTransaction(ctx context.Context, in *GenerateTransactionRequest, opts ...grpc.CallOption) (*GenerateTransactionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GenerateTransactionResponse)
+	err := c.cc.Invoke(ctx, WalletService_GenerateTransaction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // WalletServiceServer is the server API for WalletService service.
 // All implementations must embed UnimplementedWalletServiceServer
 // for forward compatibility
@@ -104,6 +116,7 @@ type WalletServiceServer interface {
 	GetOrder(context.Context, *GetOrderRequest) (*GetOrderResponse, error)
 	GetOrders(context.Context, *GetOrdersRequest) (*GetOrdersResponse, error)
 	GetQuote(context.Context, *GetQuoteRequest) (*GetQuoteResponse, error)
+	GenerateTransaction(context.Context, *GenerateTransactionRequest) (*GenerateTransactionResponse, error)
 	mustEmbedUnimplementedWalletServiceServer()
 }
 
@@ -125,6 +138,9 @@ func (UnimplementedWalletServiceServer) GetOrders(context.Context, *GetOrdersReq
 }
 func (UnimplementedWalletServiceServer) GetQuote(context.Context, *GetQuoteRequest) (*GetQuoteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetQuote not implemented")
+}
+func (UnimplementedWalletServiceServer) GenerateTransaction(context.Context, *GenerateTransactionRequest) (*GenerateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateTransaction not implemented")
 }
 func (UnimplementedWalletServiceServer) mustEmbedUnimplementedWalletServiceServer() {}
 
@@ -229,6 +245,24 @@ func _WalletService_GetQuote_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _WalletService_GenerateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WalletServiceServer).GenerateTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WalletService_GenerateTransaction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WalletServiceServer).GenerateTransaction(ctx, req.(*GenerateTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // WalletService_ServiceDesc is the grpc.ServiceDesc for WalletService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -255,6 +289,10 @@ var WalletService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetQuote",
 			Handler:    _WalletService_GetQuote_Handler,
+		},
+		{
+			MethodName: "GenerateTransaction",
+			Handler:    _WalletService_GenerateTransaction_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

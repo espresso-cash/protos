@@ -19,13 +19,14 @@ import (
 const _ = grpc.SupportPackageIsVersion8
 
 const (
-	PartnerService_GetOrder_FullMethodName      = "/brij.orders.v1.partner.PartnerService/GetOrder"
-	PartnerService_AcceptOrder_FullMethodName   = "/brij.orders.v1.partner.PartnerService/AcceptOrder"
-	PartnerService_RejectOrder_FullMethodName   = "/brij.orders.v1.partner.PartnerService/RejectOrder"
-	PartnerService_CompleteOrder_FullMethodName = "/brij.orders.v1.partner.PartnerService/CompleteOrder"
-	PartnerService_FailOrder_FullMethodName     = "/brij.orders.v1.partner.PartnerService/FailOrder"
-	PartnerService_GetOrders_FullMethodName     = "/brij.orders.v1.partner.PartnerService/GetOrders"
-	PartnerService_UpdateFees_FullMethodName    = "/brij.orders.v1.partner.PartnerService/UpdateFees"
+	PartnerService_GetOrder_FullMethodName            = "/brij.orders.v1.partner.PartnerService/GetOrder"
+	PartnerService_AcceptOrder_FullMethodName         = "/brij.orders.v1.partner.PartnerService/AcceptOrder"
+	PartnerService_RejectOrder_FullMethodName         = "/brij.orders.v1.partner.PartnerService/RejectOrder"
+	PartnerService_CompleteOrder_FullMethodName       = "/brij.orders.v1.partner.PartnerService/CompleteOrder"
+	PartnerService_FailOrder_FullMethodName           = "/brij.orders.v1.partner.PartnerService/FailOrder"
+	PartnerService_GetOrders_FullMethodName           = "/brij.orders.v1.partner.PartnerService/GetOrders"
+	PartnerService_UpdateFees_FullMethodName          = "/brij.orders.v1.partner.PartnerService/UpdateFees"
+	PartnerService_GenerateTransaction_FullMethodName = "/brij.orders.v1.partner.PartnerService/GenerateTransaction"
 )
 
 // PartnerServiceClient is the client API for PartnerService service.
@@ -39,6 +40,7 @@ type PartnerServiceClient interface {
 	FailOrder(ctx context.Context, in *FailOrderRequest, opts ...grpc.CallOption) (*FailOrderResponse, error)
 	GetOrders(ctx context.Context, in *GetOrdersRequest, opts ...grpc.CallOption) (*GetOrdersResponse, error)
 	UpdateFees(ctx context.Context, in *UpdateFeesRequest, opts ...grpc.CallOption) (*UpdateFeesResponse, error)
+	GenerateTransaction(ctx context.Context, in *GenerateTransactionRequest, opts ...grpc.CallOption) (*GenerateTransactionResponse, error)
 }
 
 type partnerServiceClient struct {
@@ -119,6 +121,16 @@ func (c *partnerServiceClient) UpdateFees(ctx context.Context, in *UpdateFeesReq
 	return out, nil
 }
 
+func (c *partnerServiceClient) GenerateTransaction(ctx context.Context, in *GenerateTransactionRequest, opts ...grpc.CallOption) (*GenerateTransactionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GenerateTransactionResponse)
+	err := c.cc.Invoke(ctx, PartnerService_GenerateTransaction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PartnerServiceServer is the server API for PartnerService service.
 // All implementations must embed UnimplementedPartnerServiceServer
 // for forward compatibility
@@ -130,6 +142,7 @@ type PartnerServiceServer interface {
 	FailOrder(context.Context, *FailOrderRequest) (*FailOrderResponse, error)
 	GetOrders(context.Context, *GetOrdersRequest) (*GetOrdersResponse, error)
 	UpdateFees(context.Context, *UpdateFeesRequest) (*UpdateFeesResponse, error)
+	GenerateTransaction(context.Context, *GenerateTransactionRequest) (*GenerateTransactionResponse, error)
 	mustEmbedUnimplementedPartnerServiceServer()
 }
 
@@ -157,6 +170,9 @@ func (UnimplementedPartnerServiceServer) GetOrders(context.Context, *GetOrdersRe
 }
 func (UnimplementedPartnerServiceServer) UpdateFees(context.Context, *UpdateFeesRequest) (*UpdateFeesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateFees not implemented")
+}
+func (UnimplementedPartnerServiceServer) GenerateTransaction(context.Context, *GenerateTransactionRequest) (*GenerateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateTransaction not implemented")
 }
 func (UnimplementedPartnerServiceServer) mustEmbedUnimplementedPartnerServiceServer() {}
 
@@ -297,6 +313,24 @@ func _PartnerService_UpdateFees_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PartnerService_GenerateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartnerServiceServer).GenerateTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PartnerService_GenerateTransaction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartnerServiceServer).GenerateTransaction(ctx, req.(*GenerateTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PartnerService_ServiceDesc is the grpc.ServiceDesc for PartnerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -331,6 +365,10 @@ var PartnerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateFees",
 			Handler:    _PartnerService_UpdateFees_Handler,
+		},
+		{
+			MethodName: "GenerateTransaction",
+			Handler:    _PartnerService_GenerateTransaction_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
