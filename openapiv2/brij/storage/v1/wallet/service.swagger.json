@@ -144,6 +144,38 @@
         ]
       }
     },
+    "/v1/wallet/getSeedMessage": {
+      "post": {
+        "operationId": "WalletService_GetSeedMessage",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/walletGetSeedMessageResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/walletGetSeedMessageRequest"
+            }
+          }
+        ],
+        "tags": [
+          "WalletService"
+        ]
+      }
+    },
     "/v1/wallet/getUserData": {
       "post": {
         "operationId": "WalletService_GetUserData",
@@ -483,16 +515,13 @@
     "walletGetInfoResponse": {
       "type": "object",
       "properties": {
+        "walletAddress": {
+          "type": "string"
+        },
         "encryptedSecretKey": {
           "type": "string"
         },
-        "message": {
-          "type": "string"
-        },
         "publicKey": {
-          "type": "string"
-        },
-        "walletAddress": {
           "type": "string"
         }
       }
@@ -537,6 +566,31 @@
           "type": "string"
         },
         "termsUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "walletGetSeedMessageRequest": {
+      "type": "object",
+      "properties": {
+        "walletAddress": {
+          "type": "string"
+        },
+        "walletProofSignature": {
+          "type": "string"
+        }
+      }
+    },
+    "walletGetSeedMessageResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "encryptedSecretKey": {
+          "type": "string"
+        },
+        "publicKey": {
           "type": "string"
         }
       }

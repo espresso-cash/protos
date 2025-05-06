@@ -22,6 +22,7 @@ const (
 	WalletService_GetPartnerInfo_FullMethodName = "/brij.storage.v1.wallet.WalletService/GetPartnerInfo"
 	WalletService_InitStorage_FullMethodName    = "/brij.storage.v1.wallet.WalletService/InitStorage"
 	WalletService_GetInfo_FullMethodName        = "/brij.storage.v1.wallet.WalletService/GetInfo"
+	WalletService_GetSeedMessage_FullMethodName = "/brij.storage.v1.wallet.WalletService/GetSeedMessage"
 	WalletService_GrantAccess_FullMethodName    = "/brij.storage.v1.wallet.WalletService/GrantAccess"
 	WalletService_SetUserData_FullMethodName    = "/brij.storage.v1.wallet.WalletService/SetUserData"
 	WalletService_RemoveUserData_FullMethodName = "/brij.storage.v1.wallet.WalletService/RemoveUserData"
@@ -38,6 +39,7 @@ type WalletServiceClient interface {
 	GetPartnerInfo(ctx context.Context, in *GetPartnerInfoRequest, opts ...grpc.CallOption) (*GetPartnerInfoResponse, error)
 	InitStorage(ctx context.Context, in *InitStorageRequest, opts ...grpc.CallOption) (*InitStorageResponse, error)
 	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
+	GetSeedMessage(ctx context.Context, in *GetSeedMessageRequest, opts ...grpc.CallOption) (*GetSeedMessageResponse, error)
 	GrantAccess(ctx context.Context, in *GrantAccessRequest, opts ...grpc.CallOption) (*GrantAccessResponse, error)
 	SetUserData(ctx context.Context, in *SetUserDataRequest, opts ...grpc.CallOption) (*SetUserDataResponse, error)
 	RemoveUserData(ctx context.Context, in *RemoveUserDataRequest, opts ...grpc.CallOption) (*RemoveUserDataResponse, error)
@@ -79,6 +81,16 @@ func (c *walletServiceClient) GetInfo(ctx context.Context, in *GetInfoRequest, o
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetInfoResponse)
 	err := c.cc.Invoke(ctx, WalletService_GetInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *walletServiceClient) GetSeedMessage(ctx context.Context, in *GetSeedMessageRequest, opts ...grpc.CallOption) (*GetSeedMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSeedMessageResponse)
+	err := c.cc.Invoke(ctx, WalletService_GetSeedMessage_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -162,6 +174,7 @@ type WalletServiceServer interface {
 	GetPartnerInfo(context.Context, *GetPartnerInfoRequest) (*GetPartnerInfoResponse, error)
 	InitStorage(context.Context, *InitStorageRequest) (*InitStorageResponse, error)
 	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
+	GetSeedMessage(context.Context, *GetSeedMessageRequest) (*GetSeedMessageResponse, error)
 	GrantAccess(context.Context, *GrantAccessRequest) (*GrantAccessResponse, error)
 	SetUserData(context.Context, *SetUserDataRequest) (*SetUserDataResponse, error)
 	RemoveUserData(context.Context, *RemoveUserDataRequest) (*RemoveUserDataResponse, error)
@@ -184,6 +197,9 @@ func (UnimplementedWalletServiceServer) InitStorage(context.Context, *InitStorag
 }
 func (UnimplementedWalletServiceServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetInfo not implemented")
+}
+func (UnimplementedWalletServiceServer) GetSeedMessage(context.Context, *GetSeedMessageRequest) (*GetSeedMessageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetSeedMessage not implemented")
 }
 func (UnimplementedWalletServiceServer) GrantAccess(context.Context, *GrantAccessRequest) (*GrantAccessResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GrantAccess not implemented")
@@ -269,6 +285,24 @@ func _WalletService_GetInfo_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WalletServiceServer).GetInfo(ctx, req.(*GetInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WalletService_GetSeedMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSeedMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WalletServiceServer).GetSeedMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WalletService_GetSeedMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WalletServiceServer).GetSeedMessage(ctx, req.(*GetSeedMessageRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -417,6 +451,10 @@ var WalletService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetInfo",
 			Handler:    _WalletService_GetInfo_Handler,
+		},
+		{
+			MethodName: "GetSeedMessage",
+			Handler:    _WalletService_GetSeedMessage_Handler,
 		},
 		{
 			MethodName: "GrantAccess",
