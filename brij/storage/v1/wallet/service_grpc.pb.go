@@ -19,16 +19,19 @@ import (
 const _ = grpc.SupportPackageIsVersion8
 
 const (
-	WalletService_GetPartnerInfo_FullMethodName = "/brij.storage.v1.wallet.WalletService/GetPartnerInfo"
-	WalletService_InitStorage_FullMethodName    = "/brij.storage.v1.wallet.WalletService/InitStorage"
-	WalletService_GetInfo_FullMethodName        = "/brij.storage.v1.wallet.WalletService/GetInfo"
-	WalletService_GrantAccess_FullMethodName    = "/brij.storage.v1.wallet.WalletService/GrantAccess"
-	WalletService_SetUserData_FullMethodName    = "/brij.storage.v1.wallet.WalletService/SetUserData"
-	WalletService_RemoveUserData_FullMethodName = "/brij.storage.v1.wallet.WalletService/RemoveUserData"
-	WalletService_GetUserData_FullMethodName    = "/brij.storage.v1.wallet.WalletService/GetUserData"
-	WalletService_CheckAccess_FullMethodName    = "/brij.storage.v1.wallet.WalletService/CheckAccess"
-	WalletService_GetKycStatus_FullMethodName   = "/brij.storage.v1.wallet.WalletService/GetKycStatus"
-	WalletService_GetWalletProof_FullMethodName = "/brij.storage.v1.wallet.WalletService/GetWalletProof"
+	WalletService_GetPartnerInfo_FullMethodName           = "/brij.storage.v1.wallet.WalletService/GetPartnerInfo"
+	WalletService_InitStorage_FullMethodName              = "/brij.storage.v1.wallet.WalletService/InitStorage"
+	WalletService_GetInfo_FullMethodName                  = "/brij.storage.v1.wallet.WalletService/GetInfo"
+	WalletService_GetGrantedAccessPartners_FullMethodName = "/brij.storage.v1.wallet.WalletService/GetGrantedAccessPartners"
+	WalletService_GrantAccess_FullMethodName              = "/brij.storage.v1.wallet.WalletService/GrantAccess"
+	WalletService_SetUserData_FullMethodName              = "/brij.storage.v1.wallet.WalletService/SetUserData"
+	WalletService_RemoveUserData_FullMethodName           = "/brij.storage.v1.wallet.WalletService/RemoveUserData"
+	WalletService_RevokeAccess_FullMethodName             = "/brij.storage.v1.wallet.WalletService/RevokeAccess"
+	WalletService_RemoveAllUserData_FullMethodName        = "/brij.storage.v1.wallet.WalletService/RemoveAllUserData"
+	WalletService_GetUserData_FullMethodName              = "/brij.storage.v1.wallet.WalletService/GetUserData"
+	WalletService_CheckAccess_FullMethodName              = "/brij.storage.v1.wallet.WalletService/CheckAccess"
+	WalletService_GetKycStatus_FullMethodName             = "/brij.storage.v1.wallet.WalletService/GetKycStatus"
+	WalletService_GetWalletProof_FullMethodName           = "/brij.storage.v1.wallet.WalletService/GetWalletProof"
 )
 
 // WalletServiceClient is the client API for WalletService service.
@@ -38,9 +41,12 @@ type WalletServiceClient interface {
 	GetPartnerInfo(ctx context.Context, in *GetPartnerInfoRequest, opts ...grpc.CallOption) (*GetPartnerInfoResponse, error)
 	InitStorage(ctx context.Context, in *InitStorageRequest, opts ...grpc.CallOption) (*InitStorageResponse, error)
 	GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error)
+	GetGrantedAccessPartners(ctx context.Context, in *GetGrantedAccessPartnersRequest, opts ...grpc.CallOption) (*GetGrantedAccessPartnersResponse, error)
 	GrantAccess(ctx context.Context, in *GrantAccessRequest, opts ...grpc.CallOption) (*GrantAccessResponse, error)
 	SetUserData(ctx context.Context, in *SetUserDataRequest, opts ...grpc.CallOption) (*SetUserDataResponse, error)
 	RemoveUserData(ctx context.Context, in *RemoveUserDataRequest, opts ...grpc.CallOption) (*RemoveUserDataResponse, error)
+	RevokeAccess(ctx context.Context, in *RevokeAccessRequest, opts ...grpc.CallOption) (*RevokeAccessResponse, error)
+	RemoveAllUserData(ctx context.Context, in *RemoveAllUserDataRequest, opts ...grpc.CallOption) (*RemoveAllUserDataResponse, error)
 	GetUserData(ctx context.Context, in *GetUserDataRequest, opts ...grpc.CallOption) (*GetUserDataResponse, error)
 	CheckAccess(ctx context.Context, in *CheckAccessRequest, opts ...grpc.CallOption) (*CheckAccessResponse, error)
 	GetKycStatus(ctx context.Context, in *GetKycStatusRequest, opts ...grpc.CallOption) (*GetKycStatusResponse, error)
@@ -85,6 +91,16 @@ func (c *walletServiceClient) GetInfo(ctx context.Context, in *GetInfoRequest, o
 	return out, nil
 }
 
+func (c *walletServiceClient) GetGrantedAccessPartners(ctx context.Context, in *GetGrantedAccessPartnersRequest, opts ...grpc.CallOption) (*GetGrantedAccessPartnersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGrantedAccessPartnersResponse)
+	err := c.cc.Invoke(ctx, WalletService_GetGrantedAccessPartners_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *walletServiceClient) GrantAccess(ctx context.Context, in *GrantAccessRequest, opts ...grpc.CallOption) (*GrantAccessResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GrantAccessResponse)
@@ -109,6 +125,26 @@ func (c *walletServiceClient) RemoveUserData(ctx context.Context, in *RemoveUser
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveUserDataResponse)
 	err := c.cc.Invoke(ctx, WalletService_RemoveUserData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *walletServiceClient) RevokeAccess(ctx context.Context, in *RevokeAccessRequest, opts ...grpc.CallOption) (*RevokeAccessResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RevokeAccessResponse)
+	err := c.cc.Invoke(ctx, WalletService_RevokeAccess_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *walletServiceClient) RemoveAllUserData(ctx context.Context, in *RemoveAllUserDataRequest, opts ...grpc.CallOption) (*RemoveAllUserDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveAllUserDataResponse)
+	err := c.cc.Invoke(ctx, WalletService_RemoveAllUserData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -162,9 +198,12 @@ type WalletServiceServer interface {
 	GetPartnerInfo(context.Context, *GetPartnerInfoRequest) (*GetPartnerInfoResponse, error)
 	InitStorage(context.Context, *InitStorageRequest) (*InitStorageResponse, error)
 	GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error)
+	GetGrantedAccessPartners(context.Context, *GetGrantedAccessPartnersRequest) (*GetGrantedAccessPartnersResponse, error)
 	GrantAccess(context.Context, *GrantAccessRequest) (*GrantAccessResponse, error)
 	SetUserData(context.Context, *SetUserDataRequest) (*SetUserDataResponse, error)
 	RemoveUserData(context.Context, *RemoveUserDataRequest) (*RemoveUserDataResponse, error)
+	RevokeAccess(context.Context, *RevokeAccessRequest) (*RevokeAccessResponse, error)
+	RemoveAllUserData(context.Context, *RemoveAllUserDataRequest) (*RemoveAllUserDataResponse, error)
 	GetUserData(context.Context, *GetUserDataRequest) (*GetUserDataResponse, error)
 	CheckAccess(context.Context, *CheckAccessRequest) (*CheckAccessResponse, error)
 	GetKycStatus(context.Context, *GetKycStatusRequest) (*GetKycStatusResponse, error)
@@ -185,6 +224,9 @@ func (UnimplementedWalletServiceServer) InitStorage(context.Context, *InitStorag
 func (UnimplementedWalletServiceServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetInfo not implemented")
 }
+func (UnimplementedWalletServiceServer) GetGrantedAccessPartners(context.Context, *GetGrantedAccessPartnersRequest) (*GetGrantedAccessPartnersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetGrantedAccessPartners not implemented")
+}
 func (UnimplementedWalletServiceServer) GrantAccess(context.Context, *GrantAccessRequest) (*GrantAccessResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GrantAccess not implemented")
 }
@@ -193,6 +235,12 @@ func (UnimplementedWalletServiceServer) SetUserData(context.Context, *SetUserDat
 }
 func (UnimplementedWalletServiceServer) RemoveUserData(context.Context, *RemoveUserDataRequest) (*RemoveUserDataResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveUserData not implemented")
+}
+func (UnimplementedWalletServiceServer) RevokeAccess(context.Context, *RevokeAccessRequest) (*RevokeAccessResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RevokeAccess not implemented")
+}
+func (UnimplementedWalletServiceServer) RemoveAllUserData(context.Context, *RemoveAllUserDataRequest) (*RemoveAllUserDataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveAllUserData not implemented")
 }
 func (UnimplementedWalletServiceServer) GetUserData(context.Context, *GetUserDataRequest) (*GetUserDataResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserData not implemented")
@@ -273,6 +321,24 @@ func _WalletService_GetInfo_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _WalletService_GetGrantedAccessPartners_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGrantedAccessPartnersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WalletServiceServer).GetGrantedAccessPartners(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WalletService_GetGrantedAccessPartners_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WalletServiceServer).GetGrantedAccessPartners(ctx, req.(*GetGrantedAccessPartnersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _WalletService_GrantAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GrantAccessRequest)
 	if err := dec(in); err != nil {
@@ -323,6 +389,42 @@ func _WalletService_RemoveUserData_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WalletServiceServer).RemoveUserData(ctx, req.(*RemoveUserDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WalletService_RevokeAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RevokeAccessRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WalletServiceServer).RevokeAccess(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WalletService_RevokeAccess_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WalletServiceServer).RevokeAccess(ctx, req.(*RevokeAccessRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WalletService_RemoveAllUserData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveAllUserDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WalletServiceServer).RemoveAllUserData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WalletService_RemoveAllUserData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WalletServiceServer).RemoveAllUserData(ctx, req.(*RemoveAllUserDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -419,6 +521,10 @@ var WalletService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _WalletService_GetInfo_Handler,
 		},
 		{
+			MethodName: "GetGrantedAccessPartners",
+			Handler:    _WalletService_GetGrantedAccessPartners_Handler,
+		},
+		{
 			MethodName: "GrantAccess",
 			Handler:    _WalletService_GrantAccess_Handler,
 		},
@@ -429,6 +535,14 @@ var WalletService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RemoveUserData",
 			Handler:    _WalletService_RemoveUserData_Handler,
+		},
+		{
+			MethodName: "RevokeAccess",
+			Handler:    _WalletService_RevokeAccess_Handler,
+		},
+		{
+			MethodName: "RemoveAllUserData",
+			Handler:    _WalletService_RemoveAllUserData_Handler,
 		},
 		{
 			MethodName: "GetUserData",
