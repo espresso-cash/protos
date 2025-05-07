@@ -118,6 +118,13 @@ service WalletService {
       body: "*"
     };
   }
+
+  rpc GetSeedMessage(GetSeedMessageRequest) returns (GetSeedMessageResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/getSeedMessage"
+      body: "*"
+    };
+  }
 }
 
 message GetPartnerInfoRequest {
