@@ -32,6 +32,7 @@ const (
 	WalletService_CheckAccess_FullMethodName              = "/brij.storage.v1.wallet.WalletService/CheckAccess"
 	WalletService_GetKycStatus_FullMethodName             = "/brij.storage.v1.wallet.WalletService/GetKycStatus"
 	WalletService_GetWalletProof_FullMethodName           = "/brij.storage.v1.wallet.WalletService/GetWalletProof"
+	WalletService_GetSeedMessage_FullMethodName           = "/brij.storage.v1.wallet.WalletService/GetSeedMessage"
 )
 
 // WalletServiceClient is the client API for WalletService service.
@@ -51,6 +52,7 @@ type WalletServiceClient interface {
 	CheckAccess(ctx context.Context, in *CheckAccessRequest, opts ...grpc.CallOption) (*CheckAccessResponse, error)
 	GetKycStatus(ctx context.Context, in *GetKycStatusRequest, opts ...grpc.CallOption) (*GetKycStatusResponse, error)
 	GetWalletProof(ctx context.Context, in *GetWalletProofRequest, opts ...grpc.CallOption) (*GetWalletProofResponse, error)
+	GetSeedMessage(ctx context.Context, in *GetSeedMessageRequest, opts ...grpc.CallOption) (*GetSeedMessageResponse, error)
 }
 
 type walletServiceClient struct {
@@ -191,6 +193,16 @@ func (c *walletServiceClient) GetWalletProof(ctx context.Context, in *GetWalletP
 	return out, nil
 }
 
+func (c *walletServiceClient) GetSeedMessage(ctx context.Context, in *GetSeedMessageRequest, opts ...grpc.CallOption) (*GetSeedMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSeedMessageResponse)
+	err := c.cc.Invoke(ctx, WalletService_GetSeedMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // WalletServiceServer is the server API for WalletService service.
 // All implementations must embed UnimplementedWalletServiceServer
 // for forward compatibility
@@ -208,6 +220,7 @@ type WalletServiceServer interface {
 	CheckAccess(context.Context, *CheckAccessRequest) (*CheckAccessResponse, error)
 	GetKycStatus(context.Context, *GetKycStatusRequest) (*GetKycStatusResponse, error)
 	GetWalletProof(context.Context, *GetWalletProofRequest) (*GetWalletProofResponse, error)
+	GetSeedMessage(context.Context, *GetSeedMessageRequest) (*GetSeedMessageResponse, error)
 	mustEmbedUnimplementedWalletServiceServer()
 }
 
@@ -253,6 +266,9 @@ func (UnimplementedWalletServiceServer) GetKycStatus(context.Context, *GetKycSta
 }
 func (UnimplementedWalletServiceServer) GetWalletProof(context.Context, *GetWalletProofRequest) (*GetWalletProofResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetWalletProof not implemented")
+}
+func (UnimplementedWalletServiceServer) GetSeedMessage(context.Context, *GetSeedMessageRequest) (*GetSeedMessageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetSeedMessage not implemented")
 }
 func (UnimplementedWalletServiceServer) mustEmbedUnimplementedWalletServiceServer() {}
 
@@ -501,6 +517,24 @@ func _WalletService_GetWalletProof_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _WalletService_GetSeedMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSeedMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WalletServiceServer).GetSeedMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WalletService_GetSeedMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WalletServiceServer).GetSeedMessage(ctx, req.(*GetSeedMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // WalletService_ServiceDesc is the grpc.ServiceDesc for WalletService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -559,6 +593,10 @@ var WalletService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetWalletProof",
 			Handler:    _WalletService_GetWalletProof_Handler,
+		},
+		{
+			MethodName: "GetSeedMessage",
+			Handler:    _WalletService_GetSeedMessage_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

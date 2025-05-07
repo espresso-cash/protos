@@ -118,6 +118,13 @@ service WalletService {
       body: "*"
     };
   }
+
+  rpc GetSeedMessage(GetSeedMessageRequest) returns (GetSeedMessageResponse) {
+    option (google.api.http) = {
+      post: "/v1/wallet/getSeedMessage"
+      body: "*"
+    };
+  }
 }
 
 message GetPartnerInfoRequest {
@@ -150,6 +157,17 @@ message GetInfoResponse {
   string message = 2;
   string public_key = 3;
   string wallet_address = 4;
+}
+
+message GetSeedMessageRequest {
+  string wallet_address = 1;
+  string wallet_proof_signature = 2;
+}
+
+message GetSeedMessageResponse {
+  string message = 1;
+  string encrypted_secret_key = 2;
+  string public_key = 3;
 }
 
 message GrantAccessRequest {
