@@ -69,14 +69,15 @@ service WalletService {
 }
 
 message CreateOnRampOrderRequest {
-  string partner_public_key = 1;
-  double crypto_amount = 2;
-  string crypto_currency = 3;
-  double fiat_amount = 4;
-  string fiat_currency = 5;
-  string user_signature = 6;
-  string user_wallet_address = 7;
-  string wallet_public_key = 8;
+  string order_id = 1;
+  string partner_public_key = 2;
+  double crypto_amount = 3;
+  string crypto_currency = 4;
+  double fiat_amount = 5;
+  string fiat_currency = 6;
+  string user_signature = 7;
+  string user_wallet_address = 8;
+  string wallet_public_key = 9;
 }
 
 message CreateOnRampOrderResponse {
@@ -84,16 +85,17 @@ message CreateOnRampOrderResponse {
 }
 
 message CreateOffRampOrderRequest {
-  string partner_public_key = 1;
-  double crypto_amount = 2;
-  string crypto_currency = 3;
-  double fiat_amount = 4;
-  string fiat_currency = 5;
-  string bank_name = 6;
-  string bank_account = 7;
-  string user_signature = 8;
-  string user_wallet_address = 9;
-  string wallet_public_key = 10;
+  string order_id = 1;
+  string partner_public_key = 2;
+  double crypto_amount = 3;
+  string crypto_currency = 4;
+  double fiat_amount = 5;
+  string fiat_currency = 6;
+  string bank_name = 7;
+  string bank_account = 8;
+  string user_signature = 9;
+  string user_wallet_address = 10;
+  string wallet_public_key = 11;
 }
 
 message CreateOffRampOrderResponse {
