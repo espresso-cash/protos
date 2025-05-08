@@ -250,9 +250,6 @@
     "walletCreateOffRampOrderRequest": {
       "type": "object",
       "properties": {
-        "orderId": {
-          "type": "string"
-        },
         "partnerPublicKey": {
           "type": "string"
         },
@@ -298,9 +295,6 @@
     "walletCreateOnRampOrderRequest": {
       "type": "object",
       "properties": {
-        "orderId": {
-          "type": "string"
-        },
         "partnerPublicKey": {
           "type": "string"
         },
