@@ -77,6 +77,7 @@ message CreateOnRampOrderRequest {
   string user_signature = 6;
   string user_wallet_address = 7;
   string wallet_public_key = 8;
+  string order_id = 9;
 }
 
 message CreateOnRampOrderResponse {
@@ -94,6 +95,7 @@ message CreateOffRampOrderRequest {
   string user_signature = 8;
   string user_wallet_address = 9;
   string wallet_public_key = 10;
+  string order_id = 11;
 }
 
 message CreateOffRampOrderResponse {
