@@ -34,3 +34,5 @@ api.http
 
 .idea/
 *.iml
+
+build/proto/
