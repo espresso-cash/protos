@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "brij/storage/manage/v1/service.proto",
+    "title": "brij/verifier/hooks/v1/service.proto",
     "version": "version not set"
   },
   "tags": [
     {
-      "name": "ManageService"
+      "name": "HooksService"
     }
   ],
   "consumes": [
@@ -16,14 +16,14 @@
     "application/json"
   ],
   "paths": {
-    "/jobs/check-stale-orders": {
+    "/smileid/result": {
       "post": {
-        "operationId": "ManageService_CheckStaleOrders",
+        "operationId": "HooksService_SmileIdResult",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1CheckStaleOrdersResponse"
+              "$ref": "#/definitions/v1SmileIdResultResponse"
             }
           },
           "default": {
@@ -39,23 +39,23 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1CheckStaleOrdersRequest"
+              "$ref": "#/definitions/v1SmileIdResultRequest"
             }
           }
         ],
         "tags": [
-          "ManageService"
+          "HooksService"
         ]
       }
     },
-    "/webhooks/notify-partner": {
+    "/sumsub/result": {
       "post": {
-        "operationId": "ManageService_NotifyPartner",
+        "operationId": "HooksService_SumsubResult",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1NotifyPartnerResponse"
+              "$ref": "#/definitions/v1SumsubResultResponse"
             }
           },
           "default": {
@@ -71,17 +71,25 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1NotifyPartnerRequest"
+              "$ref": "#/definitions/v1SumsubResultRequest"
             }
           }
         ],
         "tags": [
-          "ManageService"
+          "HooksService"
         ]
       }
     }
   },
   "definitions": {
+    "SumsubResultRequestReviewResult": {
+      "type": "object",
+      "properties": {
+        "reviewAnswer": {
+          "type": "string"
+        }
+      }
+    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -110,24 +118,45 @@
         }
       }
     },
-    "v1CheckStaleOrdersRequest": {
+    "v1SmileIdResultRequest": {
       "type": "object"
     },
-    "v1CheckStaleOrdersResponse": {
+    "v1SmileIdResultResponse": {
       "type": "object"
     },
-    "v1NotifyPartnerRequest": {
+    "v1SumsubResultRequest": {
       "type": "object",
       "properties": {
-        "orderId": {
+        "applicantId": {
           "type": "string"
         },
-        "webhookUrl": {
+        "inspectionId": {
+          "type": "string"
+        },
+        "correlationId": {
+          "type": "string"
+        },
+        "externalUserId": {
+          "type": "string"
+        },
+        "levelName": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "reviewResult": {
+          "$ref": "#/definitions/SumsubResultRequestReviewResult"
+        },
+        "reviewStatus": {
+          "type": "string"
+        },
+        "createdAtMs": {
           "type": "string"
         }
       }
     },
-    "v1NotifyPartnerResponse": {
+    "v1SumsubResultResponse": {
       "type": "object"
     }
   },
