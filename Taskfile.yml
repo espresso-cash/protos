@@ -4,8 +4,9 @@ tasks:
   gen:proto:
     cmds:
       - rm -rf brij
-      - rm -rf openapiv2
       - rm -rf build
+      - rm -rf brij_protos_dart/lib/gen && mkdir -p brij_protos_dart/lib/gen
+      - rm -rf brij_protos_js/gen && mkdir -p brij_protos_js/gen
       - buf generate
       - buf export . --output build/proto
       - protoc --proto_path=build/proto --include_imports --include_source_info --descriptor_set_out=build/descriptors.pb $(find build/proto -name "*.proto")

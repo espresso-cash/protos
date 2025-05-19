@@ -7,123 +7,64 @@ import "brij/storage/v1/common/kyc_item.proto";
 import "brij/storage/v1/common/user_data_field.proto";
 import "brij/storage/v1/common/validation_data_field.proto";
 import "google/api/annotations.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = 'go.brij.fi/protos/brij/storage/v1/wallet';
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
-  security_definitions: {
-    security: {
-      key: "bearer"
-      value: {
-        type: TYPE_API_KEY
-        in: IN_HEADER
-        name: "Authorization"
-        description: "Authentication token, prefixed by Bearer: Bearer <token>"
-      }
-    }
-  }
-  security: {
-    security_requirement: {key: "bearer"}
-  }
-};
 
 service WalletService {
   rpc GetPartnerInfo(GetPartnerInfoRequest) returns (GetPartnerInfoResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/getPartnerInfo"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/getPartnerInfo"};
   }
 
   rpc InitStorage(InitStorageRequest) returns (InitStorageResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/initStorage"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/initStorage"};
   }
 
   rpc GetInfo(GetInfoRequest) returns (GetInfoResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/getInfo"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/getInfo"};
   }
 
   rpc GetGrantedAccessPartners(GetGrantedAccessPartnersRequest) returns (GetGrantedAccessPartnersResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/getGrantedAccessPartners"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/getGrantedAccessPartners"};
   }
 
   rpc GrantAccess(GrantAccessRequest) returns (GrantAccessResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/grantAccess"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/grantAccess"};
   }
 
   rpc SetUserData(SetUserDataRequest) returns (SetUserDataResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/setUserData"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/setUserData"};
   }
 
   rpc RemoveUserData(RemoveUserDataRequest) returns (RemoveUserDataResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/removeUserData"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/removeUserData"};
   }
 
   rpc RevokeAccess(RevokeAccessRequest) returns (RevokeAccessResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/revokeAccess"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/revokeAccess"};
   }
 
   rpc RemoveAllUserData(RemoveAllUserDataRequest) returns (RemoveAllUserDataResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/removeAllUserData"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/removeAllUserData"};
   }
 
   rpc GetUserData(GetUserDataRequest) returns (GetUserDataResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/getUserData"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/getUserData"};
   }
 
   rpc CheckAccess(CheckAccessRequest) returns (CheckAccessResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/checkAccess"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/checkAccess"};
   }
 
   rpc GetKycStatus(GetKycStatusRequest) returns (GetKycStatusResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/getKycStatus"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/getKycStatus"};
   }
 
   rpc GetWalletProof(GetWalletProofRequest) returns (GetWalletProofResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/getWalletProof"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/getWalletProof"};
   }
 
   rpc GetSeedMessage(GetSeedMessageRequest) returns (GetSeedMessageResponse) {
-    option (google.api.http) = {
-      post: "/v1/wallet/getSeedMessage"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/wallet/getSeedMessage"};
   }
 }
 

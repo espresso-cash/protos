@@ -2,83 +2,42 @@ syntax = "proto3";
 
 package brij.orders.v1.partner;
 
-import "google/api/annotations.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
 import "brij/orders/v1/common/ramp_type.proto";
+import "google/api/annotations.proto";
 
 option go_package = "go.brij.fi/protos/brij/orders/v1/partner";
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
-  security_definitions: {
-    security: {
-      key: "bearer"
-      value: {
-        type: TYPE_API_KEY
-        in: IN_HEADER
-        name: "Authorization"
-        description: "Authentication token, prefixed by Bearer: Bearer <token>"
-      }
-    }
-  }
-  security: {
-    security_requirement: {key: "bearer"}
-  }
-};
 
 service PartnerService {
   rpc GetOrder(GetOrderRequest) returns (GetOrderResponse) {
-    option (google.api.http) = {
-      post: "/v1/partner/getOrder"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/partner/getOrder"};
   }
 
   rpc AcceptOrder(AcceptOrderRequest) returns (AcceptOrderResponse) {
-    option (google.api.http) = {
-      post: "/v1/partner/acceptOrder"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/partner/acceptOrder"};
   }
 
   rpc RejectOrder(RejectOrderRequest) returns (RejectOrderResponse) {
-    option (google.api.http) = {
-      post: "/v1/partner/rejectOrder"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/partner/rejectOrder"};
   }
 
   rpc CompleteOrder(CompleteOrderRequest) returns (CompleteOrderResponse) {
-    option (google.api.http) = {
-      post: "/v1/partner/completeOrder"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/partner/completeOrder"};
   }
 
   rpc FailOrder(FailOrderRequest) returns (FailOrderResponse) {
-    option (google.api.http) = {
-      post: "/v1/partner/failOrder"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/partner/failOrder"};
   }
 
   rpc GetOrders(GetOrdersRequest) returns (GetOrdersResponse) {
-    option (google.api.http) = {
-      post: "/v1/partner/getOrders"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/partner/getOrders"};
   }
 
   rpc UpdateFees(UpdateFeesRequest) returns (UpdateFeesResponse) {
-    option (google.api.http) = {
-      post: "/v1/partner/updateFees"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/partner/updateFees"};
   }
 
   rpc GenerateTransaction(GenerateTransactionRequest) returns (GenerateTransactionResponse) {
-    option (google.api.http) = {
-      post: "/v1/partner/generateTransaction"
-      body: "*"
-    };
+    option (google.api.http) = {post: "/v1/partner/generateTransaction"};
   }
 }
 

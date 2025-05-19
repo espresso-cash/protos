@@ -1,16 +1,29 @@
-version: v1
+version: v2
 plugins:
-  - plugin: go
+  - remote: buf.build/protocolbuffers/go:v1.36.6
     out: .
     opt:
       - paths=source_relative
-  - plugin: go-grpc
+  - remote: buf.build/grpc/go:v1.5.1
     out: .
     opt:
       - paths=source_relative
-  - plugin: grpc-gateway
-    out: .
+  - remote: buf.build/grpc/web:v1.5.0
+    out: brij_protos_js/gen
     opt:
-      - paths=source_relative
-  - plugin: openapiv2
-    out: openapiv2
+      - mode=grpcweb
+      - import_style=commonjs
+  - remote: buf.build/protocolbuffers/js:v3.21.4
+    out: brij_protos_js/gen
+    opt:
+      - import_style=commonjs
+    include_wkt: true
+    include_imports: true
+  - remote: buf.build/protocolbuffers/dart:v22.1.0
+    out: brij_protos_dart/lib/gen
+    opt:
+      - grpc
+    include_wkt: true
+    include_imports: true
+inputs:
+  - directory: proto

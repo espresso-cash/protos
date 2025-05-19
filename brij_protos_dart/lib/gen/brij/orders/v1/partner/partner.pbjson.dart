@@ -1,0 +1,287 @@
+//
+//  Generated code. Do not modify.
+//  source: brij/orders/v1/partner/partner.proto
+//
+// @dart = 3.3
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
+import 'dart:convert' as $convert;
+import 'dart:core' as $core;
+import 'dart:typed_data' as $typed_data;
+
+@$core.Deprecated('Use getOrderRequestDescriptor instead')
+const GetOrderRequest$json = {
+  '1': 'GetOrderRequest',
+  '2': [
+    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
+    {'1': 'external_id', '3': 2, '4': 1, '5': 9, '10': 'externalId'},
+  ],
+};
+
+/// Descriptor for `GetOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getOrderRequestDescriptor = $convert.base64Decode(
+    'Cg9HZXRPcmRlclJlcXVlc3QSGQoIb3JkZXJfaWQYASABKAlSB29yZGVySWQSHwoLZXh0ZXJuYW'
+    'xfaWQYAiABKAlSCmV4dGVybmFsSWQ=');
+
+@$core.Deprecated('Use getOrderResponseDescriptor instead')
+const GetOrderResponse$json = {
+  '1': 'GetOrderResponse',
+  '2': [
+    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
+    {'1': 'created', '3': 2, '4': 1, '5': 9, '10': 'created'},
+    {'1': 'status', '3': 3, '4': 1, '5': 9, '10': 'status'},
+    {'1': 'partner_public_key', '3': 4, '4': 1, '5': 9, '10': 'partnerPublicKey'},
+    {'1': 'user_public_key', '3': 5, '4': 1, '5': 9, '10': 'userPublicKey'},
+    {'1': 'comment', '3': 7, '4': 1, '5': 9, '10': 'comment'},
+    {'1': 'type', '3': 8, '4': 1, '5': 14, '6': '.brij.orders.v1.common.RampType', '10': 'type'},
+    {'1': 'crypto_amount', '3': 9, '4': 1, '5': 1, '10': 'cryptoAmount'},
+    {'1': 'crypto_currency', '3': 10, '4': 1, '5': 9, '10': 'cryptoCurrency'},
+    {'1': 'fiat_amount', '3': 11, '4': 1, '5': 1, '10': 'fiatAmount'},
+    {'1': 'fiat_currency', '3': 12, '4': 1, '5': 9, '10': 'fiatCurrency'},
+    {'1': 'bank_name', '3': 13, '4': 1, '5': 9, '10': 'bankName'},
+    {'1': 'bank_account', '3': 14, '4': 1, '5': 9, '10': 'bankAccount'},
+    {'1': 'crypto_wallet_address', '3': 15, '4': 1, '5': 9, '10': 'cryptoWalletAddress'},
+    {'1': 'transaction', '3': 16, '4': 1, '5': 9, '10': 'transaction'},
+    {'1': 'transaction_id', '3': 17, '4': 1, '5': 9, '10': 'transactionId'},
+    {'1': 'external_id', '3': 18, '4': 1, '5': 9, '10': 'externalId'},
+    {'1': 'user_signature', '3': 19, '4': 1, '5': 9, '10': 'userSignature'},
+    {'1': 'partner_signature', '3': 20, '4': 1, '5': 9, '10': 'partnerSignature'},
+    {'1': 'user_wallet_address', '3': 21, '4': 1, '5': 9, '10': 'userWalletAddress'},
+    {'1': 'wallet_public_key', '3': 22, '4': 1, '5': 9, '10': 'walletPublicKey'},
+  ],
+};
+
+/// Descriptor for `GetOrderResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getOrderResponseDescriptor = $convert.base64Decode(
+    'ChBHZXRPcmRlclJlc3BvbnNlEhkKCG9yZGVyX2lkGAEgASgJUgdvcmRlcklkEhgKB2NyZWF0ZW'
+    'QYAiABKAlSB2NyZWF0ZWQSFgoGc3RhdHVzGAMgASgJUgZzdGF0dXMSLAoScGFydG5lcl9wdWJs'
+    'aWNfa2V5GAQgASgJUhBwYXJ0bmVyUHVibGljS2V5EiYKD3VzZXJfcHVibGljX2tleRgFIAEoCV'
+    'INdXNlclB1YmxpY0tleRIYCgdjb21tZW50GAcgASgJUgdjb21tZW50EjMKBHR5cGUYCCABKA4y'
+    'Hy5icmlqLm9yZGVycy52MS5jb21tb24uUmFtcFR5cGVSBHR5cGUSIwoNY3J5cHRvX2Ftb3VudB'
+    'gJIAEoAVIMY3J5cHRvQW1vdW50EicKD2NyeXB0b19jdXJyZW5jeRgKIAEoCVIOY3J5cHRvQ3Vy'
+    'cmVuY3kSHwoLZmlhdF9hbW91bnQYCyABKAFSCmZpYXRBbW91bnQSIwoNZmlhdF9jdXJyZW5jeR'
+    'gMIAEoCVIMZmlhdEN1cnJlbmN5EhsKCWJhbmtfbmFtZRgNIAEoCVIIYmFua05hbWUSIQoMYmFu'
+    'a19hY2NvdW50GA4gASgJUgtiYW5rQWNjb3VudBIyChVjcnlwdG9fd2FsbGV0X2FkZHJlc3MYDy'
+    'ABKAlSE2NyeXB0b1dhbGxldEFkZHJlc3MSIAoLdHJhbnNhY3Rpb24YECABKAlSC3RyYW5zYWN0'
+    'aW9uEiUKDnRyYW5zYWN0aW9uX2lkGBEgASgJUg10cmFuc2FjdGlvbklkEh8KC2V4dGVybmFsX2'
+    'lkGBIgASgJUgpleHRlcm5hbElkEiUKDnVzZXJfc2lnbmF0dXJlGBMgASgJUg11c2VyU2lnbmF0'
+    'dXJlEisKEXBhcnRuZXJfc2lnbmF0dXJlGBQgASgJUhBwYXJ0bmVyU2lnbmF0dXJlEi4KE3VzZX'
+    'Jfd2FsbGV0X2FkZHJlc3MYFSABKAlSEXVzZXJXYWxsZXRBZGRyZXNzEioKEXdhbGxldF9wdWJs'
+    'aWNfa2V5GBYgASgJUg93YWxsZXRQdWJsaWNLZXk=');
+
+@$core.Deprecated('Use acceptOrderRequestDescriptor instead')
+const AcceptOrderRequest$json = {
+  '1': 'AcceptOrderRequest',
+  '2': [
+    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
+    {'1': 'bank_name', '3': 2, '4': 1, '5': 9, '10': 'bankName'},
+    {'1': 'bank_account', '3': 3, '4': 1, '5': 9, '10': 'bankAccount'},
+    {'1': 'crypto_wallet_address', '3': 4, '4': 1, '5': 9, '10': 'cryptoWalletAddress'},
+    {'1': 'external_id', '3': 5, '4': 1, '5': 9, '10': 'externalId'},
+    {'1': 'partner_signature', '3': 6, '4': 1, '5': 9, '10': 'partnerSignature'},
+  ],
+};
+
+/// Descriptor for `AcceptOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List acceptOrderRequestDescriptor = $convert.base64Decode(
+    'ChJBY2NlcHRPcmRlclJlcXVlc3QSGQoIb3JkZXJfaWQYASABKAlSB29yZGVySWQSGwoJYmFua1'
+    '9uYW1lGAIgASgJUghiYW5rTmFtZRIhCgxiYW5rX2FjY291bnQYAyABKAlSC2JhbmtBY2NvdW50'
+    'EjIKFWNyeXB0b193YWxsZXRfYWRkcmVzcxgEIAEoCVITY3J5cHRvV2FsbGV0QWRkcmVzcxIfCg'
+    'tleHRlcm5hbF9pZBgFIAEoCVIKZXh0ZXJuYWxJZBIrChFwYXJ0bmVyX3NpZ25hdHVyZRgGIAEo'
+    'CVIQcGFydG5lclNpZ25hdHVyZQ==');
+
+@$core.Deprecated('Use acceptOrderResponseDescriptor instead')
+const AcceptOrderResponse$json = {
+  '1': 'AcceptOrderResponse',
+};
+
+/// Descriptor for `AcceptOrderResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List acceptOrderResponseDescriptor = $convert.base64Decode(
+    'ChNBY2NlcHRPcmRlclJlc3BvbnNl');
+
+@$core.Deprecated('Use rejectOrderRequestDescriptor instead')
+const RejectOrderRequest$json = {
+  '1': 'RejectOrderRequest',
+  '2': [
+    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
+    {'1': 'reason', '3': 2, '4': 1, '5': 9, '10': 'reason'},
+  ],
+};
+
+/// Descriptor for `RejectOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List rejectOrderRequestDescriptor = $convert.base64Decode(
+    'ChJSZWplY3RPcmRlclJlcXVlc3QSGQoIb3JkZXJfaWQYASABKAlSB29yZGVySWQSFgoGcmVhc2'
+    '9uGAIgASgJUgZyZWFzb24=');
+
+@$core.Deprecated('Use rejectOrderResponseDescriptor instead')
+const RejectOrderResponse$json = {
+  '1': 'RejectOrderResponse',
+};
+
+/// Descriptor for `RejectOrderResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List rejectOrderResponseDescriptor = $convert.base64Decode(
+    'ChNSZWplY3RPcmRlclJlc3BvbnNl');
+
+@$core.Deprecated('Use completeOrderRequestDescriptor instead')
+const CompleteOrderRequest$json = {
+  '1': 'CompleteOrderRequest',
+  '2': [
+    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
+    {'1': 'transaction_id', '3': 2, '4': 1, '5': 9, '10': 'transactionId'},
+    {'1': 'external_id', '3': 3, '4': 1, '5': 9, '10': 'externalId'},
+  ],
+};
+
+/// Descriptor for `CompleteOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List completeOrderRequestDescriptor = $convert.base64Decode(
+    'ChRDb21wbGV0ZU9yZGVyUmVxdWVzdBIZCghvcmRlcl9pZBgBIAEoCVIHb3JkZXJJZBIlCg50cm'
+    'Fuc2FjdGlvbl9pZBgCIAEoCVINdHJhbnNhY3Rpb25JZBIfCgtleHRlcm5hbF9pZBgDIAEoCVIK'
+    'ZXh0ZXJuYWxJZA==');
+
+@$core.Deprecated('Use completeOrderResponseDescriptor instead')
+const CompleteOrderResponse$json = {
+  '1': 'CompleteOrderResponse',
+};
+
+/// Descriptor for `CompleteOrderResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List completeOrderResponseDescriptor = $convert.base64Decode(
+    'ChVDb21wbGV0ZU9yZGVyUmVzcG9uc2U=');
+
+@$core.Deprecated('Use failOrderRequestDescriptor instead')
+const FailOrderRequest$json = {
+  '1': 'FailOrderRequest',
+  '2': [
+    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
+    {'1': 'reason', '3': 2, '4': 1, '5': 9, '10': 'reason'},
+    {'1': 'external_id', '3': 3, '4': 1, '5': 9, '10': 'externalId'},
+  ],
+};
+
+/// Descriptor for `FailOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List failOrderRequestDescriptor = $convert.base64Decode(
+    'ChBGYWlsT3JkZXJSZXF1ZXN0EhkKCG9yZGVyX2lkGAEgASgJUgdvcmRlcklkEhYKBnJlYXNvbh'
+    'gCIAEoCVIGcmVhc29uEh8KC2V4dGVybmFsX2lkGAMgASgJUgpleHRlcm5hbElk');
+
+@$core.Deprecated('Use failOrderResponseDescriptor instead')
+const FailOrderResponse$json = {
+  '1': 'FailOrderResponse',
+};
+
+/// Descriptor for `FailOrderResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List failOrderResponseDescriptor = $convert.base64Decode(
+    'ChFGYWlsT3JkZXJSZXNwb25zZQ==');
+
+@$core.Deprecated('Use getOrdersRequestDescriptor instead')
+const GetOrdersRequest$json = {
+  '1': 'GetOrdersRequest',
+};
+
+/// Descriptor for `GetOrdersRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getOrdersRequestDescriptor = $convert.base64Decode(
+    'ChBHZXRPcmRlcnNSZXF1ZXN0');
+
+@$core.Deprecated('Use getOrdersResponseDescriptor instead')
+const GetOrdersResponse$json = {
+  '1': 'GetOrdersResponse',
+  '2': [
+    {'1': 'orders', '3': 1, '4': 3, '5': 11, '6': '.brij.orders.v1.partner.GetOrderResponse', '10': 'orders'},
+  ],
+};
+
+/// Descriptor for `GetOrdersResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getOrdersResponseDescriptor = $convert.base64Decode(
+    'ChFHZXRPcmRlcnNSZXNwb25zZRJACgZvcmRlcnMYASADKAsyKC5icmlqLm9yZGVycy52MS5wYX'
+    'J0bmVyLkdldE9yZGVyUmVzcG9uc2VSBm9yZGVycw==');
+
+@$core.Deprecated('Use updateFeesRequestDescriptor instead')
+const UpdateFeesRequest$json = {
+  '1': 'UpdateFeesRequest',
+  '2': [
+    {'1': 'on_ramp_fee', '3': 1, '4': 1, '5': 11, '6': '.brij.orders.v1.partner.RampFeeUpdateData', '10': 'onRampFee'},
+    {'1': 'off_ramp_fee', '3': 2, '4': 1, '5': 11, '6': '.brij.orders.v1.partner.RampFeeUpdateData', '10': 'offRampFee'},
+    {'1': 'wallet_address', '3': 3, '4': 1, '5': 9, '10': 'walletAddress'},
+  ],
+};
+
+/// Descriptor for `UpdateFeesRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateFeesRequestDescriptor = $convert.base64Decode(
+    'ChFVcGRhdGVGZWVzUmVxdWVzdBJJCgtvbl9yYW1wX2ZlZRgBIAEoCzIpLmJyaWoub3JkZXJzLn'
+    'YxLnBhcnRuZXIuUmFtcEZlZVVwZGF0ZURhdGFSCW9uUmFtcEZlZRJLCgxvZmZfcmFtcF9mZWUY'
+    'AiABKAsyKS5icmlqLm9yZGVycy52MS5wYXJ0bmVyLlJhbXBGZWVVcGRhdGVEYXRhUgpvZmZSYW'
+    '1wRmVlEiUKDndhbGxldF9hZGRyZXNzGAMgASgJUg13YWxsZXRBZGRyZXNz');
+
+@$core.Deprecated('Use rampFeeUpdateDataDescriptor instead')
+const RampFeeUpdateData$json = {
+  '1': 'RampFeeUpdateData',
+  '2': [
+    {'1': 'fixed_fee', '3': 1, '4': 1, '5': 1, '10': 'fixedFee'},
+    {'1': 'percentage_fee', '3': 2, '4': 1, '5': 1, '10': 'percentageFee'},
+    {'1': 'conversion_rates', '3': 3, '4': 1, '5': 11, '6': '.brij.orders.v1.partner.ConversionRate', '10': 'conversionRates'},
+  ],
+};
+
+/// Descriptor for `RampFeeUpdateData`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List rampFeeUpdateDataDescriptor = $convert.base64Decode(
+    'ChFSYW1wRmVlVXBkYXRlRGF0YRIbCglmaXhlZF9mZWUYASABKAFSCGZpeGVkRmVlEiUKDnBlcm'
+    'NlbnRhZ2VfZmVlGAIgASgBUg1wZXJjZW50YWdlRmVlElEKEGNvbnZlcnNpb25fcmF0ZXMYAyAB'
+    'KAsyJi5icmlqLm9yZGVycy52MS5wYXJ0bmVyLkNvbnZlcnNpb25SYXRlUg9jb252ZXJzaW9uUm'
+    'F0ZXM=');
+
+@$core.Deprecated('Use conversionRateDescriptor instead')
+const ConversionRate$json = {
+  '1': 'ConversionRate',
+  '2': [
+    {'1': 'crypto_currency', '3': 1, '4': 1, '5': 9, '10': 'cryptoCurrency'},
+    {'1': 'fiat_currency', '3': 2, '4': 1, '5': 9, '10': 'fiatCurrency'},
+    {'1': 'rate', '3': 3, '4': 1, '5': 1, '10': 'rate'},
+  ],
+};
+
+/// Descriptor for `ConversionRate`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List conversionRateDescriptor = $convert.base64Decode(
+    'Cg5Db252ZXJzaW9uUmF0ZRInCg9jcnlwdG9fY3VycmVuY3kYASABKAlSDmNyeXB0b0N1cnJlbm'
+    'N5EiMKDWZpYXRfY3VycmVuY3kYAiABKAlSDGZpYXRDdXJyZW5jeRISCgRyYXRlGAMgASgBUgRy'
+    'YXRl');
+
+@$core.Deprecated('Use updateFeesResponseDescriptor instead')
+const UpdateFeesResponse$json = {
+  '1': 'UpdateFeesResponse',
+};
+
+/// Descriptor for `UpdateFeesResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateFeesResponseDescriptor = $convert.base64Decode(
+    'ChJVcGRhdGVGZWVzUmVzcG9uc2U=');
+
+@$core.Deprecated('Use generateTransactionRequestDescriptor instead')
+const GenerateTransactionRequest$json = {
+  '1': 'GenerateTransactionRequest',
+  '2': [
+    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
+    {'1': 'funding_wallet_address', '3': 2, '4': 1, '5': 9, '10': 'fundingWalletAddress'},
+    {'1': 'external_id', '3': 3, '4': 1, '5': 9, '10': 'externalId'},
+  ],
+};
+
+/// Descriptor for `GenerateTransactionRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List generateTransactionRequestDescriptor = $convert.base64Decode(
+    'ChpHZW5lcmF0ZVRyYW5zYWN0aW9uUmVxdWVzdBIZCghvcmRlcl9pZBgBIAEoCVIHb3JkZXJJZB'
+    'I0ChZmdW5kaW5nX3dhbGxldF9hZGRyZXNzGAIgASgJUhRmdW5kaW5nV2FsbGV0QWRkcmVzcxIf'
+    'CgtleHRlcm5hbF9pZBgDIAEoCVIKZXh0ZXJuYWxJZA==');
+
+@$core.Deprecated('Use generateTransactionResponseDescriptor instead')
+const GenerateTransactionResponse$json = {
+  '1': 'GenerateTransactionResponse',
+  '2': [
+    {'1': 'transaction', '3': 1, '4': 1, '5': 9, '10': 'transaction'},
+  ],
+};
+
+/// Descriptor for `GenerateTransactionResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List generateTransactionResponseDescriptor = $convert.base64Decode(
+    'ChtHZW5lcmF0ZVRyYW5zYWN0aW9uUmVzcG9uc2USIAoLdHJhbnNhY3Rpb24YASABKAlSC3RyYW'
+    '5zYWN0aW9u');
+
