@@ -9,11 +9,12 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
+import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../common/ramp_type.pbenum.dart' as $13;
+import '../common/ramp_type.pbenum.dart' as $1;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -89,7 +90,7 @@ class GetOrderResponse extends $pb.GeneratedMessage {
     $core.String? partnerPublicKey,
     $core.String? userPublicKey,
     $core.String? comment,
-    $13.RampType? type,
+    $1.RampType? type,
     $core.double? cryptoAmount,
     $core.String? cryptoCurrency,
     $core.double? fiatAmount,
@@ -182,7 +183,7 @@ class GetOrderResponse extends $pb.GeneratedMessage {
     ..aOS(4, _omitFieldNames ? '' : 'partnerPublicKey')
     ..aOS(5, _omitFieldNames ? '' : 'userPublicKey')
     ..aOS(7, _omitFieldNames ? '' : 'comment')
-    ..e<$13.RampType>(8, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: $13.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $13.RampType.valueOf, enumValues: $13.RampType.values)
+    ..e<$1.RampType>(8, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: $1.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $1.RampType.valueOf, enumValues: $1.RampType.values)
     ..a<$core.double>(9, _omitFieldNames ? '' : 'cryptoAmount', $pb.PbFieldType.OD)
     ..aOS(10, _omitFieldNames ? '' : 'cryptoCurrency')
     ..a<$core.double>(11, _omitFieldNames ? '' : 'fiatAmount', $pb.PbFieldType.OD)
@@ -276,9 +277,9 @@ class GetOrderResponse extends $pb.GeneratedMessage {
   void clearComment() => $_clearField(7);
 
   @$pb.TagNumber(8)
-  $13.RampType get type => $_getN(6);
+  $1.RampType get type => $_getN(6);
   @$pb.TagNumber(8)
-  set type($13.RampType v) { $_setField(8, v); }
+  set type($1.RampType v) { $_setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasType() => $_has(6);
   @$pb.TagNumber(8)
@@ -1353,6 +1354,36 @@ class GenerateTransactionResponse extends $pb.GeneratedMessage {
   $core.bool hasTransaction() => $_has(0);
   @$pb.TagNumber(1)
   void clearTransaction() => $_clearField(1);
+}
+
+class PartnerServiceApi {
+  $pb.RpcClient _client;
+  PartnerServiceApi(this._client);
+
+  $async.Future<GetOrderResponse> getOrder($pb.ClientContext? ctx, GetOrderRequest request) =>
+    _client.invoke<GetOrderResponse>(ctx, 'PartnerService', 'GetOrder', request, GetOrderResponse())
+  ;
+  $async.Future<AcceptOrderResponse> acceptOrder($pb.ClientContext? ctx, AcceptOrderRequest request) =>
+    _client.invoke<AcceptOrderResponse>(ctx, 'PartnerService', 'AcceptOrder', request, AcceptOrderResponse())
+  ;
+  $async.Future<RejectOrderResponse> rejectOrder($pb.ClientContext? ctx, RejectOrderRequest request) =>
+    _client.invoke<RejectOrderResponse>(ctx, 'PartnerService', 'RejectOrder', request, RejectOrderResponse())
+  ;
+  $async.Future<CompleteOrderResponse> completeOrder($pb.ClientContext? ctx, CompleteOrderRequest request) =>
+    _client.invoke<CompleteOrderResponse>(ctx, 'PartnerService', 'CompleteOrder', request, CompleteOrderResponse())
+  ;
+  $async.Future<FailOrderResponse> failOrder($pb.ClientContext? ctx, FailOrderRequest request) =>
+    _client.invoke<FailOrderResponse>(ctx, 'PartnerService', 'FailOrder', request, FailOrderResponse())
+  ;
+  $async.Future<GetOrdersResponse> getOrders($pb.ClientContext? ctx, GetOrdersRequest request) =>
+    _client.invoke<GetOrdersResponse>(ctx, 'PartnerService', 'GetOrders', request, GetOrdersResponse())
+  ;
+  $async.Future<UpdateFeesResponse> updateFees($pb.ClientContext? ctx, UpdateFeesRequest request) =>
+    _client.invoke<UpdateFeesResponse>(ctx, 'PartnerService', 'UpdateFees', request, UpdateFeesResponse())
+  ;
+  $async.Future<GenerateTransactionResponse> generateTransaction($pb.ClientContext? ctx, GenerateTransactionRequest request) =>
+    _client.invoke<GenerateTransactionResponse>(ctx, 'PartnerService', 'GenerateTransaction', request, GenerateTransactionResponse())
+  ;
 }
 
 

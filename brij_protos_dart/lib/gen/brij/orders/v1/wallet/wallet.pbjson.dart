@@ -262,3 +262,51 @@ final $typed_data.Uint8List generateTransactionResponseDescriptor = $convert.bas
     'ChtHZW5lcmF0ZVRyYW5zYWN0aW9uUmVzcG9uc2USIAoLdHJhbnNhY3Rpb24YASABKAlSC3RyYW'
     '5zYWN0aW9u');
 
+const $core.Map<$core.String, $core.dynamic> WalletServiceBase$json = {
+  '1': 'WalletService',
+  '2': [
+    {'1': 'CreateOnRampOrder', '2': '.brij.orders.v1.wallet.CreateOnRampOrderRequest', '3': '.brij.orders.v1.wallet.CreateOnRampOrderResponse', '4': {}},
+    {'1': 'CreateOffRampOrder', '2': '.brij.orders.v1.wallet.CreateOffRampOrderRequest', '3': '.brij.orders.v1.wallet.CreateOffRampOrderResponse', '4': {}},
+    {'1': 'GetOrder', '2': '.brij.orders.v1.wallet.GetOrderRequest', '3': '.brij.orders.v1.wallet.GetOrderResponse', '4': {}},
+    {'1': 'GetOrders', '2': '.brij.orders.v1.wallet.GetOrdersRequest', '3': '.brij.orders.v1.wallet.GetOrdersResponse', '4': {}},
+    {'1': 'GetQuote', '2': '.brij.orders.v1.wallet.GetQuoteRequest', '3': '.brij.orders.v1.wallet.GetQuoteResponse', '4': {}},
+    {'1': 'GenerateTransaction', '2': '.brij.orders.v1.wallet.GenerateTransactionRequest', '3': '.brij.orders.v1.wallet.GenerateTransactionResponse', '4': {}},
+  ],
+};
+
+@$core.Deprecated('Use walletServiceDescriptor instead')
+const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> WalletServiceBase$messageJson = {
+  '.brij.orders.v1.wallet.CreateOnRampOrderRequest': CreateOnRampOrderRequest$json,
+  '.brij.orders.v1.wallet.CreateOnRampOrderResponse': CreateOnRampOrderResponse$json,
+  '.brij.orders.v1.wallet.CreateOffRampOrderRequest': CreateOffRampOrderRequest$json,
+  '.brij.orders.v1.wallet.CreateOffRampOrderResponse': CreateOffRampOrderResponse$json,
+  '.brij.orders.v1.wallet.GetOrderRequest': GetOrderRequest$json,
+  '.brij.orders.v1.wallet.GetOrderResponse': GetOrderResponse$json,
+  '.brij.orders.v1.wallet.GetOrdersRequest': GetOrdersRequest$json,
+  '.brij.orders.v1.wallet.GetOrdersResponse': GetOrdersResponse$json,
+  '.brij.orders.v1.wallet.GetQuoteRequest': GetQuoteRequest$json,
+  '.brij.orders.v1.wallet.GetQuoteResponse': GetQuoteResponse$json,
+  '.brij.orders.v1.wallet.RampFee': RampFee$json,
+  '.brij.orders.v1.wallet.GenerateTransactionRequest': GenerateTransactionRequest$json,
+  '.brij.orders.v1.wallet.GenerateTransactionResponse': GenerateTransactionResponse$json,
+};
+
+/// Descriptor for `WalletService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
+final $typed_data.Uint8List walletServiceDescriptor = $convert.base64Decode(
+    'Cg1XYWxsZXRTZXJ2aWNlEpwBChFDcmVhdGVPblJhbXBPcmRlchIvLmJyaWoub3JkZXJzLnYxLn'
+    'dhbGxldC5DcmVhdGVPblJhbXBPcmRlclJlcXVlc3QaMC5icmlqLm9yZGVycy52MS53YWxsZXQu'
+    'Q3JlYXRlT25SYW1wT3JkZXJSZXNwb25zZSIkgtPkkwIeIhwvdjEvd2FsbGV0L2NyZWF0ZU9uUm'
+    'FtcE9yZGVyEqABChJDcmVhdGVPZmZSYW1wT3JkZXISMC5icmlqLm9yZGVycy52MS53YWxsZXQu'
+    'Q3JlYXRlT2ZmUmFtcE9yZGVyUmVxdWVzdBoxLmJyaWoub3JkZXJzLnYxLndhbGxldC5DcmVhdG'
+    'VPZmZSYW1wT3JkZXJSZXNwb25zZSIlgtPkkwIfIh0vdjEvd2FsbGV0L2NyZWF0ZU9mZlJhbXBP'
+    'cmRlchJ4CghHZXRPcmRlchImLmJyaWoub3JkZXJzLnYxLndhbGxldC5HZXRPcmRlclJlcXVlc3'
+    'QaJy5icmlqLm9yZGVycy52MS53YWxsZXQuR2V0T3JkZXJSZXNwb25zZSIbgtPkkwIVIhMvdjEv'
+    'd2FsbGV0L2dldE9yZGVyEnwKCUdldE9yZGVycxInLmJyaWoub3JkZXJzLnYxLndhbGxldC5HZX'
+    'RPcmRlcnNSZXF1ZXN0GiguYnJpai5vcmRlcnMudjEud2FsbGV0LkdldE9yZGVyc1Jlc3BvbnNl'
+    'IhyC0+STAhYiFC92MS93YWxsZXQvZ2V0T3JkZXJzEngKCEdldFF1b3RlEiYuYnJpai5vcmRlcn'
+    'MudjEud2FsbGV0LkdldFF1b3RlUmVxdWVzdBonLmJyaWoub3JkZXJzLnYxLndhbGxldC5HZXRR'
+    'dW90ZVJlc3BvbnNlIhuC0+STAhUiEy92MS93YWxsZXQvZ2V0UXVvdGUSpAEKE0dlbmVyYXRlVH'
+    'JhbnNhY3Rpb24SMS5icmlqLm9yZGVycy52MS53YWxsZXQuR2VuZXJhdGVUcmFuc2FjdGlvblJl'
+    'cXVlc3QaMi5icmlqLm9yZGVycy52MS53YWxsZXQuR2VuZXJhdGVUcmFuc2FjdGlvblJlc3Bvbn'
+    'NlIiaC0+STAiAiHi92MS93YWxsZXQvZ2VuZXJhdGVUcmFuc2FjdGlvbg==');
+

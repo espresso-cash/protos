@@ -13,6 +13,10 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+import '../../../../google/protobuf/timestamp.pbjson.dart' as $4;
+import '../common/user_data_field.pbjson.dart' as $7;
+import '../common/validation_data_field.pbjson.dart' as $8;
+
 @$core.Deprecated('Use getPartnerInfoRequestDescriptor instead')
 const GetPartnerInfoRequest$json = {
   '1': 'GetPartnerInfoRequest',
@@ -370,4 +374,99 @@ const GetWalletProofResponse$json = {
 final $typed_data.Uint8List getWalletProofResponseDescriptor = $convert.base64Decode(
     'ChZHZXRXYWxsZXRQcm9vZlJlc3BvbnNlEiMKDXByb29mX21lc3NhZ2UYASABKAlSDHByb29mTW'
     'Vzc2FnZQ==');
+
+const $core.Map<$core.String, $core.dynamic> WalletServiceBase$json = {
+  '1': 'WalletService',
+  '2': [
+    {'1': 'GetPartnerInfo', '2': '.brij.storage.v1.wallet.GetPartnerInfoRequest', '3': '.brij.storage.v1.wallet.GetPartnerInfoResponse', '4': {}},
+    {'1': 'InitStorage', '2': '.brij.storage.v1.wallet.InitStorageRequest', '3': '.brij.storage.v1.wallet.InitStorageResponse', '4': {}},
+    {'1': 'GetInfo', '2': '.brij.storage.v1.wallet.GetInfoRequest', '3': '.brij.storage.v1.wallet.GetInfoResponse', '4': {}},
+    {'1': 'GetGrantedAccessPartners', '2': '.brij.storage.v1.wallet.GetGrantedAccessPartnersRequest', '3': '.brij.storage.v1.wallet.GetGrantedAccessPartnersResponse', '4': {}},
+    {'1': 'GrantAccess', '2': '.brij.storage.v1.wallet.GrantAccessRequest', '3': '.brij.storage.v1.wallet.GrantAccessResponse', '4': {}},
+    {'1': 'SetUserData', '2': '.brij.storage.v1.wallet.SetUserDataRequest', '3': '.brij.storage.v1.wallet.SetUserDataResponse', '4': {}},
+    {'1': 'RemoveUserData', '2': '.brij.storage.v1.wallet.RemoveUserDataRequest', '3': '.brij.storage.v1.wallet.RemoveUserDataResponse', '4': {}},
+    {'1': 'RevokeAccess', '2': '.brij.storage.v1.wallet.RevokeAccessRequest', '3': '.brij.storage.v1.wallet.RevokeAccessResponse', '4': {}},
+    {'1': 'RemoveAllUserData', '2': '.brij.storage.v1.wallet.RemoveAllUserDataRequest', '3': '.brij.storage.v1.wallet.RemoveAllUserDataResponse', '4': {}},
+    {'1': 'GetUserData', '2': '.brij.storage.v1.wallet.GetUserDataRequest', '3': '.brij.storage.v1.wallet.GetUserDataResponse', '4': {}},
+    {'1': 'CheckAccess', '2': '.brij.storage.v1.wallet.CheckAccessRequest', '3': '.brij.storage.v1.wallet.CheckAccessResponse', '4': {}},
+    {'1': 'GetKycStatus', '2': '.brij.storage.v1.wallet.GetKycStatusRequest', '3': '.brij.storage.v1.wallet.GetKycStatusResponse', '4': {}},
+    {'1': 'GetWalletProof', '2': '.brij.storage.v1.wallet.GetWalletProofRequest', '3': '.brij.storage.v1.wallet.GetWalletProofResponse', '4': {}},
+    {'1': 'GetSeedMessage', '2': '.brij.storage.v1.wallet.GetSeedMessageRequest', '3': '.brij.storage.v1.wallet.GetSeedMessageResponse', '4': {}},
+  ],
+};
+
+@$core.Deprecated('Use walletServiceDescriptor instead')
+const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> WalletServiceBase$messageJson = {
+  '.brij.storage.v1.wallet.GetPartnerInfoRequest': GetPartnerInfoRequest$json,
+  '.brij.storage.v1.wallet.GetPartnerInfoResponse': GetPartnerInfoResponse$json,
+  '.brij.storage.v1.wallet.InitStorageRequest': InitStorageRequest$json,
+  '.brij.storage.v1.wallet.InitStorageResponse': InitStorageResponse$json,
+  '.brij.storage.v1.wallet.GetInfoRequest': GetInfoRequest$json,
+  '.brij.storage.v1.wallet.GetInfoResponse': GetInfoResponse$json,
+  '.brij.storage.v1.wallet.GetGrantedAccessPartnersRequest': GetGrantedAccessPartnersRequest$json,
+  '.brij.storage.v1.wallet.GetGrantedAccessPartnersResponse': GetGrantedAccessPartnersResponse$json,
+  '.brij.storage.v1.wallet.GrantAccessRequest': GrantAccessRequest$json,
+  '.brij.storage.v1.wallet.GrantAccessResponse': GrantAccessResponse$json,
+  '.brij.storage.v1.wallet.SetUserDataRequest': SetUserDataRequest$json,
+  '.brij.storage.v1.wallet.SetUserDataResponse': SetUserDataResponse$json,
+  '.brij.storage.v1.wallet.RemoveUserDataRequest': RemoveUserDataRequest$json,
+  '.brij.storage.v1.wallet.RemoveUserDataResponse': RemoveUserDataResponse$json,
+  '.brij.storage.v1.wallet.RevokeAccessRequest': RevokeAccessRequest$json,
+  '.brij.storage.v1.wallet.RevokeAccessResponse': RevokeAccessResponse$json,
+  '.brij.storage.v1.wallet.RemoveAllUserDataRequest': RemoveAllUserDataRequest$json,
+  '.brij.storage.v1.wallet.RemoveAllUserDataResponse': RemoveAllUserDataResponse$json,
+  '.brij.storage.v1.wallet.GetUserDataRequest': GetUserDataRequest$json,
+  '.brij.storage.v1.wallet.GetUserDataResponse': GetUserDataResponse$json,
+  '.brij.storage.v1.common.UserDataField': $7.UserDataField$json,
+  '.google.protobuf.Timestamp': $4.Timestamp$json,
+  '.brij.storage.v1.common.ValidationDataField': $8.ValidationDataField$json,
+  '.brij.storage.v1.wallet.CheckAccessRequest': CheckAccessRequest$json,
+  '.brij.storage.v1.wallet.CheckAccessResponse': CheckAccessResponse$json,
+  '.brij.storage.v1.wallet.GetKycStatusRequest': GetKycStatusRequest$json,
+  '.brij.storage.v1.wallet.GetKycStatusResponse': GetKycStatusResponse$json,
+  '.brij.storage.v1.wallet.GetWalletProofRequest': GetWalletProofRequest$json,
+  '.brij.storage.v1.wallet.GetWalletProofResponse': GetWalletProofResponse$json,
+  '.brij.storage.v1.wallet.GetSeedMessageRequest': GetSeedMessageRequest$json,
+  '.brij.storage.v1.wallet.GetSeedMessageResponse': GetSeedMessageResponse$json,
+};
+
+/// Descriptor for `WalletService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
+final $typed_data.Uint8List walletServiceDescriptor = $convert.base64Decode(
+    'Cg1XYWxsZXRTZXJ2aWNlEpIBCg5HZXRQYXJ0bmVySW5mbxItLmJyaWouc3RvcmFnZS52MS53YW'
+    'xsZXQuR2V0UGFydG5lckluZm9SZXF1ZXN0Gi4uYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRQ'
+    'YXJ0bmVySW5mb1Jlc3BvbnNlIiGC0+STAhsiGS92MS93YWxsZXQvZ2V0UGFydG5lckluZm8Shg'
+    'EKC0luaXRTdG9yYWdlEiouYnJpai5zdG9yYWdlLnYxLndhbGxldC5Jbml0U3RvcmFnZVJlcXVl'
+    'c3QaKy5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkluaXRTdG9yYWdlUmVzcG9uc2UiHoLT5JMCGC'
+    'IWL3YxL3dhbGxldC9pbml0U3RvcmFnZRJ2CgdHZXRJbmZvEiYuYnJpai5zdG9yYWdlLnYxLndh'
+    'bGxldC5HZXRJbmZvUmVxdWVzdBonLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0SW5mb1Jlc3'
+    'BvbnNlIhqC0+STAhQiEi92MS93YWxsZXQvZ2V0SW5mbxK6AQoYR2V0R3JhbnRlZEFjY2Vzc1Bh'
+    'cnRuZXJzEjcuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRHcmFudGVkQWNjZXNzUGFydG5lcn'
+    'NSZXF1ZXN0GjguYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRHcmFudGVkQWNjZXNzUGFydG5l'
+    'cnNSZXNwb25zZSIrgtPkkwIlIiMvdjEvd2FsbGV0L2dldEdyYW50ZWRBY2Nlc3NQYXJ0bmVycx'
+    'KGAQoLR3JhbnRBY2Nlc3MSKi5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdyYW50QWNjZXNzUmVx'
+    'dWVzdBorLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR3JhbnRBY2Nlc3NSZXNwb25zZSIegtPkkw'
+    'IYIhYvdjEvd2FsbGV0L2dyYW50QWNjZXNzEoYBCgtTZXRVc2VyRGF0YRIqLmJyaWouc3RvcmFn'
+    'ZS52MS53YWxsZXQuU2V0VXNlckRhdGFSZXF1ZXN0GisuYnJpai5zdG9yYWdlLnYxLndhbGxldC'
+    '5TZXRVc2VyRGF0YVJlc3BvbnNlIh6C0+STAhgiFi92MS93YWxsZXQvc2V0VXNlckRhdGESkgEK'
+    'DlJlbW92ZVVzZXJEYXRhEi0uYnJpai5zdG9yYWdlLnYxLndhbGxldC5SZW1vdmVVc2VyRGF0YV'
+    'JlcXVlc3QaLi5icmlqLnN0b3JhZ2UudjEud2FsbGV0LlJlbW92ZVVzZXJEYXRhUmVzcG9uc2Ui'
+    'IYLT5JMCGyIZL3YxL3dhbGxldC9yZW1vdmVVc2VyRGF0YRKKAQoMUmV2b2tlQWNjZXNzEisuYn'
+    'Jpai5zdG9yYWdlLnYxLndhbGxldC5SZXZva2VBY2Nlc3NSZXF1ZXN0GiwuYnJpai5zdG9yYWdl'
+    'LnYxLndhbGxldC5SZXZva2VBY2Nlc3NSZXNwb25zZSIfgtPkkwIZIhcvdjEvd2FsbGV0L3Jldm'
+    '9rZUFjY2VzcxKeAQoRUmVtb3ZlQWxsVXNlckRhdGESMC5icmlqLnN0b3JhZ2UudjEud2FsbGV0'
+    'LlJlbW92ZUFsbFVzZXJEYXRhUmVxdWVzdBoxLmJyaWouc3RvcmFnZS52MS53YWxsZXQuUmVtb3'
+    'ZlQWxsVXNlckRhdGFSZXNwb25zZSIkgtPkkwIeIhwvdjEvd2FsbGV0L3JlbW92ZUFsbFVzZXJE'
+    'YXRhEoYBCgtHZXRVc2VyRGF0YRIqLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0VXNlckRhdG'
+    'FSZXF1ZXN0GisuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRVc2VyRGF0YVJlc3BvbnNlIh6C'
+    '0+STAhgiFi92MS93YWxsZXQvZ2V0VXNlckRhdGEShgEKC0NoZWNrQWNjZXNzEiouYnJpai5zdG'
+    '9yYWdlLnYxLndhbGxldC5DaGVja0FjY2Vzc1JlcXVlc3QaKy5icmlqLnN0b3JhZ2UudjEud2Fs'
+    'bGV0LkNoZWNrQWNjZXNzUmVzcG9uc2UiHoLT5JMCGCIWL3YxL3dhbGxldC9jaGVja0FjY2Vzcx'
+    'KKAQoMR2V0S3ljU3RhdHVzEisuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRLeWNTdGF0dXNS'
+    'ZXF1ZXN0GiwuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRLeWNTdGF0dXNSZXNwb25zZSIfgt'
+    'PkkwIZIhcvdjEvd2FsbGV0L2dldEt5Y1N0YXR1cxKSAQoOR2V0V2FsbGV0UHJvb2YSLS5icmlq'
+    'LnN0b3JhZ2UudjEud2FsbGV0LkdldFdhbGxldFByb29mUmVxdWVzdBouLmJyaWouc3RvcmFnZS'
+    '52MS53YWxsZXQuR2V0V2FsbGV0UHJvb2ZSZXNwb25zZSIhgtPkkwIbIhkvdjEvd2FsbGV0L2dl'
+    'dFdhbGxldFByb29mEpIBCg5HZXRTZWVkTWVzc2FnZRItLmJyaWouc3RvcmFnZS52MS53YWxsZX'
+    'QuR2V0U2VlZE1lc3NhZ2VSZXF1ZXN0Gi4uYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRTZWVk'
+    'TWVzc2FnZVJlc3BvbnNlIiGC0+STAhsiGS92MS93YWxsZXQvZ2V0U2VlZE1lc3NhZ2U=');
 

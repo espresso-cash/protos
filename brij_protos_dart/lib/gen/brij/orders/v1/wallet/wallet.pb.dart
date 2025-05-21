@@ -9,11 +9,12 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
+import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../common/ramp_type.pbenum.dart' as $13;
+import '../common/ramp_type.pbenum.dart' as $1;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -541,7 +542,7 @@ class GetOrderResponse extends $pb.GeneratedMessage {
     $core.String? partnerPublicKey,
     $core.String? userPublicKey,
     $core.String? comment,
-    $13.RampType? type,
+    $1.RampType? type,
     $core.double? cryptoAmount,
     $core.String? cryptoCurrency,
     $core.double? fiatAmount,
@@ -630,7 +631,7 @@ class GetOrderResponse extends $pb.GeneratedMessage {
     ..aOS(4, _omitFieldNames ? '' : 'partnerPublicKey')
     ..aOS(5, _omitFieldNames ? '' : 'userPublicKey')
     ..aOS(7, _omitFieldNames ? '' : 'comment')
-    ..e<$13.RampType>(8, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: $13.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $13.RampType.valueOf, enumValues: $13.RampType.values)
+    ..e<$1.RampType>(8, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: $1.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $1.RampType.valueOf, enumValues: $1.RampType.values)
     ..a<$core.double>(9, _omitFieldNames ? '' : 'cryptoAmount', $pb.PbFieldType.OD)
     ..aOS(10, _omitFieldNames ? '' : 'cryptoCurrency')
     ..a<$core.double>(11, _omitFieldNames ? '' : 'fiatAmount', $pb.PbFieldType.OD)
@@ -723,9 +724,9 @@ class GetOrderResponse extends $pb.GeneratedMessage {
   void clearComment() => $_clearField(7);
 
   @$pb.TagNumber(8)
-  $13.RampType get type => $_getN(6);
+  $1.RampType get type => $_getN(6);
   @$pb.TagNumber(8)
-  set type($13.RampType v) { $_setField(8, v); }
+  set type($1.RampType v) { $_setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasType() => $_has(6);
   @$pb.TagNumber(8)
@@ -930,7 +931,7 @@ class GetQuoteRequest extends $pb.GeneratedMessage {
     $core.String? partnerPublicKey,
     $core.String? walletPublicKey,
     $core.double? cryptoAmount,
-    $13.RampType? rampType,
+    $1.RampType? rampType,
     $core.String? fiatCurrency,
   }) {
     final $result = create();
@@ -959,7 +960,7 @@ class GetQuoteRequest extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'partnerPublicKey')
     ..aOS(2, _omitFieldNames ? '' : 'walletPublicKey')
     ..a<$core.double>(3, _omitFieldNames ? '' : 'cryptoAmount', $pb.PbFieldType.OD)
-    ..e<$13.RampType>(4, _omitFieldNames ? '' : 'rampType', $pb.PbFieldType.OE, defaultOrMaker: $13.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $13.RampType.valueOf, enumValues: $13.RampType.values)
+    ..e<$1.RampType>(4, _omitFieldNames ? '' : 'rampType', $pb.PbFieldType.OE, defaultOrMaker: $1.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $1.RampType.valueOf, enumValues: $1.RampType.values)
     ..aOS(5, _omitFieldNames ? '' : 'fiatCurrency')
     ..hasRequiredFields = false
   ;
@@ -1013,9 +1014,9 @@ class GetQuoteRequest extends $pb.GeneratedMessage {
   void clearCryptoAmount() => $_clearField(3);
 
   @$pb.TagNumber(4)
-  $13.RampType get rampType => $_getN(3);
+  $1.RampType get rampType => $_getN(3);
   @$pb.TagNumber(4)
-  set rampType($13.RampType v) { $_setField(4, v); }
+  set rampType($1.RampType v) { $_setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasRampType() => $_has(3);
   @$pb.TagNumber(4)
@@ -1036,7 +1037,7 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
     $core.double? cryptoAmount,
     $core.double? fiatAmount,
     $core.String? fiatCurrency,
-    $13.RampType? rampType,
+    $1.RampType? rampType,
     $core.double? conversionRate,
     RampFee? partnerFee,
     RampFee? walletFee,
@@ -1081,7 +1082,7 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
     ..a<$core.double>(1, _omitFieldNames ? '' : 'cryptoAmount', $pb.PbFieldType.OD)
     ..a<$core.double>(2, _omitFieldNames ? '' : 'fiatAmount', $pb.PbFieldType.OD)
     ..aOS(3, _omitFieldNames ? '' : 'fiatCurrency')
-    ..e<$13.RampType>(4, _omitFieldNames ? '' : 'rampType', $pb.PbFieldType.OE, defaultOrMaker: $13.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $13.RampType.valueOf, enumValues: $13.RampType.values)
+    ..e<$1.RampType>(4, _omitFieldNames ? '' : 'rampType', $pb.PbFieldType.OE, defaultOrMaker: $1.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $1.RampType.valueOf, enumValues: $1.RampType.values)
     ..a<$core.double>(5, _omitFieldNames ? '' : 'conversionRate', $pb.PbFieldType.OD)
     ..aOM<RampFee>(6, _omitFieldNames ? '' : 'partnerFee', subBuilder: RampFee.create)
     ..aOM<RampFee>(7, _omitFieldNames ? '' : 'walletFee', subBuilder: RampFee.create)
@@ -1139,9 +1140,9 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
   void clearFiatCurrency() => $_clearField(3);
 
   @$pb.TagNumber(4)
-  $13.RampType get rampType => $_getN(3);
+  $1.RampType get rampType => $_getN(3);
   @$pb.TagNumber(4)
-  set rampType($13.RampType v) { $_setField(4, v); }
+  set rampType($1.RampType v) { $_setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasRampType() => $_has(3);
   @$pb.TagNumber(4)
@@ -1375,6 +1376,30 @@ class GenerateTransactionResponse extends $pb.GeneratedMessage {
   $core.bool hasTransaction() => $_has(0);
   @$pb.TagNumber(1)
   void clearTransaction() => $_clearField(1);
+}
+
+class WalletServiceApi {
+  $pb.RpcClient _client;
+  WalletServiceApi(this._client);
+
+  $async.Future<CreateOnRampOrderResponse> createOnRampOrder($pb.ClientContext? ctx, CreateOnRampOrderRequest request) =>
+    _client.invoke<CreateOnRampOrderResponse>(ctx, 'WalletService', 'CreateOnRampOrder', request, CreateOnRampOrderResponse())
+  ;
+  $async.Future<CreateOffRampOrderResponse> createOffRampOrder($pb.ClientContext? ctx, CreateOffRampOrderRequest request) =>
+    _client.invoke<CreateOffRampOrderResponse>(ctx, 'WalletService', 'CreateOffRampOrder', request, CreateOffRampOrderResponse())
+  ;
+  $async.Future<GetOrderResponse> getOrder($pb.ClientContext? ctx, GetOrderRequest request) =>
+    _client.invoke<GetOrderResponse>(ctx, 'WalletService', 'GetOrder', request, GetOrderResponse())
+  ;
+  $async.Future<GetOrdersResponse> getOrders($pb.ClientContext? ctx, GetOrdersRequest request) =>
+    _client.invoke<GetOrdersResponse>(ctx, 'WalletService', 'GetOrders', request, GetOrdersResponse())
+  ;
+  $async.Future<GetQuoteResponse> getQuote($pb.ClientContext? ctx, GetQuoteRequest request) =>
+    _client.invoke<GetQuoteResponse>(ctx, 'WalletService', 'GetQuote', request, GetQuoteResponse())
+  ;
+  $async.Future<GenerateTransactionResponse> generateTransaction($pb.ClientContext? ctx, GenerateTransactionRequest request) =>
+    _client.invoke<GenerateTransactionResponse>(ctx, 'WalletService', 'GenerateTransaction', request, GenerateTransactionResponse())
+  ;
 }
 
 

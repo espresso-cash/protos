@@ -9,14 +9,15 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
+import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../common/data.pbenum.dart' as $15;
-import '../common/kyc_item.pbenum.dart' as $19;
-import '../common/user_data_field.pb.dart' as $17;
-import '../common/validation_data_field.pb.dart' as $18;
+import '../common/data.pbenum.dart' as $5;
+import '../common/kyc_item.pbenum.dart' as $9;
+import '../common/user_data_field.pb.dart' as $7;
+import '../common/validation_data_field.pb.dart' as $8;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -904,7 +905,7 @@ class GetGrantedAccessPartnersResponse extends $pb.GeneratedMessage {
 
 class SetUserDataRequest extends $pb.GeneratedMessage {
   factory SetUserDataRequest({
-    $15.DataType? type,
+    $5.DataType? type,
     $core.List<$core.int>? encryptedValue,
     $core.String? hash,
     $core.String? signature,
@@ -929,7 +930,7 @@ class SetUserDataRequest extends $pb.GeneratedMessage {
   factory SetUserDataRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetUserDataRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
-    ..e<$15.DataType>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: $15.DataType.DATA_TYPE_UNSPECIFIED, valueOf: $15.DataType.valueOf, enumValues: $15.DataType.values)
+    ..e<$5.DataType>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: $5.DataType.DATA_TYPE_UNSPECIFIED, valueOf: $5.DataType.valueOf, enumValues: $5.DataType.values)
     ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'encryptedValue', $pb.PbFieldType.OY)
     ..aOS(3, _omitFieldNames ? '' : 'hash')
     ..aOS(4, _omitFieldNames ? '' : 'signature')
@@ -958,9 +959,9 @@ class SetUserDataRequest extends $pb.GeneratedMessage {
   static SetUserDataRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $15.DataType get type => $_getN(0);
+  $5.DataType get type => $_getN(0);
   @$pb.TagNumber(1)
-  set type($15.DataType v) { $_setField(1, v); }
+  set type($5.DataType v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasType() => $_has(0);
   @$pb.TagNumber(1)
@@ -1160,8 +1161,8 @@ class GetUserDataRequest extends $pb.GeneratedMessage {
 
 class GetUserDataResponse extends $pb.GeneratedMessage {
   factory GetUserDataResponse({
-    $core.Iterable<$17.UserDataField>? userData,
-    $core.Iterable<$18.ValidationDataField>? validationData,
+    $core.Iterable<$7.UserDataField>? userData,
+    $core.Iterable<$8.ValidationDataField>? validationData,
   }) {
     final $result = create();
     if (userData != null) {
@@ -1177,8 +1178,8 @@ class GetUserDataResponse extends $pb.GeneratedMessage {
   factory GetUserDataResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserDataResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
-    ..pc<$17.UserDataField>(1, _omitFieldNames ? '' : 'userData', $pb.PbFieldType.PM, subBuilder: $17.UserDataField.create)
-    ..pc<$18.ValidationDataField>(2, _omitFieldNames ? '' : 'validationData', $pb.PbFieldType.PM, subBuilder: $18.ValidationDataField.create)
+    ..pc<$7.UserDataField>(1, _omitFieldNames ? '' : 'userData', $pb.PbFieldType.PM, subBuilder: $7.UserDataField.create)
+    ..pc<$8.ValidationDataField>(2, _omitFieldNames ? '' : 'validationData', $pb.PbFieldType.PM, subBuilder: $8.ValidationDataField.create)
     ..hasRequiredFields = false
   ;
 
@@ -1204,10 +1205,10 @@ class GetUserDataResponse extends $pb.GeneratedMessage {
   static GetUserDataResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $pb.PbList<$17.UserDataField> get userData => $_getList(0);
+  $pb.PbList<$7.UserDataField> get userData => $_getList(0);
 
   @$pb.TagNumber(2)
-  $pb.PbList<$18.ValidationDataField> get validationData => $_getList(1);
+  $pb.PbList<$8.ValidationDataField> get validationData => $_getList(1);
 }
 
 class CheckAccessRequest extends $pb.GeneratedMessage {
@@ -1376,7 +1377,7 @@ class GetKycStatusRequest extends $pb.GeneratedMessage {
 
 class GetKycStatusResponse extends $pb.GeneratedMessage {
   factory GetKycStatusResponse({
-    $19.KycStatus? status,
+    $9.KycStatus? status,
   }) {
     final $result = create();
     if (status != null) {
@@ -1389,7 +1390,7 @@ class GetKycStatusResponse extends $pb.GeneratedMessage {
   factory GetKycStatusResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetKycStatusResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
-    ..e<$19.KycStatus>(1, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: $19.KycStatus.KYC_STATUS_UNSPECIFIED, valueOf: $19.KycStatus.valueOf, enumValues: $19.KycStatus.values)
+    ..e<$9.KycStatus>(1, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: $9.KycStatus.KYC_STATUS_UNSPECIFIED, valueOf: $9.KycStatus.valueOf, enumValues: $9.KycStatus.values)
     ..hasRequiredFields = false
   ;
 
@@ -1415,9 +1416,9 @@ class GetKycStatusResponse extends $pb.GeneratedMessage {
   static GetKycStatusResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $19.KycStatus get status => $_getN(0);
+  $9.KycStatus get status => $_getN(0);
   @$pb.TagNumber(1)
-  set status($19.KycStatus v) { $_setField(1, v); }
+  set status($9.KycStatus v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasStatus() => $_has(0);
   @$pb.TagNumber(1)
@@ -1522,6 +1523,54 @@ class GetWalletProofResponse extends $pb.GeneratedMessage {
   $core.bool hasProofMessage() => $_has(0);
   @$pb.TagNumber(1)
   void clearProofMessage() => $_clearField(1);
+}
+
+class WalletServiceApi {
+  $pb.RpcClient _client;
+  WalletServiceApi(this._client);
+
+  $async.Future<GetPartnerInfoResponse> getPartnerInfo($pb.ClientContext? ctx, GetPartnerInfoRequest request) =>
+    _client.invoke<GetPartnerInfoResponse>(ctx, 'WalletService', 'GetPartnerInfo', request, GetPartnerInfoResponse())
+  ;
+  $async.Future<InitStorageResponse> initStorage($pb.ClientContext? ctx, InitStorageRequest request) =>
+    _client.invoke<InitStorageResponse>(ctx, 'WalletService', 'InitStorage', request, InitStorageResponse())
+  ;
+  $async.Future<GetInfoResponse> getInfo($pb.ClientContext? ctx, GetInfoRequest request) =>
+    _client.invoke<GetInfoResponse>(ctx, 'WalletService', 'GetInfo', request, GetInfoResponse())
+  ;
+  $async.Future<GetGrantedAccessPartnersResponse> getGrantedAccessPartners($pb.ClientContext? ctx, GetGrantedAccessPartnersRequest request) =>
+    _client.invoke<GetGrantedAccessPartnersResponse>(ctx, 'WalletService', 'GetGrantedAccessPartners', request, GetGrantedAccessPartnersResponse())
+  ;
+  $async.Future<GrantAccessResponse> grantAccess($pb.ClientContext? ctx, GrantAccessRequest request) =>
+    _client.invoke<GrantAccessResponse>(ctx, 'WalletService', 'GrantAccess', request, GrantAccessResponse())
+  ;
+  $async.Future<SetUserDataResponse> setUserData($pb.ClientContext? ctx, SetUserDataRequest request) =>
+    _client.invoke<SetUserDataResponse>(ctx, 'WalletService', 'SetUserData', request, SetUserDataResponse())
+  ;
+  $async.Future<RemoveUserDataResponse> removeUserData($pb.ClientContext? ctx, RemoveUserDataRequest request) =>
+    _client.invoke<RemoveUserDataResponse>(ctx, 'WalletService', 'RemoveUserData', request, RemoveUserDataResponse())
+  ;
+  $async.Future<RevokeAccessResponse> revokeAccess($pb.ClientContext? ctx, RevokeAccessRequest request) =>
+    _client.invoke<RevokeAccessResponse>(ctx, 'WalletService', 'RevokeAccess', request, RevokeAccessResponse())
+  ;
+  $async.Future<RemoveAllUserDataResponse> removeAllUserData($pb.ClientContext? ctx, RemoveAllUserDataRequest request) =>
+    _client.invoke<RemoveAllUserDataResponse>(ctx, 'WalletService', 'RemoveAllUserData', request, RemoveAllUserDataResponse())
+  ;
+  $async.Future<GetUserDataResponse> getUserData($pb.ClientContext? ctx, GetUserDataRequest request) =>
+    _client.invoke<GetUserDataResponse>(ctx, 'WalletService', 'GetUserData', request, GetUserDataResponse())
+  ;
+  $async.Future<CheckAccessResponse> checkAccess($pb.ClientContext? ctx, CheckAccessRequest request) =>
+    _client.invoke<CheckAccessResponse>(ctx, 'WalletService', 'CheckAccess', request, CheckAccessResponse())
+  ;
+  $async.Future<GetKycStatusResponse> getKycStatus($pb.ClientContext? ctx, GetKycStatusRequest request) =>
+    _client.invoke<GetKycStatusResponse>(ctx, 'WalletService', 'GetKycStatus', request, GetKycStatusResponse())
+  ;
+  $async.Future<GetWalletProofResponse> getWalletProof($pb.ClientContext? ctx, GetWalletProofRequest request) =>
+    _client.invoke<GetWalletProofResponse>(ctx, 'WalletService', 'GetWalletProof', request, GetWalletProofResponse())
+  ;
+  $async.Future<GetSeedMessageResponse> getSeedMessage($pb.ClientContext? ctx, GetSeedMessageRequest request) =>
+    _client.invoke<GetSeedMessageResponse>(ctx, 'WalletService', 'GetSeedMessage', request, GetSeedMessageResponse())
+  ;
 }
 
 

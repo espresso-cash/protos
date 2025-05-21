@@ -9,6 +9,7 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
+import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
@@ -261,6 +262,18 @@ class SumsubCheckStatusResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SumsubCheckStatusResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SumsubCheckStatusResponse>(create);
   static SumsubCheckStatusResponse? _defaultInstance;
+}
+
+class ManageServiceApi {
+  $pb.RpcClient _client;
+  ManageServiceApi(this._client);
+
+  $async.Future<SmileIdCheckStatusResponse> smileIdCheckStatus($pb.ClientContext? ctx, SmileIdCheckStatusRequest request) =>
+    _client.invoke<SmileIdCheckStatusResponse>(ctx, 'ManageService', 'SmileIdCheckStatus', request, SmileIdCheckStatusResponse())
+  ;
+  $async.Future<SumsubCheckStatusResponse> sumsubCheckStatus($pb.ClientContext? ctx, SumsubCheckStatusRequest request) =>
+    _client.invoke<SumsubCheckStatusResponse>(ctx, 'ManageService', 'SumsubCheckStatus', request, SumsubCheckStatusResponse())
+  ;
 }
 
 

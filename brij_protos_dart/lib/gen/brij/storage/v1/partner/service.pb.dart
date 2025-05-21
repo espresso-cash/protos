@@ -9,14 +9,15 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
+import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../common/kyc_item.pbenum.dart' as $19;
-import '../common/user_data_field.pb.dart' as $17;
-import '../common/validation_data_field.pb.dart' as $18;
-import '../common/validation_status.pbenum.dart' as $16;
+import '../common/kyc_item.pbenum.dart' as $9;
+import '../common/user_data_field.pb.dart' as $7;
+import '../common/validation_data_field.pb.dart' as $8;
+import '../common/validation_status.pbenum.dart' as $6;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -214,8 +215,8 @@ class GetUserDataRequest extends $pb.GeneratedMessage {
 
 class GetUserDataResponse extends $pb.GeneratedMessage {
   factory GetUserDataResponse({
-    $core.Iterable<$17.UserDataField>? userData,
-    $core.Iterable<$18.ValidationDataField>? validationData,
+    $core.Iterable<$7.UserDataField>? userData,
+    $core.Iterable<$8.ValidationDataField>? validationData,
   }) {
     final $result = create();
     if (userData != null) {
@@ -231,8 +232,8 @@ class GetUserDataResponse extends $pb.GeneratedMessage {
   factory GetUserDataResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserDataResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.partner'), createEmptyInstance: create)
-    ..pc<$17.UserDataField>(1, _omitFieldNames ? '' : 'userData', $pb.PbFieldType.PM, subBuilder: $17.UserDataField.create)
-    ..pc<$18.ValidationDataField>(2, _omitFieldNames ? '' : 'validationData', $pb.PbFieldType.PM, subBuilder: $18.ValidationDataField.create)
+    ..pc<$7.UserDataField>(1, _omitFieldNames ? '' : 'userData', $pb.PbFieldType.PM, subBuilder: $7.UserDataField.create)
+    ..pc<$8.ValidationDataField>(2, _omitFieldNames ? '' : 'validationData', $pb.PbFieldType.PM, subBuilder: $8.ValidationDataField.create)
     ..hasRequiredFields = false
   ;
 
@@ -258,16 +259,16 @@ class GetUserDataResponse extends $pb.GeneratedMessage {
   static GetUserDataResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $pb.PbList<$17.UserDataField> get userData => $_getList(0);
+  $pb.PbList<$7.UserDataField> get userData => $_getList(0);
 
   @$pb.TagNumber(2)
-  $pb.PbList<$18.ValidationDataField> get validationData => $_getList(1);
+  $pb.PbList<$8.ValidationDataField> get validationData => $_getList(1);
 }
 
 class SetValidationDataRequest extends $pb.GeneratedMessage {
   factory SetValidationDataRequest({
     $core.String? dataId,
-    $16.ValidationStatus? status,
+    $6.ValidationStatus? status,
     $core.String? hash,
     $core.String? signature,
   }) {
@@ -292,7 +293,7 @@ class SetValidationDataRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetValidationDataRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.partner'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'dataId')
-    ..e<$16.ValidationStatus>(2, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: $16.ValidationStatus.VALIDATION_STATUS_UNSPECIFIED, valueOf: $16.ValidationStatus.valueOf, enumValues: $16.ValidationStatus.values)
+    ..e<$6.ValidationStatus>(2, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: $6.ValidationStatus.VALIDATION_STATUS_UNSPECIFIED, valueOf: $6.ValidationStatus.valueOf, enumValues: $6.ValidationStatus.values)
     ..aOS(3, _omitFieldNames ? '' : 'hash')
     ..aOS(4, _omitFieldNames ? '' : 'signature')
     ..hasRequiredFields = false
@@ -329,9 +330,9 @@ class SetValidationDataRequest extends $pb.GeneratedMessage {
   void clearDataId() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $16.ValidationStatus get status => $_getN(1);
+  $6.ValidationStatus get status => $_getN(1);
   @$pb.TagNumber(2)
-  set status($16.ValidationStatus v) { $_setField(2, v); }
+  set status($6.ValidationStatus v) { $_setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasStatus() => $_has(1);
   @$pb.TagNumber(2)
@@ -550,7 +551,7 @@ class GetKycStatusRequest extends $pb.GeneratedMessage {
 
 class GetKycStatusResponse extends $pb.GeneratedMessage {
   factory GetKycStatusResponse({
-    $19.KycStatus? status,
+    $9.KycStatus? status,
     $core.List<$core.int>? data,
     $core.List<$core.int>? signature,
   }) {
@@ -571,7 +572,7 @@ class GetKycStatusResponse extends $pb.GeneratedMessage {
   factory GetKycStatusResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetKycStatusResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.partner'), createEmptyInstance: create)
-    ..e<$19.KycStatus>(1, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: $19.KycStatus.KYC_STATUS_UNSPECIFIED, valueOf: $19.KycStatus.valueOf, enumValues: $19.KycStatus.values)
+    ..e<$9.KycStatus>(1, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: $9.KycStatus.KYC_STATUS_UNSPECIFIED, valueOf: $9.KycStatus.valueOf, enumValues: $9.KycStatus.values)
     ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
     ..a<$core.List<$core.int>>(3, _omitFieldNames ? '' : 'signature', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
@@ -599,9 +600,9 @@ class GetKycStatusResponse extends $pb.GeneratedMessage {
   static GetKycStatusResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $19.KycStatus get status => $_getN(0);
+  $9.KycStatus get status => $_getN(0);
   @$pb.TagNumber(1)
-  set status($19.KycStatus v) { $_setField(1, v); }
+  set status($9.KycStatus v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasStatus() => $_has(0);
   @$pb.TagNumber(1)
@@ -848,6 +849,33 @@ class UpdateKycStatusResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static UpdateKycStatusResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateKycStatusResponse>(create);
   static UpdateKycStatusResponse? _defaultInstance;
+}
+
+class PartnerServiceApi {
+  $pb.RpcClient _client;
+  PartnerServiceApi(this._client);
+
+  $async.Future<GetInfoResponse> getInfo($pb.ClientContext? ctx, GetInfoRequest request) =>
+    _client.invoke<GetInfoResponse>(ctx, 'PartnerService', 'GetInfo', request, GetInfoResponse())
+  ;
+  $async.Future<GetUserDataResponse> getUserData($pb.ClientContext? ctx, GetUserDataRequest request) =>
+    _client.invoke<GetUserDataResponse>(ctx, 'PartnerService', 'GetUserData', request, GetUserDataResponse())
+  ;
+  $async.Future<SetValidationDataResponse> setValidationData($pb.ClientContext? ctx, SetValidationDataRequest request) =>
+    _client.invoke<SetValidationDataResponse>(ctx, 'PartnerService', 'SetValidationData', request, SetValidationDataResponse())
+  ;
+  $async.Future<RemoveValidationDataResponse> removeValidationData($pb.ClientContext? ctx, RemoveValidationDataRequest request) =>
+    _client.invoke<RemoveValidationDataResponse>(ctx, 'PartnerService', 'RemoveValidationData', request, RemoveValidationDataResponse())
+  ;
+  $async.Future<GetKycStatusResponse> getKycStatus($pb.ClientContext? ctx, GetKycStatusRequest request) =>
+    _client.invoke<GetKycStatusResponse>(ctx, 'PartnerService', 'GetKycStatus', request, GetKycStatusResponse())
+  ;
+  $async.Future<CreateKycStatusResponse> createKycStatus($pb.ClientContext? ctx, CreateKycStatusRequest request) =>
+    _client.invoke<CreateKycStatusResponse>(ctx, 'PartnerService', 'CreateKycStatus', request, CreateKycStatusResponse())
+  ;
+  $async.Future<UpdateKycStatusResponse> updateKycStatus($pb.ClientContext? ctx, UpdateKycStatusRequest request) =>
+    _client.invoke<UpdateKycStatusResponse>(ctx, 'PartnerService', 'UpdateKycStatus', request, UpdateKycStatusResponse())
+  ;
 }
 
 

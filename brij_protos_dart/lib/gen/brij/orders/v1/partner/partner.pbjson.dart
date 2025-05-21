@@ -285,3 +285,63 @@ final $typed_data.Uint8List generateTransactionResponseDescriptor = $convert.bas
     'ChtHZW5lcmF0ZVRyYW5zYWN0aW9uUmVzcG9uc2USIAoLdHJhbnNhY3Rpb24YASABKAlSC3RyYW'
     '5zYWN0aW9u');
 
+const $core.Map<$core.String, $core.dynamic> PartnerServiceBase$json = {
+  '1': 'PartnerService',
+  '2': [
+    {'1': 'GetOrder', '2': '.brij.orders.v1.partner.GetOrderRequest', '3': '.brij.orders.v1.partner.GetOrderResponse', '4': {}},
+    {'1': 'AcceptOrder', '2': '.brij.orders.v1.partner.AcceptOrderRequest', '3': '.brij.orders.v1.partner.AcceptOrderResponse', '4': {}},
+    {'1': 'RejectOrder', '2': '.brij.orders.v1.partner.RejectOrderRequest', '3': '.brij.orders.v1.partner.RejectOrderResponse', '4': {}},
+    {'1': 'CompleteOrder', '2': '.brij.orders.v1.partner.CompleteOrderRequest', '3': '.brij.orders.v1.partner.CompleteOrderResponse', '4': {}},
+    {'1': 'FailOrder', '2': '.brij.orders.v1.partner.FailOrderRequest', '3': '.brij.orders.v1.partner.FailOrderResponse', '4': {}},
+    {'1': 'GetOrders', '2': '.brij.orders.v1.partner.GetOrdersRequest', '3': '.brij.orders.v1.partner.GetOrdersResponse', '4': {}},
+    {'1': 'UpdateFees', '2': '.brij.orders.v1.partner.UpdateFeesRequest', '3': '.brij.orders.v1.partner.UpdateFeesResponse', '4': {}},
+    {'1': 'GenerateTransaction', '2': '.brij.orders.v1.partner.GenerateTransactionRequest', '3': '.brij.orders.v1.partner.GenerateTransactionResponse', '4': {}},
+  ],
+};
+
+@$core.Deprecated('Use partnerServiceDescriptor instead')
+const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> PartnerServiceBase$messageJson = {
+  '.brij.orders.v1.partner.GetOrderRequest': GetOrderRequest$json,
+  '.brij.orders.v1.partner.GetOrderResponse': GetOrderResponse$json,
+  '.brij.orders.v1.partner.AcceptOrderRequest': AcceptOrderRequest$json,
+  '.brij.orders.v1.partner.AcceptOrderResponse': AcceptOrderResponse$json,
+  '.brij.orders.v1.partner.RejectOrderRequest': RejectOrderRequest$json,
+  '.brij.orders.v1.partner.RejectOrderResponse': RejectOrderResponse$json,
+  '.brij.orders.v1.partner.CompleteOrderRequest': CompleteOrderRequest$json,
+  '.brij.orders.v1.partner.CompleteOrderResponse': CompleteOrderResponse$json,
+  '.brij.orders.v1.partner.FailOrderRequest': FailOrderRequest$json,
+  '.brij.orders.v1.partner.FailOrderResponse': FailOrderResponse$json,
+  '.brij.orders.v1.partner.GetOrdersRequest': GetOrdersRequest$json,
+  '.brij.orders.v1.partner.GetOrdersResponse': GetOrdersResponse$json,
+  '.brij.orders.v1.partner.UpdateFeesRequest': UpdateFeesRequest$json,
+  '.brij.orders.v1.partner.RampFeeUpdateData': RampFeeUpdateData$json,
+  '.brij.orders.v1.partner.ConversionRate': ConversionRate$json,
+  '.brij.orders.v1.partner.UpdateFeesResponse': UpdateFeesResponse$json,
+  '.brij.orders.v1.partner.GenerateTransactionRequest': GenerateTransactionRequest$json,
+  '.brij.orders.v1.partner.GenerateTransactionResponse': GenerateTransactionResponse$json,
+};
+
+/// Descriptor for `PartnerService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
+final $typed_data.Uint8List partnerServiceDescriptor = $convert.base64Decode(
+    'Cg5QYXJ0bmVyU2VydmljZRJ7CghHZXRPcmRlchInLmJyaWoub3JkZXJzLnYxLnBhcnRuZXIuR2'
+    'V0T3JkZXJSZXF1ZXN0GiguYnJpai5vcmRlcnMudjEucGFydG5lci5HZXRPcmRlclJlc3BvbnNl'
+    'IhyC0+STAhYiFC92MS9wYXJ0bmVyL2dldE9yZGVyEocBCgtBY2NlcHRPcmRlchIqLmJyaWoub3'
+    'JkZXJzLnYxLnBhcnRuZXIuQWNjZXB0T3JkZXJSZXF1ZXN0GisuYnJpai5vcmRlcnMudjEucGFy'
+    'dG5lci5BY2NlcHRPcmRlclJlc3BvbnNlIh+C0+STAhkiFy92MS9wYXJ0bmVyL2FjY2VwdE9yZG'
+    'VyEocBCgtSZWplY3RPcmRlchIqLmJyaWoub3JkZXJzLnYxLnBhcnRuZXIuUmVqZWN0T3JkZXJS'
+    'ZXF1ZXN0GisuYnJpai5vcmRlcnMudjEucGFydG5lci5SZWplY3RPcmRlclJlc3BvbnNlIh+C0+'
+    'STAhkiFy92MS9wYXJ0bmVyL3JlamVjdE9yZGVyEo8BCg1Db21wbGV0ZU9yZGVyEiwuYnJpai5v'
+    'cmRlcnMudjEucGFydG5lci5Db21wbGV0ZU9yZGVyUmVxdWVzdBotLmJyaWoub3JkZXJzLnYxLn'
+    'BhcnRuZXIuQ29tcGxldGVPcmRlclJlc3BvbnNlIiGC0+STAhsiGS92MS9wYXJ0bmVyL2NvbXBs'
+    'ZXRlT3JkZXISfwoJRmFpbE9yZGVyEiguYnJpai5vcmRlcnMudjEucGFydG5lci5GYWlsT3JkZX'
+    'JSZXF1ZXN0GikuYnJpai5vcmRlcnMudjEucGFydG5lci5GYWlsT3JkZXJSZXNwb25zZSIdgtPk'
+    'kwIXIhUvdjEvcGFydG5lci9mYWlsT3JkZXISfwoJR2V0T3JkZXJzEiguYnJpai5vcmRlcnMudj'
+    'EucGFydG5lci5HZXRPcmRlcnNSZXF1ZXN0GikuYnJpai5vcmRlcnMudjEucGFydG5lci5HZXRP'
+    'cmRlcnNSZXNwb25zZSIdgtPkkwIXIhUvdjEvcGFydG5lci9nZXRPcmRlcnMSgwEKClVwZGF0ZU'
+    'ZlZXMSKS5icmlqLm9yZGVycy52MS5wYXJ0bmVyLlVwZGF0ZUZlZXNSZXF1ZXN0GiouYnJpai5v'
+    'cmRlcnMudjEucGFydG5lci5VcGRhdGVGZWVzUmVzcG9uc2UiHoLT5JMCGCIWL3YxL3BhcnRuZX'
+    'IvdXBkYXRlRmVlcxKnAQoTR2VuZXJhdGVUcmFuc2FjdGlvbhIyLmJyaWoub3JkZXJzLnYxLnBh'
+    'cnRuZXIuR2VuZXJhdGVUcmFuc2FjdGlvblJlcXVlc3QaMy5icmlqLm9yZGVycy52MS5wYXJ0bm'
+    'VyLkdlbmVyYXRlVHJhbnNhY3Rpb25SZXNwb25zZSIngtPkkwIhIh8vdjEvcGFydG5lci9nZW5l'
+    'cmF0ZVRyYW5zYWN0aW9u');
+

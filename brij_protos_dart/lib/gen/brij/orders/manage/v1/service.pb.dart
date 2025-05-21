@@ -9,6 +9,7 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
+import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
@@ -173,6 +174,18 @@ class CheckStaleOrdersResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CheckStaleOrdersResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CheckStaleOrdersResponse>(create);
   static CheckStaleOrdersResponse? _defaultInstance;
+}
+
+class ManageServiceApi {
+  $pb.RpcClient _client;
+  ManageServiceApi(this._client);
+
+  $async.Future<NotifyPartnerResponse> notifyPartner($pb.ClientContext? ctx, NotifyPartnerRequest request) =>
+    _client.invoke<NotifyPartnerResponse>(ctx, 'ManageService', 'NotifyPartner', request, NotifyPartnerResponse())
+  ;
+  $async.Future<CheckStaleOrdersResponse> checkStaleOrders($pb.ClientContext? ctx, CheckStaleOrdersRequest request) =>
+    _client.invoke<CheckStaleOrdersResponse>(ctx, 'ManageService', 'CheckStaleOrders', request, CheckStaleOrdersResponse())
+  ;
 }
 
 

@@ -9,6 +9,7 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
+import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
@@ -323,6 +324,18 @@ class SumsubResultResponse extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static SumsubResultResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SumsubResultResponse>(create);
   static SumsubResultResponse? _defaultInstance;
+}
+
+class HooksServiceApi {
+  $pb.RpcClient _client;
+  HooksServiceApi(this._client);
+
+  $async.Future<SmileIdResultResponse> smileIdResult($pb.ClientContext? ctx, SmileIdResultRequest request) =>
+    _client.invoke<SmileIdResultResponse>(ctx, 'HooksService', 'SmileIdResult', request, SmileIdResultResponse())
+  ;
+  $async.Future<SumsubResultResponse> sumsubResult($pb.ClientContext? ctx, SumsubResultRequest request) =>
+    _client.invoke<SumsubResultResponse>(ctx, 'HooksService', 'SumsubResult', request, SumsubResultResponse())
+  ;
 }
 
 

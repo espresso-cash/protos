@@ -13,7 +13,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../../google/protobuf/timestamp.pb.dart' as $14;
+import '../../../../google/protobuf/timestamp.pb.dart' as $4;
 import 'data.pbenum.dart';
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
@@ -86,7 +86,7 @@ class Name extends $pb.GeneratedMessage {
 
 class BirthDate extends $pb.GeneratedMessage {
   factory BirthDate({
-    $14.Timestamp? value,
+    $4.Timestamp? value,
   }) {
     final $result = create();
     if (value != null) {
@@ -99,7 +99,7 @@ class BirthDate extends $pb.GeneratedMessage {
   factory BirthDate.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BirthDate', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.common'), createEmptyInstance: create)
-    ..aOM<$14.Timestamp>(1, _omitFieldNames ? '' : 'value', subBuilder: $14.Timestamp.create)
+    ..aOM<$4.Timestamp>(1, _omitFieldNames ? '' : 'value', subBuilder: $4.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -125,15 +125,15 @@ class BirthDate extends $pb.GeneratedMessage {
   static BirthDate? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $14.Timestamp get value => $_getN(0);
+  $4.Timestamp get value => $_getN(0);
   @$pb.TagNumber(1)
-  set value($14.Timestamp v) { $_setField(1, v); }
+  set value($4.Timestamp v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasValue() => $_has(0);
   @$pb.TagNumber(1)
   void clearValue() => $_clearField(1);
   @$pb.TagNumber(1)
-  $14.Timestamp ensureValue() => $_ensure(0);
+  $4.Timestamp ensureValue() => $_ensure(0);
 }
 
 class Document extends $pb.GeneratedMessage {
@@ -141,7 +141,7 @@ class Document extends $pb.GeneratedMessage {
     DocumentType? type,
     $core.String? number,
     $core.String? countryCode,
-    $14.Timestamp? expirationDate,
+    $4.Timestamp? expirationDate,
     DocumentPhoto? photo,
   }) {
     final $result = create();
@@ -170,7 +170,7 @@ class Document extends $pb.GeneratedMessage {
     ..e<DocumentType>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: DocumentType.DOCUMENT_TYPE_UNSPECIFIED, valueOf: DocumentType.valueOf, enumValues: DocumentType.values)
     ..aOS(2, _omitFieldNames ? '' : 'number')
     ..aOS(3, _omitFieldNames ? '' : 'countryCode')
-    ..aOM<$14.Timestamp>(4, _omitFieldNames ? '' : 'expirationDate', subBuilder: $14.Timestamp.create)
+    ..aOM<$4.Timestamp>(4, _omitFieldNames ? '' : 'expirationDate', subBuilder: $4.Timestamp.create)
     ..aOM<DocumentPhoto>(5, _omitFieldNames ? '' : 'photo', subBuilder: DocumentPhoto.create)
     ..hasRequiredFields = false
   ;
@@ -224,15 +224,15 @@ class Document extends $pb.GeneratedMessage {
   void clearCountryCode() => $_clearField(3);
 
   @$pb.TagNumber(4)
-  $14.Timestamp get expirationDate => $_getN(3);
+  $4.Timestamp get expirationDate => $_getN(3);
   @$pb.TagNumber(4)
-  set expirationDate($14.Timestamp v) { $_setField(4, v); }
+  set expirationDate($4.Timestamp v) { $_setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasExpirationDate() => $_has(3);
   @$pb.TagNumber(4)
   void clearExpirationDate() => $_clearField(4);
   @$pb.TagNumber(4)
-  $14.Timestamp ensureExpirationDate() => $_ensure(3);
+  $4.Timestamp ensureExpirationDate() => $_ensure(3);
 
   @$pb.TagNumber(5)
   DocumentPhoto get photo => $_getN(4);

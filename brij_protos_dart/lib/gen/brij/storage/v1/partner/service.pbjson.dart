@@ -13,6 +13,10 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+import '../../../../google/protobuf/timestamp.pbjson.dart' as $4;
+import '../common/user_data_field.pbjson.dart' as $7;
+import '../common/validation_data_field.pbjson.dart' as $8;
+
 @$core.Deprecated('Use getInfoRequestDescriptor instead')
 const GetInfoRequest$json = {
   '1': 'GetInfoRequest',
@@ -200,4 +204,61 @@ const UpdateKycStatusResponse$json = {
 /// Descriptor for `UpdateKycStatusResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateKycStatusResponseDescriptor = $convert.base64Decode(
     'ChdVcGRhdGVLeWNTdGF0dXNSZXNwb25zZQ==');
+
+const $core.Map<$core.String, $core.dynamic> PartnerServiceBase$json = {
+  '1': 'PartnerService',
+  '2': [
+    {'1': 'GetInfo', '2': '.brij.storage.v1.partner.GetInfoRequest', '3': '.brij.storage.v1.partner.GetInfoResponse', '4': {}},
+    {'1': 'GetUserData', '2': '.brij.storage.v1.partner.GetUserDataRequest', '3': '.brij.storage.v1.partner.GetUserDataResponse', '4': {}},
+    {'1': 'SetValidationData', '2': '.brij.storage.v1.partner.SetValidationDataRequest', '3': '.brij.storage.v1.partner.SetValidationDataResponse', '4': {}},
+    {'1': 'RemoveValidationData', '2': '.brij.storage.v1.partner.RemoveValidationDataRequest', '3': '.brij.storage.v1.partner.RemoveValidationDataResponse', '4': {}},
+    {'1': 'GetKycStatus', '2': '.brij.storage.v1.partner.GetKycStatusRequest', '3': '.brij.storage.v1.partner.GetKycStatusResponse', '4': {}},
+    {'1': 'CreateKycStatus', '2': '.brij.storage.v1.partner.CreateKycStatusRequest', '3': '.brij.storage.v1.partner.CreateKycStatusResponse', '4': {}},
+    {'1': 'UpdateKycStatus', '2': '.brij.storage.v1.partner.UpdateKycStatusRequest', '3': '.brij.storage.v1.partner.UpdateKycStatusResponse', '4': {}},
+  ],
+};
+
+@$core.Deprecated('Use partnerServiceDescriptor instead')
+const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> PartnerServiceBase$messageJson = {
+  '.brij.storage.v1.partner.GetInfoRequest': GetInfoRequest$json,
+  '.brij.storage.v1.partner.GetInfoResponse': GetInfoResponse$json,
+  '.brij.storage.v1.partner.GetUserDataRequest': GetUserDataRequest$json,
+  '.brij.storage.v1.partner.GetUserDataResponse': GetUserDataResponse$json,
+  '.brij.storage.v1.common.UserDataField': $7.UserDataField$json,
+  '.google.protobuf.Timestamp': $4.Timestamp$json,
+  '.brij.storage.v1.common.ValidationDataField': $8.ValidationDataField$json,
+  '.brij.storage.v1.partner.SetValidationDataRequest': SetValidationDataRequest$json,
+  '.brij.storage.v1.partner.SetValidationDataResponse': SetValidationDataResponse$json,
+  '.brij.storage.v1.partner.RemoveValidationDataRequest': RemoveValidationDataRequest$json,
+  '.brij.storage.v1.partner.RemoveValidationDataResponse': RemoveValidationDataResponse$json,
+  '.brij.storage.v1.partner.GetKycStatusRequest': GetKycStatusRequest$json,
+  '.brij.storage.v1.partner.GetKycStatusResponse': GetKycStatusResponse$json,
+  '.brij.storage.v1.partner.CreateKycStatusRequest': CreateKycStatusRequest$json,
+  '.brij.storage.v1.partner.CreateKycStatusResponse': CreateKycStatusResponse$json,
+  '.brij.storage.v1.partner.UpdateKycStatusRequest': UpdateKycStatusRequest$json,
+  '.brij.storage.v1.partner.UpdateKycStatusResponse': UpdateKycStatusResponse$json,
+};
+
+/// Descriptor for `PartnerService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
+final $typed_data.Uint8List partnerServiceDescriptor = $convert.base64Decode(
+    'Cg5QYXJ0bmVyU2VydmljZRJ5CgdHZXRJbmZvEicuYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuR2'
+    'V0SW5mb1JlcXVlc3QaKC5icmlqLnN0b3JhZ2UudjEucGFydG5lci5HZXRJbmZvUmVzcG9uc2Ui'
+    'G4LT5JMCFSITL3YxL3BhcnRuZXIvZ2V0SW5mbxKJAQoLR2V0VXNlckRhdGESKy5icmlqLnN0b3'
+    'JhZ2UudjEucGFydG5lci5HZXRVc2VyRGF0YVJlcXVlc3QaLC5icmlqLnN0b3JhZ2UudjEucGFy'
+    'dG5lci5HZXRVc2VyRGF0YVJlc3BvbnNlIh+C0+STAhkiFy92MS9wYXJ0bmVyL2dldFVzZXJEYX'
+    'RhEqEBChFTZXRWYWxpZGF0aW9uRGF0YRIxLmJyaWouc3RvcmFnZS52MS5wYXJ0bmVyLlNldFZh'
+    'bGlkYXRpb25EYXRhUmVxdWVzdBoyLmJyaWouc3RvcmFnZS52MS5wYXJ0bmVyLlNldFZhbGlkYX'
+    'Rpb25EYXRhUmVzcG9uc2UiJYLT5JMCHyIdL3YxL3BhcnRuZXIvc2V0VmFsaWRhdGlvbkRhdGES'
+    'rQEKFFJlbW92ZVZhbGlkYXRpb25EYXRhEjQuYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuUmVtb3'
+    'ZlVmFsaWRhdGlvbkRhdGFSZXF1ZXN0GjUuYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuUmVtb3Zl'
+    'VmFsaWRhdGlvbkRhdGFSZXNwb25zZSIogtPkkwIiIiAvdjEvcGFydG5lci9yZW1vdmVWYWxpZG'
+    'F0aW9uRGF0YRKNAQoMR2V0S3ljU3RhdHVzEiwuYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuR2V0'
+    'S3ljU3RhdHVzUmVxdWVzdBotLmJyaWouc3RvcmFnZS52MS5wYXJ0bmVyLkdldEt5Y1N0YXR1c1'
+    'Jlc3BvbnNlIiCC0+STAhoiGC92MS9wYXJ0bmVyL2dldEt5Y1N0YXR1cxKZAQoPQ3JlYXRlS3lj'
+    'U3RhdHVzEi8uYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuQ3JlYXRlS3ljU3RhdHVzUmVxdWVzdB'
+    'owLmJyaWouc3RvcmFnZS52MS5wYXJ0bmVyLkNyZWF0ZUt5Y1N0YXR1c1Jlc3BvbnNlIiOC0+ST'
+    'Ah0iGy92MS9wYXJ0bmVyL2NyZWF0ZUt5Y1N0YXR1cxKZAQoPVXBkYXRlS3ljU3RhdHVzEi8uYn'
+    'Jpai5zdG9yYWdlLnYxLnBhcnRuZXIuVXBkYXRlS3ljU3RhdHVzUmVxdWVzdBowLmJyaWouc3Rv'
+    'cmFnZS52MS5wYXJ0bmVyLlVwZGF0ZUt5Y1N0YXR1c1Jlc3BvbnNlIiOC0+STAh0iGy92MS9wYX'
+    'J0bmVyL3VwZGF0ZUt5Y1N0YXR1cw==');
 
