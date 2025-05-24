@@ -7,7 +7,6 @@
 package v1
 
 import (
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -25,14 +24,14 @@ var File_brij_verifier_v1_service_proto protoreflect.FileDescriptor
 
 const file_brij_verifier_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"\x1ebrij/verifier/v1/service.proto\x12\x10brij.verifier.v1\x1a+brij/verifier/v1/get_kyc_requirements.proto\x1a,brij/verifier/v1/init_email_validation.proto\x1a,brij/verifier/v1/init_phone_validation.proto\x1a brij/verifier/v1/start_kyc.proto\x1a%brij/verifier/v1/validate_email.proto\x1a%brij/verifier/v1/validate_phone.proto\x1a\x1cgoogle/api/annotations.proto2\xb2\x06\n" +
-	"\x0fVerifierService\x12\x93\x01\n" +
-	"\x13InitEmailValidation\x12,.brij.verifier.v1.InitEmailValidationRequest\x1a-.brij.verifier.v1.InitEmailValidationResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x17/v1/initEmailValidation\x12{\n" +
-	"\rValidateEmail\x12&.brij.verifier.v1.ValidateEmailRequest\x1a'.brij.verifier.v1.ValidateEmailResponse\"\x19\x82\xd3\xe4\x93\x02\x13\"\x11/v1/validateEmail\x12\x93\x01\n" +
-	"\x13InitPhoneValidation\x12,.brij.verifier.v1.InitPhoneValidationRequest\x1a-.brij.verifier.v1.InitPhoneValidationResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x17/v1/initPhoneValidation\x12{\n" +
-	"\rValidatePhone\x12&.brij.verifier.v1.ValidatePhoneRequest\x1a'.brij.verifier.v1.ValidatePhoneResponse\"\x19\x82\xd3\xe4\x93\x02\x13\"\x11/v1/validatePhone\x12g\n" +
-	"\bStartKyc\x12!.brij.verifier.v1.StartKycRequest\x1a\".brij.verifier.v1.StartKycResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\"\f/v1/startKyc\x12\x8f\x01\n" +
-	"\x12GetKycRequirements\x12+.brij.verifier.v1.GetKycRequirementsRequest\x1a,.brij.verifier.v1.GetKycRequirementsResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x16/v1/getKycRequirementsB$Z\"go.brij.fi/protos/brij/verifier/v1b\x06proto3"
+	"\x1ebrij/verifier/v1/service.proto\x12\x10brij.verifier.v1\x1a+brij/verifier/v1/get_kyc_requirements.proto\x1a,brij/verifier/v1/init_email_validation.proto\x1a,brij/verifier/v1/init_phone_validation.proto\x1a brij/verifier/v1/start_kyc.proto\x1a%brij/verifier/v1/validate_email.proto\x1a%brij/verifier/v1/validate_phone.proto2\x81\x05\n" +
+	"\x0fVerifierService\x12r\n" +
+	"\x13InitEmailValidation\x12,.brij.verifier.v1.InitEmailValidationRequest\x1a-.brij.verifier.v1.InitEmailValidationResponse\x12`\n" +
+	"\rValidateEmail\x12&.brij.verifier.v1.ValidateEmailRequest\x1a'.brij.verifier.v1.ValidateEmailResponse\x12r\n" +
+	"\x13InitPhoneValidation\x12,.brij.verifier.v1.InitPhoneValidationRequest\x1a-.brij.verifier.v1.InitPhoneValidationResponse\x12`\n" +
+	"\rValidatePhone\x12&.brij.verifier.v1.ValidatePhoneRequest\x1a'.brij.verifier.v1.ValidatePhoneResponse\x12Q\n" +
+	"\bStartKyc\x12!.brij.verifier.v1.StartKycRequest\x1a\".brij.verifier.v1.StartKycResponse\x12o\n" +
+	"\x12GetKycRequirements\x12+.brij.verifier.v1.GetKycRequirementsRequest\x1a,.brij.verifier.v1.GetKycRequirementsResponseB$Z\"go.brij.fi/protos/brij/verifier/v1b\x06proto3"
 
 var file_brij_verifier_v1_service_proto_goTypes = []any{
 	(*InitEmailValidationRequest)(nil),  // 0: brij.verifier.v1.InitEmailValidationRequest

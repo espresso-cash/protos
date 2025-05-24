@@ -208,13 +208,13 @@ final $typed_data.Uint8List updateKycStatusResponseDescriptor = $convert.base64D
 const $core.Map<$core.String, $core.dynamic> PartnerServiceBase$json = {
   '1': 'PartnerService',
   '2': [
-    {'1': 'GetInfo', '2': '.brij.storage.v1.partner.GetInfoRequest', '3': '.brij.storage.v1.partner.GetInfoResponse', '4': {}},
-    {'1': 'GetUserData', '2': '.brij.storage.v1.partner.GetUserDataRequest', '3': '.brij.storage.v1.partner.GetUserDataResponse', '4': {}},
-    {'1': 'SetValidationData', '2': '.brij.storage.v1.partner.SetValidationDataRequest', '3': '.brij.storage.v1.partner.SetValidationDataResponse', '4': {}},
-    {'1': 'RemoveValidationData', '2': '.brij.storage.v1.partner.RemoveValidationDataRequest', '3': '.brij.storage.v1.partner.RemoveValidationDataResponse', '4': {}},
-    {'1': 'GetKycStatus', '2': '.brij.storage.v1.partner.GetKycStatusRequest', '3': '.brij.storage.v1.partner.GetKycStatusResponse', '4': {}},
-    {'1': 'CreateKycStatus', '2': '.brij.storage.v1.partner.CreateKycStatusRequest', '3': '.brij.storage.v1.partner.CreateKycStatusResponse', '4': {}},
-    {'1': 'UpdateKycStatus', '2': '.brij.storage.v1.partner.UpdateKycStatusRequest', '3': '.brij.storage.v1.partner.UpdateKycStatusResponse', '4': {}},
+    {'1': 'GetInfo', '2': '.brij.storage.v1.partner.GetInfoRequest', '3': '.brij.storage.v1.partner.GetInfoResponse'},
+    {'1': 'GetUserData', '2': '.brij.storage.v1.partner.GetUserDataRequest', '3': '.brij.storage.v1.partner.GetUserDataResponse'},
+    {'1': 'SetValidationData', '2': '.brij.storage.v1.partner.SetValidationDataRequest', '3': '.brij.storage.v1.partner.SetValidationDataResponse'},
+    {'1': 'RemoveValidationData', '2': '.brij.storage.v1.partner.RemoveValidationDataRequest', '3': '.brij.storage.v1.partner.RemoveValidationDataResponse'},
+    {'1': 'GetKycStatus', '2': '.brij.storage.v1.partner.GetKycStatusRequest', '3': '.brij.storage.v1.partner.GetKycStatusResponse'},
+    {'1': 'CreateKycStatus', '2': '.brij.storage.v1.partner.CreateKycStatusRequest', '3': '.brij.storage.v1.partner.CreateKycStatusResponse'},
+    {'1': 'UpdateKycStatus', '2': '.brij.storage.v1.partner.UpdateKycStatusRequest', '3': '.brij.storage.v1.partner.UpdateKycStatusResponse'},
   ],
 };
 
@@ -241,24 +241,19 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> PartnerSer
 
 /// Descriptor for `PartnerService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List partnerServiceDescriptor = $convert.base64Decode(
-    'Cg5QYXJ0bmVyU2VydmljZRJ5CgdHZXRJbmZvEicuYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuR2'
-    'V0SW5mb1JlcXVlc3QaKC5icmlqLnN0b3JhZ2UudjEucGFydG5lci5HZXRJbmZvUmVzcG9uc2Ui'
-    'G4LT5JMCFSITL3YxL3BhcnRuZXIvZ2V0SW5mbxKJAQoLR2V0VXNlckRhdGESKy5icmlqLnN0b3'
-    'JhZ2UudjEucGFydG5lci5HZXRVc2VyRGF0YVJlcXVlc3QaLC5icmlqLnN0b3JhZ2UudjEucGFy'
-    'dG5lci5HZXRVc2VyRGF0YVJlc3BvbnNlIh+C0+STAhkiFy92MS9wYXJ0bmVyL2dldFVzZXJEYX'
-    'RhEqEBChFTZXRWYWxpZGF0aW9uRGF0YRIxLmJyaWouc3RvcmFnZS52MS5wYXJ0bmVyLlNldFZh'
-    'bGlkYXRpb25EYXRhUmVxdWVzdBoyLmJyaWouc3RvcmFnZS52MS5wYXJ0bmVyLlNldFZhbGlkYX'
-    'Rpb25EYXRhUmVzcG9uc2UiJYLT5JMCHyIdL3YxL3BhcnRuZXIvc2V0VmFsaWRhdGlvbkRhdGES'
-    'rQEKFFJlbW92ZVZhbGlkYXRpb25EYXRhEjQuYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuUmVtb3'
-    'ZlVmFsaWRhdGlvbkRhdGFSZXF1ZXN0GjUuYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuUmVtb3Zl'
-    'VmFsaWRhdGlvbkRhdGFSZXNwb25zZSIogtPkkwIiIiAvdjEvcGFydG5lci9yZW1vdmVWYWxpZG'
-    'F0aW9uRGF0YRKNAQoMR2V0S3ljU3RhdHVzEiwuYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuR2V0'
-    'S3ljU3RhdHVzUmVxdWVzdBotLmJyaWouc3RvcmFnZS52MS5wYXJ0bmVyLkdldEt5Y1N0YXR1c1'
-    'Jlc3BvbnNlIiCC0+STAhoiGC92MS9wYXJ0bmVyL2dldEt5Y1N0YXR1cxKZAQoPQ3JlYXRlS3lj'
-    'U3RhdHVzEi8uYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuQ3JlYXRlS3ljU3RhdHVzUmVxdWVzdB'
-    'owLmJyaWouc3RvcmFnZS52MS5wYXJ0bmVyLkNyZWF0ZUt5Y1N0YXR1c1Jlc3BvbnNlIiOC0+ST'
-    'Ah0iGy92MS9wYXJ0bmVyL2NyZWF0ZUt5Y1N0YXR1cxKZAQoPVXBkYXRlS3ljU3RhdHVzEi8uYn'
-    'Jpai5zdG9yYWdlLnYxLnBhcnRuZXIuVXBkYXRlS3ljU3RhdHVzUmVxdWVzdBowLmJyaWouc3Rv'
-    'cmFnZS52MS5wYXJ0bmVyLlVwZGF0ZUt5Y1N0YXR1c1Jlc3BvbnNlIiOC0+STAh0iGy92MS9wYX'
-    'J0bmVyL3VwZGF0ZUt5Y1N0YXR1cw==');
+    'Cg5QYXJ0bmVyU2VydmljZRJcCgdHZXRJbmZvEicuYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuR2'
+    'V0SW5mb1JlcXVlc3QaKC5icmlqLnN0b3JhZ2UudjEucGFydG5lci5HZXRJbmZvUmVzcG9uc2US'
+    'aAoLR2V0VXNlckRhdGESKy5icmlqLnN0b3JhZ2UudjEucGFydG5lci5HZXRVc2VyRGF0YVJlcX'
+    'Vlc3QaLC5icmlqLnN0b3JhZ2UudjEucGFydG5lci5HZXRVc2VyRGF0YVJlc3BvbnNlEnoKEVNl'
+    'dFZhbGlkYXRpb25EYXRhEjEuYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuU2V0VmFsaWRhdGlvbk'
+    'RhdGFSZXF1ZXN0GjIuYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuU2V0VmFsaWRhdGlvbkRhdGFS'
+    'ZXNwb25zZRKDAQoUUmVtb3ZlVmFsaWRhdGlvbkRhdGESNC5icmlqLnN0b3JhZ2UudjEucGFydG'
+    '5lci5SZW1vdmVWYWxpZGF0aW9uRGF0YVJlcXVlc3QaNS5icmlqLnN0b3JhZ2UudjEucGFydG5l'
+    'ci5SZW1vdmVWYWxpZGF0aW9uRGF0YVJlc3BvbnNlEmsKDEdldEt5Y1N0YXR1cxIsLmJyaWouc3'
+    'RvcmFnZS52MS5wYXJ0bmVyLkdldEt5Y1N0YXR1c1JlcXVlc3QaLS5icmlqLnN0b3JhZ2UudjEu'
+    'cGFydG5lci5HZXRLeWNTdGF0dXNSZXNwb25zZRJ0Cg9DcmVhdGVLeWNTdGF0dXMSLy5icmlqLn'
+    'N0b3JhZ2UudjEucGFydG5lci5DcmVhdGVLeWNTdGF0dXNSZXF1ZXN0GjAuYnJpai5zdG9yYWdl'
+    'LnYxLnBhcnRuZXIuQ3JlYXRlS3ljU3RhdHVzUmVzcG9uc2USdAoPVXBkYXRlS3ljU3RhdHVzEi'
+    '8uYnJpai5zdG9yYWdlLnYxLnBhcnRuZXIuVXBkYXRlS3ljU3RhdHVzUmVxdWVzdBowLmJyaWou'
+    'c3RvcmFnZS52MS5wYXJ0bmVyLlVwZGF0ZUt5Y1N0YXR1c1Jlc3BvbnNl');
 

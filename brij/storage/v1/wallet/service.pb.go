@@ -8,7 +8,6 @@ package wallet
 
 import (
 	common "go.brij.fi/protos/brij/storage/v1/common"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -1347,7 +1346,7 @@ var File_brij_storage_v1_wallet_service_proto protoreflect.FileDescriptor
 
 const file_brij_storage_v1_wallet_service_proto_rawDesc = "" +
 	"\n" +
-	"$brij/storage/v1/wallet/service.proto\x12\x16brij.storage.v1.wallet\x1a!brij/storage/v1/common/data.proto\x1a%brij/storage/v1/common/kyc_item.proto\x1a,brij/storage/v1/common/user_data_field.proto\x1a2brij/storage/v1/common/validation_data_field.proto\x1a\x1cgoogle/api/annotations.proto\"'\n" +
+	"$brij/storage/v1/wallet/service.proto\x12\x16brij.storage.v1.wallet\x1a!brij/storage/v1/common/data.proto\x1a%brij/storage/v1/common/kyc_item.proto\x1a,brij/storage/v1/common/user_data_field.proto\x1a2brij/storage/v1/common/validation_data_field.proto\"'\n" +
 	"\x15GetPartnerInfoRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"\x89\x01\n" +
 	"\x16GetPartnerInfoResponse\x12\x12\n" +
@@ -1420,22 +1419,22 @@ const file_brij_storage_v1_wallet_service_proto_rawDesc = "" +
 	"\x15GetWalletProofRequest\x12%\n" +
 	"\x0ewallet_address\x18\x01 \x01(\tR\rwalletAddress\"=\n" +
 	"\x16GetWalletProofResponse\x12#\n" +
-	"\rproof_message\x18\x01 \x01(\tR\fproofMessage2\x80\x10\n" +
-	"\rWalletService\x12\x92\x01\n" +
-	"\x0eGetPartnerInfo\x12-.brij.storage.v1.wallet.GetPartnerInfoRequest\x1a..brij.storage.v1.wallet.GetPartnerInfoResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x19/v1/wallet/getPartnerInfo\x12\x86\x01\n" +
-	"\vInitStorage\x12*.brij.storage.v1.wallet.InitStorageRequest\x1a+.brij.storage.v1.wallet.InitStorageResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x16/v1/wallet/initStorage\x12v\n" +
-	"\aGetInfo\x12&.brij.storage.v1.wallet.GetInfoRequest\x1a'.brij.storage.v1.wallet.GetInfoResponse\"\x1a\x82\xd3\xe4\x93\x02\x14\"\x12/v1/wallet/getInfo\x12\xba\x01\n" +
-	"\x18GetGrantedAccessPartners\x127.brij.storage.v1.wallet.GetGrantedAccessPartnersRequest\x1a8.brij.storage.v1.wallet.GetGrantedAccessPartnersResponse\"+\x82\xd3\xe4\x93\x02%\"#/v1/wallet/getGrantedAccessPartners\x12\x86\x01\n" +
-	"\vGrantAccess\x12*.brij.storage.v1.wallet.GrantAccessRequest\x1a+.brij.storage.v1.wallet.GrantAccessResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x16/v1/wallet/grantAccess\x12\x86\x01\n" +
-	"\vSetUserData\x12*.brij.storage.v1.wallet.SetUserDataRequest\x1a+.brij.storage.v1.wallet.SetUserDataResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x16/v1/wallet/setUserData\x12\x92\x01\n" +
-	"\x0eRemoveUserData\x12-.brij.storage.v1.wallet.RemoveUserDataRequest\x1a..brij.storage.v1.wallet.RemoveUserDataResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x19/v1/wallet/removeUserData\x12\x8a\x01\n" +
-	"\fRevokeAccess\x12+.brij.storage.v1.wallet.RevokeAccessRequest\x1a,.brij.storage.v1.wallet.RevokeAccessResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x17/v1/wallet/revokeAccess\x12\x9e\x01\n" +
-	"\x11RemoveAllUserData\x120.brij.storage.v1.wallet.RemoveAllUserDataRequest\x1a1.brij.storage.v1.wallet.RemoveAllUserDataResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x1c/v1/wallet/removeAllUserData\x12\x86\x01\n" +
-	"\vGetUserData\x12*.brij.storage.v1.wallet.GetUserDataRequest\x1a+.brij.storage.v1.wallet.GetUserDataResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x16/v1/wallet/getUserData\x12\x86\x01\n" +
-	"\vCheckAccess\x12*.brij.storage.v1.wallet.CheckAccessRequest\x1a+.brij.storage.v1.wallet.CheckAccessResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x16/v1/wallet/checkAccess\x12\x8a\x01\n" +
-	"\fGetKycStatus\x12+.brij.storage.v1.wallet.GetKycStatusRequest\x1a,.brij.storage.v1.wallet.GetKycStatusResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x17/v1/wallet/getKycStatus\x12\x92\x01\n" +
-	"\x0eGetWalletProof\x12-.brij.storage.v1.wallet.GetWalletProofRequest\x1a..brij.storage.v1.wallet.GetWalletProofResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x19/v1/wallet/getWalletProof\x12\x92\x01\n" +
-	"\x0eGetSeedMessage\x12-.brij.storage.v1.wallet.GetSeedMessageRequest\x1a..brij.storage.v1.wallet.GetSeedMessageResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x19/v1/wallet/getSeedMessageB*Z(go.brij.fi/protos/brij/storage/v1/walletb\x06proto3"
+	"\rproof_message\x18\x01 \x01(\tR\fproofMessage2\x97\f\n" +
+	"\rWalletService\x12o\n" +
+	"\x0eGetPartnerInfo\x12-.brij.storage.v1.wallet.GetPartnerInfoRequest\x1a..brij.storage.v1.wallet.GetPartnerInfoResponse\x12f\n" +
+	"\vInitStorage\x12*.brij.storage.v1.wallet.InitStorageRequest\x1a+.brij.storage.v1.wallet.InitStorageResponse\x12Z\n" +
+	"\aGetInfo\x12&.brij.storage.v1.wallet.GetInfoRequest\x1a'.brij.storage.v1.wallet.GetInfoResponse\x12\x8d\x01\n" +
+	"\x18GetGrantedAccessPartners\x127.brij.storage.v1.wallet.GetGrantedAccessPartnersRequest\x1a8.brij.storage.v1.wallet.GetGrantedAccessPartnersResponse\x12f\n" +
+	"\vGrantAccess\x12*.brij.storage.v1.wallet.GrantAccessRequest\x1a+.brij.storage.v1.wallet.GrantAccessResponse\x12f\n" +
+	"\vSetUserData\x12*.brij.storage.v1.wallet.SetUserDataRequest\x1a+.brij.storage.v1.wallet.SetUserDataResponse\x12o\n" +
+	"\x0eRemoveUserData\x12-.brij.storage.v1.wallet.RemoveUserDataRequest\x1a..brij.storage.v1.wallet.RemoveUserDataResponse\x12i\n" +
+	"\fRevokeAccess\x12+.brij.storage.v1.wallet.RevokeAccessRequest\x1a,.brij.storage.v1.wallet.RevokeAccessResponse\x12x\n" +
+	"\x11RemoveAllUserData\x120.brij.storage.v1.wallet.RemoveAllUserDataRequest\x1a1.brij.storage.v1.wallet.RemoveAllUserDataResponse\x12f\n" +
+	"\vGetUserData\x12*.brij.storage.v1.wallet.GetUserDataRequest\x1a+.brij.storage.v1.wallet.GetUserDataResponse\x12f\n" +
+	"\vCheckAccess\x12*.brij.storage.v1.wallet.CheckAccessRequest\x1a+.brij.storage.v1.wallet.CheckAccessResponse\x12i\n" +
+	"\fGetKycStatus\x12+.brij.storage.v1.wallet.GetKycStatusRequest\x1a,.brij.storage.v1.wallet.GetKycStatusResponse\x12o\n" +
+	"\x0eGetWalletProof\x12-.brij.storage.v1.wallet.GetWalletProofRequest\x1a..brij.storage.v1.wallet.GetWalletProofResponse\x12o\n" +
+	"\x0eGetSeedMessage\x12-.brij.storage.v1.wallet.GetSeedMessageRequest\x1a..brij.storage.v1.wallet.GetSeedMessageResponseB*Z(go.brij.fi/protos/brij/storage/v1/walletb\x06proto3"
 
 var (
 	file_brij_storage_v1_wallet_service_proto_rawDescOnce sync.Once

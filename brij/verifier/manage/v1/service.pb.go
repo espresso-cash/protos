@@ -7,7 +7,6 @@
 package v1
 
 import (
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -234,7 +233,7 @@ var File_brij_verifier_manage_v1_service_proto protoreflect.FileDescriptor
 
 const file_brij_verifier_manage_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"%brij/verifier/manage/v1/service.proto\x12\x17brij.verifier.manage.v1\x1a\x1cgoogle/api/annotations.proto\"|\n" +
+	"%brij/verifier/manage/v1/service.proto\x12\x17brij.verifier.manage.v1\"|\n" +
 	"\x19SmileIdCheckStatusRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x15\n" +
 	"\x06job_id\x18\x02 \x01(\tR\x05jobId\x12\x15\n" +
@@ -246,10 +245,10 @@ const file_brij_verifier_manage_v1_service_proto_rawDesc = "" +
 	"\fapplicant_id\x18\x02 \x01(\tR\vapplicantId\x12\x15\n" +
 	"\x06kyc_id\x18\x03 \x01(\tR\x05kycId\x12\x18\n" +
 	"\acountry\x18\x04 \x01(\tR\acountry\"\x1b\n" +
-	"\x19SumsubCheckStatusResponse2\xc9\x02\n" +
-	"\rManageService\x12\x9c\x01\n" +
-	"\x12SmileIdCheckStatus\x122.brij.verifier.manage.v1.SmileIdCheckStatusRequest\x1a3.brij.verifier.manage.v1.SmileIdCheckStatusResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x15/smileid/check-status\x12\x98\x01\n" +
-	"\x11SumsubCheckStatus\x121.brij.verifier.manage.v1.SumsubCheckStatusRequest\x1a2.brij.verifier.manage.v1.SumsubCheckStatusResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x14/sumsub/check-statusB+Z)go.brij.fi/protos/brij/verifier/manage/v1b\x06proto3"
+	"\x19SumsubCheckStatusResponse2\x8a\x02\n" +
+	"\rManageService\x12}\n" +
+	"\x12SmileIdCheckStatus\x122.brij.verifier.manage.v1.SmileIdCheckStatusRequest\x1a3.brij.verifier.manage.v1.SmileIdCheckStatusResponse\x12z\n" +
+	"\x11SumsubCheckStatus\x121.brij.verifier.manage.v1.SumsubCheckStatusRequest\x1a2.brij.verifier.manage.v1.SumsubCheckStatusResponseB+Z)go.brij.fi/protos/brij/verifier/manage/v1b\x06proto3"
 
 var (
 	file_brij_verifier_manage_v1_service_proto_rawDescOnce sync.Once

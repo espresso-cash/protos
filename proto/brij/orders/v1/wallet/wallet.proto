@@ -3,34 +3,21 @@ syntax = "proto3";
 package brij.orders.v1.wallet;
 
 import "brij/orders/v1/common/ramp_type.proto";
-import "google/api/annotations.proto";
 
 option go_package = "go.brij.fi/protos/brij/orders/v1/wallet";
 
 service WalletService {
-  rpc CreateOnRampOrder(CreateOnRampOrderRequest) returns (CreateOnRampOrderResponse) {
-    option (google.api.http) = {post: "/v1/wallet/createOnRampOrder"};
-  }
+  rpc CreateOnRampOrder(CreateOnRampOrderRequest) returns (CreateOnRampOrderResponse);
 
-  rpc CreateOffRampOrder(CreateOffRampOrderRequest) returns (CreateOffRampOrderResponse) {
-    option (google.api.http) = {post: "/v1/wallet/createOffRampOrder"};
-  }
+  rpc CreateOffRampOrder(CreateOffRampOrderRequest) returns (CreateOffRampOrderResponse);
 
-  rpc GetOrder(GetOrderRequest) returns (GetOrderResponse) {
-    option (google.api.http) = {post: "/v1/wallet/getOrder"};
-  }
+  rpc GetOrder(GetOrderRequest) returns (GetOrderResponse);
 
-  rpc GetOrders(GetOrdersRequest) returns (GetOrdersResponse) {
-    option (google.api.http) = {post: "/v1/wallet/getOrders"};
-  }
+  rpc GetOrders(GetOrdersRequest) returns (GetOrdersResponse);
 
-  rpc GetQuote(GetQuoteRequest) returns (GetQuoteResponse) {
-    option (google.api.http) = {post: "/v1/wallet/getQuote"};
-  }
+  rpc GetQuote(GetQuoteRequest) returns (GetQuoteResponse);
 
-  rpc GenerateTransaction(GenerateTransactionRequest) returns (GenerateTransactionResponse) {
-    option (google.api.http) = {post: "/v1/wallet/generateTransaction"};
-  }
+  rpc GenerateTransaction(GenerateTransactionRequest) returns (GenerateTransactionResponse);
 }
 
 message CreateOnRampOrderRequest {

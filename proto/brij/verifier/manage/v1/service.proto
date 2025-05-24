@@ -2,18 +2,12 @@ syntax = 'proto3';
 
 package brij.verifier.manage.v1;
 
-import "google/api/annotations.proto";
-
 option go_package = 'go.brij.fi/protos/brij/verifier/manage/v1';
 
 service ManageService {
-  rpc SmileIdCheckStatus(SmileIdCheckStatusRequest) returns (SmileIdCheckStatusResponse) {
-    option (google.api.http) = {post: "/smileid/check-status"};
-  }
+  rpc SmileIdCheckStatus(SmileIdCheckStatusRequest) returns (SmileIdCheckStatusResponse);
 
-  rpc SumsubCheckStatus(SumsubCheckStatusRequest) returns (SumsubCheckStatusResponse) {
-    option (google.api.http) = {post: "/sumsub/check-status"};
-  }
+  rpc SumsubCheckStatus(SumsubCheckStatusRequest) returns (SumsubCheckStatusResponse);
 }
 
 message SmileIdCheckStatusRequest {

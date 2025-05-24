@@ -68,8 +68,8 @@ final $typed_data.Uint8List sumsubCheckStatusResponseDescriptor = $convert.base6
 const $core.Map<$core.String, $core.dynamic> ManageServiceBase$json = {
   '1': 'ManageService',
   '2': [
-    {'1': 'SmileIdCheckStatus', '2': '.brij.verifier.manage.v1.SmileIdCheckStatusRequest', '3': '.brij.verifier.manage.v1.SmileIdCheckStatusResponse', '4': {}},
-    {'1': 'SumsubCheckStatus', '2': '.brij.verifier.manage.v1.SumsubCheckStatusRequest', '3': '.brij.verifier.manage.v1.SumsubCheckStatusResponse', '4': {}},
+    {'1': 'SmileIdCheckStatus', '2': '.brij.verifier.manage.v1.SmileIdCheckStatusRequest', '3': '.brij.verifier.manage.v1.SmileIdCheckStatusResponse'},
+    {'1': 'SumsubCheckStatus', '2': '.brij.verifier.manage.v1.SumsubCheckStatusRequest', '3': '.brij.verifier.manage.v1.SumsubCheckStatusResponse'},
   ],
 };
 
@@ -83,10 +83,9 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> ManageServ
 
 /// Descriptor for `ManageService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List manageServiceDescriptor = $convert.base64Decode(
-    'Cg1NYW5hZ2VTZXJ2aWNlEpwBChJTbWlsZUlkQ2hlY2tTdGF0dXMSMi5icmlqLnZlcmlmaWVyLm'
-    '1hbmFnZS52MS5TbWlsZUlkQ2hlY2tTdGF0dXNSZXF1ZXN0GjMuYnJpai52ZXJpZmllci5tYW5h'
-    'Z2UudjEuU21pbGVJZENoZWNrU3RhdHVzUmVzcG9uc2UiHYLT5JMCFyIVL3NtaWxlaWQvY2hlY2'
-    'stc3RhdHVzEpgBChFTdW1zdWJDaGVja1N0YXR1cxIxLmJyaWoudmVyaWZpZXIubWFuYWdlLnYx'
-    'LlN1bXN1YkNoZWNrU3RhdHVzUmVxdWVzdBoyLmJyaWoudmVyaWZpZXIubWFuYWdlLnYxLlN1bX'
-    'N1YkNoZWNrU3RhdHVzUmVzcG9uc2UiHILT5JMCFiIUL3N1bXN1Yi9jaGVjay1zdGF0dXM=');
+    'Cg1NYW5hZ2VTZXJ2aWNlEn0KElNtaWxlSWRDaGVja1N0YXR1cxIyLmJyaWoudmVyaWZpZXIubW'
+    'FuYWdlLnYxLlNtaWxlSWRDaGVja1N0YXR1c1JlcXVlc3QaMy5icmlqLnZlcmlmaWVyLm1hbmFn'
+    'ZS52MS5TbWlsZUlkQ2hlY2tTdGF0dXNSZXNwb25zZRJ6ChFTdW1zdWJDaGVja1N0YXR1cxIxLm'
+    'JyaWoudmVyaWZpZXIubWFuYWdlLnYxLlN1bXN1YkNoZWNrU3RhdHVzUmVxdWVzdBoyLmJyaWou'
+    'dmVyaWZpZXIubWFuYWdlLnYxLlN1bXN1YkNoZWNrU3RhdHVzUmVzcG9uc2U=');
 

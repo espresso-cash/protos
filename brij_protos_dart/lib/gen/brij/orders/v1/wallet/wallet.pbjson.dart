@@ -265,12 +265,12 @@ final $typed_data.Uint8List generateTransactionResponseDescriptor = $convert.bas
 const $core.Map<$core.String, $core.dynamic> WalletServiceBase$json = {
   '1': 'WalletService',
   '2': [
-    {'1': 'CreateOnRampOrder', '2': '.brij.orders.v1.wallet.CreateOnRampOrderRequest', '3': '.brij.orders.v1.wallet.CreateOnRampOrderResponse', '4': {}},
-    {'1': 'CreateOffRampOrder', '2': '.brij.orders.v1.wallet.CreateOffRampOrderRequest', '3': '.brij.orders.v1.wallet.CreateOffRampOrderResponse', '4': {}},
-    {'1': 'GetOrder', '2': '.brij.orders.v1.wallet.GetOrderRequest', '3': '.brij.orders.v1.wallet.GetOrderResponse', '4': {}},
-    {'1': 'GetOrders', '2': '.brij.orders.v1.wallet.GetOrdersRequest', '3': '.brij.orders.v1.wallet.GetOrdersResponse', '4': {}},
-    {'1': 'GetQuote', '2': '.brij.orders.v1.wallet.GetQuoteRequest', '3': '.brij.orders.v1.wallet.GetQuoteResponse', '4': {}},
-    {'1': 'GenerateTransaction', '2': '.brij.orders.v1.wallet.GenerateTransactionRequest', '3': '.brij.orders.v1.wallet.GenerateTransactionResponse', '4': {}},
+    {'1': 'CreateOnRampOrder', '2': '.brij.orders.v1.wallet.CreateOnRampOrderRequest', '3': '.brij.orders.v1.wallet.CreateOnRampOrderResponse'},
+    {'1': 'CreateOffRampOrder', '2': '.brij.orders.v1.wallet.CreateOffRampOrderRequest', '3': '.brij.orders.v1.wallet.CreateOffRampOrderResponse'},
+    {'1': 'GetOrder', '2': '.brij.orders.v1.wallet.GetOrderRequest', '3': '.brij.orders.v1.wallet.GetOrderResponse'},
+    {'1': 'GetOrders', '2': '.brij.orders.v1.wallet.GetOrdersRequest', '3': '.brij.orders.v1.wallet.GetOrdersResponse'},
+    {'1': 'GetQuote', '2': '.brij.orders.v1.wallet.GetQuoteRequest', '3': '.brij.orders.v1.wallet.GetQuoteResponse'},
+    {'1': 'GenerateTransaction', '2': '.brij.orders.v1.wallet.GenerateTransactionRequest', '3': '.brij.orders.v1.wallet.GenerateTransactionResponse'},
   ],
 };
 
@@ -293,20 +293,16 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> WalletServ
 
 /// Descriptor for `WalletService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List walletServiceDescriptor = $convert.base64Decode(
-    'Cg1XYWxsZXRTZXJ2aWNlEpwBChFDcmVhdGVPblJhbXBPcmRlchIvLmJyaWoub3JkZXJzLnYxLn'
-    'dhbGxldC5DcmVhdGVPblJhbXBPcmRlclJlcXVlc3QaMC5icmlqLm9yZGVycy52MS53YWxsZXQu'
-    'Q3JlYXRlT25SYW1wT3JkZXJSZXNwb25zZSIkgtPkkwIeIhwvdjEvd2FsbGV0L2NyZWF0ZU9uUm'
-    'FtcE9yZGVyEqABChJDcmVhdGVPZmZSYW1wT3JkZXISMC5icmlqLm9yZGVycy52MS53YWxsZXQu'
-    'Q3JlYXRlT2ZmUmFtcE9yZGVyUmVxdWVzdBoxLmJyaWoub3JkZXJzLnYxLndhbGxldC5DcmVhdG'
-    'VPZmZSYW1wT3JkZXJSZXNwb25zZSIlgtPkkwIfIh0vdjEvd2FsbGV0L2NyZWF0ZU9mZlJhbXBP'
-    'cmRlchJ4CghHZXRPcmRlchImLmJyaWoub3JkZXJzLnYxLndhbGxldC5HZXRPcmRlclJlcXVlc3'
-    'QaJy5icmlqLm9yZGVycy52MS53YWxsZXQuR2V0T3JkZXJSZXNwb25zZSIbgtPkkwIVIhMvdjEv'
-    'd2FsbGV0L2dldE9yZGVyEnwKCUdldE9yZGVycxInLmJyaWoub3JkZXJzLnYxLndhbGxldC5HZX'
-    'RPcmRlcnNSZXF1ZXN0GiguYnJpai5vcmRlcnMudjEud2FsbGV0LkdldE9yZGVyc1Jlc3BvbnNl'
-    'IhyC0+STAhYiFC92MS93YWxsZXQvZ2V0T3JkZXJzEngKCEdldFF1b3RlEiYuYnJpai5vcmRlcn'
-    'MudjEud2FsbGV0LkdldFF1b3RlUmVxdWVzdBonLmJyaWoub3JkZXJzLnYxLndhbGxldC5HZXRR'
-    'dW90ZVJlc3BvbnNlIhuC0+STAhUiEy92MS93YWxsZXQvZ2V0UXVvdGUSpAEKE0dlbmVyYXRlVH'
-    'JhbnNhY3Rpb24SMS5icmlqLm9yZGVycy52MS53YWxsZXQuR2VuZXJhdGVUcmFuc2FjdGlvblJl'
-    'cXVlc3QaMi5icmlqLm9yZGVycy52MS53YWxsZXQuR2VuZXJhdGVUcmFuc2FjdGlvblJlc3Bvbn'
-    'NlIiaC0+STAiAiHi92MS93YWxsZXQvZ2VuZXJhdGVUcmFuc2FjdGlvbg==');
+    'Cg1XYWxsZXRTZXJ2aWNlEnYKEUNyZWF0ZU9uUmFtcE9yZGVyEi8uYnJpai5vcmRlcnMudjEud2'
+    'FsbGV0LkNyZWF0ZU9uUmFtcE9yZGVyUmVxdWVzdBowLmJyaWoub3JkZXJzLnYxLndhbGxldC5D'
+    'cmVhdGVPblJhbXBPcmRlclJlc3BvbnNlEnkKEkNyZWF0ZU9mZlJhbXBPcmRlchIwLmJyaWoub3'
+    'JkZXJzLnYxLndhbGxldC5DcmVhdGVPZmZSYW1wT3JkZXJSZXF1ZXN0GjEuYnJpai5vcmRlcnMu'
+    'djEud2FsbGV0LkNyZWF0ZU9mZlJhbXBPcmRlclJlc3BvbnNlElsKCEdldE9yZGVyEiYuYnJpai'
+    '5vcmRlcnMudjEud2FsbGV0LkdldE9yZGVyUmVxdWVzdBonLmJyaWoub3JkZXJzLnYxLndhbGxl'
+    'dC5HZXRPcmRlclJlc3BvbnNlEl4KCUdldE9yZGVycxInLmJyaWoub3JkZXJzLnYxLndhbGxldC'
+    '5HZXRPcmRlcnNSZXF1ZXN0GiguYnJpai5vcmRlcnMudjEud2FsbGV0LkdldE9yZGVyc1Jlc3Bv'
+    'bnNlElsKCEdldFF1b3RlEiYuYnJpai5vcmRlcnMudjEud2FsbGV0LkdldFF1b3RlUmVxdWVzdB'
+    'onLmJyaWoub3JkZXJzLnYxLndhbGxldC5HZXRRdW90ZVJlc3BvbnNlEnwKE0dlbmVyYXRlVHJh'
+    'bnNhY3Rpb24SMS5icmlqLm9yZGVycy52MS53YWxsZXQuR2VuZXJhdGVUcmFuc2FjdGlvblJlcX'
+    'Vlc3QaMi5icmlqLm9yZGVycy52MS53YWxsZXQuR2VuZXJhdGVUcmFuc2FjdGlvblJlc3BvbnNl');
 

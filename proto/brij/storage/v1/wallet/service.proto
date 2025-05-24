@@ -6,66 +6,37 @@ import "brij/storage/v1/common/data.proto";
 import "brij/storage/v1/common/kyc_item.proto";
 import "brij/storage/v1/common/user_data_field.proto";
 import "brij/storage/v1/common/validation_data_field.proto";
-import "google/api/annotations.proto";
 
 option go_package = 'go.brij.fi/protos/brij/storage/v1/wallet';
 
 service WalletService {
-  rpc GetPartnerInfo(GetPartnerInfoRequest) returns (GetPartnerInfoResponse) {
-    option (google.api.http) = {post: "/v1/wallet/getPartnerInfo"};
-  }
+  rpc GetPartnerInfo(GetPartnerInfoRequest) returns (GetPartnerInfoResponse);
 
-  rpc InitStorage(InitStorageRequest) returns (InitStorageResponse) {
-    option (google.api.http) = {post: "/v1/wallet/initStorage"};
-  }
+  rpc InitStorage(InitStorageRequest) returns (InitStorageResponse);
 
-  rpc GetInfo(GetInfoRequest) returns (GetInfoResponse) {
-    option (google.api.http) = {post: "/v1/wallet/getInfo"};
-  }
+  rpc GetInfo(GetInfoRequest) returns (GetInfoResponse);
 
-  rpc GetGrantedAccessPartners(GetGrantedAccessPartnersRequest) returns (GetGrantedAccessPartnersResponse) {
-    option (google.api.http) = {post: "/v1/wallet/getGrantedAccessPartners"};
-  }
+  rpc GetGrantedAccessPartners(GetGrantedAccessPartnersRequest) returns (GetGrantedAccessPartnersResponse);
 
-  rpc GrantAccess(GrantAccessRequest) returns (GrantAccessResponse) {
-    option (google.api.http) = {post: "/v1/wallet/grantAccess"};
-  }
+  rpc GrantAccess(GrantAccessRequest) returns (GrantAccessResponse);
 
-  rpc SetUserData(SetUserDataRequest) returns (SetUserDataResponse) {
-    option (google.api.http) = {post: "/v1/wallet/setUserData"};
-  }
+  rpc SetUserData(SetUserDataRequest) returns (SetUserDataResponse);
 
-  rpc RemoveUserData(RemoveUserDataRequest) returns (RemoveUserDataResponse) {
-    option (google.api.http) = {post: "/v1/wallet/removeUserData"};
-  }
+  rpc RemoveUserData(RemoveUserDataRequest) returns (RemoveUserDataResponse);
 
-  rpc RevokeAccess(RevokeAccessRequest) returns (RevokeAccessResponse) {
-    option (google.api.http) = {post: "/v1/wallet/revokeAccess"};
-  }
+  rpc RevokeAccess(RevokeAccessRequest) returns (RevokeAccessResponse);
 
-  rpc RemoveAllUserData(RemoveAllUserDataRequest) returns (RemoveAllUserDataResponse) {
-    option (google.api.http) = {post: "/v1/wallet/removeAllUserData"};
-  }
+  rpc RemoveAllUserData(RemoveAllUserDataRequest) returns (RemoveAllUserDataResponse);
 
-  rpc GetUserData(GetUserDataRequest) returns (GetUserDataResponse) {
-    option (google.api.http) = {post: "/v1/wallet/getUserData"};
-  }
+  rpc GetUserData(GetUserDataRequest) returns (GetUserDataResponse);
 
-  rpc CheckAccess(CheckAccessRequest) returns (CheckAccessResponse) {
-    option (google.api.http) = {post: "/v1/wallet/checkAccess"};
-  }
+  rpc CheckAccess(CheckAccessRequest) returns (CheckAccessResponse);
 
-  rpc GetKycStatus(GetKycStatusRequest) returns (GetKycStatusResponse) {
-    option (google.api.http) = {post: "/v1/wallet/getKycStatus"};
-  }
+  rpc GetKycStatus(GetKycStatusRequest) returns (GetKycStatusResponse);
 
-  rpc GetWalletProof(GetWalletProofRequest) returns (GetWalletProofResponse) {
-    option (google.api.http) = {post: "/v1/wallet/getWalletProof"};
-  }
+  rpc GetWalletProof(GetWalletProofRequest) returns (GetWalletProofResponse);
 
-  rpc GetSeedMessage(GetSeedMessageRequest) returns (GetSeedMessageResponse) {
-    option (google.api.http) = {post: "/v1/wallet/getSeedMessage"};
-  }
+  rpc GetSeedMessage(GetSeedMessageRequest) returns (GetSeedMessageResponse);
 }
 
 message GetPartnerInfoRequest {

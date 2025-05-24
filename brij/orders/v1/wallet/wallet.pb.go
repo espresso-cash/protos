@@ -8,7 +8,6 @@ package wallet
 
 import (
 	common "go.brij.fi/protos/brij/orders/v1/common"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -1007,7 +1006,7 @@ var File_brij_orders_v1_wallet_wallet_proto protoreflect.FileDescriptor
 
 const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	"\n" +
-	"\"brij/orders/v1/wallet/wallet.proto\x12\x15brij.orders.v1.wallet\x1a%brij/orders/v1/common/ramp_type.proto\x1a\x1cgoogle/api/annotations.proto\"\xfa\x02\n" +
+	"\"brij/orders/v1/wallet/wallet.proto\x12\x15brij.orders.v1.wallet\x1a%brij/orders/v1/common/ramp_type.proto\"\xfa\x02\n" +
 	"\x18CreateOnRampOrderRequest\x12,\n" +
 	"\x12partner_public_key\x18\x01 \x01(\tR\x10partnerPublicKey\x12#\n" +
 	"\rcrypto_amount\x18\x02 \x01(\x01R\fcryptoAmount\x12'\n" +
@@ -1094,14 +1093,14 @@ const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	"\vexternal_id\x18\x02 \x01(\tR\n" +
 	"externalId\"?\n" +
 	"\x1bGenerateTransactionResponse\x12 \n" +
-	"\vtransaction\x18\x01 \x01(\tR\vtransaction2\xea\x06\n" +
-	"\rWalletService\x12\x9c\x01\n" +
-	"\x11CreateOnRampOrder\x12/.brij.orders.v1.wallet.CreateOnRampOrderRequest\x1a0.brij.orders.v1.wallet.CreateOnRampOrderResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x1c/v1/wallet/createOnRampOrder\x12\xa0\x01\n" +
-	"\x12CreateOffRampOrder\x120.brij.orders.v1.wallet.CreateOffRampOrderRequest\x1a1.brij.orders.v1.wallet.CreateOffRampOrderResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1d/v1/wallet/createOffRampOrder\x12x\n" +
-	"\bGetOrder\x12&.brij.orders.v1.wallet.GetOrderRequest\x1a'.brij.orders.v1.wallet.GetOrderResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x13/v1/wallet/getOrder\x12|\n" +
-	"\tGetOrders\x12'.brij.orders.v1.wallet.GetOrdersRequest\x1a(.brij.orders.v1.wallet.GetOrdersResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x14/v1/wallet/getOrders\x12x\n" +
-	"\bGetQuote\x12&.brij.orders.v1.wallet.GetQuoteRequest\x1a'.brij.orders.v1.wallet.GetQuoteResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x13/v1/wallet/getQuote\x12\xa4\x01\n" +
-	"\x13GenerateTransaction\x121.brij.orders.v1.wallet.GenerateTransactionRequest\x1a2.brij.orders.v1.wallet.GenerateTransactionResponse\"&\x82\xd3\xe4\x93\x02 \"\x1e/v1/wallet/generateTransactionB)Z'go.brij.fi/protos/brij/orders/v1/walletb\x06proto3"
+	"\vtransaction\x18\x01 \x01(\tR\vtransaction2\x9a\x05\n" +
+	"\rWalletService\x12v\n" +
+	"\x11CreateOnRampOrder\x12/.brij.orders.v1.wallet.CreateOnRampOrderRequest\x1a0.brij.orders.v1.wallet.CreateOnRampOrderResponse\x12y\n" +
+	"\x12CreateOffRampOrder\x120.brij.orders.v1.wallet.CreateOffRampOrderRequest\x1a1.brij.orders.v1.wallet.CreateOffRampOrderResponse\x12[\n" +
+	"\bGetOrder\x12&.brij.orders.v1.wallet.GetOrderRequest\x1a'.brij.orders.v1.wallet.GetOrderResponse\x12^\n" +
+	"\tGetOrders\x12'.brij.orders.v1.wallet.GetOrdersRequest\x1a(.brij.orders.v1.wallet.GetOrdersResponse\x12[\n" +
+	"\bGetQuote\x12&.brij.orders.v1.wallet.GetQuoteRequest\x1a'.brij.orders.v1.wallet.GetQuoteResponse\x12|\n" +
+	"\x13GenerateTransaction\x121.brij.orders.v1.wallet.GenerateTransactionRequest\x1a2.brij.orders.v1.wallet.GenerateTransactionResponseB)Z'go.brij.fi/protos/brij/orders/v1/walletb\x06proto3"
 
 var (
 	file_brij_orders_v1_wallet_wallet_proto_rawDescOnce sync.Once

@@ -288,14 +288,14 @@ final $typed_data.Uint8List generateTransactionResponseDescriptor = $convert.bas
 const $core.Map<$core.String, $core.dynamic> PartnerServiceBase$json = {
   '1': 'PartnerService',
   '2': [
-    {'1': 'GetOrder', '2': '.brij.orders.v1.partner.GetOrderRequest', '3': '.brij.orders.v1.partner.GetOrderResponse', '4': {}},
-    {'1': 'AcceptOrder', '2': '.brij.orders.v1.partner.AcceptOrderRequest', '3': '.brij.orders.v1.partner.AcceptOrderResponse', '4': {}},
-    {'1': 'RejectOrder', '2': '.brij.orders.v1.partner.RejectOrderRequest', '3': '.brij.orders.v1.partner.RejectOrderResponse', '4': {}},
-    {'1': 'CompleteOrder', '2': '.brij.orders.v1.partner.CompleteOrderRequest', '3': '.brij.orders.v1.partner.CompleteOrderResponse', '4': {}},
-    {'1': 'FailOrder', '2': '.brij.orders.v1.partner.FailOrderRequest', '3': '.brij.orders.v1.partner.FailOrderResponse', '4': {}},
-    {'1': 'GetOrders', '2': '.brij.orders.v1.partner.GetOrdersRequest', '3': '.brij.orders.v1.partner.GetOrdersResponse', '4': {}},
-    {'1': 'UpdateFees', '2': '.brij.orders.v1.partner.UpdateFeesRequest', '3': '.brij.orders.v1.partner.UpdateFeesResponse', '4': {}},
-    {'1': 'GenerateTransaction', '2': '.brij.orders.v1.partner.GenerateTransactionRequest', '3': '.brij.orders.v1.partner.GenerateTransactionResponse', '4': {}},
+    {'1': 'GetOrder', '2': '.brij.orders.v1.partner.GetOrderRequest', '3': '.brij.orders.v1.partner.GetOrderResponse'},
+    {'1': 'AcceptOrder', '2': '.brij.orders.v1.partner.AcceptOrderRequest', '3': '.brij.orders.v1.partner.AcceptOrderResponse'},
+    {'1': 'RejectOrder', '2': '.brij.orders.v1.partner.RejectOrderRequest', '3': '.brij.orders.v1.partner.RejectOrderResponse'},
+    {'1': 'CompleteOrder', '2': '.brij.orders.v1.partner.CompleteOrderRequest', '3': '.brij.orders.v1.partner.CompleteOrderResponse'},
+    {'1': 'FailOrder', '2': '.brij.orders.v1.partner.FailOrderRequest', '3': '.brij.orders.v1.partner.FailOrderResponse'},
+    {'1': 'GetOrders', '2': '.brij.orders.v1.partner.GetOrdersRequest', '3': '.brij.orders.v1.partner.GetOrdersResponse'},
+    {'1': 'UpdateFees', '2': '.brij.orders.v1.partner.UpdateFeesRequest', '3': '.brij.orders.v1.partner.UpdateFeesResponse'},
+    {'1': 'GenerateTransaction', '2': '.brij.orders.v1.partner.GenerateTransactionRequest', '3': '.brij.orders.v1.partner.GenerateTransactionResponse'},
   ],
 };
 
@@ -323,25 +323,20 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> PartnerSer
 
 /// Descriptor for `PartnerService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List partnerServiceDescriptor = $convert.base64Decode(
-    'Cg5QYXJ0bmVyU2VydmljZRJ7CghHZXRPcmRlchInLmJyaWoub3JkZXJzLnYxLnBhcnRuZXIuR2'
+    'Cg5QYXJ0bmVyU2VydmljZRJdCghHZXRPcmRlchInLmJyaWoub3JkZXJzLnYxLnBhcnRuZXIuR2'
     'V0T3JkZXJSZXF1ZXN0GiguYnJpai5vcmRlcnMudjEucGFydG5lci5HZXRPcmRlclJlc3BvbnNl'
-    'IhyC0+STAhYiFC92MS9wYXJ0bmVyL2dldE9yZGVyEocBCgtBY2NlcHRPcmRlchIqLmJyaWoub3'
-    'JkZXJzLnYxLnBhcnRuZXIuQWNjZXB0T3JkZXJSZXF1ZXN0GisuYnJpai5vcmRlcnMudjEucGFy'
-    'dG5lci5BY2NlcHRPcmRlclJlc3BvbnNlIh+C0+STAhkiFy92MS9wYXJ0bmVyL2FjY2VwdE9yZG'
-    'VyEocBCgtSZWplY3RPcmRlchIqLmJyaWoub3JkZXJzLnYxLnBhcnRuZXIuUmVqZWN0T3JkZXJS'
-    'ZXF1ZXN0GisuYnJpai5vcmRlcnMudjEucGFydG5lci5SZWplY3RPcmRlclJlc3BvbnNlIh+C0+'
-    'STAhkiFy92MS9wYXJ0bmVyL3JlamVjdE9yZGVyEo8BCg1Db21wbGV0ZU9yZGVyEiwuYnJpai5v'
-    'cmRlcnMudjEucGFydG5lci5Db21wbGV0ZU9yZGVyUmVxdWVzdBotLmJyaWoub3JkZXJzLnYxLn'
-    'BhcnRuZXIuQ29tcGxldGVPcmRlclJlc3BvbnNlIiGC0+STAhsiGS92MS9wYXJ0bmVyL2NvbXBs'
-    'ZXRlT3JkZXISfwoJRmFpbE9yZGVyEiguYnJpai5vcmRlcnMudjEucGFydG5lci5GYWlsT3JkZX'
-    'JSZXF1ZXN0GikuYnJpai5vcmRlcnMudjEucGFydG5lci5GYWlsT3JkZXJSZXNwb25zZSIdgtPk'
-    'kwIXIhUvdjEvcGFydG5lci9mYWlsT3JkZXISfwoJR2V0T3JkZXJzEiguYnJpai5vcmRlcnMudj'
-    'EucGFydG5lci5HZXRPcmRlcnNSZXF1ZXN0GikuYnJpai5vcmRlcnMudjEucGFydG5lci5HZXRP'
-    'cmRlcnNSZXNwb25zZSIdgtPkkwIXIhUvdjEvcGFydG5lci9nZXRPcmRlcnMSgwEKClVwZGF0ZU'
-    'ZlZXMSKS5icmlqLm9yZGVycy52MS5wYXJ0bmVyLlVwZGF0ZUZlZXNSZXF1ZXN0GiouYnJpai5v'
-    'cmRlcnMudjEucGFydG5lci5VcGRhdGVGZWVzUmVzcG9uc2UiHoLT5JMCGCIWL3YxL3BhcnRuZX'
-    'IvdXBkYXRlRmVlcxKnAQoTR2VuZXJhdGVUcmFuc2FjdGlvbhIyLmJyaWoub3JkZXJzLnYxLnBh'
-    'cnRuZXIuR2VuZXJhdGVUcmFuc2FjdGlvblJlcXVlc3QaMy5icmlqLm9yZGVycy52MS5wYXJ0bm'
-    'VyLkdlbmVyYXRlVHJhbnNhY3Rpb25SZXNwb25zZSIngtPkkwIhIh8vdjEvcGFydG5lci9nZW5l'
-    'cmF0ZVRyYW5zYWN0aW9u');
+    'EmYKC0FjY2VwdE9yZGVyEiouYnJpai5vcmRlcnMudjEucGFydG5lci5BY2NlcHRPcmRlclJlcX'
+    'Vlc3QaKy5icmlqLm9yZGVycy52MS5wYXJ0bmVyLkFjY2VwdE9yZGVyUmVzcG9uc2USZgoLUmVq'
+    'ZWN0T3JkZXISKi5icmlqLm9yZGVycy52MS5wYXJ0bmVyLlJlamVjdE9yZGVyUmVxdWVzdBorLm'
+    'JyaWoub3JkZXJzLnYxLnBhcnRuZXIuUmVqZWN0T3JkZXJSZXNwb25zZRJsCg1Db21wbGV0ZU9y'
+    'ZGVyEiwuYnJpai5vcmRlcnMudjEucGFydG5lci5Db21wbGV0ZU9yZGVyUmVxdWVzdBotLmJyaW'
+    'oub3JkZXJzLnYxLnBhcnRuZXIuQ29tcGxldGVPcmRlclJlc3BvbnNlEmAKCUZhaWxPcmRlchIo'
+    'LmJyaWoub3JkZXJzLnYxLnBhcnRuZXIuRmFpbE9yZGVyUmVxdWVzdBopLmJyaWoub3JkZXJzLn'
+    'YxLnBhcnRuZXIuRmFpbE9yZGVyUmVzcG9uc2USYAoJR2V0T3JkZXJzEiguYnJpai5vcmRlcnMu'
+    'djEucGFydG5lci5HZXRPcmRlcnNSZXF1ZXN0GikuYnJpai5vcmRlcnMudjEucGFydG5lci5HZX'
+    'RPcmRlcnNSZXNwb25zZRJjCgpVcGRhdGVGZWVzEikuYnJpai5vcmRlcnMudjEucGFydG5lci5V'
+    'cGRhdGVGZWVzUmVxdWVzdBoqLmJyaWoub3JkZXJzLnYxLnBhcnRuZXIuVXBkYXRlRmVlc1Jlc3'
+    'BvbnNlEn4KE0dlbmVyYXRlVHJhbnNhY3Rpb24SMi5icmlqLm9yZGVycy52MS5wYXJ0bmVyLkdl'
+    'bmVyYXRlVHJhbnNhY3Rpb25SZXF1ZXN0GjMuYnJpai5vcmRlcnMudjEucGFydG5lci5HZW5lcm'
+    'F0ZVRyYW5zYWN0aW9uUmVzcG9uc2U=');
 

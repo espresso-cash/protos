@@ -8,7 +8,6 @@ package partner
 
 import (
 	common "go.brij.fi/protos/brij/orders/v1/common"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -1083,7 +1082,7 @@ var File_brij_orders_v1_partner_partner_proto protoreflect.FileDescriptor
 
 const file_brij_orders_v1_partner_partner_proto_rawDesc = "" +
 	"\n" +
-	"$brij/orders/v1/partner/partner.proto\x12\x16brij.orders.v1.partner\x1a%brij/orders/v1/common/ramp_type.proto\x1a\x1cgoogle/api/annotations.proto\"M\n" +
+	"$brij/orders/v1/partner/partner.proto\x12\x16brij.orders.v1.partner\x1a%brij/orders/v1/common/ramp_type.proto\"M\n" +
 	"\x0fGetOrderRequest\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x1f\n" +
 	"\vexternal_id\x18\x02 \x01(\tR\n" +
@@ -1161,17 +1160,17 @@ const file_brij_orders_v1_partner_partner_proto_rawDesc = "" +
 	"\vexternal_id\x18\x03 \x01(\tR\n" +
 	"externalId\"?\n" +
 	"\x1bGenerateTransactionResponse\x12 \n" +
-	"\vtransaction\x18\x01 \x01(\tR\vtransaction2\xe5\b\n" +
-	"\x0ePartnerService\x12{\n" +
-	"\bGetOrder\x12'.brij.orders.v1.partner.GetOrderRequest\x1a(.brij.orders.v1.partner.GetOrderResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x14/v1/partner/getOrder\x12\x87\x01\n" +
-	"\vAcceptOrder\x12*.brij.orders.v1.partner.AcceptOrderRequest\x1a+.brij.orders.v1.partner.AcceptOrderResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x17/v1/partner/acceptOrder\x12\x87\x01\n" +
-	"\vRejectOrder\x12*.brij.orders.v1.partner.RejectOrderRequest\x1a+.brij.orders.v1.partner.RejectOrderResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x17/v1/partner/rejectOrder\x12\x8f\x01\n" +
-	"\rCompleteOrder\x12,.brij.orders.v1.partner.CompleteOrderRequest\x1a-.brij.orders.v1.partner.CompleteOrderResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x19/v1/partner/completeOrder\x12\x7f\n" +
-	"\tFailOrder\x12(.brij.orders.v1.partner.FailOrderRequest\x1a).brij.orders.v1.partner.FailOrderResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x15/v1/partner/failOrder\x12\x7f\n" +
-	"\tGetOrders\x12(.brij.orders.v1.partner.GetOrdersRequest\x1a).brij.orders.v1.partner.GetOrdersResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x15/v1/partner/getOrders\x12\x83\x01\n" +
+	"\vtransaction\x18\x01 \x01(\tR\vtransaction2\xd6\x06\n" +
+	"\x0ePartnerService\x12]\n" +
+	"\bGetOrder\x12'.brij.orders.v1.partner.GetOrderRequest\x1a(.brij.orders.v1.partner.GetOrderResponse\x12f\n" +
+	"\vAcceptOrder\x12*.brij.orders.v1.partner.AcceptOrderRequest\x1a+.brij.orders.v1.partner.AcceptOrderResponse\x12f\n" +
+	"\vRejectOrder\x12*.brij.orders.v1.partner.RejectOrderRequest\x1a+.brij.orders.v1.partner.RejectOrderResponse\x12l\n" +
+	"\rCompleteOrder\x12,.brij.orders.v1.partner.CompleteOrderRequest\x1a-.brij.orders.v1.partner.CompleteOrderResponse\x12`\n" +
+	"\tFailOrder\x12(.brij.orders.v1.partner.FailOrderRequest\x1a).brij.orders.v1.partner.FailOrderResponse\x12`\n" +
+	"\tGetOrders\x12(.brij.orders.v1.partner.GetOrdersRequest\x1a).brij.orders.v1.partner.GetOrdersResponse\x12c\n" +
 	"\n" +
-	"UpdateFees\x12).brij.orders.v1.partner.UpdateFeesRequest\x1a*.brij.orders.v1.partner.UpdateFeesResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x16/v1/partner/updateFees\x12\xa7\x01\n" +
-	"\x13GenerateTransaction\x122.brij.orders.v1.partner.GenerateTransactionRequest\x1a3.brij.orders.v1.partner.GenerateTransactionResponse\"'\x82\xd3\xe4\x93\x02!\"\x1f/v1/partner/generateTransactionB*Z(go.brij.fi/protos/brij/orders/v1/partnerb\x06proto3"
+	"UpdateFees\x12).brij.orders.v1.partner.UpdateFeesRequest\x1a*.brij.orders.v1.partner.UpdateFeesResponse\x12~\n" +
+	"\x13GenerateTransaction\x122.brij.orders.v1.partner.GenerateTransactionRequest\x1a3.brij.orders.v1.partner.GenerateTransactionResponseB*Z(go.brij.fi/protos/brij/orders/v1/partnerb\x06proto3"
 
 var (
 	file_brij_orders_v1_partner_partner_proto_rawDescOnce sync.Once

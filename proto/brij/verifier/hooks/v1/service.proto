@@ -2,18 +2,12 @@ syntax = 'proto3';
 
 package brij.verifier.hooks.v1;
 
-import "google/api/annotations.proto";
-
 option go_package = 'go.brij.fi/protos/brij/verifier/hooks/v1';
 
 service HooksService {
-  rpc SmileIdResult(SmileIdResultRequest) returns (SmileIdResultResponse) {
-    option (google.api.http) = {post: "/smileid/result"};
-  }
+  rpc SmileIdResult(SmileIdResultRequest) returns (SmileIdResultResponse);
 
-  rpc SumsubResult(SumsubResultRequest) returns (SumsubResultResponse) {
-    option (google.api.http) = {post: "/sumsub/result"};
-  }
+  rpc SumsubResult(SumsubResultRequest) returns (SumsubResultResponse);
 }
 
 message SmileIdResultRequest {}

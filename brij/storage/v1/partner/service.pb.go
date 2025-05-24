@@ -8,7 +8,6 @@ package partner
 
 import (
 	common "go.brij.fi/protos/brij/storage/v1/common"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -731,7 +730,7 @@ var File_brij_storage_v1_partner_service_proto protoreflect.FileDescriptor
 
 const file_brij_storage_v1_partner_service_proto_rawDesc = "" +
 	"\n" +
-	"%brij/storage/v1/partner/service.proto\x12\x17brij.storage.v1.partner\x1a%brij/storage/v1/common/kyc_item.proto\x1a,brij/storage/v1/common/user_data_field.proto\x1a2brij/storage/v1/common/validation_data_field.proto\x1a.brij/storage/v1/common/validation_status.proto\x1a\x1cgoogle/api/annotations.proto\"/\n" +
+	"%brij/storage/v1/partner/service.proto\x12\x17brij.storage.v1.partner\x1a%brij/storage/v1/common/kyc_item.proto\x1a,brij/storage/v1/common/user_data_field.proto\x1a2brij/storage/v1/common/validation_data_field.proto\x1a.brij/storage/v1/common/validation_status.proto\"/\n" +
 	"\x0eGetInfoRequest\x12\x1d\n" +
 	"\n" +
 	"public_key\x18\x01 \x01(\tR\tpublicKey\"\x89\x01\n" +
@@ -772,15 +771,15 @@ const file_brij_storage_v1_partner_service_proto_rawDesc = "" +
 	"\x06kyc_id\x18\x01 \x01(\tR\x05kycId\x12\x12\n" +
 	"\x04data\x18\x02 \x01(\fR\x04data\x12\x1c\n" +
 	"\tsignature\x18\x03 \x01(\fR\tsignature\"\x19\n" +
-	"\x17UpdateKycStatusResponse2\xb3\b\n" +
-	"\x0ePartnerService\x12y\n" +
-	"\aGetInfo\x12'.brij.storage.v1.partner.GetInfoRequest\x1a(.brij.storage.v1.partner.GetInfoResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x13/v1/partner/getInfo\x12\x89\x01\n" +
-	"\vGetUserData\x12+.brij.storage.v1.partner.GetUserDataRequest\x1a,.brij.storage.v1.partner.GetUserDataResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x17/v1/partner/getUserData\x12\xa1\x01\n" +
-	"\x11SetValidationData\x121.brij.storage.v1.partner.SetValidationDataRequest\x1a2.brij.storage.v1.partner.SetValidationDataResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1d/v1/partner/setValidationData\x12\xad\x01\n" +
-	"\x14RemoveValidationData\x124.brij.storage.v1.partner.RemoveValidationDataRequest\x1a5.brij.storage.v1.partner.RemoveValidationDataResponse\"(\x82\xd3\xe4\x93\x02\"\" /v1/partner/removeValidationData\x12\x8d\x01\n" +
-	"\fGetKycStatus\x12,.brij.storage.v1.partner.GetKycStatusRequest\x1a-.brij.storage.v1.partner.GetKycStatusResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x18/v1/partner/getKycStatus\x12\x99\x01\n" +
-	"\x0fCreateKycStatus\x12/.brij.storage.v1.partner.CreateKycStatusRequest\x1a0.brij.storage.v1.partner.CreateKycStatusResponse\"#\x82\xd3\xe4\x93\x02\x1d\"\x1b/v1/partner/createKycStatus\x12\x99\x01\n" +
-	"\x0fUpdateKycStatus\x12/.brij.storage.v1.partner.UpdateKycStatusRequest\x1a0.brij.storage.v1.partner.UpdateKycStatusResponse\"#\x82\xd3\xe4\x93\x02\x1d\"\x1b/v1/partner/updateKycStatusB+Z)go.brij.fi/protos/brij/storage/v1/partnerb\x06proto3"
+	"\x17UpdateKycStatusResponse2\xb3\x06\n" +
+	"\x0ePartnerService\x12\\\n" +
+	"\aGetInfo\x12'.brij.storage.v1.partner.GetInfoRequest\x1a(.brij.storage.v1.partner.GetInfoResponse\x12h\n" +
+	"\vGetUserData\x12+.brij.storage.v1.partner.GetUserDataRequest\x1a,.brij.storage.v1.partner.GetUserDataResponse\x12z\n" +
+	"\x11SetValidationData\x121.brij.storage.v1.partner.SetValidationDataRequest\x1a2.brij.storage.v1.partner.SetValidationDataResponse\x12\x83\x01\n" +
+	"\x14RemoveValidationData\x124.brij.storage.v1.partner.RemoveValidationDataRequest\x1a5.brij.storage.v1.partner.RemoveValidationDataResponse\x12k\n" +
+	"\fGetKycStatus\x12,.brij.storage.v1.partner.GetKycStatusRequest\x1a-.brij.storage.v1.partner.GetKycStatusResponse\x12t\n" +
+	"\x0fCreateKycStatus\x12/.brij.storage.v1.partner.CreateKycStatusRequest\x1a0.brij.storage.v1.partner.CreateKycStatusResponse\x12t\n" +
+	"\x0fUpdateKycStatus\x12/.brij.storage.v1.partner.UpdateKycStatusRequest\x1a0.brij.storage.v1.partner.UpdateKycStatusResponseB+Z)go.brij.fi/protos/brij/storage/v1/partnerb\x06proto3"
 
 var (
 	file_brij_storage_v1_partner_service_proto_rawDescOnce sync.Once

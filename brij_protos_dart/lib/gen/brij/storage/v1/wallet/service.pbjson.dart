@@ -378,20 +378,20 @@ final $typed_data.Uint8List getWalletProofResponseDescriptor = $convert.base64De
 const $core.Map<$core.String, $core.dynamic> WalletServiceBase$json = {
   '1': 'WalletService',
   '2': [
-    {'1': 'GetPartnerInfo', '2': '.brij.storage.v1.wallet.GetPartnerInfoRequest', '3': '.brij.storage.v1.wallet.GetPartnerInfoResponse', '4': {}},
-    {'1': 'InitStorage', '2': '.brij.storage.v1.wallet.InitStorageRequest', '3': '.brij.storage.v1.wallet.InitStorageResponse', '4': {}},
-    {'1': 'GetInfo', '2': '.brij.storage.v1.wallet.GetInfoRequest', '3': '.brij.storage.v1.wallet.GetInfoResponse', '4': {}},
-    {'1': 'GetGrantedAccessPartners', '2': '.brij.storage.v1.wallet.GetGrantedAccessPartnersRequest', '3': '.brij.storage.v1.wallet.GetGrantedAccessPartnersResponse', '4': {}},
-    {'1': 'GrantAccess', '2': '.brij.storage.v1.wallet.GrantAccessRequest', '3': '.brij.storage.v1.wallet.GrantAccessResponse', '4': {}},
-    {'1': 'SetUserData', '2': '.brij.storage.v1.wallet.SetUserDataRequest', '3': '.brij.storage.v1.wallet.SetUserDataResponse', '4': {}},
-    {'1': 'RemoveUserData', '2': '.brij.storage.v1.wallet.RemoveUserDataRequest', '3': '.brij.storage.v1.wallet.RemoveUserDataResponse', '4': {}},
-    {'1': 'RevokeAccess', '2': '.brij.storage.v1.wallet.RevokeAccessRequest', '3': '.brij.storage.v1.wallet.RevokeAccessResponse', '4': {}},
-    {'1': 'RemoveAllUserData', '2': '.brij.storage.v1.wallet.RemoveAllUserDataRequest', '3': '.brij.storage.v1.wallet.RemoveAllUserDataResponse', '4': {}},
-    {'1': 'GetUserData', '2': '.brij.storage.v1.wallet.GetUserDataRequest', '3': '.brij.storage.v1.wallet.GetUserDataResponse', '4': {}},
-    {'1': 'CheckAccess', '2': '.brij.storage.v1.wallet.CheckAccessRequest', '3': '.brij.storage.v1.wallet.CheckAccessResponse', '4': {}},
-    {'1': 'GetKycStatus', '2': '.brij.storage.v1.wallet.GetKycStatusRequest', '3': '.brij.storage.v1.wallet.GetKycStatusResponse', '4': {}},
-    {'1': 'GetWalletProof', '2': '.brij.storage.v1.wallet.GetWalletProofRequest', '3': '.brij.storage.v1.wallet.GetWalletProofResponse', '4': {}},
-    {'1': 'GetSeedMessage', '2': '.brij.storage.v1.wallet.GetSeedMessageRequest', '3': '.brij.storage.v1.wallet.GetSeedMessageResponse', '4': {}},
+    {'1': 'GetPartnerInfo', '2': '.brij.storage.v1.wallet.GetPartnerInfoRequest', '3': '.brij.storage.v1.wallet.GetPartnerInfoResponse'},
+    {'1': 'InitStorage', '2': '.brij.storage.v1.wallet.InitStorageRequest', '3': '.brij.storage.v1.wallet.InitStorageResponse'},
+    {'1': 'GetInfo', '2': '.brij.storage.v1.wallet.GetInfoRequest', '3': '.brij.storage.v1.wallet.GetInfoResponse'},
+    {'1': 'GetGrantedAccessPartners', '2': '.brij.storage.v1.wallet.GetGrantedAccessPartnersRequest', '3': '.brij.storage.v1.wallet.GetGrantedAccessPartnersResponse'},
+    {'1': 'GrantAccess', '2': '.brij.storage.v1.wallet.GrantAccessRequest', '3': '.brij.storage.v1.wallet.GrantAccessResponse'},
+    {'1': 'SetUserData', '2': '.brij.storage.v1.wallet.SetUserDataRequest', '3': '.brij.storage.v1.wallet.SetUserDataResponse'},
+    {'1': 'RemoveUserData', '2': '.brij.storage.v1.wallet.RemoveUserDataRequest', '3': '.brij.storage.v1.wallet.RemoveUserDataResponse'},
+    {'1': 'RevokeAccess', '2': '.brij.storage.v1.wallet.RevokeAccessRequest', '3': '.brij.storage.v1.wallet.RevokeAccessResponse'},
+    {'1': 'RemoveAllUserData', '2': '.brij.storage.v1.wallet.RemoveAllUserDataRequest', '3': '.brij.storage.v1.wallet.RemoveAllUserDataResponse'},
+    {'1': 'GetUserData', '2': '.brij.storage.v1.wallet.GetUserDataRequest', '3': '.brij.storage.v1.wallet.GetUserDataResponse'},
+    {'1': 'CheckAccess', '2': '.brij.storage.v1.wallet.CheckAccessRequest', '3': '.brij.storage.v1.wallet.CheckAccessResponse'},
+    {'1': 'GetKycStatus', '2': '.brij.storage.v1.wallet.GetKycStatusRequest', '3': '.brij.storage.v1.wallet.GetKycStatusResponse'},
+    {'1': 'GetWalletProof', '2': '.brij.storage.v1.wallet.GetWalletProofRequest', '3': '.brij.storage.v1.wallet.GetWalletProofResponse'},
+    {'1': 'GetSeedMessage', '2': '.brij.storage.v1.wallet.GetSeedMessageRequest', '3': '.brij.storage.v1.wallet.GetSeedMessageResponse'},
   ],
 };
 
@@ -432,41 +432,33 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> WalletServ
 
 /// Descriptor for `WalletService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List walletServiceDescriptor = $convert.base64Decode(
-    'Cg1XYWxsZXRTZXJ2aWNlEpIBCg5HZXRQYXJ0bmVySW5mbxItLmJyaWouc3RvcmFnZS52MS53YW'
-    'xsZXQuR2V0UGFydG5lckluZm9SZXF1ZXN0Gi4uYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRQ'
-    'YXJ0bmVySW5mb1Jlc3BvbnNlIiGC0+STAhsiGS92MS93YWxsZXQvZ2V0UGFydG5lckluZm8Shg'
-    'EKC0luaXRTdG9yYWdlEiouYnJpai5zdG9yYWdlLnYxLndhbGxldC5Jbml0U3RvcmFnZVJlcXVl'
-    'c3QaKy5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkluaXRTdG9yYWdlUmVzcG9uc2UiHoLT5JMCGC'
-    'IWL3YxL3dhbGxldC9pbml0U3RvcmFnZRJ2CgdHZXRJbmZvEiYuYnJpai5zdG9yYWdlLnYxLndh'
-    'bGxldC5HZXRJbmZvUmVxdWVzdBonLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0SW5mb1Jlc3'
-    'BvbnNlIhqC0+STAhQiEi92MS93YWxsZXQvZ2V0SW5mbxK6AQoYR2V0R3JhbnRlZEFjY2Vzc1Bh'
-    'cnRuZXJzEjcuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRHcmFudGVkQWNjZXNzUGFydG5lcn'
-    'NSZXF1ZXN0GjguYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRHcmFudGVkQWNjZXNzUGFydG5l'
-    'cnNSZXNwb25zZSIrgtPkkwIlIiMvdjEvd2FsbGV0L2dldEdyYW50ZWRBY2Nlc3NQYXJ0bmVycx'
-    'KGAQoLR3JhbnRBY2Nlc3MSKi5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdyYW50QWNjZXNzUmVx'
-    'dWVzdBorLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR3JhbnRBY2Nlc3NSZXNwb25zZSIegtPkkw'
-    'IYIhYvdjEvd2FsbGV0L2dyYW50QWNjZXNzEoYBCgtTZXRVc2VyRGF0YRIqLmJyaWouc3RvcmFn'
-    'ZS52MS53YWxsZXQuU2V0VXNlckRhdGFSZXF1ZXN0GisuYnJpai5zdG9yYWdlLnYxLndhbGxldC'
-    '5TZXRVc2VyRGF0YVJlc3BvbnNlIh6C0+STAhgiFi92MS93YWxsZXQvc2V0VXNlckRhdGESkgEK'
-    'DlJlbW92ZVVzZXJEYXRhEi0uYnJpai5zdG9yYWdlLnYxLndhbGxldC5SZW1vdmVVc2VyRGF0YV'
-    'JlcXVlc3QaLi5icmlqLnN0b3JhZ2UudjEud2FsbGV0LlJlbW92ZVVzZXJEYXRhUmVzcG9uc2Ui'
-    'IYLT5JMCGyIZL3YxL3dhbGxldC9yZW1vdmVVc2VyRGF0YRKKAQoMUmV2b2tlQWNjZXNzEisuYn'
-    'Jpai5zdG9yYWdlLnYxLndhbGxldC5SZXZva2VBY2Nlc3NSZXF1ZXN0GiwuYnJpai5zdG9yYWdl'
-    'LnYxLndhbGxldC5SZXZva2VBY2Nlc3NSZXNwb25zZSIfgtPkkwIZIhcvdjEvd2FsbGV0L3Jldm'
-    '9rZUFjY2VzcxKeAQoRUmVtb3ZlQWxsVXNlckRhdGESMC5icmlqLnN0b3JhZ2UudjEud2FsbGV0'
-    'LlJlbW92ZUFsbFVzZXJEYXRhUmVxdWVzdBoxLmJyaWouc3RvcmFnZS52MS53YWxsZXQuUmVtb3'
-    'ZlQWxsVXNlckRhdGFSZXNwb25zZSIkgtPkkwIeIhwvdjEvd2FsbGV0L3JlbW92ZUFsbFVzZXJE'
-    'YXRhEoYBCgtHZXRVc2VyRGF0YRIqLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0VXNlckRhdG'
-    'FSZXF1ZXN0GisuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRVc2VyRGF0YVJlc3BvbnNlIh6C'
-    '0+STAhgiFi92MS93YWxsZXQvZ2V0VXNlckRhdGEShgEKC0NoZWNrQWNjZXNzEiouYnJpai5zdG'
-    '9yYWdlLnYxLndhbGxldC5DaGVja0FjY2Vzc1JlcXVlc3QaKy5icmlqLnN0b3JhZ2UudjEud2Fs'
-    'bGV0LkNoZWNrQWNjZXNzUmVzcG9uc2UiHoLT5JMCGCIWL3YxL3dhbGxldC9jaGVja0FjY2Vzcx'
-    'KKAQoMR2V0S3ljU3RhdHVzEisuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRLeWNTdGF0dXNS'
-    'ZXF1ZXN0GiwuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRLeWNTdGF0dXNSZXNwb25zZSIfgt'
-    'PkkwIZIhcvdjEvd2FsbGV0L2dldEt5Y1N0YXR1cxKSAQoOR2V0V2FsbGV0UHJvb2YSLS5icmlq'
-    'LnN0b3JhZ2UudjEud2FsbGV0LkdldFdhbGxldFByb29mUmVxdWVzdBouLmJyaWouc3RvcmFnZS'
-    '52MS53YWxsZXQuR2V0V2FsbGV0UHJvb2ZSZXNwb25zZSIhgtPkkwIbIhkvdjEvd2FsbGV0L2dl'
-    'dFdhbGxldFByb29mEpIBCg5HZXRTZWVkTWVzc2FnZRItLmJyaWouc3RvcmFnZS52MS53YWxsZX'
-    'QuR2V0U2VlZE1lc3NhZ2VSZXF1ZXN0Gi4uYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRTZWVk'
-    'TWVzc2FnZVJlc3BvbnNlIiGC0+STAhsiGS92MS93YWxsZXQvZ2V0U2VlZE1lc3NhZ2U=');
+    'Cg1XYWxsZXRTZXJ2aWNlEm8KDkdldFBhcnRuZXJJbmZvEi0uYnJpai5zdG9yYWdlLnYxLndhbG'
+    'xldC5HZXRQYXJ0bmVySW5mb1JlcXVlc3QaLi5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldFBh'
+    'cnRuZXJJbmZvUmVzcG9uc2USZgoLSW5pdFN0b3JhZ2USKi5icmlqLnN0b3JhZ2UudjEud2FsbG'
+    'V0LkluaXRTdG9yYWdlUmVxdWVzdBorLmJyaWouc3RvcmFnZS52MS53YWxsZXQuSW5pdFN0b3Jh'
+    'Z2VSZXNwb25zZRJaCgdHZXRJbmZvEiYuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRJbmZvUm'
+    'VxdWVzdBonLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0SW5mb1Jlc3BvbnNlEo0BChhHZXRH'
+    'cmFudGVkQWNjZXNzUGFydG5lcnMSNy5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldEdyYW50ZW'
+    'RBY2Nlc3NQYXJ0bmVyc1JlcXVlc3QaOC5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldEdyYW50'
+    'ZWRBY2Nlc3NQYXJ0bmVyc1Jlc3BvbnNlEmYKC0dyYW50QWNjZXNzEiouYnJpai5zdG9yYWdlLn'
+    'YxLndhbGxldC5HcmFudEFjY2Vzc1JlcXVlc3QaKy5icmlqLnN0b3JhZ2UudjEud2FsbGV0Lkdy'
+    'YW50QWNjZXNzUmVzcG9uc2USZgoLU2V0VXNlckRhdGESKi5icmlqLnN0b3JhZ2UudjEud2FsbG'
+    'V0LlNldFVzZXJEYXRhUmVxdWVzdBorLmJyaWouc3RvcmFnZS52MS53YWxsZXQuU2V0VXNlckRh'
+    'dGFSZXNwb25zZRJvCg5SZW1vdmVVc2VyRGF0YRItLmJyaWouc3RvcmFnZS52MS53YWxsZXQuUm'
+    'Vtb3ZlVXNlckRhdGFSZXF1ZXN0Gi4uYnJpai5zdG9yYWdlLnYxLndhbGxldC5SZW1vdmVVc2Vy'
+    'RGF0YVJlc3BvbnNlEmkKDFJldm9rZUFjY2VzcxIrLmJyaWouc3RvcmFnZS52MS53YWxsZXQuUm'
+    'V2b2tlQWNjZXNzUmVxdWVzdBosLmJyaWouc3RvcmFnZS52MS53YWxsZXQuUmV2b2tlQWNjZXNz'
+    'UmVzcG9uc2USeAoRUmVtb3ZlQWxsVXNlckRhdGESMC5icmlqLnN0b3JhZ2UudjEud2FsbGV0Ll'
+    'JlbW92ZUFsbFVzZXJEYXRhUmVxdWVzdBoxLmJyaWouc3RvcmFnZS52MS53YWxsZXQuUmVtb3Zl'
+    'QWxsVXNlckRhdGFSZXNwb25zZRJmCgtHZXRVc2VyRGF0YRIqLmJyaWouc3RvcmFnZS52MS53YW'
+    'xsZXQuR2V0VXNlckRhdGFSZXF1ZXN0GisuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRVc2Vy'
+    'RGF0YVJlc3BvbnNlEmYKC0NoZWNrQWNjZXNzEiouYnJpai5zdG9yYWdlLnYxLndhbGxldC5DaG'
+    'Vja0FjY2Vzc1JlcXVlc3QaKy5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkNoZWNrQWNjZXNzUmVz'
+    'cG9uc2USaQoMR2V0S3ljU3RhdHVzEisuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRLeWNTdG'
+    'F0dXNSZXF1ZXN0GiwuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRLeWNTdGF0dXNSZXNwb25z'
+    'ZRJvCg5HZXRXYWxsZXRQcm9vZhItLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0V2FsbGV0UH'
+    'Jvb2ZSZXF1ZXN0Gi4uYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRXYWxsZXRQcm9vZlJlc3Bv'
+    'bnNlEm8KDkdldFNlZWRNZXNzYWdlEi0uYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRTZWVkTW'
+    'Vzc2FnZVJlcXVlc3QaLi5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldFNlZWRNZXNzYWdlUmVz'
+    'cG9uc2U=');
 

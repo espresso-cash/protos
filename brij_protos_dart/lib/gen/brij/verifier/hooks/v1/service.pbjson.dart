@@ -80,8 +80,8 @@ final $typed_data.Uint8List sumsubResultResponseDescriptor = $convert.base64Deco
 const $core.Map<$core.String, $core.dynamic> HooksServiceBase$json = {
   '1': 'HooksService',
   '2': [
-    {'1': 'SmileIdResult', '2': '.brij.verifier.hooks.v1.SmileIdResultRequest', '3': '.brij.verifier.hooks.v1.SmileIdResultResponse', '4': {}},
-    {'1': 'SumsubResult', '2': '.brij.verifier.hooks.v1.SumsubResultRequest', '3': '.brij.verifier.hooks.v1.SumsubResultResponse', '4': {}},
+    {'1': 'SmileIdResult', '2': '.brij.verifier.hooks.v1.SmileIdResultRequest', '3': '.brij.verifier.hooks.v1.SmileIdResultResponse'},
+    {'1': 'SumsubResult', '2': '.brij.verifier.hooks.v1.SumsubResultRequest', '3': '.brij.verifier.hooks.v1.SumsubResultResponse'},
   ],
 };
 
@@ -96,10 +96,9 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> HooksServi
 
 /// Descriptor for `HooksService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List hooksServiceDescriptor = $convert.base64Decode(
-    'CgxIb29rc1NlcnZpY2UShQEKDVNtaWxlSWRSZXN1bHQSLC5icmlqLnZlcmlmaWVyLmhvb2tzLn'
-    'YxLlNtaWxlSWRSZXN1bHRSZXF1ZXN0Gi0uYnJpai52ZXJpZmllci5ob29rcy52MS5TbWlsZUlk'
-    'UmVzdWx0UmVzcG9uc2UiF4LT5JMCESIPL3NtaWxlaWQvcmVzdWx0EoEBCgxTdW1zdWJSZXN1bH'
-    'QSKy5icmlqLnZlcmlmaWVyLmhvb2tzLnYxLlN1bXN1YlJlc3VsdFJlcXVlc3QaLC5icmlqLnZl'
-    'cmlmaWVyLmhvb2tzLnYxLlN1bXN1YlJlc3VsdFJlc3BvbnNlIhaC0+STAhAiDi9zdW1zdWIvcm'
-    'VzdWx0');
+    'CgxIb29rc1NlcnZpY2USbAoNU21pbGVJZFJlc3VsdBIsLmJyaWoudmVyaWZpZXIuaG9va3Mudj'
+    'EuU21pbGVJZFJlc3VsdFJlcXVlc3QaLS5icmlqLnZlcmlmaWVyLmhvb2tzLnYxLlNtaWxlSWRS'
+    'ZXN1bHRSZXNwb25zZRJpCgxTdW1zdWJSZXN1bHQSKy5icmlqLnZlcmlmaWVyLmhvb2tzLnYxLl'
+    'N1bXN1YlJlc3VsdFJlcXVlc3QaLC5icmlqLnZlcmlmaWVyLmhvb2tzLnYxLlN1bXN1YlJlc3Vs'
+    'dFJlc3BvbnNl');
 

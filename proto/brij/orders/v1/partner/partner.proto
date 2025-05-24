@@ -3,42 +3,25 @@ syntax = "proto3";
 package brij.orders.v1.partner;
 
 import "brij/orders/v1/common/ramp_type.proto";
-import "google/api/annotations.proto";
 
 option go_package = "go.brij.fi/protos/brij/orders/v1/partner";
 
 service PartnerService {
-  rpc GetOrder(GetOrderRequest) returns (GetOrderResponse) {
-    option (google.api.http) = {post: "/v1/partner/getOrder"};
-  }
+  rpc GetOrder(GetOrderRequest) returns (GetOrderResponse);
 
-  rpc AcceptOrder(AcceptOrderRequest) returns (AcceptOrderResponse) {
-    option (google.api.http) = {post: "/v1/partner/acceptOrder"};
-  }
+  rpc AcceptOrder(AcceptOrderRequest) returns (AcceptOrderResponse);
 
-  rpc RejectOrder(RejectOrderRequest) returns (RejectOrderResponse) {
-    option (google.api.http) = {post: "/v1/partner/rejectOrder"};
-  }
+  rpc RejectOrder(RejectOrderRequest) returns (RejectOrderResponse);
 
-  rpc CompleteOrder(CompleteOrderRequest) returns (CompleteOrderResponse) {
-    option (google.api.http) = {post: "/v1/partner/completeOrder"};
-  }
+  rpc CompleteOrder(CompleteOrderRequest) returns (CompleteOrderResponse);
 
-  rpc FailOrder(FailOrderRequest) returns (FailOrderResponse) {
-    option (google.api.http) = {post: "/v1/partner/failOrder"};
-  }
+  rpc FailOrder(FailOrderRequest) returns (FailOrderResponse);
 
-  rpc GetOrders(GetOrdersRequest) returns (GetOrdersResponse) {
-    option (google.api.http) = {post: "/v1/partner/getOrders"};
-  }
+  rpc GetOrders(GetOrdersRequest) returns (GetOrdersResponse);
 
-  rpc UpdateFees(UpdateFeesRequest) returns (UpdateFeesResponse) {
-    option (google.api.http) = {post: "/v1/partner/updateFees"};
-  }
+  rpc UpdateFees(UpdateFeesRequest) returns (UpdateFeesResponse);
 
-  rpc GenerateTransaction(GenerateTransactionRequest) returns (GenerateTransactionResponse) {
-    option (google.api.http) = {post: "/v1/partner/generateTransaction"};
-  }
+  rpc GenerateTransaction(GenerateTransactionRequest) returns (GenerateTransactionResponse);
 }
 
 message GetOrderRequest {

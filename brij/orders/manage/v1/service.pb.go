@@ -7,7 +7,6 @@
 package v1
 
 import (
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -186,17 +185,17 @@ var File_brij_orders_manage_v1_service_proto protoreflect.FileDescriptor
 
 const file_brij_orders_manage_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"#brij/orders/manage/v1/service.proto\x12\x15brij.orders.manage.v1\x1a\x1cgoogle/api/annotations.proto\"R\n" +
+	"#brij/orders/manage/v1/service.proto\x12\x15brij.orders.manage.v1\"R\n" +
 	"\x14NotifyPartnerRequest\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x1f\n" +
 	"\vwebhook_url\x18\x02 \x01(\tR\n" +
 	"webhookUrl\"\x17\n" +
 	"\x15NotifyPartnerResponse\"\x19\n" +
 	"\x17CheckStaleOrdersRequest\"\x1a\n" +
-	"\x18CheckStaleOrdersResponse2\xb6\x02\n" +
-	"\rManageService\x12\x8c\x01\n" +
-	"\rNotifyPartner\x12+.brij.orders.manage.v1.NotifyPartnerRequest\x1a,.brij.orders.manage.v1.NotifyPartnerResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x18/webhooks/notify-partner\x12\x95\x01\n" +
-	"\x10CheckStaleOrders\x12..brij.orders.manage.v1.CheckStaleOrdersRequest\x1a/.brij.orders.manage.v1.CheckStaleOrdersResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x18/jobs/check-stale-ordersB)Z'go.brij.fi/protos/brij/orders/manage/v1b\x06proto3"
+	"\x18CheckStaleOrdersResponse2\xf0\x01\n" +
+	"\rManageService\x12j\n" +
+	"\rNotifyPartner\x12+.brij.orders.manage.v1.NotifyPartnerRequest\x1a,.brij.orders.manage.v1.NotifyPartnerResponse\x12s\n" +
+	"\x10CheckStaleOrders\x12..brij.orders.manage.v1.CheckStaleOrdersRequest\x1a/.brij.orders.manage.v1.CheckStaleOrdersResponseB)Z'go.brij.fi/protos/brij/orders/manage/v1b\x06proto3"
 
 var (
 	file_brij_orders_manage_v1_service_proto_rawDescOnce sync.Once

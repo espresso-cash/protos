@@ -57,8 +57,8 @@ final $typed_data.Uint8List checkStaleOrdersResponseDescriptor = $convert.base64
 const $core.Map<$core.String, $core.dynamic> ManageServiceBase$json = {
   '1': 'ManageService',
   '2': [
-    {'1': 'NotifyPartner', '2': '.brij.orders.manage.v1.NotifyPartnerRequest', '3': '.brij.orders.manage.v1.NotifyPartnerResponse', '4': {}},
-    {'1': 'CheckStaleOrders', '2': '.brij.orders.manage.v1.CheckStaleOrdersRequest', '3': '.brij.orders.manage.v1.CheckStaleOrdersResponse', '4': {}},
+    {'1': 'NotifyPartner', '2': '.brij.orders.manage.v1.NotifyPartnerRequest', '3': '.brij.orders.manage.v1.NotifyPartnerResponse'},
+    {'1': 'CheckStaleOrders', '2': '.brij.orders.manage.v1.CheckStaleOrdersRequest', '3': '.brij.orders.manage.v1.CheckStaleOrdersResponse'},
   ],
 };
 
@@ -72,10 +72,9 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> ManageServ
 
 /// Descriptor for `ManageService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List manageServiceDescriptor = $convert.base64Decode(
-    'Cg1NYW5hZ2VTZXJ2aWNlEowBCg1Ob3RpZnlQYXJ0bmVyEisuYnJpai5vcmRlcnMubWFuYWdlLn'
-    'YxLk5vdGlmeVBhcnRuZXJSZXF1ZXN0GiwuYnJpai5vcmRlcnMubWFuYWdlLnYxLk5vdGlmeVBh'
-    'cnRuZXJSZXNwb25zZSIggtPkkwIaIhgvd2ViaG9va3Mvbm90aWZ5LXBhcnRuZXISlQEKEENoZW'
-    'NrU3RhbGVPcmRlcnMSLi5icmlqLm9yZGVycy5tYW5hZ2UudjEuQ2hlY2tTdGFsZU9yZGVyc1Jl'
-    'cXVlc3QaLy5icmlqLm9yZGVycy5tYW5hZ2UudjEuQ2hlY2tTdGFsZU9yZGVyc1Jlc3BvbnNlIi'
-    'CC0+STAhoiGC9qb2JzL2NoZWNrLXN0YWxlLW9yZGVycw==');
+    'Cg1NYW5hZ2VTZXJ2aWNlEmoKDU5vdGlmeVBhcnRuZXISKy5icmlqLm9yZGVycy5tYW5hZ2Uudj'
+    'EuTm90aWZ5UGFydG5lclJlcXVlc3QaLC5icmlqLm9yZGVycy5tYW5hZ2UudjEuTm90aWZ5UGFy'
+    'dG5lclJlc3BvbnNlEnMKEENoZWNrU3RhbGVPcmRlcnMSLi5icmlqLm9yZGVycy5tYW5hZ2Uudj'
+    'EuQ2hlY2tTdGFsZU9yZGVyc1JlcXVlc3QaLy5icmlqLm9yZGVycy5tYW5hZ2UudjEuQ2hlY2tT'
+    'dGFsZU9yZGVyc1Jlc3BvbnNl');
 

@@ -7,7 +7,6 @@
 package v1
 
 import (
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -286,7 +285,7 @@ var File_brij_verifier_hooks_v1_service_proto protoreflect.FileDescriptor
 
 const file_brij_verifier_hooks_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"$brij/verifier/hooks/v1/service.proto\x12\x16brij.verifier.hooks.v1\x1a\x1cgoogle/api/annotations.proto\"\x16\n" +
+	"$brij/verifier/hooks/v1/service.proto\x12\x16brij.verifier.hooks.v1\"\x16\n" +
 	"\x14SmileIdResultRequest\"\x17\n" +
 	"\x15SmileIdResultResponse\"\xbe\x03\n" +
 	"\x13SumsubResultRequest\x12!\n" +
@@ -302,10 +301,10 @@ const file_brij_verifier_hooks_v1_service_proto_rawDesc = "" +
 	"\rcreated_at_ms\x18\t \x01(\tR\vcreatedAtMs\x1a3\n" +
 	"\fReviewResult\x12#\n" +
 	"\rreview_answer\x18\x01 \x01(\tR\freviewAnswer\"\x16\n" +
-	"\x14SumsubResultResponse2\x9a\x02\n" +
-	"\fHooksService\x12\x85\x01\n" +
-	"\rSmileIdResult\x12,.brij.verifier.hooks.v1.SmileIdResultRequest\x1a-.brij.verifier.hooks.v1.SmileIdResultResponse\"\x17\x82\xd3\xe4\x93\x02\x11\"\x0f/smileid/result\x12\x81\x01\n" +
-	"\fSumsubResult\x12+.brij.verifier.hooks.v1.SumsubResultRequest\x1a,.brij.verifier.hooks.v1.SumsubResultResponse\"\x16\x82\xd3\xe4\x93\x02\x10\"\x0e/sumsub/resultB*Z(go.brij.fi/protos/brij/verifier/hooks/v1b\x06proto3"
+	"\x14SumsubResultResponse2\xe7\x01\n" +
+	"\fHooksService\x12l\n" +
+	"\rSmileIdResult\x12,.brij.verifier.hooks.v1.SmileIdResultRequest\x1a-.brij.verifier.hooks.v1.SmileIdResultResponse\x12i\n" +
+	"\fSumsubResult\x12+.brij.verifier.hooks.v1.SumsubResultRequest\x1a,.brij.verifier.hooks.v1.SumsubResultResponseB*Z(go.brij.fi/protos/brij/verifier/hooks/v1b\x06proto3"
 
 var (
 	file_brij_verifier_hooks_v1_service_proto_rawDescOnce sync.Once

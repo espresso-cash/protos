@@ -2,18 +2,12 @@ syntax = 'proto3';
 
 package brij.orders.manage.v1;
 
-import "google/api/annotations.proto";
-
 option go_package = 'go.brij.fi/protos/brij/orders/manage/v1';
 
 service ManageService {
-  rpc NotifyPartner(NotifyPartnerRequest) returns (NotifyPartnerResponse) {
-    option (google.api.http) = {post: "/webhooks/notify-partner"};
-  }
+  rpc NotifyPartner(NotifyPartnerRequest) returns (NotifyPartnerResponse);
 
-  rpc CheckStaleOrders(CheckStaleOrdersRequest) returns (CheckStaleOrdersResponse) {
-    option (google.api.http) = {post: "/jobs/check-stale-orders"};
-  }
+  rpc CheckStaleOrders(CheckStaleOrdersRequest) returns (CheckStaleOrdersResponse);
 }
 
 message NotifyPartnerRequest {

@@ -23,12 +23,12 @@ import 'validate_phone.pbjson.dart' as $18;
 const $core.Map<$core.String, $core.dynamic> VerifierServiceBase$json = {
   '1': 'VerifierService',
   '2': [
-    {'1': 'InitEmailValidation', '2': '.brij.verifier.v1.InitEmailValidationRequest', '3': '.brij.verifier.v1.InitEmailValidationResponse', '4': {}},
-    {'1': 'ValidateEmail', '2': '.brij.verifier.v1.ValidateEmailRequest', '3': '.brij.verifier.v1.ValidateEmailResponse', '4': {}},
-    {'1': 'InitPhoneValidation', '2': '.brij.verifier.v1.InitPhoneValidationRequest', '3': '.brij.verifier.v1.InitPhoneValidationResponse', '4': {}},
-    {'1': 'ValidatePhone', '2': '.brij.verifier.v1.ValidatePhoneRequest', '3': '.brij.verifier.v1.ValidatePhoneResponse', '4': {}},
-    {'1': 'StartKyc', '2': '.brij.verifier.v1.StartKycRequest', '3': '.brij.verifier.v1.StartKycResponse', '4': {}},
-    {'1': 'GetKycRequirements', '2': '.brij.verifier.v1.GetKycRequirementsRequest', '3': '.brij.verifier.v1.GetKycRequirementsResponse', '4': {}},
+    {'1': 'InitEmailValidation', '2': '.brij.verifier.v1.InitEmailValidationRequest', '3': '.brij.verifier.v1.InitEmailValidationResponse'},
+    {'1': 'ValidateEmail', '2': '.brij.verifier.v1.ValidateEmailRequest', '3': '.brij.verifier.v1.ValidateEmailResponse'},
+    {'1': 'InitPhoneValidation', '2': '.brij.verifier.v1.InitPhoneValidationRequest', '3': '.brij.verifier.v1.InitPhoneValidationResponse'},
+    {'1': 'ValidatePhone', '2': '.brij.verifier.v1.ValidatePhoneRequest', '3': '.brij.verifier.v1.ValidatePhoneResponse'},
+    {'1': 'StartKyc', '2': '.brij.verifier.v1.StartKycRequest', '3': '.brij.verifier.v1.StartKycResponse'},
+    {'1': 'GetKycRequirements', '2': '.brij.verifier.v1.GetKycRequirementsRequest', '3': '.brij.verifier.v1.GetKycRequirementsResponse'},
   ],
 };
 
@@ -54,19 +54,16 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> VerifierSe
 
 /// Descriptor for `VerifierService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
 final $typed_data.Uint8List verifierServiceDescriptor = $convert.base64Decode(
-    'Cg9WZXJpZmllclNlcnZpY2USkwEKE0luaXRFbWFpbFZhbGlkYXRpb24SLC5icmlqLnZlcmlmaW'
-    'VyLnYxLkluaXRFbWFpbFZhbGlkYXRpb25SZXF1ZXN0Gi0uYnJpai52ZXJpZmllci52MS5Jbml0'
-    'RW1haWxWYWxpZGF0aW9uUmVzcG9uc2UiH4LT5JMCGSIXL3YxL2luaXRFbWFpbFZhbGlkYXRpb2'
-    '4SewoNVmFsaWRhdGVFbWFpbBImLmJyaWoudmVyaWZpZXIudjEuVmFsaWRhdGVFbWFpbFJlcXVl'
-    'c3QaJy5icmlqLnZlcmlmaWVyLnYxLlZhbGlkYXRlRW1haWxSZXNwb25zZSIZgtPkkwITIhEvdj'
-    'EvdmFsaWRhdGVFbWFpbBKTAQoTSW5pdFBob25lVmFsaWRhdGlvbhIsLmJyaWoudmVyaWZpZXIu'
-    'djEuSW5pdFBob25lVmFsaWRhdGlvblJlcXVlc3QaLS5icmlqLnZlcmlmaWVyLnYxLkluaXRQaG'
-    '9uZVZhbGlkYXRpb25SZXNwb25zZSIfgtPkkwIZIhcvdjEvaW5pdFBob25lVmFsaWRhdGlvbhJ7'
-    'Cg1WYWxpZGF0ZVBob25lEiYuYnJpai52ZXJpZmllci52MS5WYWxpZGF0ZVBob25lUmVxdWVzdB'
-    'onLmJyaWoudmVyaWZpZXIudjEuVmFsaWRhdGVQaG9uZVJlc3BvbnNlIhmC0+STAhMiES92MS92'
-    'YWxpZGF0ZVBob25lEmcKCFN0YXJ0S3ljEiEuYnJpai52ZXJpZmllci52MS5TdGFydEt5Y1JlcX'
-    'Vlc3QaIi5icmlqLnZlcmlmaWVyLnYxLlN0YXJ0S3ljUmVzcG9uc2UiFILT5JMCDiIML3YxL3N0'
-    'YXJ0S3ljEo8BChJHZXRLeWNSZXF1aXJlbWVudHMSKy5icmlqLnZlcmlmaWVyLnYxLkdldEt5Y1'
-    'JlcXVpcmVtZW50c1JlcXVlc3QaLC5icmlqLnZlcmlmaWVyLnYxLkdldEt5Y1JlcXVpcmVtZW50'
-    'c1Jlc3BvbnNlIh6C0+STAhgiFi92MS9nZXRLeWNSZXF1aXJlbWVudHM=');
+    'Cg9WZXJpZmllclNlcnZpY2UScgoTSW5pdEVtYWlsVmFsaWRhdGlvbhIsLmJyaWoudmVyaWZpZX'
+    'IudjEuSW5pdEVtYWlsVmFsaWRhdGlvblJlcXVlc3QaLS5icmlqLnZlcmlmaWVyLnYxLkluaXRF'
+    'bWFpbFZhbGlkYXRpb25SZXNwb25zZRJgCg1WYWxpZGF0ZUVtYWlsEiYuYnJpai52ZXJpZmllci'
+    '52MS5WYWxpZGF0ZUVtYWlsUmVxdWVzdBonLmJyaWoudmVyaWZpZXIudjEuVmFsaWRhdGVFbWFp'
+    'bFJlc3BvbnNlEnIKE0luaXRQaG9uZVZhbGlkYXRpb24SLC5icmlqLnZlcmlmaWVyLnYxLkluaX'
+    'RQaG9uZVZhbGlkYXRpb25SZXF1ZXN0Gi0uYnJpai52ZXJpZmllci52MS5Jbml0UGhvbmVWYWxp'
+    'ZGF0aW9uUmVzcG9uc2USYAoNVmFsaWRhdGVQaG9uZRImLmJyaWoudmVyaWZpZXIudjEuVmFsaW'
+    'RhdGVQaG9uZVJlcXVlc3QaJy5icmlqLnZlcmlmaWVyLnYxLlZhbGlkYXRlUGhvbmVSZXNwb25z'
+    'ZRJRCghTdGFydEt5YxIhLmJyaWoudmVyaWZpZXIudjEuU3RhcnRLeWNSZXF1ZXN0GiIuYnJpai'
+    '52ZXJpZmllci52MS5TdGFydEt5Y1Jlc3BvbnNlEm8KEkdldEt5Y1JlcXVpcmVtZW50cxIrLmJy'
+    'aWoudmVyaWZpZXIudjEuR2V0S3ljUmVxdWlyZW1lbnRzUmVxdWVzdBosLmJyaWoudmVyaWZpZX'
+    'IudjEuR2V0S3ljUmVxdWlyZW1lbnRzUmVzcG9uc2U=');
 

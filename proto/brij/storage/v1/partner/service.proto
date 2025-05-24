@@ -6,38 +6,23 @@ import "brij/storage/v1/common/kyc_item.proto";
 import "brij/storage/v1/common/user_data_field.proto";
 import "brij/storage/v1/common/validation_data_field.proto";
 import "brij/storage/v1/common/validation_status.proto";
-import "google/api/annotations.proto";
 
 option go_package = 'go.brij.fi/protos/brij/storage/v1/partner';
 
 service PartnerService {
-  rpc GetInfo(GetInfoRequest) returns (GetInfoResponse) {
-    option (google.api.http) = {post: "/v1/partner/getInfo"};
-  }
+  rpc GetInfo(GetInfoRequest) returns (GetInfoResponse);
 
-  rpc GetUserData(GetUserDataRequest) returns (GetUserDataResponse) {
-    option (google.api.http) = {post: "/v1/partner/getUserData"};
-  }
+  rpc GetUserData(GetUserDataRequest) returns (GetUserDataResponse);
 
-  rpc SetValidationData(SetValidationDataRequest) returns (SetValidationDataResponse) {
-    option (google.api.http) = {post: "/v1/partner/setValidationData"};
-  }
+  rpc SetValidationData(SetValidationDataRequest) returns (SetValidationDataResponse);
 
-  rpc RemoveValidationData(RemoveValidationDataRequest) returns (RemoveValidationDataResponse) {
-    option (google.api.http) = {post: "/v1/partner/removeValidationData"};
-  }
+  rpc RemoveValidationData(RemoveValidationDataRequest) returns (RemoveValidationDataResponse);
 
-  rpc GetKycStatus(GetKycStatusRequest) returns (GetKycStatusResponse) {
-    option (google.api.http) = {post: "/v1/partner/getKycStatus"};
-  }
+  rpc GetKycStatus(GetKycStatusRequest) returns (GetKycStatusResponse);
 
-  rpc CreateKycStatus(CreateKycStatusRequest) returns (CreateKycStatusResponse) {
-    option (google.api.http) = {post: "/v1/partner/createKycStatus"};
-  }
+  rpc CreateKycStatus(CreateKycStatusRequest) returns (CreateKycStatusResponse);
 
-  rpc UpdateKycStatus(UpdateKycStatusRequest) returns (UpdateKycStatusResponse) {
-    option (google.api.http) = {post: "/v1/partner/updateKycStatus"};
-  }
+  rpc UpdateKycStatus(UpdateKycStatusRequest) returns (UpdateKycStatusResponse);
 }
 
 message GetInfoRequest {

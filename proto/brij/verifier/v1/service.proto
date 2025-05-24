@@ -8,32 +8,19 @@ import "brij/verifier/v1/init_phone_validation.proto";
 import "brij/verifier/v1/start_kyc.proto";
 import "brij/verifier/v1/validate_email.proto";
 import "brij/verifier/v1/validate_phone.proto";
-import "google/api/annotations.proto";
 
 option go_package = "go.brij.fi/protos/brij/verifier/v1";
 
 service VerifierService {
-  rpc InitEmailValidation(InitEmailValidationRequest) returns (InitEmailValidationResponse) {
-    option (google.api.http) = {post: "/v1/initEmailValidation"};
-  }
+  rpc InitEmailValidation(InitEmailValidationRequest) returns (InitEmailValidationResponse);
 
-  rpc ValidateEmail(ValidateEmailRequest) returns (ValidateEmailResponse) {
-    option (google.api.http) = {post: "/v1/validateEmail"};
-  }
+  rpc ValidateEmail(ValidateEmailRequest) returns (ValidateEmailResponse);
 
-  rpc InitPhoneValidation(InitPhoneValidationRequest) returns (InitPhoneValidationResponse) {
-    option (google.api.http) = {post: "/v1/initPhoneValidation"};
-  }
+  rpc InitPhoneValidation(InitPhoneValidationRequest) returns (InitPhoneValidationResponse);
 
-  rpc ValidatePhone(ValidatePhoneRequest) returns (ValidatePhoneResponse) {
-    option (google.api.http) = {post: "/v1/validatePhone"};
-  }
+  rpc ValidatePhone(ValidatePhoneRequest) returns (ValidatePhoneResponse);
 
-  rpc StartKyc(StartKycRequest) returns (StartKycResponse) {
-    option (google.api.http) = {post: "/v1/startKyc"};
-  }
+  rpc StartKyc(StartKycRequest) returns (StartKycResponse);
 
-  rpc GetKycRequirements(GetKycRequirementsRequest) returns (GetKycRequirementsResponse) {
-    option (google.api.http) = {post: "/v1/getKycRequirements"};
-  }
+  rpc GetKycRequirements(GetKycRequirementsRequest) returns (GetKycRequirementsResponse);
 }
