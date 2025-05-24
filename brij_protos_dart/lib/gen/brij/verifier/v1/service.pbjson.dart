@@ -13,12 +13,12 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-import 'get_kyc_requirements.pbjson.dart' as $20;
-import 'init_email_validation.pbjson.dart' as $15;
-import 'init_phone_validation.pbjson.dart' as $17;
-import 'start_kyc.pbjson.dart' as $19;
-import 'validate_email.pbjson.dart' as $16;
-import 'validate_phone.pbjson.dart' as $18;
+import 'get_kyc_requirements.pbjson.dart' as $19;
+import 'init_email_validation.pbjson.dart' as $14;
+import 'init_phone_validation.pbjson.dart' as $16;
+import 'start_kyc.pbjson.dart' as $18;
+import 'validate_email.pbjson.dart' as $15;
+import 'validate_phone.pbjson.dart' as $17;
 
 const $core.Map<$core.String, $core.dynamic> VerifierServiceBase$json = {
   '1': 'VerifierService',
@@ -34,22 +34,22 @@ const $core.Map<$core.String, $core.dynamic> VerifierServiceBase$json = {
 
 @$core.Deprecated('Use verifierServiceDescriptor instead')
 const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> VerifierServiceBase$messageJson = {
-  '.brij.verifier.v1.InitEmailValidationRequest': $15.InitEmailValidationRequest$json,
-  '.brij.verifier.v1.InitEmailValidationResponse': $15.InitEmailValidationResponse$json,
-  '.brij.verifier.v1.ValidateEmailRequest': $16.ValidateEmailRequest$json,
-  '.brij.verifier.v1.ValidateEmailResponse': $16.ValidateEmailResponse$json,
-  '.brij.verifier.v1.InitPhoneValidationRequest': $17.InitPhoneValidationRequest$json,
-  '.brij.verifier.v1.InitPhoneValidationResponse': $17.InitPhoneValidationResponse$json,
-  '.brij.verifier.v1.ValidatePhoneRequest': $18.ValidatePhoneRequest$json,
-  '.brij.verifier.v1.ValidatePhoneResponse': $18.ValidatePhoneResponse$json,
-  '.brij.verifier.v1.StartKycRequest': $19.StartKycRequest$json,
-  '.brij.verifier.v1.StartKycResponse': $19.StartKycResponse$json,
-  '.brij.verifier.v1.GetKycRequirementsRequest': $20.GetKycRequirementsRequest$json,
-  '.brij.verifier.v1.GetKycRequirementsResponse': $20.GetKycRequirementsResponse$json,
-  '.brij.verifier.v1.Requirement': $20.Requirement$json,
-  '.brij.verifier.v1.Formula': $20.Formula$json,
-  '.brij.verifier.v1.Formula.Nested': $20.Formula_Nested$json,
-  '.brij.verifier.v1.Formula.Condition': $20.Formula_Condition$json,
+  '.brij.verifier.v1.InitEmailValidationRequest': $14.InitEmailValidationRequest$json,
+  '.brij.verifier.v1.InitEmailValidationResponse': $14.InitEmailValidationResponse$json,
+  '.brij.verifier.v1.ValidateEmailRequest': $15.ValidateEmailRequest$json,
+  '.brij.verifier.v1.ValidateEmailResponse': $15.ValidateEmailResponse$json,
+  '.brij.verifier.v1.InitPhoneValidationRequest': $16.InitPhoneValidationRequest$json,
+  '.brij.verifier.v1.InitPhoneValidationResponse': $16.InitPhoneValidationResponse$json,
+  '.brij.verifier.v1.ValidatePhoneRequest': $17.ValidatePhoneRequest$json,
+  '.brij.verifier.v1.ValidatePhoneResponse': $17.ValidatePhoneResponse$json,
+  '.brij.verifier.v1.StartKycRequest': $18.StartKycRequest$json,
+  '.brij.verifier.v1.StartKycResponse': $18.StartKycResponse$json,
+  '.brij.verifier.v1.GetKycRequirementsRequest': $19.GetKycRequirementsRequest$json,
+  '.brij.verifier.v1.GetKycRequirementsResponse': $19.GetKycRequirementsResponse$json,
+  '.brij.verifier.v1.Requirement': $19.Requirement$json,
+  '.brij.verifier.v1.Formula': $19.Formula$json,
+  '.brij.verifier.v1.Formula.Nested': $19.Formula_Nested$json,
+  '.brij.verifier.v1.Formula.Condition': $19.Formula_Condition$json,
 };
 
 /// Descriptor for `VerifierService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
