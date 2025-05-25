@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: brij/storage/v1/common/kyc_item.proto
+//  source: brij/storage/v1/common/kyc.proto
 //
 // @dart = 3.3
 
@@ -13,14 +13,14 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'kyc_item.pbenum.dart';
+import 'kyc.pbenum.dart';
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
-export 'kyc_item.pbenum.dart';
+export 'kyc.pbenum.dart';
 
-class KycItem extends $pb.GeneratedMessage {
-  factory KycItem({
+class KycEnvelope extends $pb.GeneratedMessage {
+  factory KycEnvelope({
     $core.Iterable<$core.String>? countries,
     KycStatus? status,
     $core.String? provider,
@@ -49,17 +49,17 @@ class KycItem extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  KycItem._() : super();
-  factory KycItem.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory KycItem.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  KycEnvelope._() : super();
+  factory KycEnvelope.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KycEnvelope.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'KycItem', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.common'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'KycEnvelope', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.common'), createEmptyInstance: create)
     ..pPS(1, _omitFieldNames ? '' : 'countries')
     ..e<KycStatus>(2, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: KycStatus.KYC_STATUS_UNSPECIFIED, valueOf: KycStatus.valueOf, enumValues: KycStatus.values)
     ..aOS(3, _omitFieldNames ? '' : 'provider')
     ..aOS(4, _omitFieldNames ? '' : 'userPublicKey')
     ..pPS(5, _omitFieldNames ? '' : 'hashes')
-    ..m<$core.String, $core.List<$core.int>>(6, _omitFieldNames ? '' : 'additionalData', entryClassName: 'KycItem.AdditionalDataEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OY, packageName: const $pb.PackageName('brij.storage.v1.common'))
+    ..m<$core.String, $core.List<$core.int>>(6, _omitFieldNames ? '' : 'additionalData', entryClassName: 'KycEnvelope.AdditionalDataEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OY, packageName: const $pb.PackageName('brij.storage.v1.common'))
     ..hasRequiredFields = false
   ;
 
@@ -67,22 +67,22 @@ class KycItem extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  KycItem clone() => KycItem()..mergeFromMessage(this);
+  KycEnvelope clone() => KycEnvelope()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  KycItem copyWith(void Function(KycItem) updates) => super.copyWith((message) => updates(message as KycItem)) as KycItem;
+  KycEnvelope copyWith(void Function(KycEnvelope) updates) => super.copyWith((message) => updates(message as KycEnvelope)) as KycEnvelope;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static KycItem create() => KycItem._();
-  KycItem createEmptyInstance() => create();
-  static $pb.PbList<KycItem> createRepeated() => $pb.PbList<KycItem>();
+  static KycEnvelope create() => KycEnvelope._();
+  KycEnvelope createEmptyInstance() => create();
+  static $pb.PbList<KycEnvelope> createRepeated() => $pb.PbList<KycEnvelope>();
   @$core.pragma('dart2js:noInline')
-  static KycItem getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KycItem>(create);
-  static KycItem? _defaultInstance;
+  static KycEnvelope getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KycEnvelope>(create);
+  static KycEnvelope? _defaultInstance;
 
   @$pb.TagNumber(1)
   $pb.PbList<$core.String> get countries => $_getList(0);

@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: brij/storage/v1/common/validation_status.proto
+//  source: brij/storage/v1/common/validation_data.proto
 //
 // @dart = 3.3
 
@@ -10,5 +10,5 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
-export 'validation_status.pb.dart';
+export 'validation_data.pb.dart';
 

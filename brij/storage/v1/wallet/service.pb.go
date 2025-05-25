@@ -791,13 +791,13 @@ func (x *GetGrantedAccessPartnersResponse) GetPartners() []*GetPartnerInfoRespon
 }
 
 type SetUserDataRequest struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Type           common.DataType        `protobuf:"varint,1,opt,name=type,proto3,enum=brij.storage.v1.common.DataType" json:"type,omitempty"`
-	EncryptedValue []byte                 `protobuf:"bytes,2,opt,name=encrypted_value,json=encryptedValue,proto3" json:"encrypted_value,omitempty"`
-	Hash           string                 `protobuf:"bytes,3,opt,name=hash,proto3" json:"hash,omitempty"`
-	Signature      string                 `protobuf:"bytes,4,opt,name=signature,proto3" json:"signature,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// UserDataEnvelope
+	Payload       []byte `protobuf:"bytes,1,opt,name=payload,proto3" json:"payload,omitempty"`
+	Hash          string `protobuf:"bytes,2,opt,name=hash,proto3" json:"hash,omitempty"`
+	Signature     []byte `protobuf:"bytes,3,opt,name=signature,proto3" json:"signature,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *SetUserDataRequest) Reset() {
@@ -830,16 +830,9 @@ func (*SetUserDataRequest) Descriptor() ([]byte, []int) {
 	return file_brij_storage_v1_wallet_service_proto_rawDescGZIP(), []int{16}
 }
 
-func (x *SetUserDataRequest) GetType() common.DataType {
+func (x *SetUserDataRequest) GetPayload() []byte {
 	if x != nil {
-		return x.Type
-	}
-	return common.DataType(0)
-}
-
-func (x *SetUserDataRequest) GetEncryptedValue() []byte {
-	if x != nil {
-		return x.EncryptedValue
+		return x.Payload
 	}
 	return nil
 }
@@ -851,11 +844,11 @@ func (x *SetUserDataRequest) GetHash() string {
 	return ""
 }
 
-func (x *SetUserDataRequest) GetSignature() string {
+func (x *SetUserDataRequest) GetSignature() []byte {
 	if x != nil {
 		return x.Signature
 	}
-	return ""
+	return nil
 }
 
 type SetUserDataResponse struct {
@@ -896,7 +889,7 @@ func (*SetUserDataResponse) Descriptor() ([]byte, []int) {
 
 type RemoveUserDataRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Hash          string                 `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -931,9 +924,9 @@ func (*RemoveUserDataRequest) Descriptor() ([]byte, []int) {
 	return file_brij_storage_v1_wallet_service_proto_rawDescGZIP(), []int{18}
 }
 
-func (x *RemoveUserDataRequest) GetId() string {
+func (x *RemoveUserDataRequest) GetHash() string {
 	if x != nil {
-		return x.Id
+		return x.Hash
 	}
 	return ""
 }
@@ -1346,7 +1339,7 @@ var File_brij_storage_v1_wallet_service_proto protoreflect.FileDescriptor
 
 const file_brij_storage_v1_wallet_service_proto_rawDesc = "" +
 	"\n" +
-	"$brij/storage/v1/wallet/service.proto\x12\x16brij.storage.v1.wallet\x1a!brij/storage/v1/common/data.proto\x1a%brij/storage/v1/common/kyc_item.proto\x1a,brij/storage/v1/common/user_data_field.proto\x1a2brij/storage/v1/common/validation_data_field.proto\"'\n" +
+	"$brij/storage/v1/wallet/service.proto\x12\x16brij.storage.v1.wallet\x1a brij/storage/v1/common/kyc.proto\x1a&brij/storage/v1/common/user_data.proto\x1a,brij/storage/v1/common/validation_data.proto\"'\n" +
 	"\x15GetPartnerInfoRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"\x89\x01\n" +
 	"\x16GetPartnerInfoResponse\x12\x12\n" +
@@ -1391,15 +1384,14 @@ const file_brij_storage_v1_wallet_service_proto_rawDesc = "" +
 	"\x19RemoveAllUserDataResponse\"!\n" +
 	"\x1fGetGrantedAccessPartnersRequest\"n\n" +
 	" GetGrantedAccessPartnersResponse\x12J\n" +
-	"\bpartners\x18\x01 \x03(\v2..brij.storage.v1.wallet.GetPartnerInfoResponseR\bpartners\"\xa5\x01\n" +
-	"\x12SetUserDataRequest\x124\n" +
-	"\x04type\x18\x01 \x01(\x0e2 .brij.storage.v1.common.DataTypeR\x04type\x12'\n" +
-	"\x0fencrypted_value\x18\x02 \x01(\fR\x0eencryptedValue\x12\x12\n" +
-	"\x04hash\x18\x03 \x01(\tR\x04hash\x12\x1c\n" +
-	"\tsignature\x18\x04 \x01(\tR\tsignature\"\x15\n" +
-	"\x13SetUserDataResponse\"'\n" +
-	"\x15RemoveUserDataRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"\x18\n" +
+	"\bpartners\x18\x01 \x03(\v2..brij.storage.v1.wallet.GetPartnerInfoResponseR\bpartners\"`\n" +
+	"\x12SetUserDataRequest\x12\x18\n" +
+	"\apayload\x18\x01 \x01(\fR\apayload\x12\x12\n" +
+	"\x04hash\x18\x02 \x01(\tR\x04hash\x12\x1c\n" +
+	"\tsignature\x18\x03 \x01(\fR\tsignature\"\x15\n" +
+	"\x13SetUserDataResponse\"+\n" +
+	"\x15RemoveUserDataRequest\x12\x12\n" +
+	"\x04hash\x18\x01 \x01(\tR\x04hash\"\x18\n" +
 	"\x16RemoveUserDataResponse\";\n" +
 	"\x12GetUserDataRequest\x12%\n" +
 	"\x0einclude_values\x18\x01 \x01(\bR\rincludeValues\"\xaf\x01\n" +
@@ -1478,50 +1470,48 @@ var file_brij_storage_v1_wallet_service_proto_goTypes = []any{
 	(*GetKycStatusResponse)(nil),             // 25: brij.storage.v1.wallet.GetKycStatusResponse
 	(*GetWalletProofRequest)(nil),            // 26: brij.storage.v1.wallet.GetWalletProofRequest
 	(*GetWalletProofResponse)(nil),           // 27: brij.storage.v1.wallet.GetWalletProofResponse
-	(common.DataType)(0),                     // 28: brij.storage.v1.common.DataType
-	(*common.UserDataField)(nil),             // 29: brij.storage.v1.common.UserDataField
-	(*common.ValidationDataField)(nil),       // 30: brij.storage.v1.common.ValidationDataField
-	(common.KycStatus)(0),                    // 31: brij.storage.v1.common.KycStatus
+	(*common.UserDataField)(nil),             // 28: brij.storage.v1.common.UserDataField
+	(*common.ValidationDataField)(nil),       // 29: brij.storage.v1.common.ValidationDataField
+	(common.KycStatus)(0),                    // 30: brij.storage.v1.common.KycStatus
 }
 var file_brij_storage_v1_wallet_service_proto_depIdxs = []int32{
 	1,  // 0: brij.storage.v1.wallet.GetGrantedAccessPartnersResponse.partners:type_name -> brij.storage.v1.wallet.GetPartnerInfoResponse
-	28, // 1: brij.storage.v1.wallet.SetUserDataRequest.type:type_name -> brij.storage.v1.common.DataType
-	29, // 2: brij.storage.v1.wallet.GetUserDataResponse.user_data:type_name -> brij.storage.v1.common.UserDataField
-	30, // 3: brij.storage.v1.wallet.GetUserDataResponse.validation_data:type_name -> brij.storage.v1.common.ValidationDataField
-	31, // 4: brij.storage.v1.wallet.GetKycStatusResponse.status:type_name -> brij.storage.v1.common.KycStatus
-	0,  // 5: brij.storage.v1.wallet.WalletService.GetPartnerInfo:input_type -> brij.storage.v1.wallet.GetPartnerInfoRequest
-	2,  // 6: brij.storage.v1.wallet.WalletService.InitStorage:input_type -> brij.storage.v1.wallet.InitStorageRequest
-	4,  // 7: brij.storage.v1.wallet.WalletService.GetInfo:input_type -> brij.storage.v1.wallet.GetInfoRequest
-	14, // 8: brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners:input_type -> brij.storage.v1.wallet.GetGrantedAccessPartnersRequest
-	8,  // 9: brij.storage.v1.wallet.WalletService.GrantAccess:input_type -> brij.storage.v1.wallet.GrantAccessRequest
-	16, // 10: brij.storage.v1.wallet.WalletService.SetUserData:input_type -> brij.storage.v1.wallet.SetUserDataRequest
-	18, // 11: brij.storage.v1.wallet.WalletService.RemoveUserData:input_type -> brij.storage.v1.wallet.RemoveUserDataRequest
-	10, // 12: brij.storage.v1.wallet.WalletService.RevokeAccess:input_type -> brij.storage.v1.wallet.RevokeAccessRequest
-	12, // 13: brij.storage.v1.wallet.WalletService.RemoveAllUserData:input_type -> brij.storage.v1.wallet.RemoveAllUserDataRequest
-	20, // 14: brij.storage.v1.wallet.WalletService.GetUserData:input_type -> brij.storage.v1.wallet.GetUserDataRequest
-	22, // 15: brij.storage.v1.wallet.WalletService.CheckAccess:input_type -> brij.storage.v1.wallet.CheckAccessRequest
-	24, // 16: brij.storage.v1.wallet.WalletService.GetKycStatus:input_type -> brij.storage.v1.wallet.GetKycStatusRequest
-	26, // 17: brij.storage.v1.wallet.WalletService.GetWalletProof:input_type -> brij.storage.v1.wallet.GetWalletProofRequest
-	6,  // 18: brij.storage.v1.wallet.WalletService.GetSeedMessage:input_type -> brij.storage.v1.wallet.GetSeedMessageRequest
-	1,  // 19: brij.storage.v1.wallet.WalletService.GetPartnerInfo:output_type -> brij.storage.v1.wallet.GetPartnerInfoResponse
-	3,  // 20: brij.storage.v1.wallet.WalletService.InitStorage:output_type -> brij.storage.v1.wallet.InitStorageResponse
-	5,  // 21: brij.storage.v1.wallet.WalletService.GetInfo:output_type -> brij.storage.v1.wallet.GetInfoResponse
-	15, // 22: brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners:output_type -> brij.storage.v1.wallet.GetGrantedAccessPartnersResponse
-	9,  // 23: brij.storage.v1.wallet.WalletService.GrantAccess:output_type -> brij.storage.v1.wallet.GrantAccessResponse
-	17, // 24: brij.storage.v1.wallet.WalletService.SetUserData:output_type -> brij.storage.v1.wallet.SetUserDataResponse
-	19, // 25: brij.storage.v1.wallet.WalletService.RemoveUserData:output_type -> brij.storage.v1.wallet.RemoveUserDataResponse
-	11, // 26: brij.storage.v1.wallet.WalletService.RevokeAccess:output_type -> brij.storage.v1.wallet.RevokeAccessResponse
-	13, // 27: brij.storage.v1.wallet.WalletService.RemoveAllUserData:output_type -> brij.storage.v1.wallet.RemoveAllUserDataResponse
-	21, // 28: brij.storage.v1.wallet.WalletService.GetUserData:output_type -> brij.storage.v1.wallet.GetUserDataResponse
-	23, // 29: brij.storage.v1.wallet.WalletService.CheckAccess:output_type -> brij.storage.v1.wallet.CheckAccessResponse
-	25, // 30: brij.storage.v1.wallet.WalletService.GetKycStatus:output_type -> brij.storage.v1.wallet.GetKycStatusResponse
-	27, // 31: brij.storage.v1.wallet.WalletService.GetWalletProof:output_type -> brij.storage.v1.wallet.GetWalletProofResponse
-	7,  // 32: brij.storage.v1.wallet.WalletService.GetSeedMessage:output_type -> brij.storage.v1.wallet.GetSeedMessageResponse
-	19, // [19:33] is the sub-list for method output_type
-	5,  // [5:19] is the sub-list for method input_type
-	5,  // [5:5] is the sub-list for extension type_name
-	5,  // [5:5] is the sub-list for extension extendee
-	0,  // [0:5] is the sub-list for field type_name
+	28, // 1: brij.storage.v1.wallet.GetUserDataResponse.user_data:type_name -> brij.storage.v1.common.UserDataField
+	29, // 2: brij.storage.v1.wallet.GetUserDataResponse.validation_data:type_name -> brij.storage.v1.common.ValidationDataField
+	30, // 3: brij.storage.v1.wallet.GetKycStatusResponse.status:type_name -> brij.storage.v1.common.KycStatus
+	0,  // 4: brij.storage.v1.wallet.WalletService.GetPartnerInfo:input_type -> brij.storage.v1.wallet.GetPartnerInfoRequest
+	2,  // 5: brij.storage.v1.wallet.WalletService.InitStorage:input_type -> brij.storage.v1.wallet.InitStorageRequest
+	4,  // 6: brij.storage.v1.wallet.WalletService.GetInfo:input_type -> brij.storage.v1.wallet.GetInfoRequest
+	14, // 7: brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners:input_type -> brij.storage.v1.wallet.GetGrantedAccessPartnersRequest
+	8,  // 8: brij.storage.v1.wallet.WalletService.GrantAccess:input_type -> brij.storage.v1.wallet.GrantAccessRequest
+	16, // 9: brij.storage.v1.wallet.WalletService.SetUserData:input_type -> brij.storage.v1.wallet.SetUserDataRequest
+	18, // 10: brij.storage.v1.wallet.WalletService.RemoveUserData:input_type -> brij.storage.v1.wallet.RemoveUserDataRequest
+	10, // 11: brij.storage.v1.wallet.WalletService.RevokeAccess:input_type -> brij.storage.v1.wallet.RevokeAccessRequest
+	12, // 12: brij.storage.v1.wallet.WalletService.RemoveAllUserData:input_type -> brij.storage.v1.wallet.RemoveAllUserDataRequest
+	20, // 13: brij.storage.v1.wallet.WalletService.GetUserData:input_type -> brij.storage.v1.wallet.GetUserDataRequest
+	22, // 14: brij.storage.v1.wallet.WalletService.CheckAccess:input_type -> brij.storage.v1.wallet.CheckAccessRequest
+	24, // 15: brij.storage.v1.wallet.WalletService.GetKycStatus:input_type -> brij.storage.v1.wallet.GetKycStatusRequest
+	26, // 16: brij.storage.v1.wallet.WalletService.GetWalletProof:input_type -> brij.storage.v1.wallet.GetWalletProofRequest
+	6,  // 17: brij.storage.v1.wallet.WalletService.GetSeedMessage:input_type -> brij.storage.v1.wallet.GetSeedMessageRequest
+	1,  // 18: brij.storage.v1.wallet.WalletService.GetPartnerInfo:output_type -> brij.storage.v1.wallet.GetPartnerInfoResponse
+	3,  // 19: brij.storage.v1.wallet.WalletService.InitStorage:output_type -> brij.storage.v1.wallet.InitStorageResponse
+	5,  // 20: brij.storage.v1.wallet.WalletService.GetInfo:output_type -> brij.storage.v1.wallet.GetInfoResponse
+	15, // 21: brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners:output_type -> brij.storage.v1.wallet.GetGrantedAccessPartnersResponse
+	9,  // 22: brij.storage.v1.wallet.WalletService.GrantAccess:output_type -> brij.storage.v1.wallet.GrantAccessResponse
+	17, // 23: brij.storage.v1.wallet.WalletService.SetUserData:output_type -> brij.storage.v1.wallet.SetUserDataResponse
+	19, // 24: brij.storage.v1.wallet.WalletService.RemoveUserData:output_type -> brij.storage.v1.wallet.RemoveUserDataResponse
+	11, // 25: brij.storage.v1.wallet.WalletService.RevokeAccess:output_type -> brij.storage.v1.wallet.RevokeAccessResponse
+	13, // 26: brij.storage.v1.wallet.WalletService.RemoveAllUserData:output_type -> brij.storage.v1.wallet.RemoveAllUserDataResponse
+	21, // 27: brij.storage.v1.wallet.WalletService.GetUserData:output_type -> brij.storage.v1.wallet.GetUserDataResponse
+	23, // 28: brij.storage.v1.wallet.WalletService.CheckAccess:output_type -> brij.storage.v1.wallet.CheckAccessResponse
+	25, // 29: brij.storage.v1.wallet.WalletService.GetKycStatus:output_type -> brij.storage.v1.wallet.GetKycStatusResponse
+	27, // 30: brij.storage.v1.wallet.WalletService.GetWalletProof:output_type -> brij.storage.v1.wallet.GetWalletProofResponse
+	7,  // 31: brij.storage.v1.wallet.WalletService.GetSeedMessage:output_type -> brij.storage.v1.wallet.GetSeedMessageResponse
+	18, // [18:32] is the sub-list for method output_type
+	4,  // [4:18] is the sub-list for method input_type
+	4,  // [4:4] is the sub-list for extension type_name
+	4,  // [4:4] is the sub-list for extension extendee
+	0,  // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_brij_storage_v1_wallet_service_proto_init() }

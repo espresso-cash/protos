@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        (unknown)
-// source: brij/storage/v1/common/kyc_item.proto
+// source: brij/storage/v1/common/kyc.proto
 
 package common
 
@@ -57,11 +57,11 @@ func (x KycStatus) String() string {
 }
 
 func (KycStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_brij_storage_v1_common_kyc_item_proto_enumTypes[0].Descriptor()
+	return file_brij_storage_v1_common_kyc_proto_enumTypes[0].Descriptor()
 }
 
 func (KycStatus) Type() protoreflect.EnumType {
-	return &file_brij_storage_v1_common_kyc_item_proto_enumTypes[0]
+	return &file_brij_storage_v1_common_kyc_proto_enumTypes[0]
 }
 
 func (x KycStatus) Number() protoreflect.EnumNumber {
@@ -70,10 +70,10 @@ func (x KycStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use KycStatus.Descriptor instead.
 func (KycStatus) EnumDescriptor() ([]byte, []int) {
-	return file_brij_storage_v1_common_kyc_item_proto_rawDescGZIP(), []int{0}
+	return file_brij_storage_v1_common_kyc_proto_rawDescGZIP(), []int{0}
 }
 
-type KycItem struct {
+type KycEnvelope struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	Countries      []string               `protobuf:"bytes,1,rep,name=countries,proto3" json:"countries,omitempty"`
 	Status         KycStatus              `protobuf:"varint,2,opt,name=status,proto3,enum=brij.storage.v1.common.KycStatus" json:"status,omitempty"`
@@ -85,21 +85,21 @@ type KycItem struct {
 	sizeCache      protoimpl.SizeCache
 }
 
-func (x *KycItem) Reset() {
-	*x = KycItem{}
-	mi := &file_brij_storage_v1_common_kyc_item_proto_msgTypes[0]
+func (x *KycEnvelope) Reset() {
+	*x = KycEnvelope{}
+	mi := &file_brij_storage_v1_common_kyc_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *KycItem) String() string {
+func (x *KycEnvelope) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*KycItem) ProtoMessage() {}
+func (*KycEnvelope) ProtoMessage() {}
 
-func (x *KycItem) ProtoReflect() protoreflect.Message {
-	mi := &file_brij_storage_v1_common_kyc_item_proto_msgTypes[0]
+func (x *KycEnvelope) ProtoReflect() protoreflect.Message {
+	mi := &file_brij_storage_v1_common_kyc_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -110,65 +110,65 @@ func (x *KycItem) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use KycItem.ProtoReflect.Descriptor instead.
-func (*KycItem) Descriptor() ([]byte, []int) {
-	return file_brij_storage_v1_common_kyc_item_proto_rawDescGZIP(), []int{0}
+// Deprecated: Use KycEnvelope.ProtoReflect.Descriptor instead.
+func (*KycEnvelope) Descriptor() ([]byte, []int) {
+	return file_brij_storage_v1_common_kyc_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *KycItem) GetCountries() []string {
+func (x *KycEnvelope) GetCountries() []string {
 	if x != nil {
 		return x.Countries
 	}
 	return nil
 }
 
-func (x *KycItem) GetStatus() KycStatus {
+func (x *KycEnvelope) GetStatus() KycStatus {
 	if x != nil {
 		return x.Status
 	}
 	return KycStatus_KYC_STATUS_UNSPECIFIED
 }
 
-func (x *KycItem) GetProvider() string {
+func (x *KycEnvelope) GetProvider() string {
 	if x != nil {
 		return x.Provider
 	}
 	return ""
 }
 
-func (x *KycItem) GetUserPublicKey() string {
+func (x *KycEnvelope) GetUserPublicKey() string {
 	if x != nil {
 		return x.UserPublicKey
 	}
 	return ""
 }
 
-func (x *KycItem) GetHashes() []string {
+func (x *KycEnvelope) GetHashes() []string {
 	if x != nil {
 		return x.Hashes
 	}
 	return nil
 }
 
-func (x *KycItem) GetAdditionalData() map[string][]byte {
+func (x *KycEnvelope) GetAdditionalData() map[string][]byte {
 	if x != nil {
 		return x.AdditionalData
 	}
 	return nil
 }
 
-var File_brij_storage_v1_common_kyc_item_proto protoreflect.FileDescriptor
+var File_brij_storage_v1_common_kyc_proto protoreflect.FileDescriptor
 
-const file_brij_storage_v1_common_kyc_item_proto_rawDesc = "" +
+const file_brij_storage_v1_common_kyc_proto_rawDesc = "" +
 	"\n" +
-	"%brij/storage/v1/common/kyc_item.proto\x12\x16brij.storage.v1.common\"\xdf\x02\n" +
-	"\aKycItem\x12\x1c\n" +
+	" brij/storage/v1/common/kyc.proto\x12\x16brij.storage.v1.common\"\xe7\x02\n" +
+	"\vKycEnvelope\x12\x1c\n" +
 	"\tcountries\x18\x01 \x03(\tR\tcountries\x129\n" +
 	"\x06status\x18\x02 \x01(\x0e2!.brij.storage.v1.common.KycStatusR\x06status\x12\x1a\n" +
 	"\bprovider\x18\x03 \x01(\tR\bprovider\x12&\n" +
 	"\x0fuser_public_key\x18\x04 \x01(\tR\ruserPublicKey\x12\x16\n" +
-	"\x06hashes\x18\x05 \x03(\tR\x06hashes\x12\\\n" +
-	"\x0fadditional_data\x18\x06 \x03(\v23.brij.storage.v1.common.KycItem.AdditionalDataEntryR\x0eadditionalData\x1aA\n" +
+	"\x06hashes\x18\x05 \x03(\tR\x06hashes\x12`\n" +
+	"\x0fadditional_data\x18\x06 \x03(\v27.brij.storage.v1.common.KycEnvelope.AdditionalDataEntryR\x0eadditionalData\x1aA\n" +
 	"\x13AdditionalDataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\fR\x05value:\x028\x01*q\n" +
@@ -179,27 +179,27 @@ const file_brij_storage_v1_common_kyc_item_proto_rawDesc = "" +
 	"\x13KYC_STATUS_REJECTED\x10\x03B*Z(go.brij.fi/protos/brij/storage/v1/commonb\x06proto3"
 
 var (
-	file_brij_storage_v1_common_kyc_item_proto_rawDescOnce sync.Once
-	file_brij_storage_v1_common_kyc_item_proto_rawDescData []byte
+	file_brij_storage_v1_common_kyc_proto_rawDescOnce sync.Once
+	file_brij_storage_v1_common_kyc_proto_rawDescData []byte
 )
 
-func file_brij_storage_v1_common_kyc_item_proto_rawDescGZIP() []byte {
-	file_brij_storage_v1_common_kyc_item_proto_rawDescOnce.Do(func() {
-		file_brij_storage_v1_common_kyc_item_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_brij_storage_v1_common_kyc_item_proto_rawDesc), len(file_brij_storage_v1_common_kyc_item_proto_rawDesc)))
+func file_brij_storage_v1_common_kyc_proto_rawDescGZIP() []byte {
+	file_brij_storage_v1_common_kyc_proto_rawDescOnce.Do(func() {
+		file_brij_storage_v1_common_kyc_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_brij_storage_v1_common_kyc_proto_rawDesc), len(file_brij_storage_v1_common_kyc_proto_rawDesc)))
 	})
-	return file_brij_storage_v1_common_kyc_item_proto_rawDescData
+	return file_brij_storage_v1_common_kyc_proto_rawDescData
 }
 
-var file_brij_storage_v1_common_kyc_item_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_brij_storage_v1_common_kyc_item_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_brij_storage_v1_common_kyc_item_proto_goTypes = []any{
-	(KycStatus)(0),  // 0: brij.storage.v1.common.KycStatus
-	(*KycItem)(nil), // 1: brij.storage.v1.common.KycItem
-	nil,             // 2: brij.storage.v1.common.KycItem.AdditionalDataEntry
+var file_brij_storage_v1_common_kyc_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_brij_storage_v1_common_kyc_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_brij_storage_v1_common_kyc_proto_goTypes = []any{
+	(KycStatus)(0),      // 0: brij.storage.v1.common.KycStatus
+	(*KycEnvelope)(nil), // 1: brij.storage.v1.common.KycEnvelope
+	nil,                 // 2: brij.storage.v1.common.KycEnvelope.AdditionalDataEntry
 }
-var file_brij_storage_v1_common_kyc_item_proto_depIdxs = []int32{
-	0, // 0: brij.storage.v1.common.KycItem.status:type_name -> brij.storage.v1.common.KycStatus
-	2, // 1: brij.storage.v1.common.KycItem.additional_data:type_name -> brij.storage.v1.common.KycItem.AdditionalDataEntry
+var file_brij_storage_v1_common_kyc_proto_depIdxs = []int32{
+	0, // 0: brij.storage.v1.common.KycEnvelope.status:type_name -> brij.storage.v1.common.KycStatus
+	2, // 1: brij.storage.v1.common.KycEnvelope.additional_data:type_name -> brij.storage.v1.common.KycEnvelope.AdditionalDataEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -207,27 +207,27 @@ var file_brij_storage_v1_common_kyc_item_proto_depIdxs = []int32{
 	0, // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_brij_storage_v1_common_kyc_item_proto_init() }
-func file_brij_storage_v1_common_kyc_item_proto_init() {
-	if File_brij_storage_v1_common_kyc_item_proto != nil {
+func init() { file_brij_storage_v1_common_kyc_proto_init() }
+func file_brij_storage_v1_common_kyc_proto_init() {
+	if File_brij_storage_v1_common_kyc_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_brij_storage_v1_common_kyc_item_proto_rawDesc), len(file_brij_storage_v1_common_kyc_item_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_brij_storage_v1_common_kyc_proto_rawDesc), len(file_brij_storage_v1_common_kyc_proto_rawDesc)),
 			NumEnums:      1,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_brij_storage_v1_common_kyc_item_proto_goTypes,
-		DependencyIndexes: file_brij_storage_v1_common_kyc_item_proto_depIdxs,
-		EnumInfos:         file_brij_storage_v1_common_kyc_item_proto_enumTypes,
-		MessageInfos:      file_brij_storage_v1_common_kyc_item_proto_msgTypes,
+		GoTypes:           file_brij_storage_v1_common_kyc_proto_goTypes,
+		DependencyIndexes: file_brij_storage_v1_common_kyc_proto_depIdxs,
+		EnumInfos:         file_brij_storage_v1_common_kyc_proto_enumTypes,
+		MessageInfos:      file_brij_storage_v1_common_kyc_proto_msgTypes,
 	}.Build()
-	File_brij_storage_v1_common_kyc_item_proto = out.File
-	file_brij_storage_v1_common_kyc_item_proto_goTypes = nil
-	file_brij_storage_v1_common_kyc_item_proto_depIdxs = nil
+	File_brij_storage_v1_common_kyc_proto = out.File
+	file_brij_storage_v1_common_kyc_proto_goTypes = nil
+	file_brij_storage_v1_common_kyc_proto_depIdxs = nil
 }

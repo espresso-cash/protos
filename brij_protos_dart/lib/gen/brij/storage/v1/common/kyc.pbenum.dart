@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: brij/storage/v1/common/kyc_item.proto
+//  source: brij/storage/v1/common/kyc.proto
 //
 // @dart = 3.3
 

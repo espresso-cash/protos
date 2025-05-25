@@ -231,11 +231,10 @@ func (x *GetUserDataResponse) GetValidationData() []*common.ValidationDataField 
 }
 
 type SetValidationDataRequest struct {
-	state         protoimpl.MessageState  `protogen:"open.v1"`
-	DataId        string                  `protobuf:"bytes,1,opt,name=data_id,json=dataId,proto3" json:"data_id,omitempty"`
-	Status        common.ValidationStatus `protobuf:"varint,2,opt,name=status,proto3,enum=brij.storage.v1.common.ValidationStatus" json:"status,omitempty"`
-	Hash          string                  `protobuf:"bytes,3,opt,name=hash,proto3" json:"hash,omitempty"`
-	Signature     string                  `protobuf:"bytes,4,opt,name=signature,proto3" json:"signature,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// ValidationDataEnvelope
+	Payload       []byte `protobuf:"bytes,1,opt,name=payload,proto3" json:"payload,omitempty"`
+	Signature     []byte `protobuf:"bytes,2,opt,name=signature,proto3" json:"signature,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -270,32 +269,18 @@ func (*SetValidationDataRequest) Descriptor() ([]byte, []int) {
 	return file_brij_storage_v1_partner_service_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *SetValidationDataRequest) GetDataId() string {
+func (x *SetValidationDataRequest) GetPayload() []byte {
 	if x != nil {
-		return x.DataId
+		return x.Payload
 	}
-	return ""
+	return nil
 }
 
-func (x *SetValidationDataRequest) GetStatus() common.ValidationStatus {
-	if x != nil {
-		return x.Status
-	}
-	return common.ValidationStatus(0)
-}
-
-func (x *SetValidationDataRequest) GetHash() string {
-	if x != nil {
-		return x.Hash
-	}
-	return ""
-}
-
-func (x *SetValidationDataRequest) GetSignature() string {
+func (x *SetValidationDataRequest) GetSignature() []byte {
 	if x != nil {
 		return x.Signature
 	}
-	return ""
+	return nil
 }
 
 type SetValidationDataResponse struct {
@@ -336,7 +321,7 @@ func (*SetValidationDataResponse) Descriptor() ([]byte, []int) {
 
 type RemoveValidationDataRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	DataHash      string                 `protobuf:"bytes,1,opt,name=data_hash,json=dataHash,proto3" json:"data_hash,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -371,9 +356,9 @@ func (*RemoveValidationDataRequest) Descriptor() ([]byte, []int) {
 	return file_brij_storage_v1_partner_service_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *RemoveValidationDataRequest) GetId() string {
+func (x *RemoveValidationDataRequest) GetDataHash() string {
 	if x != nil {
-		return x.Id
+		return x.DataHash
 	}
 	return ""
 }
@@ -475,10 +460,10 @@ func (x *GetKycStatusRequest) GetUserPublicKey() string {
 }
 
 type GetKycStatusResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Status        common.KycStatus       `protobuf:"varint,1,opt,name=status,proto3,enum=brij.storage.v1.common.KycStatus" json:"status,omitempty"`
-	Data          []byte                 `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	Signature     []byte                 `protobuf:"bytes,3,opt,name=signature,proto3" json:"signature,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// KycEnvelope
+	Payload       []byte `protobuf:"bytes,1,opt,name=payload,proto3" json:"payload,omitempty"`
+	Signature     []byte `protobuf:"bytes,2,opt,name=signature,proto3" json:"signature,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -513,16 +498,9 @@ func (*GetKycStatusResponse) Descriptor() ([]byte, []int) {
 	return file_brij_storage_v1_partner_service_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *GetKycStatusResponse) GetStatus() common.KycStatus {
+func (x *GetKycStatusResponse) GetPayload() []byte {
 	if x != nil {
-		return x.Status
-	}
-	return common.KycStatus(0)
-}
-
-func (x *GetKycStatusResponse) GetData() []byte {
-	if x != nil {
-		return x.Data
+		return x.Payload
 	}
 	return nil
 }
@@ -535,9 +513,10 @@ func (x *GetKycStatusResponse) GetSignature() []byte {
 }
 
 type CreateKycStatusRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Data          []byte                 `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	Signature     []byte                 `protobuf:"bytes,2,opt,name=signature,proto3" json:"signature,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// KycEnvelope
+	Payload       []byte `protobuf:"bytes,1,opt,name=payload,proto3" json:"payload,omitempty"`
+	Signature     []byte `protobuf:"bytes,2,opt,name=signature,proto3" json:"signature,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -572,9 +551,9 @@ func (*CreateKycStatusRequest) Descriptor() ([]byte, []int) {
 	return file_brij_storage_v1_partner_service_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *CreateKycStatusRequest) GetData() []byte {
+func (x *CreateKycStatusRequest) GetPayload() []byte {
 	if x != nil {
-		return x.Data
+		return x.Payload
 	}
 	return nil
 }
@@ -631,10 +610,11 @@ func (x *CreateKycStatusResponse) GetKycId() string {
 }
 
 type UpdateKycStatusRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	KycId         string                 `protobuf:"bytes,1,opt,name=kyc_id,json=kycId,proto3" json:"kyc_id,omitempty"`
-	Data          []byte                 `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	Signature     []byte                 `protobuf:"bytes,3,opt,name=signature,proto3" json:"signature,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	KycId string                 `protobuf:"bytes,1,opt,name=kyc_id,json=kycId,proto3" json:"kyc_id,omitempty"`
+	// KycEnvelope
+	Payload       []byte `protobuf:"bytes,2,opt,name=payload,proto3" json:"payload,omitempty"`
+	Signature     []byte `protobuf:"bytes,3,opt,name=signature,proto3" json:"signature,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -676,9 +656,9 @@ func (x *UpdateKycStatusRequest) GetKycId() string {
 	return ""
 }
 
-func (x *UpdateKycStatusRequest) GetData() []byte {
+func (x *UpdateKycStatusRequest) GetPayload() []byte {
 	if x != nil {
-		return x.Data
+		return x.Payload
 	}
 	return nil
 }
@@ -730,7 +710,7 @@ var File_brij_storage_v1_partner_service_proto protoreflect.FileDescriptor
 
 const file_brij_storage_v1_partner_service_proto_rawDesc = "" +
 	"\n" +
-	"%brij/storage/v1/partner/service.proto\x12\x17brij.storage.v1.partner\x1a%brij/storage/v1/common/kyc_item.proto\x1a,brij/storage/v1/common/user_data_field.proto\x1a2brij/storage/v1/common/validation_data_field.proto\x1a.brij/storage/v1/common/validation_status.proto\"/\n" +
+	"%brij/storage/v1/partner/service.proto\x12\x17brij.storage.v1.partner\x1a&brij/storage/v1/common/user_data.proto\x1a,brij/storage/v1/common/validation_data.proto\"/\n" +
 	"\x0eGetInfoRequest\x12\x1d\n" +
 	"\n" +
 	"public_key\x18\x01 \x01(\tR\tpublicKey\"\x89\x01\n" +
@@ -744,32 +724,29 @@ const file_brij_storage_v1_partner_service_proto_rawDesc = "" +
 	"\x0einclude_values\x18\x02 \x01(\bR\rincludeValues\"\xaf\x01\n" +
 	"\x13GetUserDataResponse\x12B\n" +
 	"\tuser_data\x18\x01 \x03(\v2%.brij.storage.v1.common.UserDataFieldR\buserData\x12T\n" +
-	"\x0fvalidation_data\x18\x02 \x03(\v2+.brij.storage.v1.common.ValidationDataFieldR\x0evalidationData\"\xa7\x01\n" +
-	"\x18SetValidationDataRequest\x12\x17\n" +
-	"\adata_id\x18\x01 \x01(\tR\x06dataId\x12@\n" +
-	"\x06status\x18\x02 \x01(\x0e2(.brij.storage.v1.common.ValidationStatusR\x06status\x12\x12\n" +
-	"\x04hash\x18\x03 \x01(\tR\x04hash\x12\x1c\n" +
-	"\tsignature\x18\x04 \x01(\tR\tsignature\"\x1b\n" +
-	"\x19SetValidationDataResponse\"-\n" +
-	"\x1bRemoveValidationDataRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"\x1e\n" +
+	"\x0fvalidation_data\x18\x02 \x03(\v2+.brij.storage.v1.common.ValidationDataFieldR\x0evalidationData\"R\n" +
+	"\x18SetValidationDataRequest\x12\x18\n" +
+	"\apayload\x18\x01 \x01(\fR\apayload\x12\x1c\n" +
+	"\tsignature\x18\x02 \x01(\fR\tsignature\"\x1b\n" +
+	"\x19SetValidationDataResponse\":\n" +
+	"\x1bRemoveValidationDataRequest\x12\x1b\n" +
+	"\tdata_hash\x18\x01 \x01(\tR\bdataHash\"\x1e\n" +
 	"\x1cRemoveValidationDataResponse\"\x89\x01\n" +
 	"\x13GetKycStatusRequest\x12\x18\n" +
 	"\acountry\x18\x01 \x01(\tR\acountry\x120\n" +
 	"\x14validator_public_key\x18\x02 \x01(\tR\x12validatorPublicKey\x12&\n" +
-	"\x0fuser_public_key\x18\x03 \x01(\tR\ruserPublicKey\"\x83\x01\n" +
-	"\x14GetKycStatusResponse\x129\n" +
-	"\x06status\x18\x01 \x01(\x0e2!.brij.storage.v1.common.KycStatusR\x06status\x12\x12\n" +
-	"\x04data\x18\x02 \x01(\fR\x04data\x12\x1c\n" +
-	"\tsignature\x18\x03 \x01(\fR\tsignature\"J\n" +
-	"\x16CreateKycStatusRequest\x12\x12\n" +
-	"\x04data\x18\x01 \x01(\fR\x04data\x12\x1c\n" +
+	"\x0fuser_public_key\x18\x03 \x01(\tR\ruserPublicKey\"N\n" +
+	"\x14GetKycStatusResponse\x12\x18\n" +
+	"\apayload\x18\x01 \x01(\fR\apayload\x12\x1c\n" +
+	"\tsignature\x18\x02 \x01(\fR\tsignature\"P\n" +
+	"\x16CreateKycStatusRequest\x12\x18\n" +
+	"\apayload\x18\x01 \x01(\fR\apayload\x12\x1c\n" +
 	"\tsignature\x18\x02 \x01(\fR\tsignature\"0\n" +
 	"\x17CreateKycStatusResponse\x12\x15\n" +
-	"\x06kyc_id\x18\x01 \x01(\tR\x05kycId\"a\n" +
+	"\x06kyc_id\x18\x01 \x01(\tR\x05kycId\"g\n" +
 	"\x16UpdateKycStatusRequest\x12\x15\n" +
-	"\x06kyc_id\x18\x01 \x01(\tR\x05kycId\x12\x12\n" +
-	"\x04data\x18\x02 \x01(\fR\x04data\x12\x1c\n" +
+	"\x06kyc_id\x18\x01 \x01(\tR\x05kycId\x12\x18\n" +
+	"\apayload\x18\x02 \x01(\fR\apayload\x12\x1c\n" +
 	"\tsignature\x18\x03 \x01(\fR\tsignature\"\x19\n" +
 	"\x17UpdateKycStatusResponse2\xb3\x06\n" +
 	"\x0ePartnerService\x12\\\n" +
@@ -811,33 +788,29 @@ var file_brij_storage_v1_partner_service_proto_goTypes = []any{
 	(*UpdateKycStatusResponse)(nil),      // 13: brij.storage.v1.partner.UpdateKycStatusResponse
 	(*common.UserDataField)(nil),         // 14: brij.storage.v1.common.UserDataField
 	(*common.ValidationDataField)(nil),   // 15: brij.storage.v1.common.ValidationDataField
-	(common.ValidationStatus)(0),         // 16: brij.storage.v1.common.ValidationStatus
-	(common.KycStatus)(0),                // 17: brij.storage.v1.common.KycStatus
 }
 var file_brij_storage_v1_partner_service_proto_depIdxs = []int32{
 	14, // 0: brij.storage.v1.partner.GetUserDataResponse.user_data:type_name -> brij.storage.v1.common.UserDataField
 	15, // 1: brij.storage.v1.partner.GetUserDataResponse.validation_data:type_name -> brij.storage.v1.common.ValidationDataField
-	16, // 2: brij.storage.v1.partner.SetValidationDataRequest.status:type_name -> brij.storage.v1.common.ValidationStatus
-	17, // 3: brij.storage.v1.partner.GetKycStatusResponse.status:type_name -> brij.storage.v1.common.KycStatus
-	0,  // 4: brij.storage.v1.partner.PartnerService.GetInfo:input_type -> brij.storage.v1.partner.GetInfoRequest
-	2,  // 5: brij.storage.v1.partner.PartnerService.GetUserData:input_type -> brij.storage.v1.partner.GetUserDataRequest
-	4,  // 6: brij.storage.v1.partner.PartnerService.SetValidationData:input_type -> brij.storage.v1.partner.SetValidationDataRequest
-	6,  // 7: brij.storage.v1.partner.PartnerService.RemoveValidationData:input_type -> brij.storage.v1.partner.RemoveValidationDataRequest
-	8,  // 8: brij.storage.v1.partner.PartnerService.GetKycStatus:input_type -> brij.storage.v1.partner.GetKycStatusRequest
-	10, // 9: brij.storage.v1.partner.PartnerService.CreateKycStatus:input_type -> brij.storage.v1.partner.CreateKycStatusRequest
-	12, // 10: brij.storage.v1.partner.PartnerService.UpdateKycStatus:input_type -> brij.storage.v1.partner.UpdateKycStatusRequest
-	1,  // 11: brij.storage.v1.partner.PartnerService.GetInfo:output_type -> brij.storage.v1.partner.GetInfoResponse
-	3,  // 12: brij.storage.v1.partner.PartnerService.GetUserData:output_type -> brij.storage.v1.partner.GetUserDataResponse
-	5,  // 13: brij.storage.v1.partner.PartnerService.SetValidationData:output_type -> brij.storage.v1.partner.SetValidationDataResponse
-	7,  // 14: brij.storage.v1.partner.PartnerService.RemoveValidationData:output_type -> brij.storage.v1.partner.RemoveValidationDataResponse
-	9,  // 15: brij.storage.v1.partner.PartnerService.GetKycStatus:output_type -> brij.storage.v1.partner.GetKycStatusResponse
-	11, // 16: brij.storage.v1.partner.PartnerService.CreateKycStatus:output_type -> brij.storage.v1.partner.CreateKycStatusResponse
-	13, // 17: brij.storage.v1.partner.PartnerService.UpdateKycStatus:output_type -> brij.storage.v1.partner.UpdateKycStatusResponse
-	11, // [11:18] is the sub-list for method output_type
-	4,  // [4:11] is the sub-list for method input_type
-	4,  // [4:4] is the sub-list for extension type_name
-	4,  // [4:4] is the sub-list for extension extendee
-	0,  // [0:4] is the sub-list for field type_name
+	0,  // 2: brij.storage.v1.partner.PartnerService.GetInfo:input_type -> brij.storage.v1.partner.GetInfoRequest
+	2,  // 3: brij.storage.v1.partner.PartnerService.GetUserData:input_type -> brij.storage.v1.partner.GetUserDataRequest
+	4,  // 4: brij.storage.v1.partner.PartnerService.SetValidationData:input_type -> brij.storage.v1.partner.SetValidationDataRequest
+	6,  // 5: brij.storage.v1.partner.PartnerService.RemoveValidationData:input_type -> brij.storage.v1.partner.RemoveValidationDataRequest
+	8,  // 6: brij.storage.v1.partner.PartnerService.GetKycStatus:input_type -> brij.storage.v1.partner.GetKycStatusRequest
+	10, // 7: brij.storage.v1.partner.PartnerService.CreateKycStatus:input_type -> brij.storage.v1.partner.CreateKycStatusRequest
+	12, // 8: brij.storage.v1.partner.PartnerService.UpdateKycStatus:input_type -> brij.storage.v1.partner.UpdateKycStatusRequest
+	1,  // 9: brij.storage.v1.partner.PartnerService.GetInfo:output_type -> brij.storage.v1.partner.GetInfoResponse
+	3,  // 10: brij.storage.v1.partner.PartnerService.GetUserData:output_type -> brij.storage.v1.partner.GetUserDataResponse
+	5,  // 11: brij.storage.v1.partner.PartnerService.SetValidationData:output_type -> brij.storage.v1.partner.SetValidationDataResponse
+	7,  // 12: brij.storage.v1.partner.PartnerService.RemoveValidationData:output_type -> brij.storage.v1.partner.RemoveValidationDataResponse
+	9,  // 13: brij.storage.v1.partner.PartnerService.GetKycStatus:output_type -> brij.storage.v1.partner.GetKycStatusResponse
+	11, // 14: brij.storage.v1.partner.PartnerService.CreateKycStatus:output_type -> brij.storage.v1.partner.CreateKycStatusResponse
+	13, // 15: brij.storage.v1.partner.PartnerService.UpdateKycStatus:output_type -> brij.storage.v1.partner.UpdateKycStatusResponse
+	9,  // [9:16] is the sub-list for method output_type
+	2,  // [2:9] is the sub-list for method input_type
+	2,  // [2:2] is the sub-list for extension type_name
+	2,  // [2:2] is the sub-list for extension extendee
+	0,  // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_brij_storage_v1_partner_service_proto_init() }
