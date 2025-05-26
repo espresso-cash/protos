@@ -5,9 +5,9 @@
 package v1connect
 
 import (
-	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
+	connect_go "github.com/bufbuild/connect-go"
 	v1 "go.brij.fi/protos/brij/orders/manage/v1"
 	http "net/http"
 	strings "strings"
@@ -18,7 +18,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect.IsAtLeastVersion1_13_0
+const _ = connect_go.IsAtLeastVersion0_1_0
 
 const (
 	// ManageServiceName is the fully-qualified name of the ManageService service.
@@ -43,8 +43,8 @@ const (
 
 // ManageServiceClient is a client for the brij.orders.manage.v1.ManageService service.
 type ManageServiceClient interface {
-	NotifyPartner(context.Context, *connect.Request[v1.NotifyPartnerRequest]) (*connect.Response[v1.NotifyPartnerResponse], error)
-	CheckStaleOrders(context.Context, *connect.Request[v1.CheckStaleOrdersRequest]) (*connect.Response[v1.CheckStaleOrdersResponse], error)
+	NotifyPartner(context.Context, *connect_go.Request[v1.NotifyPartnerRequest]) (*connect_go.Response[v1.NotifyPartnerResponse], error)
+	CheckStaleOrders(context.Context, *connect_go.Request[v1.CheckStaleOrdersRequest]) (*connect_go.Response[v1.CheckStaleOrdersResponse], error)
 }
 
 // NewManageServiceClient constructs a client for the brij.orders.manage.v1.ManageService service.
@@ -54,45 +54,42 @@ type ManageServiceClient interface {
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
-func NewManageServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) ManageServiceClient {
+func NewManageServiceClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) ManageServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
-	manageServiceMethods := v1.File_brij_orders_manage_v1_service_proto.Services().ByName("ManageService").Methods()
 	return &manageServiceClient{
-		notifyPartner: connect.NewClient[v1.NotifyPartnerRequest, v1.NotifyPartnerResponse](
+		notifyPartner: connect_go.NewClient[v1.NotifyPartnerRequest, v1.NotifyPartnerResponse](
 			httpClient,
 			baseURL+ManageServiceNotifyPartnerProcedure,
-			connect.WithSchema(manageServiceMethods.ByName("NotifyPartner")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		checkStaleOrders: connect.NewClient[v1.CheckStaleOrdersRequest, v1.CheckStaleOrdersResponse](
+		checkStaleOrders: connect_go.NewClient[v1.CheckStaleOrdersRequest, v1.CheckStaleOrdersResponse](
 			httpClient,
 			baseURL+ManageServiceCheckStaleOrdersProcedure,
-			connect.WithSchema(manageServiceMethods.ByName("CheckStaleOrders")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
 	}
 }
 
 // manageServiceClient implements ManageServiceClient.
 type manageServiceClient struct {
-	notifyPartner    *connect.Client[v1.NotifyPartnerRequest, v1.NotifyPartnerResponse]
-	checkStaleOrders *connect.Client[v1.CheckStaleOrdersRequest, v1.CheckStaleOrdersResponse]
+	notifyPartner    *connect_go.Client[v1.NotifyPartnerRequest, v1.NotifyPartnerResponse]
+	checkStaleOrders *connect_go.Client[v1.CheckStaleOrdersRequest, v1.CheckStaleOrdersResponse]
 }
 
 // NotifyPartner calls brij.orders.manage.v1.ManageService.NotifyPartner.
-func (c *manageServiceClient) NotifyPartner(ctx context.Context, req *connect.Request[v1.NotifyPartnerRequest]) (*connect.Response[v1.NotifyPartnerResponse], error) {
+func (c *manageServiceClient) NotifyPartner(ctx context.Context, req *connect_go.Request[v1.NotifyPartnerRequest]) (*connect_go.Response[v1.NotifyPartnerResponse], error) {
 	return c.notifyPartner.CallUnary(ctx, req)
 }
 
 // CheckStaleOrders calls brij.orders.manage.v1.ManageService.CheckStaleOrders.
-func (c *manageServiceClient) CheckStaleOrders(ctx context.Context, req *connect.Request[v1.CheckStaleOrdersRequest]) (*connect.Response[v1.CheckStaleOrdersResponse], error) {
+func (c *manageServiceClient) CheckStaleOrders(ctx context.Context, req *connect_go.Request[v1.CheckStaleOrdersRequest]) (*connect_go.Response[v1.CheckStaleOrdersResponse], error) {
 	return c.checkStaleOrders.CallUnary(ctx, req)
 }
 
 // ManageServiceHandler is an implementation of the brij.orders.manage.v1.ManageService service.
 type ManageServiceHandler interface {
-	NotifyPartner(context.Context, *connect.Request[v1.NotifyPartnerRequest]) (*connect.Response[v1.NotifyPartnerResponse], error)
-	CheckStaleOrders(context.Context, *connect.Request[v1.CheckStaleOrdersRequest]) (*connect.Response[v1.CheckStaleOrdersResponse], error)
+	NotifyPartner(context.Context, *connect_go.Request[v1.NotifyPartnerRequest]) (*connect_go.Response[v1.NotifyPartnerResponse], error)
+	CheckStaleOrders(context.Context, *connect_go.Request[v1.CheckStaleOrdersRequest]) (*connect_go.Response[v1.CheckStaleOrdersResponse], error)
 }
 
 // NewManageServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -100,19 +97,16 @@ type ManageServiceHandler interface {
 //
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
-func NewManageServiceHandler(svc ManageServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	manageServiceMethods := v1.File_brij_orders_manage_v1_service_proto.Services().ByName("ManageService").Methods()
-	manageServiceNotifyPartnerHandler := connect.NewUnaryHandler(
+func NewManageServiceHandler(svc ManageServiceHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
+	manageServiceNotifyPartnerHandler := connect_go.NewUnaryHandler(
 		ManageServiceNotifyPartnerProcedure,
 		svc.NotifyPartner,
-		connect.WithSchema(manageServiceMethods.ByName("NotifyPartner")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	manageServiceCheckStaleOrdersHandler := connect.NewUnaryHandler(
+	manageServiceCheckStaleOrdersHandler := connect_go.NewUnaryHandler(
 		ManageServiceCheckStaleOrdersProcedure,
 		svc.CheckStaleOrders,
-		connect.WithSchema(manageServiceMethods.ByName("CheckStaleOrders")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
 	return "/brij.orders.manage.v1.ManageService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
@@ -129,10 +123,10 @@ func NewManageServiceHandler(svc ManageServiceHandler, opts ...connect.HandlerOp
 // UnimplementedManageServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedManageServiceHandler struct{}
 
-func (UnimplementedManageServiceHandler) NotifyPartner(context.Context, *connect.Request[v1.NotifyPartnerRequest]) (*connect.Response[v1.NotifyPartnerResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.manage.v1.ManageService.NotifyPartner is not implemented"))
+func (UnimplementedManageServiceHandler) NotifyPartner(context.Context, *connect_go.Request[v1.NotifyPartnerRequest]) (*connect_go.Response[v1.NotifyPartnerResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.manage.v1.ManageService.NotifyPartner is not implemented"))
 }
 
-func (UnimplementedManageServiceHandler) CheckStaleOrders(context.Context, *connect.Request[v1.CheckStaleOrdersRequest]) (*connect.Response[v1.CheckStaleOrdersResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.manage.v1.ManageService.CheckStaleOrders is not implemented"))
+func (UnimplementedManageServiceHandler) CheckStaleOrders(context.Context, *connect_go.Request[v1.CheckStaleOrdersRequest]) (*connect_go.Response[v1.CheckStaleOrdersResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.manage.v1.ManageService.CheckStaleOrders is not implemented"))
 }

@@ -18,14 +18,14 @@ const ValidateEmailRequest$json = {
   '1': 'ValidateEmailRequest',
   '2': [
     {'1': 'code', '3': 1, '4': 1, '5': 9, '10': 'code'},
-    {'1': 'data_id', '3': 2, '4': 1, '5': 9, '10': 'dataId'},
+    {'1': 'data_hash', '3': 2, '4': 1, '5': 9, '10': 'dataHash'},
   ],
 };
 
 /// Descriptor for `ValidateEmailRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List validateEmailRequestDescriptor = $convert.base64Decode(
-    'ChRWYWxpZGF0ZUVtYWlsUmVxdWVzdBISCgRjb2RlGAEgASgJUgRjb2RlEhcKB2RhdGFfaWQYAi'
-    'ABKAlSBmRhdGFJZA==');
+    'ChRWYWxpZGF0ZUVtYWlsUmVxdWVzdBISCgRjb2RlGAEgASgJUgRjb2RlEhsKCWRhdGFfaGFzaB'
+    'gCIAEoCVIIZGF0YUhhc2g=');
 
 @$core.Deprecated('Use validateEmailResponseDescriptor instead')
 const ValidateEmailResponse$json = {

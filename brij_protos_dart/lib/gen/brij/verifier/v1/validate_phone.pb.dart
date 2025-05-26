@@ -18,14 +18,14 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 class ValidatePhoneRequest extends $pb.GeneratedMessage {
   factory ValidatePhoneRequest({
     $core.String? code,
-    $core.String? dataId,
+    $core.String? dataHash,
   }) {
     final $result = create();
     if (code != null) {
       $result.code = code;
     }
-    if (dataId != null) {
-      $result.dataId = dataId;
+    if (dataHash != null) {
+      $result.dataHash = dataHash;
     }
     return $result;
   }
@@ -35,7 +35,7 @@ class ValidatePhoneRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ValidatePhoneRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.verifier.v1'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'code')
-    ..aOS(2, _omitFieldNames ? '' : 'dataId')
+    ..aOS(2, _omitFieldNames ? '' : 'dataHash')
     ..hasRequiredFields = false
   ;
 
@@ -70,13 +70,13 @@ class ValidatePhoneRequest extends $pb.GeneratedMessage {
   void clearCode() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get dataId => $_getSZ(1);
+  $core.String get dataHash => $_getSZ(1);
   @$pb.TagNumber(2)
-  set dataId($core.String v) { $_setString(1, v); }
+  set dataHash($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasDataId() => $_has(1);
+  $core.bool hasDataHash() => $_has(1);
   @$pb.TagNumber(2)
-  void clearDataId() => $_clearField(2);
+  void clearDataHash() => $_clearField(2);
 }
 
 class ValidatePhoneResponse extends $pb.GeneratedMessage {

@@ -5,9 +5,9 @@
 package walletconnect
 
 import (
-	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
+	connect_go "github.com/bufbuild/connect-go"
 	wallet "go.brij.fi/protos/brij/orders/v1/wallet"
 	http "net/http"
 	strings "strings"
@@ -18,7 +18,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect.IsAtLeastVersion1_13_0
+const _ = connect_go.IsAtLeastVersion0_1_0
 
 const (
 	// WalletServiceName is the fully-qualified name of the WalletService service.
@@ -52,12 +52,12 @@ const (
 
 // WalletServiceClient is a client for the brij.orders.v1.wallet.WalletService service.
 type WalletServiceClient interface {
-	CreateOnRampOrder(context.Context, *connect.Request[wallet.CreateOnRampOrderRequest]) (*connect.Response[wallet.CreateOnRampOrderResponse], error)
-	CreateOffRampOrder(context.Context, *connect.Request[wallet.CreateOffRampOrderRequest]) (*connect.Response[wallet.CreateOffRampOrderResponse], error)
-	GetOrder(context.Context, *connect.Request[wallet.GetOrderRequest]) (*connect.Response[wallet.GetOrderResponse], error)
-	GetOrders(context.Context, *connect.Request[wallet.GetOrdersRequest]) (*connect.Response[wallet.GetOrdersResponse], error)
-	GetQuote(context.Context, *connect.Request[wallet.GetQuoteRequest]) (*connect.Response[wallet.GetQuoteResponse], error)
-	GenerateTransaction(context.Context, *connect.Request[wallet.GenerateTransactionRequest]) (*connect.Response[wallet.GenerateTransactionResponse], error)
+	CreateOnRampOrder(context.Context, *connect_go.Request[wallet.CreateOnRampOrderRequest]) (*connect_go.Response[wallet.CreateOnRampOrderResponse], error)
+	CreateOffRampOrder(context.Context, *connect_go.Request[wallet.CreateOffRampOrderRequest]) (*connect_go.Response[wallet.CreateOffRampOrderResponse], error)
+	GetOrder(context.Context, *connect_go.Request[wallet.GetOrderRequest]) (*connect_go.Response[wallet.GetOrderResponse], error)
+	GetOrders(context.Context, *connect_go.Request[wallet.GetOrdersRequest]) (*connect_go.Response[wallet.GetOrdersResponse], error)
+	GetQuote(context.Context, *connect_go.Request[wallet.GetQuoteRequest]) (*connect_go.Response[wallet.GetQuoteResponse], error)
+	GenerateTransaction(context.Context, *connect_go.Request[wallet.GenerateTransactionRequest]) (*connect_go.Response[wallet.GenerateTransactionResponse], error)
 }
 
 // NewWalletServiceClient constructs a client for the brij.orders.v1.wallet.WalletService service.
@@ -67,97 +67,90 @@ type WalletServiceClient interface {
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
-func NewWalletServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) WalletServiceClient {
+func NewWalletServiceClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) WalletServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
-	walletServiceMethods := wallet.File_brij_orders_v1_wallet_wallet_proto.Services().ByName("WalletService").Methods()
 	return &walletServiceClient{
-		createOnRampOrder: connect.NewClient[wallet.CreateOnRampOrderRequest, wallet.CreateOnRampOrderResponse](
+		createOnRampOrder: connect_go.NewClient[wallet.CreateOnRampOrderRequest, wallet.CreateOnRampOrderResponse](
 			httpClient,
 			baseURL+WalletServiceCreateOnRampOrderProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("CreateOnRampOrder")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		createOffRampOrder: connect.NewClient[wallet.CreateOffRampOrderRequest, wallet.CreateOffRampOrderResponse](
+		createOffRampOrder: connect_go.NewClient[wallet.CreateOffRampOrderRequest, wallet.CreateOffRampOrderResponse](
 			httpClient,
 			baseURL+WalletServiceCreateOffRampOrderProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("CreateOffRampOrder")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getOrder: connect.NewClient[wallet.GetOrderRequest, wallet.GetOrderResponse](
+		getOrder: connect_go.NewClient[wallet.GetOrderRequest, wallet.GetOrderResponse](
 			httpClient,
 			baseURL+WalletServiceGetOrderProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GetOrder")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getOrders: connect.NewClient[wallet.GetOrdersRequest, wallet.GetOrdersResponse](
+		getOrders: connect_go.NewClient[wallet.GetOrdersRequest, wallet.GetOrdersResponse](
 			httpClient,
 			baseURL+WalletServiceGetOrdersProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GetOrders")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getQuote: connect.NewClient[wallet.GetQuoteRequest, wallet.GetQuoteResponse](
+		getQuote: connect_go.NewClient[wallet.GetQuoteRequest, wallet.GetQuoteResponse](
 			httpClient,
 			baseURL+WalletServiceGetQuoteProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GetQuote")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		generateTransaction: connect.NewClient[wallet.GenerateTransactionRequest, wallet.GenerateTransactionResponse](
+		generateTransaction: connect_go.NewClient[wallet.GenerateTransactionRequest, wallet.GenerateTransactionResponse](
 			httpClient,
 			baseURL+WalletServiceGenerateTransactionProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GenerateTransaction")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
 	}
 }
 
 // walletServiceClient implements WalletServiceClient.
 type walletServiceClient struct {
-	createOnRampOrder   *connect.Client[wallet.CreateOnRampOrderRequest, wallet.CreateOnRampOrderResponse]
-	createOffRampOrder  *connect.Client[wallet.CreateOffRampOrderRequest, wallet.CreateOffRampOrderResponse]
-	getOrder            *connect.Client[wallet.GetOrderRequest, wallet.GetOrderResponse]
-	getOrders           *connect.Client[wallet.GetOrdersRequest, wallet.GetOrdersResponse]
-	getQuote            *connect.Client[wallet.GetQuoteRequest, wallet.GetQuoteResponse]
-	generateTransaction *connect.Client[wallet.GenerateTransactionRequest, wallet.GenerateTransactionResponse]
+	createOnRampOrder   *connect_go.Client[wallet.CreateOnRampOrderRequest, wallet.CreateOnRampOrderResponse]
+	createOffRampOrder  *connect_go.Client[wallet.CreateOffRampOrderRequest, wallet.CreateOffRampOrderResponse]
+	getOrder            *connect_go.Client[wallet.GetOrderRequest, wallet.GetOrderResponse]
+	getOrders           *connect_go.Client[wallet.GetOrdersRequest, wallet.GetOrdersResponse]
+	getQuote            *connect_go.Client[wallet.GetQuoteRequest, wallet.GetQuoteResponse]
+	generateTransaction *connect_go.Client[wallet.GenerateTransactionRequest, wallet.GenerateTransactionResponse]
 }
 
 // CreateOnRampOrder calls brij.orders.v1.wallet.WalletService.CreateOnRampOrder.
-func (c *walletServiceClient) CreateOnRampOrder(ctx context.Context, req *connect.Request[wallet.CreateOnRampOrderRequest]) (*connect.Response[wallet.CreateOnRampOrderResponse], error) {
+func (c *walletServiceClient) CreateOnRampOrder(ctx context.Context, req *connect_go.Request[wallet.CreateOnRampOrderRequest]) (*connect_go.Response[wallet.CreateOnRampOrderResponse], error) {
 	return c.createOnRampOrder.CallUnary(ctx, req)
 }
 
 // CreateOffRampOrder calls brij.orders.v1.wallet.WalletService.CreateOffRampOrder.
-func (c *walletServiceClient) CreateOffRampOrder(ctx context.Context, req *connect.Request[wallet.CreateOffRampOrderRequest]) (*connect.Response[wallet.CreateOffRampOrderResponse], error) {
+func (c *walletServiceClient) CreateOffRampOrder(ctx context.Context, req *connect_go.Request[wallet.CreateOffRampOrderRequest]) (*connect_go.Response[wallet.CreateOffRampOrderResponse], error) {
 	return c.createOffRampOrder.CallUnary(ctx, req)
 }
 
 // GetOrder calls brij.orders.v1.wallet.WalletService.GetOrder.
-func (c *walletServiceClient) GetOrder(ctx context.Context, req *connect.Request[wallet.GetOrderRequest]) (*connect.Response[wallet.GetOrderResponse], error) {
+func (c *walletServiceClient) GetOrder(ctx context.Context, req *connect_go.Request[wallet.GetOrderRequest]) (*connect_go.Response[wallet.GetOrderResponse], error) {
 	return c.getOrder.CallUnary(ctx, req)
 }
 
 // GetOrders calls brij.orders.v1.wallet.WalletService.GetOrders.
-func (c *walletServiceClient) GetOrders(ctx context.Context, req *connect.Request[wallet.GetOrdersRequest]) (*connect.Response[wallet.GetOrdersResponse], error) {
+func (c *walletServiceClient) GetOrders(ctx context.Context, req *connect_go.Request[wallet.GetOrdersRequest]) (*connect_go.Response[wallet.GetOrdersResponse], error) {
 	return c.getOrders.CallUnary(ctx, req)
 }
 
 // GetQuote calls brij.orders.v1.wallet.WalletService.GetQuote.
-func (c *walletServiceClient) GetQuote(ctx context.Context, req *connect.Request[wallet.GetQuoteRequest]) (*connect.Response[wallet.GetQuoteResponse], error) {
+func (c *walletServiceClient) GetQuote(ctx context.Context, req *connect_go.Request[wallet.GetQuoteRequest]) (*connect_go.Response[wallet.GetQuoteResponse], error) {
 	return c.getQuote.CallUnary(ctx, req)
 }
 
 // GenerateTransaction calls brij.orders.v1.wallet.WalletService.GenerateTransaction.
-func (c *walletServiceClient) GenerateTransaction(ctx context.Context, req *connect.Request[wallet.GenerateTransactionRequest]) (*connect.Response[wallet.GenerateTransactionResponse], error) {
+func (c *walletServiceClient) GenerateTransaction(ctx context.Context, req *connect_go.Request[wallet.GenerateTransactionRequest]) (*connect_go.Response[wallet.GenerateTransactionResponse], error) {
 	return c.generateTransaction.CallUnary(ctx, req)
 }
 
 // WalletServiceHandler is an implementation of the brij.orders.v1.wallet.WalletService service.
 type WalletServiceHandler interface {
-	CreateOnRampOrder(context.Context, *connect.Request[wallet.CreateOnRampOrderRequest]) (*connect.Response[wallet.CreateOnRampOrderResponse], error)
-	CreateOffRampOrder(context.Context, *connect.Request[wallet.CreateOffRampOrderRequest]) (*connect.Response[wallet.CreateOffRampOrderResponse], error)
-	GetOrder(context.Context, *connect.Request[wallet.GetOrderRequest]) (*connect.Response[wallet.GetOrderResponse], error)
-	GetOrders(context.Context, *connect.Request[wallet.GetOrdersRequest]) (*connect.Response[wallet.GetOrdersResponse], error)
-	GetQuote(context.Context, *connect.Request[wallet.GetQuoteRequest]) (*connect.Response[wallet.GetQuoteResponse], error)
-	GenerateTransaction(context.Context, *connect.Request[wallet.GenerateTransactionRequest]) (*connect.Response[wallet.GenerateTransactionResponse], error)
+	CreateOnRampOrder(context.Context, *connect_go.Request[wallet.CreateOnRampOrderRequest]) (*connect_go.Response[wallet.CreateOnRampOrderResponse], error)
+	CreateOffRampOrder(context.Context, *connect_go.Request[wallet.CreateOffRampOrderRequest]) (*connect_go.Response[wallet.CreateOffRampOrderResponse], error)
+	GetOrder(context.Context, *connect_go.Request[wallet.GetOrderRequest]) (*connect_go.Response[wallet.GetOrderResponse], error)
+	GetOrders(context.Context, *connect_go.Request[wallet.GetOrdersRequest]) (*connect_go.Response[wallet.GetOrdersResponse], error)
+	GetQuote(context.Context, *connect_go.Request[wallet.GetQuoteRequest]) (*connect_go.Response[wallet.GetQuoteResponse], error)
+	GenerateTransaction(context.Context, *connect_go.Request[wallet.GenerateTransactionRequest]) (*connect_go.Response[wallet.GenerateTransactionResponse], error)
 }
 
 // NewWalletServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -165,43 +158,36 @@ type WalletServiceHandler interface {
 //
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
-func NewWalletServiceHandler(svc WalletServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	walletServiceMethods := wallet.File_brij_orders_v1_wallet_wallet_proto.Services().ByName("WalletService").Methods()
-	walletServiceCreateOnRampOrderHandler := connect.NewUnaryHandler(
+func NewWalletServiceHandler(svc WalletServiceHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
+	walletServiceCreateOnRampOrderHandler := connect_go.NewUnaryHandler(
 		WalletServiceCreateOnRampOrderProcedure,
 		svc.CreateOnRampOrder,
-		connect.WithSchema(walletServiceMethods.ByName("CreateOnRampOrder")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceCreateOffRampOrderHandler := connect.NewUnaryHandler(
+	walletServiceCreateOffRampOrderHandler := connect_go.NewUnaryHandler(
 		WalletServiceCreateOffRampOrderProcedure,
 		svc.CreateOffRampOrder,
-		connect.WithSchema(walletServiceMethods.ByName("CreateOffRampOrder")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceGetOrderHandler := connect.NewUnaryHandler(
+	walletServiceGetOrderHandler := connect_go.NewUnaryHandler(
 		WalletServiceGetOrderProcedure,
 		svc.GetOrder,
-		connect.WithSchema(walletServiceMethods.ByName("GetOrder")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceGetOrdersHandler := connect.NewUnaryHandler(
+	walletServiceGetOrdersHandler := connect_go.NewUnaryHandler(
 		WalletServiceGetOrdersProcedure,
 		svc.GetOrders,
-		connect.WithSchema(walletServiceMethods.ByName("GetOrders")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceGetQuoteHandler := connect.NewUnaryHandler(
+	walletServiceGetQuoteHandler := connect_go.NewUnaryHandler(
 		WalletServiceGetQuoteProcedure,
 		svc.GetQuote,
-		connect.WithSchema(walletServiceMethods.ByName("GetQuote")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceGenerateTransactionHandler := connect.NewUnaryHandler(
+	walletServiceGenerateTransactionHandler := connect_go.NewUnaryHandler(
 		WalletServiceGenerateTransactionProcedure,
 		svc.GenerateTransaction,
-		connect.WithSchema(walletServiceMethods.ByName("GenerateTransaction")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
 	return "/brij.orders.v1.wallet.WalletService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
@@ -226,26 +212,26 @@ func NewWalletServiceHandler(svc WalletServiceHandler, opts ...connect.HandlerOp
 // UnimplementedWalletServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedWalletServiceHandler struct{}
 
-func (UnimplementedWalletServiceHandler) CreateOnRampOrder(context.Context, *connect.Request[wallet.CreateOnRampOrderRequest]) (*connect.Response[wallet.CreateOnRampOrderResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.CreateOnRampOrder is not implemented"))
+func (UnimplementedWalletServiceHandler) CreateOnRampOrder(context.Context, *connect_go.Request[wallet.CreateOnRampOrderRequest]) (*connect_go.Response[wallet.CreateOnRampOrderResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.CreateOnRampOrder is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) CreateOffRampOrder(context.Context, *connect.Request[wallet.CreateOffRampOrderRequest]) (*connect.Response[wallet.CreateOffRampOrderResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.CreateOffRampOrder is not implemented"))
+func (UnimplementedWalletServiceHandler) CreateOffRampOrder(context.Context, *connect_go.Request[wallet.CreateOffRampOrderRequest]) (*connect_go.Response[wallet.CreateOffRampOrderResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.CreateOffRampOrder is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) GetOrder(context.Context, *connect.Request[wallet.GetOrderRequest]) (*connect.Response[wallet.GetOrderResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.GetOrder is not implemented"))
+func (UnimplementedWalletServiceHandler) GetOrder(context.Context, *connect_go.Request[wallet.GetOrderRequest]) (*connect_go.Response[wallet.GetOrderResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.GetOrder is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) GetOrders(context.Context, *connect.Request[wallet.GetOrdersRequest]) (*connect.Response[wallet.GetOrdersResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.GetOrders is not implemented"))
+func (UnimplementedWalletServiceHandler) GetOrders(context.Context, *connect_go.Request[wallet.GetOrdersRequest]) (*connect_go.Response[wallet.GetOrdersResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.GetOrders is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) GetQuote(context.Context, *connect.Request[wallet.GetQuoteRequest]) (*connect.Response[wallet.GetQuoteResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.GetQuote is not implemented"))
+func (UnimplementedWalletServiceHandler) GetQuote(context.Context, *connect_go.Request[wallet.GetQuoteRequest]) (*connect_go.Response[wallet.GetQuoteResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.GetQuote is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) GenerateTransaction(context.Context, *connect.Request[wallet.GenerateTransactionRequest]) (*connect.Response[wallet.GenerateTransactionResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.GenerateTransaction is not implemented"))
+func (UnimplementedWalletServiceHandler) GenerateTransaction(context.Context, *connect_go.Request[wallet.GenerateTransactionRequest]) (*connect_go.Response[wallet.GenerateTransactionResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.GenerateTransaction is not implemented"))
 }

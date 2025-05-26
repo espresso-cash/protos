@@ -5,9 +5,9 @@
 package walletconnect
 
 import (
-	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
+	connect_go "github.com/bufbuild/connect-go"
 	wallet "go.brij.fi/protos/brij/storage/v1/wallet"
 	http "net/http"
 	strings "strings"
@@ -18,7 +18,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect.IsAtLeastVersion1_13_0
+const _ = connect_go.IsAtLeastVersion0_1_0
 
 const (
 	// WalletServiceName is the fully-qualified name of the WalletService service.
@@ -78,20 +78,20 @@ const (
 
 // WalletServiceClient is a client for the brij.storage.v1.wallet.WalletService service.
 type WalletServiceClient interface {
-	GetPartnerInfo(context.Context, *connect.Request[wallet.GetPartnerInfoRequest]) (*connect.Response[wallet.GetPartnerInfoResponse], error)
-	InitStorage(context.Context, *connect.Request[wallet.InitStorageRequest]) (*connect.Response[wallet.InitStorageResponse], error)
-	GetInfo(context.Context, *connect.Request[wallet.GetInfoRequest]) (*connect.Response[wallet.GetInfoResponse], error)
-	GetGrantedAccessPartners(context.Context, *connect.Request[wallet.GetGrantedAccessPartnersRequest]) (*connect.Response[wallet.GetGrantedAccessPartnersResponse], error)
-	GrantAccess(context.Context, *connect.Request[wallet.GrantAccessRequest]) (*connect.Response[wallet.GrantAccessResponse], error)
-	SetUserData(context.Context, *connect.Request[wallet.SetUserDataRequest]) (*connect.Response[wallet.SetUserDataResponse], error)
-	RemoveUserData(context.Context, *connect.Request[wallet.RemoveUserDataRequest]) (*connect.Response[wallet.RemoveUserDataResponse], error)
-	RevokeAccess(context.Context, *connect.Request[wallet.RevokeAccessRequest]) (*connect.Response[wallet.RevokeAccessResponse], error)
-	RemoveAllUserData(context.Context, *connect.Request[wallet.RemoveAllUserDataRequest]) (*connect.Response[wallet.RemoveAllUserDataResponse], error)
-	GetUserData(context.Context, *connect.Request[wallet.GetUserDataRequest]) (*connect.Response[wallet.GetUserDataResponse], error)
-	CheckAccess(context.Context, *connect.Request[wallet.CheckAccessRequest]) (*connect.Response[wallet.CheckAccessResponse], error)
-	GetKycStatus(context.Context, *connect.Request[wallet.GetKycStatusRequest]) (*connect.Response[wallet.GetKycStatusResponse], error)
-	GetWalletProof(context.Context, *connect.Request[wallet.GetWalletProofRequest]) (*connect.Response[wallet.GetWalletProofResponse], error)
-	GetSeedMessage(context.Context, *connect.Request[wallet.GetSeedMessageRequest]) (*connect.Response[wallet.GetSeedMessageResponse], error)
+	GetPartnerInfo(context.Context, *connect_go.Request[wallet.GetPartnerInfoRequest]) (*connect_go.Response[wallet.GetPartnerInfoResponse], error)
+	InitStorage(context.Context, *connect_go.Request[wallet.InitStorageRequest]) (*connect_go.Response[wallet.InitStorageResponse], error)
+	GetInfo(context.Context, *connect_go.Request[wallet.GetInfoRequest]) (*connect_go.Response[wallet.GetInfoResponse], error)
+	GetGrantedAccessPartners(context.Context, *connect_go.Request[wallet.GetGrantedAccessPartnersRequest]) (*connect_go.Response[wallet.GetGrantedAccessPartnersResponse], error)
+	GrantAccess(context.Context, *connect_go.Request[wallet.GrantAccessRequest]) (*connect_go.Response[wallet.GrantAccessResponse], error)
+	SetUserData(context.Context, *connect_go.Request[wallet.SetUserDataRequest]) (*connect_go.Response[wallet.SetUserDataResponse], error)
+	RemoveUserData(context.Context, *connect_go.Request[wallet.RemoveUserDataRequest]) (*connect_go.Response[wallet.RemoveUserDataResponse], error)
+	RevokeAccess(context.Context, *connect_go.Request[wallet.RevokeAccessRequest]) (*connect_go.Response[wallet.RevokeAccessResponse], error)
+	RemoveAllUserData(context.Context, *connect_go.Request[wallet.RemoveAllUserDataRequest]) (*connect_go.Response[wallet.RemoveAllUserDataResponse], error)
+	GetUserData(context.Context, *connect_go.Request[wallet.GetUserDataRequest]) (*connect_go.Response[wallet.GetUserDataResponse], error)
+	CheckAccess(context.Context, *connect_go.Request[wallet.CheckAccessRequest]) (*connect_go.Response[wallet.CheckAccessResponse], error)
+	GetKycStatus(context.Context, *connect_go.Request[wallet.GetKycStatusRequest]) (*connect_go.Response[wallet.GetKycStatusResponse], error)
+	GetWalletProof(context.Context, *connect_go.Request[wallet.GetWalletProofRequest]) (*connect_go.Response[wallet.GetWalletProofResponse], error)
+	GetSeedMessage(context.Context, *connect_go.Request[wallet.GetSeedMessageRequest]) (*connect_go.Response[wallet.GetSeedMessageResponse], error)
 }
 
 // NewWalletServiceClient constructs a client for the brij.storage.v1.wallet.WalletService service.
@@ -101,201 +101,186 @@ type WalletServiceClient interface {
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
-func NewWalletServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) WalletServiceClient {
+func NewWalletServiceClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) WalletServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
-	walletServiceMethods := wallet.File_brij_storage_v1_wallet_service_proto.Services().ByName("WalletService").Methods()
 	return &walletServiceClient{
-		getPartnerInfo: connect.NewClient[wallet.GetPartnerInfoRequest, wallet.GetPartnerInfoResponse](
+		getPartnerInfo: connect_go.NewClient[wallet.GetPartnerInfoRequest, wallet.GetPartnerInfoResponse](
 			httpClient,
 			baseURL+WalletServiceGetPartnerInfoProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GetPartnerInfo")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		initStorage: connect.NewClient[wallet.InitStorageRequest, wallet.InitStorageResponse](
+		initStorage: connect_go.NewClient[wallet.InitStorageRequest, wallet.InitStorageResponse](
 			httpClient,
 			baseURL+WalletServiceInitStorageProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("InitStorage")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getInfo: connect.NewClient[wallet.GetInfoRequest, wallet.GetInfoResponse](
+		getInfo: connect_go.NewClient[wallet.GetInfoRequest, wallet.GetInfoResponse](
 			httpClient,
 			baseURL+WalletServiceGetInfoProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GetInfo")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getGrantedAccessPartners: connect.NewClient[wallet.GetGrantedAccessPartnersRequest, wallet.GetGrantedAccessPartnersResponse](
+		getGrantedAccessPartners: connect_go.NewClient[wallet.GetGrantedAccessPartnersRequest, wallet.GetGrantedAccessPartnersResponse](
 			httpClient,
 			baseURL+WalletServiceGetGrantedAccessPartnersProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GetGrantedAccessPartners")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		grantAccess: connect.NewClient[wallet.GrantAccessRequest, wallet.GrantAccessResponse](
+		grantAccess: connect_go.NewClient[wallet.GrantAccessRequest, wallet.GrantAccessResponse](
 			httpClient,
 			baseURL+WalletServiceGrantAccessProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GrantAccess")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		setUserData: connect.NewClient[wallet.SetUserDataRequest, wallet.SetUserDataResponse](
+		setUserData: connect_go.NewClient[wallet.SetUserDataRequest, wallet.SetUserDataResponse](
 			httpClient,
 			baseURL+WalletServiceSetUserDataProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("SetUserData")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		removeUserData: connect.NewClient[wallet.RemoveUserDataRequest, wallet.RemoveUserDataResponse](
+		removeUserData: connect_go.NewClient[wallet.RemoveUserDataRequest, wallet.RemoveUserDataResponse](
 			httpClient,
 			baseURL+WalletServiceRemoveUserDataProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("RemoveUserData")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		revokeAccess: connect.NewClient[wallet.RevokeAccessRequest, wallet.RevokeAccessResponse](
+		revokeAccess: connect_go.NewClient[wallet.RevokeAccessRequest, wallet.RevokeAccessResponse](
 			httpClient,
 			baseURL+WalletServiceRevokeAccessProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("RevokeAccess")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		removeAllUserData: connect.NewClient[wallet.RemoveAllUserDataRequest, wallet.RemoveAllUserDataResponse](
+		removeAllUserData: connect_go.NewClient[wallet.RemoveAllUserDataRequest, wallet.RemoveAllUserDataResponse](
 			httpClient,
 			baseURL+WalletServiceRemoveAllUserDataProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("RemoveAllUserData")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getUserData: connect.NewClient[wallet.GetUserDataRequest, wallet.GetUserDataResponse](
+		getUserData: connect_go.NewClient[wallet.GetUserDataRequest, wallet.GetUserDataResponse](
 			httpClient,
 			baseURL+WalletServiceGetUserDataProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GetUserData")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		checkAccess: connect.NewClient[wallet.CheckAccessRequest, wallet.CheckAccessResponse](
+		checkAccess: connect_go.NewClient[wallet.CheckAccessRequest, wallet.CheckAccessResponse](
 			httpClient,
 			baseURL+WalletServiceCheckAccessProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("CheckAccess")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getKycStatus: connect.NewClient[wallet.GetKycStatusRequest, wallet.GetKycStatusResponse](
+		getKycStatus: connect_go.NewClient[wallet.GetKycStatusRequest, wallet.GetKycStatusResponse](
 			httpClient,
 			baseURL+WalletServiceGetKycStatusProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GetKycStatus")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getWalletProof: connect.NewClient[wallet.GetWalletProofRequest, wallet.GetWalletProofResponse](
+		getWalletProof: connect_go.NewClient[wallet.GetWalletProofRequest, wallet.GetWalletProofResponse](
 			httpClient,
 			baseURL+WalletServiceGetWalletProofProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GetWalletProof")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getSeedMessage: connect.NewClient[wallet.GetSeedMessageRequest, wallet.GetSeedMessageResponse](
+		getSeedMessage: connect_go.NewClient[wallet.GetSeedMessageRequest, wallet.GetSeedMessageResponse](
 			httpClient,
 			baseURL+WalletServiceGetSeedMessageProcedure,
-			connect.WithSchema(walletServiceMethods.ByName("GetSeedMessage")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
 	}
 }
 
 // walletServiceClient implements WalletServiceClient.
 type walletServiceClient struct {
-	getPartnerInfo           *connect.Client[wallet.GetPartnerInfoRequest, wallet.GetPartnerInfoResponse]
-	initStorage              *connect.Client[wallet.InitStorageRequest, wallet.InitStorageResponse]
-	getInfo                  *connect.Client[wallet.GetInfoRequest, wallet.GetInfoResponse]
-	getGrantedAccessPartners *connect.Client[wallet.GetGrantedAccessPartnersRequest, wallet.GetGrantedAccessPartnersResponse]
-	grantAccess              *connect.Client[wallet.GrantAccessRequest, wallet.GrantAccessResponse]
-	setUserData              *connect.Client[wallet.SetUserDataRequest, wallet.SetUserDataResponse]
-	removeUserData           *connect.Client[wallet.RemoveUserDataRequest, wallet.RemoveUserDataResponse]
-	revokeAccess             *connect.Client[wallet.RevokeAccessRequest, wallet.RevokeAccessResponse]
-	removeAllUserData        *connect.Client[wallet.RemoveAllUserDataRequest, wallet.RemoveAllUserDataResponse]
-	getUserData              *connect.Client[wallet.GetUserDataRequest, wallet.GetUserDataResponse]
-	checkAccess              *connect.Client[wallet.CheckAccessRequest, wallet.CheckAccessResponse]
-	getKycStatus             *connect.Client[wallet.GetKycStatusRequest, wallet.GetKycStatusResponse]
-	getWalletProof           *connect.Client[wallet.GetWalletProofRequest, wallet.GetWalletProofResponse]
-	getSeedMessage           *connect.Client[wallet.GetSeedMessageRequest, wallet.GetSeedMessageResponse]
+	getPartnerInfo           *connect_go.Client[wallet.GetPartnerInfoRequest, wallet.GetPartnerInfoResponse]
+	initStorage              *connect_go.Client[wallet.InitStorageRequest, wallet.InitStorageResponse]
+	getInfo                  *connect_go.Client[wallet.GetInfoRequest, wallet.GetInfoResponse]
+	getGrantedAccessPartners *connect_go.Client[wallet.GetGrantedAccessPartnersRequest, wallet.GetGrantedAccessPartnersResponse]
+	grantAccess              *connect_go.Client[wallet.GrantAccessRequest, wallet.GrantAccessResponse]
+	setUserData              *connect_go.Client[wallet.SetUserDataRequest, wallet.SetUserDataResponse]
+	removeUserData           *connect_go.Client[wallet.RemoveUserDataRequest, wallet.RemoveUserDataResponse]
+	revokeAccess             *connect_go.Client[wallet.RevokeAccessRequest, wallet.RevokeAccessResponse]
+	removeAllUserData        *connect_go.Client[wallet.RemoveAllUserDataRequest, wallet.RemoveAllUserDataResponse]
+	getUserData              *connect_go.Client[wallet.GetUserDataRequest, wallet.GetUserDataResponse]
+	checkAccess              *connect_go.Client[wallet.CheckAccessRequest, wallet.CheckAccessResponse]
+	getKycStatus             *connect_go.Client[wallet.GetKycStatusRequest, wallet.GetKycStatusResponse]
+	getWalletProof           *connect_go.Client[wallet.GetWalletProofRequest, wallet.GetWalletProofResponse]
+	getSeedMessage           *connect_go.Client[wallet.GetSeedMessageRequest, wallet.GetSeedMessageResponse]
 }
 
 // GetPartnerInfo calls brij.storage.v1.wallet.WalletService.GetPartnerInfo.
-func (c *walletServiceClient) GetPartnerInfo(ctx context.Context, req *connect.Request[wallet.GetPartnerInfoRequest]) (*connect.Response[wallet.GetPartnerInfoResponse], error) {
+func (c *walletServiceClient) GetPartnerInfo(ctx context.Context, req *connect_go.Request[wallet.GetPartnerInfoRequest]) (*connect_go.Response[wallet.GetPartnerInfoResponse], error) {
 	return c.getPartnerInfo.CallUnary(ctx, req)
 }
 
 // InitStorage calls brij.storage.v1.wallet.WalletService.InitStorage.
-func (c *walletServiceClient) InitStorage(ctx context.Context, req *connect.Request[wallet.InitStorageRequest]) (*connect.Response[wallet.InitStorageResponse], error) {
+func (c *walletServiceClient) InitStorage(ctx context.Context, req *connect_go.Request[wallet.InitStorageRequest]) (*connect_go.Response[wallet.InitStorageResponse], error) {
 	return c.initStorage.CallUnary(ctx, req)
 }
 
 // GetInfo calls brij.storage.v1.wallet.WalletService.GetInfo.
-func (c *walletServiceClient) GetInfo(ctx context.Context, req *connect.Request[wallet.GetInfoRequest]) (*connect.Response[wallet.GetInfoResponse], error) {
+func (c *walletServiceClient) GetInfo(ctx context.Context, req *connect_go.Request[wallet.GetInfoRequest]) (*connect_go.Response[wallet.GetInfoResponse], error) {
 	return c.getInfo.CallUnary(ctx, req)
 }
 
 // GetGrantedAccessPartners calls brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners.
-func (c *walletServiceClient) GetGrantedAccessPartners(ctx context.Context, req *connect.Request[wallet.GetGrantedAccessPartnersRequest]) (*connect.Response[wallet.GetGrantedAccessPartnersResponse], error) {
+func (c *walletServiceClient) GetGrantedAccessPartners(ctx context.Context, req *connect_go.Request[wallet.GetGrantedAccessPartnersRequest]) (*connect_go.Response[wallet.GetGrantedAccessPartnersResponse], error) {
 	return c.getGrantedAccessPartners.CallUnary(ctx, req)
 }
 
 // GrantAccess calls brij.storage.v1.wallet.WalletService.GrantAccess.
-func (c *walletServiceClient) GrantAccess(ctx context.Context, req *connect.Request[wallet.GrantAccessRequest]) (*connect.Response[wallet.GrantAccessResponse], error) {
+func (c *walletServiceClient) GrantAccess(ctx context.Context, req *connect_go.Request[wallet.GrantAccessRequest]) (*connect_go.Response[wallet.GrantAccessResponse], error) {
 	return c.grantAccess.CallUnary(ctx, req)
 }
 
 // SetUserData calls brij.storage.v1.wallet.WalletService.SetUserData.
-func (c *walletServiceClient) SetUserData(ctx context.Context, req *connect.Request[wallet.SetUserDataRequest]) (*connect.Response[wallet.SetUserDataResponse], error) {
+func (c *walletServiceClient) SetUserData(ctx context.Context, req *connect_go.Request[wallet.SetUserDataRequest]) (*connect_go.Response[wallet.SetUserDataResponse], error) {
 	return c.setUserData.CallUnary(ctx, req)
 }
 
 // RemoveUserData calls brij.storage.v1.wallet.WalletService.RemoveUserData.
-func (c *walletServiceClient) RemoveUserData(ctx context.Context, req *connect.Request[wallet.RemoveUserDataRequest]) (*connect.Response[wallet.RemoveUserDataResponse], error) {
+func (c *walletServiceClient) RemoveUserData(ctx context.Context, req *connect_go.Request[wallet.RemoveUserDataRequest]) (*connect_go.Response[wallet.RemoveUserDataResponse], error) {
 	return c.removeUserData.CallUnary(ctx, req)
 }
 
 // RevokeAccess calls brij.storage.v1.wallet.WalletService.RevokeAccess.
-func (c *walletServiceClient) RevokeAccess(ctx context.Context, req *connect.Request[wallet.RevokeAccessRequest]) (*connect.Response[wallet.RevokeAccessResponse], error) {
+func (c *walletServiceClient) RevokeAccess(ctx context.Context, req *connect_go.Request[wallet.RevokeAccessRequest]) (*connect_go.Response[wallet.RevokeAccessResponse], error) {
 	return c.revokeAccess.CallUnary(ctx, req)
 }
 
 // RemoveAllUserData calls brij.storage.v1.wallet.WalletService.RemoveAllUserData.
-func (c *walletServiceClient) RemoveAllUserData(ctx context.Context, req *connect.Request[wallet.RemoveAllUserDataRequest]) (*connect.Response[wallet.RemoveAllUserDataResponse], error) {
+func (c *walletServiceClient) RemoveAllUserData(ctx context.Context, req *connect_go.Request[wallet.RemoveAllUserDataRequest]) (*connect_go.Response[wallet.RemoveAllUserDataResponse], error) {
 	return c.removeAllUserData.CallUnary(ctx, req)
 }
 
 // GetUserData calls brij.storage.v1.wallet.WalletService.GetUserData.
-func (c *walletServiceClient) GetUserData(ctx context.Context, req *connect.Request[wallet.GetUserDataRequest]) (*connect.Response[wallet.GetUserDataResponse], error) {
+func (c *walletServiceClient) GetUserData(ctx context.Context, req *connect_go.Request[wallet.GetUserDataRequest]) (*connect_go.Response[wallet.GetUserDataResponse], error) {
 	return c.getUserData.CallUnary(ctx, req)
 }
 
 // CheckAccess calls brij.storage.v1.wallet.WalletService.CheckAccess.
-func (c *walletServiceClient) CheckAccess(ctx context.Context, req *connect.Request[wallet.CheckAccessRequest]) (*connect.Response[wallet.CheckAccessResponse], error) {
+func (c *walletServiceClient) CheckAccess(ctx context.Context, req *connect_go.Request[wallet.CheckAccessRequest]) (*connect_go.Response[wallet.CheckAccessResponse], error) {
 	return c.checkAccess.CallUnary(ctx, req)
 }
 
 // GetKycStatus calls brij.storage.v1.wallet.WalletService.GetKycStatus.
-func (c *walletServiceClient) GetKycStatus(ctx context.Context, req *connect.Request[wallet.GetKycStatusRequest]) (*connect.Response[wallet.GetKycStatusResponse], error) {
+func (c *walletServiceClient) GetKycStatus(ctx context.Context, req *connect_go.Request[wallet.GetKycStatusRequest]) (*connect_go.Response[wallet.GetKycStatusResponse], error) {
 	return c.getKycStatus.CallUnary(ctx, req)
 }
 
 // GetWalletProof calls brij.storage.v1.wallet.WalletService.GetWalletProof.
-func (c *walletServiceClient) GetWalletProof(ctx context.Context, req *connect.Request[wallet.GetWalletProofRequest]) (*connect.Response[wallet.GetWalletProofResponse], error) {
+func (c *walletServiceClient) GetWalletProof(ctx context.Context, req *connect_go.Request[wallet.GetWalletProofRequest]) (*connect_go.Response[wallet.GetWalletProofResponse], error) {
 	return c.getWalletProof.CallUnary(ctx, req)
 }
 
 // GetSeedMessage calls brij.storage.v1.wallet.WalletService.GetSeedMessage.
-func (c *walletServiceClient) GetSeedMessage(ctx context.Context, req *connect.Request[wallet.GetSeedMessageRequest]) (*connect.Response[wallet.GetSeedMessageResponse], error) {
+func (c *walletServiceClient) GetSeedMessage(ctx context.Context, req *connect_go.Request[wallet.GetSeedMessageRequest]) (*connect_go.Response[wallet.GetSeedMessageResponse], error) {
 	return c.getSeedMessage.CallUnary(ctx, req)
 }
 
 // WalletServiceHandler is an implementation of the brij.storage.v1.wallet.WalletService service.
 type WalletServiceHandler interface {
-	GetPartnerInfo(context.Context, *connect.Request[wallet.GetPartnerInfoRequest]) (*connect.Response[wallet.GetPartnerInfoResponse], error)
-	InitStorage(context.Context, *connect.Request[wallet.InitStorageRequest]) (*connect.Response[wallet.InitStorageResponse], error)
-	GetInfo(context.Context, *connect.Request[wallet.GetInfoRequest]) (*connect.Response[wallet.GetInfoResponse], error)
-	GetGrantedAccessPartners(context.Context, *connect.Request[wallet.GetGrantedAccessPartnersRequest]) (*connect.Response[wallet.GetGrantedAccessPartnersResponse], error)
-	GrantAccess(context.Context, *connect.Request[wallet.GrantAccessRequest]) (*connect.Response[wallet.GrantAccessResponse], error)
-	SetUserData(context.Context, *connect.Request[wallet.SetUserDataRequest]) (*connect.Response[wallet.SetUserDataResponse], error)
-	RemoveUserData(context.Context, *connect.Request[wallet.RemoveUserDataRequest]) (*connect.Response[wallet.RemoveUserDataResponse], error)
-	RevokeAccess(context.Context, *connect.Request[wallet.RevokeAccessRequest]) (*connect.Response[wallet.RevokeAccessResponse], error)
-	RemoveAllUserData(context.Context, *connect.Request[wallet.RemoveAllUserDataRequest]) (*connect.Response[wallet.RemoveAllUserDataResponse], error)
-	GetUserData(context.Context, *connect.Request[wallet.GetUserDataRequest]) (*connect.Response[wallet.GetUserDataResponse], error)
-	CheckAccess(context.Context, *connect.Request[wallet.CheckAccessRequest]) (*connect.Response[wallet.CheckAccessResponse], error)
-	GetKycStatus(context.Context, *connect.Request[wallet.GetKycStatusRequest]) (*connect.Response[wallet.GetKycStatusResponse], error)
-	GetWalletProof(context.Context, *connect.Request[wallet.GetWalletProofRequest]) (*connect.Response[wallet.GetWalletProofResponse], error)
-	GetSeedMessage(context.Context, *connect.Request[wallet.GetSeedMessageRequest]) (*connect.Response[wallet.GetSeedMessageResponse], error)
+	GetPartnerInfo(context.Context, *connect_go.Request[wallet.GetPartnerInfoRequest]) (*connect_go.Response[wallet.GetPartnerInfoResponse], error)
+	InitStorage(context.Context, *connect_go.Request[wallet.InitStorageRequest]) (*connect_go.Response[wallet.InitStorageResponse], error)
+	GetInfo(context.Context, *connect_go.Request[wallet.GetInfoRequest]) (*connect_go.Response[wallet.GetInfoResponse], error)
+	GetGrantedAccessPartners(context.Context, *connect_go.Request[wallet.GetGrantedAccessPartnersRequest]) (*connect_go.Response[wallet.GetGrantedAccessPartnersResponse], error)
+	GrantAccess(context.Context, *connect_go.Request[wallet.GrantAccessRequest]) (*connect_go.Response[wallet.GrantAccessResponse], error)
+	SetUserData(context.Context, *connect_go.Request[wallet.SetUserDataRequest]) (*connect_go.Response[wallet.SetUserDataResponse], error)
+	RemoveUserData(context.Context, *connect_go.Request[wallet.RemoveUserDataRequest]) (*connect_go.Response[wallet.RemoveUserDataResponse], error)
+	RevokeAccess(context.Context, *connect_go.Request[wallet.RevokeAccessRequest]) (*connect_go.Response[wallet.RevokeAccessResponse], error)
+	RemoveAllUserData(context.Context, *connect_go.Request[wallet.RemoveAllUserDataRequest]) (*connect_go.Response[wallet.RemoveAllUserDataResponse], error)
+	GetUserData(context.Context, *connect_go.Request[wallet.GetUserDataRequest]) (*connect_go.Response[wallet.GetUserDataResponse], error)
+	CheckAccess(context.Context, *connect_go.Request[wallet.CheckAccessRequest]) (*connect_go.Response[wallet.CheckAccessResponse], error)
+	GetKycStatus(context.Context, *connect_go.Request[wallet.GetKycStatusRequest]) (*connect_go.Response[wallet.GetKycStatusResponse], error)
+	GetWalletProof(context.Context, *connect_go.Request[wallet.GetWalletProofRequest]) (*connect_go.Response[wallet.GetWalletProofResponse], error)
+	GetSeedMessage(context.Context, *connect_go.Request[wallet.GetSeedMessageRequest]) (*connect_go.Response[wallet.GetSeedMessageResponse], error)
 }
 
 // NewWalletServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -303,91 +288,76 @@ type WalletServiceHandler interface {
 //
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
-func NewWalletServiceHandler(svc WalletServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	walletServiceMethods := wallet.File_brij_storage_v1_wallet_service_proto.Services().ByName("WalletService").Methods()
-	walletServiceGetPartnerInfoHandler := connect.NewUnaryHandler(
+func NewWalletServiceHandler(svc WalletServiceHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
+	walletServiceGetPartnerInfoHandler := connect_go.NewUnaryHandler(
 		WalletServiceGetPartnerInfoProcedure,
 		svc.GetPartnerInfo,
-		connect.WithSchema(walletServiceMethods.ByName("GetPartnerInfo")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceInitStorageHandler := connect.NewUnaryHandler(
+	walletServiceInitStorageHandler := connect_go.NewUnaryHandler(
 		WalletServiceInitStorageProcedure,
 		svc.InitStorage,
-		connect.WithSchema(walletServiceMethods.ByName("InitStorage")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceGetInfoHandler := connect.NewUnaryHandler(
+	walletServiceGetInfoHandler := connect_go.NewUnaryHandler(
 		WalletServiceGetInfoProcedure,
 		svc.GetInfo,
-		connect.WithSchema(walletServiceMethods.ByName("GetInfo")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceGetGrantedAccessPartnersHandler := connect.NewUnaryHandler(
+	walletServiceGetGrantedAccessPartnersHandler := connect_go.NewUnaryHandler(
 		WalletServiceGetGrantedAccessPartnersProcedure,
 		svc.GetGrantedAccessPartners,
-		connect.WithSchema(walletServiceMethods.ByName("GetGrantedAccessPartners")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceGrantAccessHandler := connect.NewUnaryHandler(
+	walletServiceGrantAccessHandler := connect_go.NewUnaryHandler(
 		WalletServiceGrantAccessProcedure,
 		svc.GrantAccess,
-		connect.WithSchema(walletServiceMethods.ByName("GrantAccess")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceSetUserDataHandler := connect.NewUnaryHandler(
+	walletServiceSetUserDataHandler := connect_go.NewUnaryHandler(
 		WalletServiceSetUserDataProcedure,
 		svc.SetUserData,
-		connect.WithSchema(walletServiceMethods.ByName("SetUserData")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceRemoveUserDataHandler := connect.NewUnaryHandler(
+	walletServiceRemoveUserDataHandler := connect_go.NewUnaryHandler(
 		WalletServiceRemoveUserDataProcedure,
 		svc.RemoveUserData,
-		connect.WithSchema(walletServiceMethods.ByName("RemoveUserData")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceRevokeAccessHandler := connect.NewUnaryHandler(
+	walletServiceRevokeAccessHandler := connect_go.NewUnaryHandler(
 		WalletServiceRevokeAccessProcedure,
 		svc.RevokeAccess,
-		connect.WithSchema(walletServiceMethods.ByName("RevokeAccess")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceRemoveAllUserDataHandler := connect.NewUnaryHandler(
+	walletServiceRemoveAllUserDataHandler := connect_go.NewUnaryHandler(
 		WalletServiceRemoveAllUserDataProcedure,
 		svc.RemoveAllUserData,
-		connect.WithSchema(walletServiceMethods.ByName("RemoveAllUserData")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceGetUserDataHandler := connect.NewUnaryHandler(
+	walletServiceGetUserDataHandler := connect_go.NewUnaryHandler(
 		WalletServiceGetUserDataProcedure,
 		svc.GetUserData,
-		connect.WithSchema(walletServiceMethods.ByName("GetUserData")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceCheckAccessHandler := connect.NewUnaryHandler(
+	walletServiceCheckAccessHandler := connect_go.NewUnaryHandler(
 		WalletServiceCheckAccessProcedure,
 		svc.CheckAccess,
-		connect.WithSchema(walletServiceMethods.ByName("CheckAccess")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceGetKycStatusHandler := connect.NewUnaryHandler(
+	walletServiceGetKycStatusHandler := connect_go.NewUnaryHandler(
 		WalletServiceGetKycStatusProcedure,
 		svc.GetKycStatus,
-		connect.WithSchema(walletServiceMethods.ByName("GetKycStatus")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceGetWalletProofHandler := connect.NewUnaryHandler(
+	walletServiceGetWalletProofHandler := connect_go.NewUnaryHandler(
 		WalletServiceGetWalletProofProcedure,
 		svc.GetWalletProof,
-		connect.WithSchema(walletServiceMethods.ByName("GetWalletProof")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	walletServiceGetSeedMessageHandler := connect.NewUnaryHandler(
+	walletServiceGetSeedMessageHandler := connect_go.NewUnaryHandler(
 		WalletServiceGetSeedMessageProcedure,
 		svc.GetSeedMessage,
-		connect.WithSchema(walletServiceMethods.ByName("GetSeedMessage")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
 	return "/brij.storage.v1.wallet.WalletService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
@@ -428,58 +398,58 @@ func NewWalletServiceHandler(svc WalletServiceHandler, opts ...connect.HandlerOp
 // UnimplementedWalletServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedWalletServiceHandler struct{}
 
-func (UnimplementedWalletServiceHandler) GetPartnerInfo(context.Context, *connect.Request[wallet.GetPartnerInfoRequest]) (*connect.Response[wallet.GetPartnerInfoResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetPartnerInfo is not implemented"))
+func (UnimplementedWalletServiceHandler) GetPartnerInfo(context.Context, *connect_go.Request[wallet.GetPartnerInfoRequest]) (*connect_go.Response[wallet.GetPartnerInfoResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetPartnerInfo is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) InitStorage(context.Context, *connect.Request[wallet.InitStorageRequest]) (*connect.Response[wallet.InitStorageResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.InitStorage is not implemented"))
+func (UnimplementedWalletServiceHandler) InitStorage(context.Context, *connect_go.Request[wallet.InitStorageRequest]) (*connect_go.Response[wallet.InitStorageResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.InitStorage is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) GetInfo(context.Context, *connect.Request[wallet.GetInfoRequest]) (*connect.Response[wallet.GetInfoResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetInfo is not implemented"))
+func (UnimplementedWalletServiceHandler) GetInfo(context.Context, *connect_go.Request[wallet.GetInfoRequest]) (*connect_go.Response[wallet.GetInfoResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetInfo is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) GetGrantedAccessPartners(context.Context, *connect.Request[wallet.GetGrantedAccessPartnersRequest]) (*connect.Response[wallet.GetGrantedAccessPartnersResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners is not implemented"))
+func (UnimplementedWalletServiceHandler) GetGrantedAccessPartners(context.Context, *connect_go.Request[wallet.GetGrantedAccessPartnersRequest]) (*connect_go.Response[wallet.GetGrantedAccessPartnersResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) GrantAccess(context.Context, *connect.Request[wallet.GrantAccessRequest]) (*connect.Response[wallet.GrantAccessResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GrantAccess is not implemented"))
+func (UnimplementedWalletServiceHandler) GrantAccess(context.Context, *connect_go.Request[wallet.GrantAccessRequest]) (*connect_go.Response[wallet.GrantAccessResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GrantAccess is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) SetUserData(context.Context, *connect.Request[wallet.SetUserDataRequest]) (*connect.Response[wallet.SetUserDataResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.SetUserData is not implemented"))
+func (UnimplementedWalletServiceHandler) SetUserData(context.Context, *connect_go.Request[wallet.SetUserDataRequest]) (*connect_go.Response[wallet.SetUserDataResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.SetUserData is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) RemoveUserData(context.Context, *connect.Request[wallet.RemoveUserDataRequest]) (*connect.Response[wallet.RemoveUserDataResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.RemoveUserData is not implemented"))
+func (UnimplementedWalletServiceHandler) RemoveUserData(context.Context, *connect_go.Request[wallet.RemoveUserDataRequest]) (*connect_go.Response[wallet.RemoveUserDataResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.RemoveUserData is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) RevokeAccess(context.Context, *connect.Request[wallet.RevokeAccessRequest]) (*connect.Response[wallet.RevokeAccessResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.RevokeAccess is not implemented"))
+func (UnimplementedWalletServiceHandler) RevokeAccess(context.Context, *connect_go.Request[wallet.RevokeAccessRequest]) (*connect_go.Response[wallet.RevokeAccessResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.RevokeAccess is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) RemoveAllUserData(context.Context, *connect.Request[wallet.RemoveAllUserDataRequest]) (*connect.Response[wallet.RemoveAllUserDataResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.RemoveAllUserData is not implemented"))
+func (UnimplementedWalletServiceHandler) RemoveAllUserData(context.Context, *connect_go.Request[wallet.RemoveAllUserDataRequest]) (*connect_go.Response[wallet.RemoveAllUserDataResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.RemoveAllUserData is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) GetUserData(context.Context, *connect.Request[wallet.GetUserDataRequest]) (*connect.Response[wallet.GetUserDataResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetUserData is not implemented"))
+func (UnimplementedWalletServiceHandler) GetUserData(context.Context, *connect_go.Request[wallet.GetUserDataRequest]) (*connect_go.Response[wallet.GetUserDataResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetUserData is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) CheckAccess(context.Context, *connect.Request[wallet.CheckAccessRequest]) (*connect.Response[wallet.CheckAccessResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.CheckAccess is not implemented"))
+func (UnimplementedWalletServiceHandler) CheckAccess(context.Context, *connect_go.Request[wallet.CheckAccessRequest]) (*connect_go.Response[wallet.CheckAccessResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.CheckAccess is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) GetKycStatus(context.Context, *connect.Request[wallet.GetKycStatusRequest]) (*connect.Response[wallet.GetKycStatusResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetKycStatus is not implemented"))
+func (UnimplementedWalletServiceHandler) GetKycStatus(context.Context, *connect_go.Request[wallet.GetKycStatusRequest]) (*connect_go.Response[wallet.GetKycStatusResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetKycStatus is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) GetWalletProof(context.Context, *connect.Request[wallet.GetWalletProofRequest]) (*connect.Response[wallet.GetWalletProofResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetWalletProof is not implemented"))
+func (UnimplementedWalletServiceHandler) GetWalletProof(context.Context, *connect_go.Request[wallet.GetWalletProofRequest]) (*connect_go.Response[wallet.GetWalletProofResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetWalletProof is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) GetSeedMessage(context.Context, *connect.Request[wallet.GetSeedMessageRequest]) (*connect.Response[wallet.GetSeedMessageResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetSeedMessage is not implemented"))
+func (UnimplementedWalletServiceHandler) GetSeedMessage(context.Context, *connect_go.Request[wallet.GetSeedMessageRequest]) (*connect_go.Response[wallet.GetSeedMessageResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.GetSeedMessage is not implemented"))
 }

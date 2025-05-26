@@ -5,9 +5,9 @@
 package partnerconnect
 
 import (
-	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
+	connect_go "github.com/bufbuild/connect-go"
 	partner "go.brij.fi/protos/brij/storage/v1/partner"
 	http "net/http"
 	strings "strings"
@@ -18,7 +18,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect.IsAtLeastVersion1_13_0
+const _ = connect_go.IsAtLeastVersion0_1_0
 
 const (
 	// PartnerServiceName is the fully-qualified name of the PartnerService service.
@@ -57,13 +57,13 @@ const (
 
 // PartnerServiceClient is a client for the brij.storage.v1.partner.PartnerService service.
 type PartnerServiceClient interface {
-	GetInfo(context.Context, *connect.Request[partner.GetInfoRequest]) (*connect.Response[partner.GetInfoResponse], error)
-	GetUserData(context.Context, *connect.Request[partner.GetUserDataRequest]) (*connect.Response[partner.GetUserDataResponse], error)
-	SetValidationData(context.Context, *connect.Request[partner.SetValidationDataRequest]) (*connect.Response[partner.SetValidationDataResponse], error)
-	RemoveValidationData(context.Context, *connect.Request[partner.RemoveValidationDataRequest]) (*connect.Response[partner.RemoveValidationDataResponse], error)
-	GetKycStatus(context.Context, *connect.Request[partner.GetKycStatusRequest]) (*connect.Response[partner.GetKycStatusResponse], error)
-	CreateKycStatus(context.Context, *connect.Request[partner.CreateKycStatusRequest]) (*connect.Response[partner.CreateKycStatusResponse], error)
-	UpdateKycStatus(context.Context, *connect.Request[partner.UpdateKycStatusRequest]) (*connect.Response[partner.UpdateKycStatusResponse], error)
+	GetInfo(context.Context, *connect_go.Request[partner.GetInfoRequest]) (*connect_go.Response[partner.GetInfoResponse], error)
+	GetUserData(context.Context, *connect_go.Request[partner.GetUserDataRequest]) (*connect_go.Response[partner.GetUserDataResponse], error)
+	SetValidationData(context.Context, *connect_go.Request[partner.SetValidationDataRequest]) (*connect_go.Response[partner.SetValidationDataResponse], error)
+	RemoveValidationData(context.Context, *connect_go.Request[partner.RemoveValidationDataRequest]) (*connect_go.Response[partner.RemoveValidationDataResponse], error)
+	GetKycStatus(context.Context, *connect_go.Request[partner.GetKycStatusRequest]) (*connect_go.Response[partner.GetKycStatusResponse], error)
+	CreateKycStatus(context.Context, *connect_go.Request[partner.CreateKycStatusRequest]) (*connect_go.Response[partner.CreateKycStatusResponse], error)
+	UpdateKycStatus(context.Context, *connect_go.Request[partner.UpdateKycStatusRequest]) (*connect_go.Response[partner.UpdateKycStatusResponse], error)
 }
 
 // NewPartnerServiceClient constructs a client for the brij.storage.v1.partner.PartnerService
@@ -73,110 +73,102 @@ type PartnerServiceClient interface {
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
-func NewPartnerServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) PartnerServiceClient {
+func NewPartnerServiceClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) PartnerServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
-	partnerServiceMethods := partner.File_brij_storage_v1_partner_service_proto.Services().ByName("PartnerService").Methods()
 	return &partnerServiceClient{
-		getInfo: connect.NewClient[partner.GetInfoRequest, partner.GetInfoResponse](
+		getInfo: connect_go.NewClient[partner.GetInfoRequest, partner.GetInfoResponse](
 			httpClient,
 			baseURL+PartnerServiceGetInfoProcedure,
-			connect.WithSchema(partnerServiceMethods.ByName("GetInfo")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getUserData: connect.NewClient[partner.GetUserDataRequest, partner.GetUserDataResponse](
+		getUserData: connect_go.NewClient[partner.GetUserDataRequest, partner.GetUserDataResponse](
 			httpClient,
 			baseURL+PartnerServiceGetUserDataProcedure,
-			connect.WithSchema(partnerServiceMethods.ByName("GetUserData")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		setValidationData: connect.NewClient[partner.SetValidationDataRequest, partner.SetValidationDataResponse](
+		setValidationData: connect_go.NewClient[partner.SetValidationDataRequest, partner.SetValidationDataResponse](
 			httpClient,
 			baseURL+PartnerServiceSetValidationDataProcedure,
-			connect.WithSchema(partnerServiceMethods.ByName("SetValidationData")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		removeValidationData: connect.NewClient[partner.RemoveValidationDataRequest, partner.RemoveValidationDataResponse](
+		removeValidationData: connect_go.NewClient[partner.RemoveValidationDataRequest, partner.RemoveValidationDataResponse](
 			httpClient,
 			baseURL+PartnerServiceRemoveValidationDataProcedure,
-			connect.WithSchema(partnerServiceMethods.ByName("RemoveValidationData")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getKycStatus: connect.NewClient[partner.GetKycStatusRequest, partner.GetKycStatusResponse](
+		getKycStatus: connect_go.NewClient[partner.GetKycStatusRequest, partner.GetKycStatusResponse](
 			httpClient,
 			baseURL+PartnerServiceGetKycStatusProcedure,
-			connect.WithSchema(partnerServiceMethods.ByName("GetKycStatus")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		createKycStatus: connect.NewClient[partner.CreateKycStatusRequest, partner.CreateKycStatusResponse](
+		createKycStatus: connect_go.NewClient[partner.CreateKycStatusRequest, partner.CreateKycStatusResponse](
 			httpClient,
 			baseURL+PartnerServiceCreateKycStatusProcedure,
-			connect.WithSchema(partnerServiceMethods.ByName("CreateKycStatus")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		updateKycStatus: connect.NewClient[partner.UpdateKycStatusRequest, partner.UpdateKycStatusResponse](
+		updateKycStatus: connect_go.NewClient[partner.UpdateKycStatusRequest, partner.UpdateKycStatusResponse](
 			httpClient,
 			baseURL+PartnerServiceUpdateKycStatusProcedure,
-			connect.WithSchema(partnerServiceMethods.ByName("UpdateKycStatus")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
 	}
 }
 
 // partnerServiceClient implements PartnerServiceClient.
 type partnerServiceClient struct {
-	getInfo              *connect.Client[partner.GetInfoRequest, partner.GetInfoResponse]
-	getUserData          *connect.Client[partner.GetUserDataRequest, partner.GetUserDataResponse]
-	setValidationData    *connect.Client[partner.SetValidationDataRequest, partner.SetValidationDataResponse]
-	removeValidationData *connect.Client[partner.RemoveValidationDataRequest, partner.RemoveValidationDataResponse]
-	getKycStatus         *connect.Client[partner.GetKycStatusRequest, partner.GetKycStatusResponse]
-	createKycStatus      *connect.Client[partner.CreateKycStatusRequest, partner.CreateKycStatusResponse]
-	updateKycStatus      *connect.Client[partner.UpdateKycStatusRequest, partner.UpdateKycStatusResponse]
+	getInfo              *connect_go.Client[partner.GetInfoRequest, partner.GetInfoResponse]
+	getUserData          *connect_go.Client[partner.GetUserDataRequest, partner.GetUserDataResponse]
+	setValidationData    *connect_go.Client[partner.SetValidationDataRequest, partner.SetValidationDataResponse]
+	removeValidationData *connect_go.Client[partner.RemoveValidationDataRequest, partner.RemoveValidationDataResponse]
+	getKycStatus         *connect_go.Client[partner.GetKycStatusRequest, partner.GetKycStatusResponse]
+	createKycStatus      *connect_go.Client[partner.CreateKycStatusRequest, partner.CreateKycStatusResponse]
+	updateKycStatus      *connect_go.Client[partner.UpdateKycStatusRequest, partner.UpdateKycStatusResponse]
 }
 
 // GetInfo calls brij.storage.v1.partner.PartnerService.GetInfo.
-func (c *partnerServiceClient) GetInfo(ctx context.Context, req *connect.Request[partner.GetInfoRequest]) (*connect.Response[partner.GetInfoResponse], error) {
+func (c *partnerServiceClient) GetInfo(ctx context.Context, req *connect_go.Request[partner.GetInfoRequest]) (*connect_go.Response[partner.GetInfoResponse], error) {
 	return c.getInfo.CallUnary(ctx, req)
 }
 
 // GetUserData calls brij.storage.v1.partner.PartnerService.GetUserData.
-func (c *partnerServiceClient) GetUserData(ctx context.Context, req *connect.Request[partner.GetUserDataRequest]) (*connect.Response[partner.GetUserDataResponse], error) {
+func (c *partnerServiceClient) GetUserData(ctx context.Context, req *connect_go.Request[partner.GetUserDataRequest]) (*connect_go.Response[partner.GetUserDataResponse], error) {
 	return c.getUserData.CallUnary(ctx, req)
 }
 
 // SetValidationData calls brij.storage.v1.partner.PartnerService.SetValidationData.
-func (c *partnerServiceClient) SetValidationData(ctx context.Context, req *connect.Request[partner.SetValidationDataRequest]) (*connect.Response[partner.SetValidationDataResponse], error) {
+func (c *partnerServiceClient) SetValidationData(ctx context.Context, req *connect_go.Request[partner.SetValidationDataRequest]) (*connect_go.Response[partner.SetValidationDataResponse], error) {
 	return c.setValidationData.CallUnary(ctx, req)
 }
 
 // RemoveValidationData calls brij.storage.v1.partner.PartnerService.RemoveValidationData.
-func (c *partnerServiceClient) RemoveValidationData(ctx context.Context, req *connect.Request[partner.RemoveValidationDataRequest]) (*connect.Response[partner.RemoveValidationDataResponse], error) {
+func (c *partnerServiceClient) RemoveValidationData(ctx context.Context, req *connect_go.Request[partner.RemoveValidationDataRequest]) (*connect_go.Response[partner.RemoveValidationDataResponse], error) {
 	return c.removeValidationData.CallUnary(ctx, req)
 }
 
 // GetKycStatus calls brij.storage.v1.partner.PartnerService.GetKycStatus.
-func (c *partnerServiceClient) GetKycStatus(ctx context.Context, req *connect.Request[partner.GetKycStatusRequest]) (*connect.Response[partner.GetKycStatusResponse], error) {
+func (c *partnerServiceClient) GetKycStatus(ctx context.Context, req *connect_go.Request[partner.GetKycStatusRequest]) (*connect_go.Response[partner.GetKycStatusResponse], error) {
 	return c.getKycStatus.CallUnary(ctx, req)
 }
 
 // CreateKycStatus calls brij.storage.v1.partner.PartnerService.CreateKycStatus.
-func (c *partnerServiceClient) CreateKycStatus(ctx context.Context, req *connect.Request[partner.CreateKycStatusRequest]) (*connect.Response[partner.CreateKycStatusResponse], error) {
+func (c *partnerServiceClient) CreateKycStatus(ctx context.Context, req *connect_go.Request[partner.CreateKycStatusRequest]) (*connect_go.Response[partner.CreateKycStatusResponse], error) {
 	return c.createKycStatus.CallUnary(ctx, req)
 }
 
 // UpdateKycStatus calls brij.storage.v1.partner.PartnerService.UpdateKycStatus.
-func (c *partnerServiceClient) UpdateKycStatus(ctx context.Context, req *connect.Request[partner.UpdateKycStatusRequest]) (*connect.Response[partner.UpdateKycStatusResponse], error) {
+func (c *partnerServiceClient) UpdateKycStatus(ctx context.Context, req *connect_go.Request[partner.UpdateKycStatusRequest]) (*connect_go.Response[partner.UpdateKycStatusResponse], error) {
 	return c.updateKycStatus.CallUnary(ctx, req)
 }
 
 // PartnerServiceHandler is an implementation of the brij.storage.v1.partner.PartnerService service.
 type PartnerServiceHandler interface {
-	GetInfo(context.Context, *connect.Request[partner.GetInfoRequest]) (*connect.Response[partner.GetInfoResponse], error)
-	GetUserData(context.Context, *connect.Request[partner.GetUserDataRequest]) (*connect.Response[partner.GetUserDataResponse], error)
-	SetValidationData(context.Context, *connect.Request[partner.SetValidationDataRequest]) (*connect.Response[partner.SetValidationDataResponse], error)
-	RemoveValidationData(context.Context, *connect.Request[partner.RemoveValidationDataRequest]) (*connect.Response[partner.RemoveValidationDataResponse], error)
-	GetKycStatus(context.Context, *connect.Request[partner.GetKycStatusRequest]) (*connect.Response[partner.GetKycStatusResponse], error)
-	CreateKycStatus(context.Context, *connect.Request[partner.CreateKycStatusRequest]) (*connect.Response[partner.CreateKycStatusResponse], error)
-	UpdateKycStatus(context.Context, *connect.Request[partner.UpdateKycStatusRequest]) (*connect.Response[partner.UpdateKycStatusResponse], error)
+	GetInfo(context.Context, *connect_go.Request[partner.GetInfoRequest]) (*connect_go.Response[partner.GetInfoResponse], error)
+	GetUserData(context.Context, *connect_go.Request[partner.GetUserDataRequest]) (*connect_go.Response[partner.GetUserDataResponse], error)
+	SetValidationData(context.Context, *connect_go.Request[partner.SetValidationDataRequest]) (*connect_go.Response[partner.SetValidationDataResponse], error)
+	RemoveValidationData(context.Context, *connect_go.Request[partner.RemoveValidationDataRequest]) (*connect_go.Response[partner.RemoveValidationDataResponse], error)
+	GetKycStatus(context.Context, *connect_go.Request[partner.GetKycStatusRequest]) (*connect_go.Response[partner.GetKycStatusResponse], error)
+	CreateKycStatus(context.Context, *connect_go.Request[partner.CreateKycStatusRequest]) (*connect_go.Response[partner.CreateKycStatusResponse], error)
+	UpdateKycStatus(context.Context, *connect_go.Request[partner.UpdateKycStatusRequest]) (*connect_go.Response[partner.UpdateKycStatusResponse], error)
 }
 
 // NewPartnerServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -184,49 +176,41 @@ type PartnerServiceHandler interface {
 //
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
-func NewPartnerServiceHandler(svc PartnerServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	partnerServiceMethods := partner.File_brij_storage_v1_partner_service_proto.Services().ByName("PartnerService").Methods()
-	partnerServiceGetInfoHandler := connect.NewUnaryHandler(
+func NewPartnerServiceHandler(svc PartnerServiceHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
+	partnerServiceGetInfoHandler := connect_go.NewUnaryHandler(
 		PartnerServiceGetInfoProcedure,
 		svc.GetInfo,
-		connect.WithSchema(partnerServiceMethods.ByName("GetInfo")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	partnerServiceGetUserDataHandler := connect.NewUnaryHandler(
+	partnerServiceGetUserDataHandler := connect_go.NewUnaryHandler(
 		PartnerServiceGetUserDataProcedure,
 		svc.GetUserData,
-		connect.WithSchema(partnerServiceMethods.ByName("GetUserData")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	partnerServiceSetValidationDataHandler := connect.NewUnaryHandler(
+	partnerServiceSetValidationDataHandler := connect_go.NewUnaryHandler(
 		PartnerServiceSetValidationDataProcedure,
 		svc.SetValidationData,
-		connect.WithSchema(partnerServiceMethods.ByName("SetValidationData")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	partnerServiceRemoveValidationDataHandler := connect.NewUnaryHandler(
+	partnerServiceRemoveValidationDataHandler := connect_go.NewUnaryHandler(
 		PartnerServiceRemoveValidationDataProcedure,
 		svc.RemoveValidationData,
-		connect.WithSchema(partnerServiceMethods.ByName("RemoveValidationData")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	partnerServiceGetKycStatusHandler := connect.NewUnaryHandler(
+	partnerServiceGetKycStatusHandler := connect_go.NewUnaryHandler(
 		PartnerServiceGetKycStatusProcedure,
 		svc.GetKycStatus,
-		connect.WithSchema(partnerServiceMethods.ByName("GetKycStatus")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	partnerServiceCreateKycStatusHandler := connect.NewUnaryHandler(
+	partnerServiceCreateKycStatusHandler := connect_go.NewUnaryHandler(
 		PartnerServiceCreateKycStatusProcedure,
 		svc.CreateKycStatus,
-		connect.WithSchema(partnerServiceMethods.ByName("CreateKycStatus")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	partnerServiceUpdateKycStatusHandler := connect.NewUnaryHandler(
+	partnerServiceUpdateKycStatusHandler := connect_go.NewUnaryHandler(
 		PartnerServiceUpdateKycStatusProcedure,
 		svc.UpdateKycStatus,
-		connect.WithSchema(partnerServiceMethods.ByName("UpdateKycStatus")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
 	return "/brij.storage.v1.partner.PartnerService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
@@ -253,30 +237,30 @@ func NewPartnerServiceHandler(svc PartnerServiceHandler, opts ...connect.Handler
 // UnimplementedPartnerServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedPartnerServiceHandler struct{}
 
-func (UnimplementedPartnerServiceHandler) GetInfo(context.Context, *connect.Request[partner.GetInfoRequest]) (*connect.Response[partner.GetInfoResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.GetInfo is not implemented"))
+func (UnimplementedPartnerServiceHandler) GetInfo(context.Context, *connect_go.Request[partner.GetInfoRequest]) (*connect_go.Response[partner.GetInfoResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.GetInfo is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) GetUserData(context.Context, *connect.Request[partner.GetUserDataRequest]) (*connect.Response[partner.GetUserDataResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.GetUserData is not implemented"))
+func (UnimplementedPartnerServiceHandler) GetUserData(context.Context, *connect_go.Request[partner.GetUserDataRequest]) (*connect_go.Response[partner.GetUserDataResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.GetUserData is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) SetValidationData(context.Context, *connect.Request[partner.SetValidationDataRequest]) (*connect.Response[partner.SetValidationDataResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.SetValidationData is not implemented"))
+func (UnimplementedPartnerServiceHandler) SetValidationData(context.Context, *connect_go.Request[partner.SetValidationDataRequest]) (*connect_go.Response[partner.SetValidationDataResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.SetValidationData is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) RemoveValidationData(context.Context, *connect.Request[partner.RemoveValidationDataRequest]) (*connect.Response[partner.RemoveValidationDataResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.RemoveValidationData is not implemented"))
+func (UnimplementedPartnerServiceHandler) RemoveValidationData(context.Context, *connect_go.Request[partner.RemoveValidationDataRequest]) (*connect_go.Response[partner.RemoveValidationDataResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.RemoveValidationData is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) GetKycStatus(context.Context, *connect.Request[partner.GetKycStatusRequest]) (*connect.Response[partner.GetKycStatusResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.GetKycStatus is not implemented"))
+func (UnimplementedPartnerServiceHandler) GetKycStatus(context.Context, *connect_go.Request[partner.GetKycStatusRequest]) (*connect_go.Response[partner.GetKycStatusResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.GetKycStatus is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) CreateKycStatus(context.Context, *connect.Request[partner.CreateKycStatusRequest]) (*connect.Response[partner.CreateKycStatusResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.CreateKycStatus is not implemented"))
+func (UnimplementedPartnerServiceHandler) CreateKycStatus(context.Context, *connect_go.Request[partner.CreateKycStatusRequest]) (*connect_go.Response[partner.CreateKycStatusResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.CreateKycStatus is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) UpdateKycStatus(context.Context, *connect.Request[partner.UpdateKycStatusRequest]) (*connect.Response[partner.UpdateKycStatusResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.UpdateKycStatus is not implemented"))
+func (UnimplementedPartnerServiceHandler) UpdateKycStatus(context.Context, *connect_go.Request[partner.UpdateKycStatusRequest]) (*connect_go.Response[partner.UpdateKycStatusResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.storage.v1.partner.PartnerService.UpdateKycStatus is not implemented"))
 }

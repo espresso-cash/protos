@@ -17,13 +17,14 @@ import 'dart:typed_data' as $typed_data;
 const InitEmailValidationRequest$json = {
   '1': 'InitEmailValidationRequest',
   '2': [
-    {'1': 'data_id', '3': 1, '4': 1, '5': 9, '10': 'dataId'},
+    {'1': 'data_hash', '3': 1, '4': 1, '5': 9, '10': 'dataHash'},
   ],
 };
 
 /// Descriptor for `InitEmailValidationRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List initEmailValidationRequestDescriptor = $convert.base64Decode(
-    'ChpJbml0RW1haWxWYWxpZGF0aW9uUmVxdWVzdBIXCgdkYXRhX2lkGAEgASgJUgZkYXRhSWQ=');
+    'ChpJbml0RW1haWxWYWxpZGF0aW9uUmVxdWVzdBIbCglkYXRhX2hhc2gYASABKAlSCGRhdGFIYX'
+    'No');
 
 @$core.Deprecated('Use initEmailValidationResponseDescriptor instead')
 const InitEmailValidationResponse$json = {

@@ -18,14 +18,14 @@ const ValidatePhoneRequest$json = {
   '1': 'ValidatePhoneRequest',
   '2': [
     {'1': 'code', '3': 1, '4': 1, '5': 9, '10': 'code'},
-    {'1': 'data_id', '3': 2, '4': 1, '5': 9, '10': 'dataId'},
+    {'1': 'data_hash', '3': 2, '4': 1, '5': 9, '10': 'dataHash'},
   ],
 };
 
 /// Descriptor for `ValidatePhoneRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List validatePhoneRequestDescriptor = $convert.base64Decode(
-    'ChRWYWxpZGF0ZVBob25lUmVxdWVzdBISCgRjb2RlGAEgASgJUgRjb2RlEhcKB2RhdGFfaWQYAi'
-    'ABKAlSBmRhdGFJZA==');
+    'ChRWYWxpZGF0ZVBob25lUmVxdWVzdBISCgRjb2RlGAEgASgJUgRjb2RlEhsKCWRhdGFfaGFzaB'
+    'gCIAEoCVIIZGF0YUhhc2g=');
 
 @$core.Deprecated('Use validatePhoneResponseDescriptor instead')
 const ValidatePhoneResponse$json = {

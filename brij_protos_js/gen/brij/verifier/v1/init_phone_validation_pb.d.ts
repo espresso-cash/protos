@@ -15,9 +15,9 @@ export declare const file_brij_verifier_v1_init_phone_validation: GenFile;
  */
 export declare type InitPhoneValidationRequest = Message<"brij.verifier.v1.InitPhoneValidationRequest"> & {
   /**
-   * @generated from field: string data_id = 1;
+   * @generated from field: string data_hash = 1;
    */
-  dataId: string;
+  dataHash: string;
 };
 
 /**

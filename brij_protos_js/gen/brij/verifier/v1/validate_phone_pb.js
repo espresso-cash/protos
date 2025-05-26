@@ -8,7 +8,7 @@ import { fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv1";
  * Describes the file brij/verifier/v1/validate_phone.proto.
  */
 export const file_brij_verifier_v1_validate_phone = /*@__PURE__*/
-  fileDesc("CiVicmlqL3ZlcmlmaWVyL3YxL3ZhbGlkYXRlX3Bob25lLnByb3RvEhBicmlqLnZlcmlmaWVyLnYxIjUKFFZhbGlkYXRlUGhvbmVSZXF1ZXN0EgwKBGNvZGUYASABKAkSDwoHZGF0YV9pZBgCIAEoCSIXChVWYWxpZGF0ZVBob25lUmVzcG9uc2VCJFoiZ28uYnJpai5maS9wcm90b3MvYnJpai92ZXJpZmllci92MWIGcHJvdG8z");
+  fileDesc("CiVicmlqL3ZlcmlmaWVyL3YxL3ZhbGlkYXRlX3Bob25lLnByb3RvEhBicmlqLnZlcmlmaWVyLnYxIjcKFFZhbGlkYXRlUGhvbmVSZXF1ZXN0EgwKBGNvZGUYASABKAkSEQoJZGF0YV9oYXNoGAIgASgJIhcKFVZhbGlkYXRlUGhvbmVSZXNwb25zZUIkWiJnby5icmlqLmZpL3Byb3Rvcy9icmlqL3ZlcmlmaWVyL3YxYgZwcm90bzM");
 
 /**
  * Describes the message brij.verifier.v1.ValidatePhoneRequest.

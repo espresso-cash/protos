@@ -24,7 +24,7 @@ const (
 type ValidatePhoneRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Code          string                 `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
-	DataId        string                 `protobuf:"bytes,2,opt,name=data_id,json=dataId,proto3" json:"data_id,omitempty"`
+	DataHash      string                 `protobuf:"bytes,2,opt,name=data_hash,json=dataHash,proto3" json:"data_hash,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -66,9 +66,9 @@ func (x *ValidatePhoneRequest) GetCode() string {
 	return ""
 }
 
-func (x *ValidatePhoneRequest) GetDataId() string {
+func (x *ValidatePhoneRequest) GetDataHash() string {
 	if x != nil {
-		return x.DataId
+		return x.DataHash
 	}
 	return ""
 }
@@ -113,10 +113,10 @@ var File_brij_verifier_v1_validate_phone_proto protoreflect.FileDescriptor
 
 const file_brij_verifier_v1_validate_phone_proto_rawDesc = "" +
 	"\n" +
-	"%brij/verifier/v1/validate_phone.proto\x12\x10brij.verifier.v1\"C\n" +
+	"%brij/verifier/v1/validate_phone.proto\x12\x10brij.verifier.v1\"G\n" +
 	"\x14ValidatePhoneRequest\x12\x12\n" +
-	"\x04code\x18\x01 \x01(\tR\x04code\x12\x17\n" +
-	"\adata_id\x18\x02 \x01(\tR\x06dataId\"\x17\n" +
+	"\x04code\x18\x01 \x01(\tR\x04code\x12\x1b\n" +
+	"\tdata_hash\x18\x02 \x01(\tR\bdataHash\"\x17\n" +
 	"\x15ValidatePhoneResponseB$Z\"go.brij.fi/protos/brij/verifier/v1b\x06proto3"
 
 var (

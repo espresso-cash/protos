@@ -5,9 +5,9 @@
 package v1connect
 
 import (
-	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
+	connect_go "github.com/bufbuild/connect-go"
 	v1 "go.brij.fi/protos/brij/verifier/v1"
 	http "net/http"
 	strings "strings"
@@ -18,7 +18,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect.IsAtLeastVersion1_13_0
+const _ = connect_go.IsAtLeastVersion0_1_0
 
 const (
 	// VerifierServiceName is the fully-qualified name of the VerifierService service.
@@ -55,12 +55,12 @@ const (
 
 // VerifierServiceClient is a client for the brij.verifier.v1.VerifierService service.
 type VerifierServiceClient interface {
-	InitEmailValidation(context.Context, *connect.Request[v1.InitEmailValidationRequest]) (*connect.Response[v1.InitEmailValidationResponse], error)
-	ValidateEmail(context.Context, *connect.Request[v1.ValidateEmailRequest]) (*connect.Response[v1.ValidateEmailResponse], error)
-	InitPhoneValidation(context.Context, *connect.Request[v1.InitPhoneValidationRequest]) (*connect.Response[v1.InitPhoneValidationResponse], error)
-	ValidatePhone(context.Context, *connect.Request[v1.ValidatePhoneRequest]) (*connect.Response[v1.ValidatePhoneResponse], error)
-	StartKyc(context.Context, *connect.Request[v1.StartKycRequest]) (*connect.Response[v1.StartKycResponse], error)
-	GetKycRequirements(context.Context, *connect.Request[v1.GetKycRequirementsRequest]) (*connect.Response[v1.GetKycRequirementsResponse], error)
+	InitEmailValidation(context.Context, *connect_go.Request[v1.InitEmailValidationRequest]) (*connect_go.Response[v1.InitEmailValidationResponse], error)
+	ValidateEmail(context.Context, *connect_go.Request[v1.ValidateEmailRequest]) (*connect_go.Response[v1.ValidateEmailResponse], error)
+	InitPhoneValidation(context.Context, *connect_go.Request[v1.InitPhoneValidationRequest]) (*connect_go.Response[v1.InitPhoneValidationResponse], error)
+	ValidatePhone(context.Context, *connect_go.Request[v1.ValidatePhoneRequest]) (*connect_go.Response[v1.ValidatePhoneResponse], error)
+	StartKyc(context.Context, *connect_go.Request[v1.StartKycRequest]) (*connect_go.Response[v1.StartKycResponse], error)
+	GetKycRequirements(context.Context, *connect_go.Request[v1.GetKycRequirementsRequest]) (*connect_go.Response[v1.GetKycRequirementsResponse], error)
 }
 
 // NewVerifierServiceClient constructs a client for the brij.verifier.v1.VerifierService service. By
@@ -70,97 +70,90 @@ type VerifierServiceClient interface {
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
-func NewVerifierServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) VerifierServiceClient {
+func NewVerifierServiceClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) VerifierServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
-	verifierServiceMethods := v1.File_brij_verifier_v1_service_proto.Services().ByName("VerifierService").Methods()
 	return &verifierServiceClient{
-		initEmailValidation: connect.NewClient[v1.InitEmailValidationRequest, v1.InitEmailValidationResponse](
+		initEmailValidation: connect_go.NewClient[v1.InitEmailValidationRequest, v1.InitEmailValidationResponse](
 			httpClient,
 			baseURL+VerifierServiceInitEmailValidationProcedure,
-			connect.WithSchema(verifierServiceMethods.ByName("InitEmailValidation")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		validateEmail: connect.NewClient[v1.ValidateEmailRequest, v1.ValidateEmailResponse](
+		validateEmail: connect_go.NewClient[v1.ValidateEmailRequest, v1.ValidateEmailResponse](
 			httpClient,
 			baseURL+VerifierServiceValidateEmailProcedure,
-			connect.WithSchema(verifierServiceMethods.ByName("ValidateEmail")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		initPhoneValidation: connect.NewClient[v1.InitPhoneValidationRequest, v1.InitPhoneValidationResponse](
+		initPhoneValidation: connect_go.NewClient[v1.InitPhoneValidationRequest, v1.InitPhoneValidationResponse](
 			httpClient,
 			baseURL+VerifierServiceInitPhoneValidationProcedure,
-			connect.WithSchema(verifierServiceMethods.ByName("InitPhoneValidation")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		validatePhone: connect.NewClient[v1.ValidatePhoneRequest, v1.ValidatePhoneResponse](
+		validatePhone: connect_go.NewClient[v1.ValidatePhoneRequest, v1.ValidatePhoneResponse](
 			httpClient,
 			baseURL+VerifierServiceValidatePhoneProcedure,
-			connect.WithSchema(verifierServiceMethods.ByName("ValidatePhone")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		startKyc: connect.NewClient[v1.StartKycRequest, v1.StartKycResponse](
+		startKyc: connect_go.NewClient[v1.StartKycRequest, v1.StartKycResponse](
 			httpClient,
 			baseURL+VerifierServiceStartKycProcedure,
-			connect.WithSchema(verifierServiceMethods.ByName("StartKyc")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
-		getKycRequirements: connect.NewClient[v1.GetKycRequirementsRequest, v1.GetKycRequirementsResponse](
+		getKycRequirements: connect_go.NewClient[v1.GetKycRequirementsRequest, v1.GetKycRequirementsResponse](
 			httpClient,
 			baseURL+VerifierServiceGetKycRequirementsProcedure,
-			connect.WithSchema(verifierServiceMethods.ByName("GetKycRequirements")),
-			connect.WithClientOptions(opts...),
+			opts...,
 		),
 	}
 }
 
 // verifierServiceClient implements VerifierServiceClient.
 type verifierServiceClient struct {
-	initEmailValidation *connect.Client[v1.InitEmailValidationRequest, v1.InitEmailValidationResponse]
-	validateEmail       *connect.Client[v1.ValidateEmailRequest, v1.ValidateEmailResponse]
-	initPhoneValidation *connect.Client[v1.InitPhoneValidationRequest, v1.InitPhoneValidationResponse]
-	validatePhone       *connect.Client[v1.ValidatePhoneRequest, v1.ValidatePhoneResponse]
-	startKyc            *connect.Client[v1.StartKycRequest, v1.StartKycResponse]
-	getKycRequirements  *connect.Client[v1.GetKycRequirementsRequest, v1.GetKycRequirementsResponse]
+	initEmailValidation *connect_go.Client[v1.InitEmailValidationRequest, v1.InitEmailValidationResponse]
+	validateEmail       *connect_go.Client[v1.ValidateEmailRequest, v1.ValidateEmailResponse]
+	initPhoneValidation *connect_go.Client[v1.InitPhoneValidationRequest, v1.InitPhoneValidationResponse]
+	validatePhone       *connect_go.Client[v1.ValidatePhoneRequest, v1.ValidatePhoneResponse]
+	startKyc            *connect_go.Client[v1.StartKycRequest, v1.StartKycResponse]
+	getKycRequirements  *connect_go.Client[v1.GetKycRequirementsRequest, v1.GetKycRequirementsResponse]
 }
 
 // InitEmailValidation calls brij.verifier.v1.VerifierService.InitEmailValidation.
-func (c *verifierServiceClient) InitEmailValidation(ctx context.Context, req *connect.Request[v1.InitEmailValidationRequest]) (*connect.Response[v1.InitEmailValidationResponse], error) {
+func (c *verifierServiceClient) InitEmailValidation(ctx context.Context, req *connect_go.Request[v1.InitEmailValidationRequest]) (*connect_go.Response[v1.InitEmailValidationResponse], error) {
 	return c.initEmailValidation.CallUnary(ctx, req)
 }
 
 // ValidateEmail calls brij.verifier.v1.VerifierService.ValidateEmail.
-func (c *verifierServiceClient) ValidateEmail(ctx context.Context, req *connect.Request[v1.ValidateEmailRequest]) (*connect.Response[v1.ValidateEmailResponse], error) {
+func (c *verifierServiceClient) ValidateEmail(ctx context.Context, req *connect_go.Request[v1.ValidateEmailRequest]) (*connect_go.Response[v1.ValidateEmailResponse], error) {
 	return c.validateEmail.CallUnary(ctx, req)
 }
 
 // InitPhoneValidation calls brij.verifier.v1.VerifierService.InitPhoneValidation.
-func (c *verifierServiceClient) InitPhoneValidation(ctx context.Context, req *connect.Request[v1.InitPhoneValidationRequest]) (*connect.Response[v1.InitPhoneValidationResponse], error) {
+func (c *verifierServiceClient) InitPhoneValidation(ctx context.Context, req *connect_go.Request[v1.InitPhoneValidationRequest]) (*connect_go.Response[v1.InitPhoneValidationResponse], error) {
 	return c.initPhoneValidation.CallUnary(ctx, req)
 }
 
 // ValidatePhone calls brij.verifier.v1.VerifierService.ValidatePhone.
-func (c *verifierServiceClient) ValidatePhone(ctx context.Context, req *connect.Request[v1.ValidatePhoneRequest]) (*connect.Response[v1.ValidatePhoneResponse], error) {
+func (c *verifierServiceClient) ValidatePhone(ctx context.Context, req *connect_go.Request[v1.ValidatePhoneRequest]) (*connect_go.Response[v1.ValidatePhoneResponse], error) {
 	return c.validatePhone.CallUnary(ctx, req)
 }
 
 // StartKyc calls brij.verifier.v1.VerifierService.StartKyc.
-func (c *verifierServiceClient) StartKyc(ctx context.Context, req *connect.Request[v1.StartKycRequest]) (*connect.Response[v1.StartKycResponse], error) {
+func (c *verifierServiceClient) StartKyc(ctx context.Context, req *connect_go.Request[v1.StartKycRequest]) (*connect_go.Response[v1.StartKycResponse], error) {
 	return c.startKyc.CallUnary(ctx, req)
 }
 
 // GetKycRequirements calls brij.verifier.v1.VerifierService.GetKycRequirements.
-func (c *verifierServiceClient) GetKycRequirements(ctx context.Context, req *connect.Request[v1.GetKycRequirementsRequest]) (*connect.Response[v1.GetKycRequirementsResponse], error) {
+func (c *verifierServiceClient) GetKycRequirements(ctx context.Context, req *connect_go.Request[v1.GetKycRequirementsRequest]) (*connect_go.Response[v1.GetKycRequirementsResponse], error) {
 	return c.getKycRequirements.CallUnary(ctx, req)
 }
 
 // VerifierServiceHandler is an implementation of the brij.verifier.v1.VerifierService service.
 type VerifierServiceHandler interface {
-	InitEmailValidation(context.Context, *connect.Request[v1.InitEmailValidationRequest]) (*connect.Response[v1.InitEmailValidationResponse], error)
-	ValidateEmail(context.Context, *connect.Request[v1.ValidateEmailRequest]) (*connect.Response[v1.ValidateEmailResponse], error)
-	InitPhoneValidation(context.Context, *connect.Request[v1.InitPhoneValidationRequest]) (*connect.Response[v1.InitPhoneValidationResponse], error)
-	ValidatePhone(context.Context, *connect.Request[v1.ValidatePhoneRequest]) (*connect.Response[v1.ValidatePhoneResponse], error)
-	StartKyc(context.Context, *connect.Request[v1.StartKycRequest]) (*connect.Response[v1.StartKycResponse], error)
-	GetKycRequirements(context.Context, *connect.Request[v1.GetKycRequirementsRequest]) (*connect.Response[v1.GetKycRequirementsResponse], error)
+	InitEmailValidation(context.Context, *connect_go.Request[v1.InitEmailValidationRequest]) (*connect_go.Response[v1.InitEmailValidationResponse], error)
+	ValidateEmail(context.Context, *connect_go.Request[v1.ValidateEmailRequest]) (*connect_go.Response[v1.ValidateEmailResponse], error)
+	InitPhoneValidation(context.Context, *connect_go.Request[v1.InitPhoneValidationRequest]) (*connect_go.Response[v1.InitPhoneValidationResponse], error)
+	ValidatePhone(context.Context, *connect_go.Request[v1.ValidatePhoneRequest]) (*connect_go.Response[v1.ValidatePhoneResponse], error)
+	StartKyc(context.Context, *connect_go.Request[v1.StartKycRequest]) (*connect_go.Response[v1.StartKycResponse], error)
+	GetKycRequirements(context.Context, *connect_go.Request[v1.GetKycRequirementsRequest]) (*connect_go.Response[v1.GetKycRequirementsResponse], error)
 }
 
 // NewVerifierServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -168,43 +161,36 @@ type VerifierServiceHandler interface {
 //
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
-func NewVerifierServiceHandler(svc VerifierServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	verifierServiceMethods := v1.File_brij_verifier_v1_service_proto.Services().ByName("VerifierService").Methods()
-	verifierServiceInitEmailValidationHandler := connect.NewUnaryHandler(
+func NewVerifierServiceHandler(svc VerifierServiceHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
+	verifierServiceInitEmailValidationHandler := connect_go.NewUnaryHandler(
 		VerifierServiceInitEmailValidationProcedure,
 		svc.InitEmailValidation,
-		connect.WithSchema(verifierServiceMethods.ByName("InitEmailValidation")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	verifierServiceValidateEmailHandler := connect.NewUnaryHandler(
+	verifierServiceValidateEmailHandler := connect_go.NewUnaryHandler(
 		VerifierServiceValidateEmailProcedure,
 		svc.ValidateEmail,
-		connect.WithSchema(verifierServiceMethods.ByName("ValidateEmail")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	verifierServiceInitPhoneValidationHandler := connect.NewUnaryHandler(
+	verifierServiceInitPhoneValidationHandler := connect_go.NewUnaryHandler(
 		VerifierServiceInitPhoneValidationProcedure,
 		svc.InitPhoneValidation,
-		connect.WithSchema(verifierServiceMethods.ByName("InitPhoneValidation")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	verifierServiceValidatePhoneHandler := connect.NewUnaryHandler(
+	verifierServiceValidatePhoneHandler := connect_go.NewUnaryHandler(
 		VerifierServiceValidatePhoneProcedure,
 		svc.ValidatePhone,
-		connect.WithSchema(verifierServiceMethods.ByName("ValidatePhone")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	verifierServiceStartKycHandler := connect.NewUnaryHandler(
+	verifierServiceStartKycHandler := connect_go.NewUnaryHandler(
 		VerifierServiceStartKycProcedure,
 		svc.StartKyc,
-		connect.WithSchema(verifierServiceMethods.ByName("StartKyc")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
-	verifierServiceGetKycRequirementsHandler := connect.NewUnaryHandler(
+	verifierServiceGetKycRequirementsHandler := connect_go.NewUnaryHandler(
 		VerifierServiceGetKycRequirementsProcedure,
 		svc.GetKycRequirements,
-		connect.WithSchema(verifierServiceMethods.ByName("GetKycRequirements")),
-		connect.WithHandlerOptions(opts...),
+		opts...,
 	)
 	return "/brij.verifier.v1.VerifierService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
@@ -229,26 +215,26 @@ func NewVerifierServiceHandler(svc VerifierServiceHandler, opts ...connect.Handl
 // UnimplementedVerifierServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedVerifierServiceHandler struct{}
 
-func (UnimplementedVerifierServiceHandler) InitEmailValidation(context.Context, *connect.Request[v1.InitEmailValidationRequest]) (*connect.Response[v1.InitEmailValidationResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.InitEmailValidation is not implemented"))
+func (UnimplementedVerifierServiceHandler) InitEmailValidation(context.Context, *connect_go.Request[v1.InitEmailValidationRequest]) (*connect_go.Response[v1.InitEmailValidationResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.InitEmailValidation is not implemented"))
 }
 
-func (UnimplementedVerifierServiceHandler) ValidateEmail(context.Context, *connect.Request[v1.ValidateEmailRequest]) (*connect.Response[v1.ValidateEmailResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.ValidateEmail is not implemented"))
+func (UnimplementedVerifierServiceHandler) ValidateEmail(context.Context, *connect_go.Request[v1.ValidateEmailRequest]) (*connect_go.Response[v1.ValidateEmailResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.ValidateEmail is not implemented"))
 }
 
-func (UnimplementedVerifierServiceHandler) InitPhoneValidation(context.Context, *connect.Request[v1.InitPhoneValidationRequest]) (*connect.Response[v1.InitPhoneValidationResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.InitPhoneValidation is not implemented"))
+func (UnimplementedVerifierServiceHandler) InitPhoneValidation(context.Context, *connect_go.Request[v1.InitPhoneValidationRequest]) (*connect_go.Response[v1.InitPhoneValidationResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.InitPhoneValidation is not implemented"))
 }
 
-func (UnimplementedVerifierServiceHandler) ValidatePhone(context.Context, *connect.Request[v1.ValidatePhoneRequest]) (*connect.Response[v1.ValidatePhoneResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.ValidatePhone is not implemented"))
+func (UnimplementedVerifierServiceHandler) ValidatePhone(context.Context, *connect_go.Request[v1.ValidatePhoneRequest]) (*connect_go.Response[v1.ValidatePhoneResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.ValidatePhone is not implemented"))
 }
 
-func (UnimplementedVerifierServiceHandler) StartKyc(context.Context, *connect.Request[v1.StartKycRequest]) (*connect.Response[v1.StartKycResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.StartKyc is not implemented"))
+func (UnimplementedVerifierServiceHandler) StartKyc(context.Context, *connect_go.Request[v1.StartKycRequest]) (*connect_go.Response[v1.StartKycResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.StartKyc is not implemented"))
 }
 
-func (UnimplementedVerifierServiceHandler) GetKycRequirements(context.Context, *connect.Request[v1.GetKycRequirementsRequest]) (*connect.Response[v1.GetKycRequirementsResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.GetKycRequirements is not implemented"))
+func (UnimplementedVerifierServiceHandler) GetKycRequirements(context.Context, *connect_go.Request[v1.GetKycRequirementsRequest]) (*connect_go.Response[v1.GetKycRequirementsResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.verifier.v1.VerifierService.GetKycRequirements is not implemented"))
 }
