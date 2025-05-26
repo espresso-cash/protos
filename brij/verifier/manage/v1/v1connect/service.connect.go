@@ -5,9 +5,9 @@
 package v1connect
 
 import (
+	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	connect_go "github.com/bufbuild/connect-go"
 	v1 "go.brij.fi/protos/brij/verifier/manage/v1"
 	http "net/http"
 	strings "strings"
@@ -18,7 +18,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect_go.IsAtLeastVersion0_1_0
+const _ = connect.IsAtLeastVersion1_13_0
 
 const (
 	// ManageServiceName is the fully-qualified name of the ManageService service.
@@ -43,8 +43,8 @@ const (
 
 // ManageServiceClient is a client for the brij.verifier.manage.v1.ManageService service.
 type ManageServiceClient interface {
-	SmileIdCheckStatus(context.Context, *connect_go.Request[v1.SmileIdCheckStatusRequest]) (*connect_go.Response[v1.SmileIdCheckStatusResponse], error)
-	SumsubCheckStatus(context.Context, *connect_go.Request[v1.SumsubCheckStatusRequest]) (*connect_go.Response[v1.SumsubCheckStatusResponse], error)
+	SmileIdCheckStatus(context.Context, *connect.Request[v1.SmileIdCheckStatusRequest]) (*connect.Response[v1.SmileIdCheckStatusResponse], error)
+	SumsubCheckStatus(context.Context, *connect.Request[v1.SumsubCheckStatusRequest]) (*connect.Response[v1.SumsubCheckStatusResponse], error)
 }
 
 // NewManageServiceClient constructs a client for the brij.verifier.manage.v1.ManageService service.
@@ -54,42 +54,45 @@ type ManageServiceClient interface {
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
-func NewManageServiceClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) ManageServiceClient {
+func NewManageServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) ManageServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
+	manageServiceMethods := v1.File_brij_verifier_manage_v1_service_proto.Services().ByName("ManageService").Methods()
 	return &manageServiceClient{
-		smileIdCheckStatus: connect_go.NewClient[v1.SmileIdCheckStatusRequest, v1.SmileIdCheckStatusResponse](
+		smileIdCheckStatus: connect.NewClient[v1.SmileIdCheckStatusRequest, v1.SmileIdCheckStatusResponse](
 			httpClient,
 			baseURL+ManageServiceSmileIdCheckStatusProcedure,
-			opts...,
+			connect.WithSchema(manageServiceMethods.ByName("SmileIdCheckStatus")),
+			connect.WithClientOptions(opts...),
 		),
-		sumsubCheckStatus: connect_go.NewClient[v1.SumsubCheckStatusRequest, v1.SumsubCheckStatusResponse](
+		sumsubCheckStatus: connect.NewClient[v1.SumsubCheckStatusRequest, v1.SumsubCheckStatusResponse](
 			httpClient,
 			baseURL+ManageServiceSumsubCheckStatusProcedure,
-			opts...,
+			connect.WithSchema(manageServiceMethods.ByName("SumsubCheckStatus")),
+			connect.WithClientOptions(opts...),
 		),
 	}
 }
 
 // manageServiceClient implements ManageServiceClient.
 type manageServiceClient struct {
-	smileIdCheckStatus *connect_go.Client[v1.SmileIdCheckStatusRequest, v1.SmileIdCheckStatusResponse]
-	sumsubCheckStatus  *connect_go.Client[v1.SumsubCheckStatusRequest, v1.SumsubCheckStatusResponse]
+	smileIdCheckStatus *connect.Client[v1.SmileIdCheckStatusRequest, v1.SmileIdCheckStatusResponse]
+	sumsubCheckStatus  *connect.Client[v1.SumsubCheckStatusRequest, v1.SumsubCheckStatusResponse]
 }
 
 // SmileIdCheckStatus calls brij.verifier.manage.v1.ManageService.SmileIdCheckStatus.
-func (c *manageServiceClient) SmileIdCheckStatus(ctx context.Context, req *connect_go.Request[v1.SmileIdCheckStatusRequest]) (*connect_go.Response[v1.SmileIdCheckStatusResponse], error) {
+func (c *manageServiceClient) SmileIdCheckStatus(ctx context.Context, req *connect.Request[v1.SmileIdCheckStatusRequest]) (*connect.Response[v1.SmileIdCheckStatusResponse], error) {
 	return c.smileIdCheckStatus.CallUnary(ctx, req)
 }
 
 // SumsubCheckStatus calls brij.verifier.manage.v1.ManageService.SumsubCheckStatus.
-func (c *manageServiceClient) SumsubCheckStatus(ctx context.Context, req *connect_go.Request[v1.SumsubCheckStatusRequest]) (*connect_go.Response[v1.SumsubCheckStatusResponse], error) {
+func (c *manageServiceClient) SumsubCheckStatus(ctx context.Context, req *connect.Request[v1.SumsubCheckStatusRequest]) (*connect.Response[v1.SumsubCheckStatusResponse], error) {
 	return c.sumsubCheckStatus.CallUnary(ctx, req)
 }
 
 // ManageServiceHandler is an implementation of the brij.verifier.manage.v1.ManageService service.
 type ManageServiceHandler interface {
-	SmileIdCheckStatus(context.Context, *connect_go.Request[v1.SmileIdCheckStatusRequest]) (*connect_go.Response[v1.SmileIdCheckStatusResponse], error)
-	SumsubCheckStatus(context.Context, *connect_go.Request[v1.SumsubCheckStatusRequest]) (*connect_go.Response[v1.SumsubCheckStatusResponse], error)
+	SmileIdCheckStatus(context.Context, *connect.Request[v1.SmileIdCheckStatusRequest]) (*connect.Response[v1.SmileIdCheckStatusResponse], error)
+	SumsubCheckStatus(context.Context, *connect.Request[v1.SumsubCheckStatusRequest]) (*connect.Response[v1.SumsubCheckStatusResponse], error)
 }
 
 // NewManageServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -97,16 +100,19 @@ type ManageServiceHandler interface {
 //
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
-func NewManageServiceHandler(svc ManageServiceHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
-	manageServiceSmileIdCheckStatusHandler := connect_go.NewUnaryHandler(
+func NewManageServiceHandler(svc ManageServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
+	manageServiceMethods := v1.File_brij_verifier_manage_v1_service_proto.Services().ByName("ManageService").Methods()
+	manageServiceSmileIdCheckStatusHandler := connect.NewUnaryHandler(
 		ManageServiceSmileIdCheckStatusProcedure,
 		svc.SmileIdCheckStatus,
-		opts...,
+		connect.WithSchema(manageServiceMethods.ByName("SmileIdCheckStatus")),
+		connect.WithHandlerOptions(opts...),
 	)
-	manageServiceSumsubCheckStatusHandler := connect_go.NewUnaryHandler(
+	manageServiceSumsubCheckStatusHandler := connect.NewUnaryHandler(
 		ManageServiceSumsubCheckStatusProcedure,
 		svc.SumsubCheckStatus,
-		opts...,
+		connect.WithSchema(manageServiceMethods.ByName("SumsubCheckStatus")),
+		connect.WithHandlerOptions(opts...),
 	)
 	return "/brij.verifier.manage.v1.ManageService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
@@ -123,10 +129,10 @@ func NewManageServiceHandler(svc ManageServiceHandler, opts ...connect_go.Handle
 // UnimplementedManageServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedManageServiceHandler struct{}
 
-func (UnimplementedManageServiceHandler) SmileIdCheckStatus(context.Context, *connect_go.Request[v1.SmileIdCheckStatusRequest]) (*connect_go.Response[v1.SmileIdCheckStatusResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.verifier.manage.v1.ManageService.SmileIdCheckStatus is not implemented"))
+func (UnimplementedManageServiceHandler) SmileIdCheckStatus(context.Context, *connect.Request[v1.SmileIdCheckStatusRequest]) (*connect.Response[v1.SmileIdCheckStatusResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.verifier.manage.v1.ManageService.SmileIdCheckStatus is not implemented"))
 }
 
-func (UnimplementedManageServiceHandler) SumsubCheckStatus(context.Context, *connect_go.Request[v1.SumsubCheckStatusRequest]) (*connect_go.Response[v1.SumsubCheckStatusResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.verifier.manage.v1.ManageService.SumsubCheckStatus is not implemented"))
+func (UnimplementedManageServiceHandler) SumsubCheckStatus(context.Context, *connect.Request[v1.SumsubCheckStatusRequest]) (*connect.Response[v1.SumsubCheckStatusResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.verifier.manage.v1.ManageService.SumsubCheckStatus is not implemented"))
 }

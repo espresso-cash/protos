@@ -5,9 +5,9 @@
 package partnerconnect
 
 import (
+	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	connect_go "github.com/bufbuild/connect-go"
 	partner "go.brij.fi/protos/brij/orders/v1/partner"
 	http "net/http"
 	strings "strings"
@@ -18,7 +18,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect_go.IsAtLeastVersion0_1_0
+const _ = connect.IsAtLeastVersion1_13_0
 
 const (
 	// PartnerServiceName is the fully-qualified name of the PartnerService service.
@@ -60,14 +60,14 @@ const (
 
 // PartnerServiceClient is a client for the brij.orders.v1.partner.PartnerService service.
 type PartnerServiceClient interface {
-	GetOrder(context.Context, *connect_go.Request[partner.GetOrderRequest]) (*connect_go.Response[partner.GetOrderResponse], error)
-	AcceptOrder(context.Context, *connect_go.Request[partner.AcceptOrderRequest]) (*connect_go.Response[partner.AcceptOrderResponse], error)
-	RejectOrder(context.Context, *connect_go.Request[partner.RejectOrderRequest]) (*connect_go.Response[partner.RejectOrderResponse], error)
-	CompleteOrder(context.Context, *connect_go.Request[partner.CompleteOrderRequest]) (*connect_go.Response[partner.CompleteOrderResponse], error)
-	FailOrder(context.Context, *connect_go.Request[partner.FailOrderRequest]) (*connect_go.Response[partner.FailOrderResponse], error)
-	GetOrders(context.Context, *connect_go.Request[partner.GetOrdersRequest]) (*connect_go.Response[partner.GetOrdersResponse], error)
-	UpdateFees(context.Context, *connect_go.Request[partner.UpdateFeesRequest]) (*connect_go.Response[partner.UpdateFeesResponse], error)
-	GenerateTransaction(context.Context, *connect_go.Request[partner.GenerateTransactionRequest]) (*connect_go.Response[partner.GenerateTransactionResponse], error)
+	GetOrder(context.Context, *connect.Request[partner.GetOrderRequest]) (*connect.Response[partner.GetOrderResponse], error)
+	AcceptOrder(context.Context, *connect.Request[partner.AcceptOrderRequest]) (*connect.Response[partner.AcceptOrderResponse], error)
+	RejectOrder(context.Context, *connect.Request[partner.RejectOrderRequest]) (*connect.Response[partner.RejectOrderResponse], error)
+	CompleteOrder(context.Context, *connect.Request[partner.CompleteOrderRequest]) (*connect.Response[partner.CompleteOrderResponse], error)
+	FailOrder(context.Context, *connect.Request[partner.FailOrderRequest]) (*connect.Response[partner.FailOrderResponse], error)
+	GetOrders(context.Context, *connect.Request[partner.GetOrdersRequest]) (*connect.Response[partner.GetOrdersResponse], error)
+	UpdateFees(context.Context, *connect.Request[partner.UpdateFeesRequest]) (*connect.Response[partner.UpdateFeesResponse], error)
+	GenerateTransaction(context.Context, *connect.Request[partner.GenerateTransactionRequest]) (*connect.Response[partner.GenerateTransactionResponse], error)
 }
 
 // NewPartnerServiceClient constructs a client for the brij.orders.v1.partner.PartnerService
@@ -77,114 +77,123 @@ type PartnerServiceClient interface {
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
-func NewPartnerServiceClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) PartnerServiceClient {
+func NewPartnerServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) PartnerServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
+	partnerServiceMethods := partner.File_brij_orders_v1_partner_partner_proto.Services().ByName("PartnerService").Methods()
 	return &partnerServiceClient{
-		getOrder: connect_go.NewClient[partner.GetOrderRequest, partner.GetOrderResponse](
+		getOrder: connect.NewClient[partner.GetOrderRequest, partner.GetOrderResponse](
 			httpClient,
 			baseURL+PartnerServiceGetOrderProcedure,
-			opts...,
+			connect.WithSchema(partnerServiceMethods.ByName("GetOrder")),
+			connect.WithClientOptions(opts...),
 		),
-		acceptOrder: connect_go.NewClient[partner.AcceptOrderRequest, partner.AcceptOrderResponse](
+		acceptOrder: connect.NewClient[partner.AcceptOrderRequest, partner.AcceptOrderResponse](
 			httpClient,
 			baseURL+PartnerServiceAcceptOrderProcedure,
-			opts...,
+			connect.WithSchema(partnerServiceMethods.ByName("AcceptOrder")),
+			connect.WithClientOptions(opts...),
 		),
-		rejectOrder: connect_go.NewClient[partner.RejectOrderRequest, partner.RejectOrderResponse](
+		rejectOrder: connect.NewClient[partner.RejectOrderRequest, partner.RejectOrderResponse](
 			httpClient,
 			baseURL+PartnerServiceRejectOrderProcedure,
-			opts...,
+			connect.WithSchema(partnerServiceMethods.ByName("RejectOrder")),
+			connect.WithClientOptions(opts...),
 		),
-		completeOrder: connect_go.NewClient[partner.CompleteOrderRequest, partner.CompleteOrderResponse](
+		completeOrder: connect.NewClient[partner.CompleteOrderRequest, partner.CompleteOrderResponse](
 			httpClient,
 			baseURL+PartnerServiceCompleteOrderProcedure,
-			opts...,
+			connect.WithSchema(partnerServiceMethods.ByName("CompleteOrder")),
+			connect.WithClientOptions(opts...),
 		),
-		failOrder: connect_go.NewClient[partner.FailOrderRequest, partner.FailOrderResponse](
+		failOrder: connect.NewClient[partner.FailOrderRequest, partner.FailOrderResponse](
 			httpClient,
 			baseURL+PartnerServiceFailOrderProcedure,
-			opts...,
+			connect.WithSchema(partnerServiceMethods.ByName("FailOrder")),
+			connect.WithClientOptions(opts...),
 		),
-		getOrders: connect_go.NewClient[partner.GetOrdersRequest, partner.GetOrdersResponse](
+		getOrders: connect.NewClient[partner.GetOrdersRequest, partner.GetOrdersResponse](
 			httpClient,
 			baseURL+PartnerServiceGetOrdersProcedure,
-			opts...,
+			connect.WithSchema(partnerServiceMethods.ByName("GetOrders")),
+			connect.WithClientOptions(opts...),
 		),
-		updateFees: connect_go.NewClient[partner.UpdateFeesRequest, partner.UpdateFeesResponse](
+		updateFees: connect.NewClient[partner.UpdateFeesRequest, partner.UpdateFeesResponse](
 			httpClient,
 			baseURL+PartnerServiceUpdateFeesProcedure,
-			opts...,
+			connect.WithSchema(partnerServiceMethods.ByName("UpdateFees")),
+			connect.WithClientOptions(opts...),
 		),
-		generateTransaction: connect_go.NewClient[partner.GenerateTransactionRequest, partner.GenerateTransactionResponse](
+		generateTransaction: connect.NewClient[partner.GenerateTransactionRequest, partner.GenerateTransactionResponse](
 			httpClient,
 			baseURL+PartnerServiceGenerateTransactionProcedure,
-			opts...,
+			connect.WithSchema(partnerServiceMethods.ByName("GenerateTransaction")),
+			connect.WithClientOptions(opts...),
 		),
 	}
 }
 
 // partnerServiceClient implements PartnerServiceClient.
 type partnerServiceClient struct {
-	getOrder            *connect_go.Client[partner.GetOrderRequest, partner.GetOrderResponse]
-	acceptOrder         *connect_go.Client[partner.AcceptOrderRequest, partner.AcceptOrderResponse]
-	rejectOrder         *connect_go.Client[partner.RejectOrderRequest, partner.RejectOrderResponse]
-	completeOrder       *connect_go.Client[partner.CompleteOrderRequest, partner.CompleteOrderResponse]
-	failOrder           *connect_go.Client[partner.FailOrderRequest, partner.FailOrderResponse]
-	getOrders           *connect_go.Client[partner.GetOrdersRequest, partner.GetOrdersResponse]
-	updateFees          *connect_go.Client[partner.UpdateFeesRequest, partner.UpdateFeesResponse]
-	generateTransaction *connect_go.Client[partner.GenerateTransactionRequest, partner.GenerateTransactionResponse]
+	getOrder            *connect.Client[partner.GetOrderRequest, partner.GetOrderResponse]
+	acceptOrder         *connect.Client[partner.AcceptOrderRequest, partner.AcceptOrderResponse]
+	rejectOrder         *connect.Client[partner.RejectOrderRequest, partner.RejectOrderResponse]
+	completeOrder       *connect.Client[partner.CompleteOrderRequest, partner.CompleteOrderResponse]
+	failOrder           *connect.Client[partner.FailOrderRequest, partner.FailOrderResponse]
+	getOrders           *connect.Client[partner.GetOrdersRequest, partner.GetOrdersResponse]
+	updateFees          *connect.Client[partner.UpdateFeesRequest, partner.UpdateFeesResponse]
+	generateTransaction *connect.Client[partner.GenerateTransactionRequest, partner.GenerateTransactionResponse]
 }
 
 // GetOrder calls brij.orders.v1.partner.PartnerService.GetOrder.
-func (c *partnerServiceClient) GetOrder(ctx context.Context, req *connect_go.Request[partner.GetOrderRequest]) (*connect_go.Response[partner.GetOrderResponse], error) {
+func (c *partnerServiceClient) GetOrder(ctx context.Context, req *connect.Request[partner.GetOrderRequest]) (*connect.Response[partner.GetOrderResponse], error) {
 	return c.getOrder.CallUnary(ctx, req)
 }
 
 // AcceptOrder calls brij.orders.v1.partner.PartnerService.AcceptOrder.
-func (c *partnerServiceClient) AcceptOrder(ctx context.Context, req *connect_go.Request[partner.AcceptOrderRequest]) (*connect_go.Response[partner.AcceptOrderResponse], error) {
+func (c *partnerServiceClient) AcceptOrder(ctx context.Context, req *connect.Request[partner.AcceptOrderRequest]) (*connect.Response[partner.AcceptOrderResponse], error) {
 	return c.acceptOrder.CallUnary(ctx, req)
 }
 
 // RejectOrder calls brij.orders.v1.partner.PartnerService.RejectOrder.
-func (c *partnerServiceClient) RejectOrder(ctx context.Context, req *connect_go.Request[partner.RejectOrderRequest]) (*connect_go.Response[partner.RejectOrderResponse], error) {
+func (c *partnerServiceClient) RejectOrder(ctx context.Context, req *connect.Request[partner.RejectOrderRequest]) (*connect.Response[partner.RejectOrderResponse], error) {
 	return c.rejectOrder.CallUnary(ctx, req)
 }
 
 // CompleteOrder calls brij.orders.v1.partner.PartnerService.CompleteOrder.
-func (c *partnerServiceClient) CompleteOrder(ctx context.Context, req *connect_go.Request[partner.CompleteOrderRequest]) (*connect_go.Response[partner.CompleteOrderResponse], error) {
+func (c *partnerServiceClient) CompleteOrder(ctx context.Context, req *connect.Request[partner.CompleteOrderRequest]) (*connect.Response[partner.CompleteOrderResponse], error) {
 	return c.completeOrder.CallUnary(ctx, req)
 }
 
 // FailOrder calls brij.orders.v1.partner.PartnerService.FailOrder.
-func (c *partnerServiceClient) FailOrder(ctx context.Context, req *connect_go.Request[partner.FailOrderRequest]) (*connect_go.Response[partner.FailOrderResponse], error) {
+func (c *partnerServiceClient) FailOrder(ctx context.Context, req *connect.Request[partner.FailOrderRequest]) (*connect.Response[partner.FailOrderResponse], error) {
 	return c.failOrder.CallUnary(ctx, req)
 }
 
 // GetOrders calls brij.orders.v1.partner.PartnerService.GetOrders.
-func (c *partnerServiceClient) GetOrders(ctx context.Context, req *connect_go.Request[partner.GetOrdersRequest]) (*connect_go.Response[partner.GetOrdersResponse], error) {
+func (c *partnerServiceClient) GetOrders(ctx context.Context, req *connect.Request[partner.GetOrdersRequest]) (*connect.Response[partner.GetOrdersResponse], error) {
 	return c.getOrders.CallUnary(ctx, req)
 }
 
 // UpdateFees calls brij.orders.v1.partner.PartnerService.UpdateFees.
-func (c *partnerServiceClient) UpdateFees(ctx context.Context, req *connect_go.Request[partner.UpdateFeesRequest]) (*connect_go.Response[partner.UpdateFeesResponse], error) {
+func (c *partnerServiceClient) UpdateFees(ctx context.Context, req *connect.Request[partner.UpdateFeesRequest]) (*connect.Response[partner.UpdateFeesResponse], error) {
 	return c.updateFees.CallUnary(ctx, req)
 }
 
 // GenerateTransaction calls brij.orders.v1.partner.PartnerService.GenerateTransaction.
-func (c *partnerServiceClient) GenerateTransaction(ctx context.Context, req *connect_go.Request[partner.GenerateTransactionRequest]) (*connect_go.Response[partner.GenerateTransactionResponse], error) {
+func (c *partnerServiceClient) GenerateTransaction(ctx context.Context, req *connect.Request[partner.GenerateTransactionRequest]) (*connect.Response[partner.GenerateTransactionResponse], error) {
 	return c.generateTransaction.CallUnary(ctx, req)
 }
 
 // PartnerServiceHandler is an implementation of the brij.orders.v1.partner.PartnerService service.
 type PartnerServiceHandler interface {
-	GetOrder(context.Context, *connect_go.Request[partner.GetOrderRequest]) (*connect_go.Response[partner.GetOrderResponse], error)
-	AcceptOrder(context.Context, *connect_go.Request[partner.AcceptOrderRequest]) (*connect_go.Response[partner.AcceptOrderResponse], error)
-	RejectOrder(context.Context, *connect_go.Request[partner.RejectOrderRequest]) (*connect_go.Response[partner.RejectOrderResponse], error)
-	CompleteOrder(context.Context, *connect_go.Request[partner.CompleteOrderRequest]) (*connect_go.Response[partner.CompleteOrderResponse], error)
-	FailOrder(context.Context, *connect_go.Request[partner.FailOrderRequest]) (*connect_go.Response[partner.FailOrderResponse], error)
-	GetOrders(context.Context, *connect_go.Request[partner.GetOrdersRequest]) (*connect_go.Response[partner.GetOrdersResponse], error)
-	UpdateFees(context.Context, *connect_go.Request[partner.UpdateFeesRequest]) (*connect_go.Response[partner.UpdateFeesResponse], error)
-	GenerateTransaction(context.Context, *connect_go.Request[partner.GenerateTransactionRequest]) (*connect_go.Response[partner.GenerateTransactionResponse], error)
+	GetOrder(context.Context, *connect.Request[partner.GetOrderRequest]) (*connect.Response[partner.GetOrderResponse], error)
+	AcceptOrder(context.Context, *connect.Request[partner.AcceptOrderRequest]) (*connect.Response[partner.AcceptOrderResponse], error)
+	RejectOrder(context.Context, *connect.Request[partner.RejectOrderRequest]) (*connect.Response[partner.RejectOrderResponse], error)
+	CompleteOrder(context.Context, *connect.Request[partner.CompleteOrderRequest]) (*connect.Response[partner.CompleteOrderResponse], error)
+	FailOrder(context.Context, *connect.Request[partner.FailOrderRequest]) (*connect.Response[partner.FailOrderResponse], error)
+	GetOrders(context.Context, *connect.Request[partner.GetOrdersRequest]) (*connect.Response[partner.GetOrdersResponse], error)
+	UpdateFees(context.Context, *connect.Request[partner.UpdateFeesRequest]) (*connect.Response[partner.UpdateFeesResponse], error)
+	GenerateTransaction(context.Context, *connect.Request[partner.GenerateTransactionRequest]) (*connect.Response[partner.GenerateTransactionResponse], error)
 }
 
 // NewPartnerServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -192,46 +201,55 @@ type PartnerServiceHandler interface {
 //
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
-func NewPartnerServiceHandler(svc PartnerServiceHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
-	partnerServiceGetOrderHandler := connect_go.NewUnaryHandler(
+func NewPartnerServiceHandler(svc PartnerServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
+	partnerServiceMethods := partner.File_brij_orders_v1_partner_partner_proto.Services().ByName("PartnerService").Methods()
+	partnerServiceGetOrderHandler := connect.NewUnaryHandler(
 		PartnerServiceGetOrderProcedure,
 		svc.GetOrder,
-		opts...,
+		connect.WithSchema(partnerServiceMethods.ByName("GetOrder")),
+		connect.WithHandlerOptions(opts...),
 	)
-	partnerServiceAcceptOrderHandler := connect_go.NewUnaryHandler(
+	partnerServiceAcceptOrderHandler := connect.NewUnaryHandler(
 		PartnerServiceAcceptOrderProcedure,
 		svc.AcceptOrder,
-		opts...,
+		connect.WithSchema(partnerServiceMethods.ByName("AcceptOrder")),
+		connect.WithHandlerOptions(opts...),
 	)
-	partnerServiceRejectOrderHandler := connect_go.NewUnaryHandler(
+	partnerServiceRejectOrderHandler := connect.NewUnaryHandler(
 		PartnerServiceRejectOrderProcedure,
 		svc.RejectOrder,
-		opts...,
+		connect.WithSchema(partnerServiceMethods.ByName("RejectOrder")),
+		connect.WithHandlerOptions(opts...),
 	)
-	partnerServiceCompleteOrderHandler := connect_go.NewUnaryHandler(
+	partnerServiceCompleteOrderHandler := connect.NewUnaryHandler(
 		PartnerServiceCompleteOrderProcedure,
 		svc.CompleteOrder,
-		opts...,
+		connect.WithSchema(partnerServiceMethods.ByName("CompleteOrder")),
+		connect.WithHandlerOptions(opts...),
 	)
-	partnerServiceFailOrderHandler := connect_go.NewUnaryHandler(
+	partnerServiceFailOrderHandler := connect.NewUnaryHandler(
 		PartnerServiceFailOrderProcedure,
 		svc.FailOrder,
-		opts...,
+		connect.WithSchema(partnerServiceMethods.ByName("FailOrder")),
+		connect.WithHandlerOptions(opts...),
 	)
-	partnerServiceGetOrdersHandler := connect_go.NewUnaryHandler(
+	partnerServiceGetOrdersHandler := connect.NewUnaryHandler(
 		PartnerServiceGetOrdersProcedure,
 		svc.GetOrders,
-		opts...,
+		connect.WithSchema(partnerServiceMethods.ByName("GetOrders")),
+		connect.WithHandlerOptions(opts...),
 	)
-	partnerServiceUpdateFeesHandler := connect_go.NewUnaryHandler(
+	partnerServiceUpdateFeesHandler := connect.NewUnaryHandler(
 		PartnerServiceUpdateFeesProcedure,
 		svc.UpdateFees,
-		opts...,
+		connect.WithSchema(partnerServiceMethods.ByName("UpdateFees")),
+		connect.WithHandlerOptions(opts...),
 	)
-	partnerServiceGenerateTransactionHandler := connect_go.NewUnaryHandler(
+	partnerServiceGenerateTransactionHandler := connect.NewUnaryHandler(
 		PartnerServiceGenerateTransactionProcedure,
 		svc.GenerateTransaction,
-		opts...,
+		connect.WithSchema(partnerServiceMethods.ByName("GenerateTransaction")),
+		connect.WithHandlerOptions(opts...),
 	)
 	return "/brij.orders.v1.partner.PartnerService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
@@ -260,34 +278,34 @@ func NewPartnerServiceHandler(svc PartnerServiceHandler, opts ...connect_go.Hand
 // UnimplementedPartnerServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedPartnerServiceHandler struct{}
 
-func (UnimplementedPartnerServiceHandler) GetOrder(context.Context, *connect_go.Request[partner.GetOrderRequest]) (*connect_go.Response[partner.GetOrderResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.GetOrder is not implemented"))
+func (UnimplementedPartnerServiceHandler) GetOrder(context.Context, *connect.Request[partner.GetOrderRequest]) (*connect.Response[partner.GetOrderResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.GetOrder is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) AcceptOrder(context.Context, *connect_go.Request[partner.AcceptOrderRequest]) (*connect_go.Response[partner.AcceptOrderResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.AcceptOrder is not implemented"))
+func (UnimplementedPartnerServiceHandler) AcceptOrder(context.Context, *connect.Request[partner.AcceptOrderRequest]) (*connect.Response[partner.AcceptOrderResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.AcceptOrder is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) RejectOrder(context.Context, *connect_go.Request[partner.RejectOrderRequest]) (*connect_go.Response[partner.RejectOrderResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.RejectOrder is not implemented"))
+func (UnimplementedPartnerServiceHandler) RejectOrder(context.Context, *connect.Request[partner.RejectOrderRequest]) (*connect.Response[partner.RejectOrderResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.RejectOrder is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) CompleteOrder(context.Context, *connect_go.Request[partner.CompleteOrderRequest]) (*connect_go.Response[partner.CompleteOrderResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.CompleteOrder is not implemented"))
+func (UnimplementedPartnerServiceHandler) CompleteOrder(context.Context, *connect.Request[partner.CompleteOrderRequest]) (*connect.Response[partner.CompleteOrderResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.CompleteOrder is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) FailOrder(context.Context, *connect_go.Request[partner.FailOrderRequest]) (*connect_go.Response[partner.FailOrderResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.FailOrder is not implemented"))
+func (UnimplementedPartnerServiceHandler) FailOrder(context.Context, *connect.Request[partner.FailOrderRequest]) (*connect.Response[partner.FailOrderResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.FailOrder is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) GetOrders(context.Context, *connect_go.Request[partner.GetOrdersRequest]) (*connect_go.Response[partner.GetOrdersResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.GetOrders is not implemented"))
+func (UnimplementedPartnerServiceHandler) GetOrders(context.Context, *connect.Request[partner.GetOrdersRequest]) (*connect.Response[partner.GetOrdersResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.GetOrders is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) UpdateFees(context.Context, *connect_go.Request[partner.UpdateFeesRequest]) (*connect_go.Response[partner.UpdateFeesResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.UpdateFees is not implemented"))
+func (UnimplementedPartnerServiceHandler) UpdateFees(context.Context, *connect.Request[partner.UpdateFeesRequest]) (*connect.Response[partner.UpdateFeesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.UpdateFees is not implemented"))
 }
 
-func (UnimplementedPartnerServiceHandler) GenerateTransaction(context.Context, *connect_go.Request[partner.GenerateTransactionRequest]) (*connect_go.Response[partner.GenerateTransactionResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.GenerateTransaction is not implemented"))
+func (UnimplementedPartnerServiceHandler) GenerateTransaction(context.Context, *connect.Request[partner.GenerateTransactionRequest]) (*connect.Response[partner.GenerateTransactionResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.partner.PartnerService.GenerateTransaction is not implemented"))
 }
