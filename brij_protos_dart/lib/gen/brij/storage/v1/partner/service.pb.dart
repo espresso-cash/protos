@@ -14,10 +14,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../common/kyc_item.pbenum.dart' as $9;
-import '../common/user_data_field.pb.dart' as $7;
-import '../common/validation_data_field.pb.dart' as $8;
-import '../common/validation_status.pbenum.dart' as $6;
+import '../common/user_data.pb.dart' as $6;
+import '../common/validation_data.pb.dart' as $7;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -215,8 +213,8 @@ class GetUserDataRequest extends $pb.GeneratedMessage {
 
 class GetUserDataResponse extends $pb.GeneratedMessage {
   factory GetUserDataResponse({
-    $core.Iterable<$7.UserDataField>? userData,
-    $core.Iterable<$8.ValidationDataField>? validationData,
+    $core.Iterable<$6.UserDataField>? userData,
+    $core.Iterable<$7.ValidationDataField>? validationData,
   }) {
     final $result = create();
     if (userData != null) {
@@ -232,8 +230,8 @@ class GetUserDataResponse extends $pb.GeneratedMessage {
   factory GetUserDataResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserDataResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.partner'), createEmptyInstance: create)
-    ..pc<$7.UserDataField>(1, _omitFieldNames ? '' : 'userData', $pb.PbFieldType.PM, subBuilder: $7.UserDataField.create)
-    ..pc<$8.ValidationDataField>(2, _omitFieldNames ? '' : 'validationData', $pb.PbFieldType.PM, subBuilder: $8.ValidationDataField.create)
+    ..pc<$6.UserDataField>(1, _omitFieldNames ? '' : 'userData', $pb.PbFieldType.PM, subBuilder: $6.UserDataField.create)
+    ..pc<$7.ValidationDataField>(2, _omitFieldNames ? '' : 'validationData', $pb.PbFieldType.PM, subBuilder: $7.ValidationDataField.create)
     ..hasRequiredFields = false
   ;
 
@@ -259,28 +257,20 @@ class GetUserDataResponse extends $pb.GeneratedMessage {
   static GetUserDataResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $pb.PbList<$7.UserDataField> get userData => $_getList(0);
+  $pb.PbList<$6.UserDataField> get userData => $_getList(0);
 
   @$pb.TagNumber(2)
-  $pb.PbList<$8.ValidationDataField> get validationData => $_getList(1);
+  $pb.PbList<$7.ValidationDataField> get validationData => $_getList(1);
 }
 
 class SetValidationDataRequest extends $pb.GeneratedMessage {
   factory SetValidationDataRequest({
-    $core.String? dataId,
-    $6.ValidationStatus? status,
-    $core.String? hash,
-    $core.String? signature,
+    $core.List<$core.int>? payload,
+    $core.List<$core.int>? signature,
   }) {
     final $result = create();
-    if (dataId != null) {
-      $result.dataId = dataId;
-    }
-    if (status != null) {
-      $result.status = status;
-    }
-    if (hash != null) {
-      $result.hash = hash;
+    if (payload != null) {
+      $result.payload = payload;
     }
     if (signature != null) {
       $result.signature = signature;
@@ -292,10 +282,8 @@ class SetValidationDataRequest extends $pb.GeneratedMessage {
   factory SetValidationDataRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetValidationDataRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.partner'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'dataId')
-    ..e<$6.ValidationStatus>(2, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: $6.ValidationStatus.VALIDATION_STATUS_UNSPECIFIED, valueOf: $6.ValidationStatus.valueOf, enumValues: $6.ValidationStatus.values)
-    ..aOS(3, _omitFieldNames ? '' : 'hash')
-    ..aOS(4, _omitFieldNames ? '' : 'signature')
+    ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'payload', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'signature', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
@@ -320,41 +308,24 @@ class SetValidationDataRequest extends $pb.GeneratedMessage {
   static SetValidationDataRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetValidationDataRequest>(create);
   static SetValidationDataRequest? _defaultInstance;
 
+  /// ValidationDataEnvelope
   @$pb.TagNumber(1)
-  $core.String get dataId => $_getSZ(0);
+  $core.List<$core.int> get payload => $_getN(0);
   @$pb.TagNumber(1)
-  set dataId($core.String v) { $_setString(0, v); }
+  set payload($core.List<$core.int> v) { $_setBytes(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasDataId() => $_has(0);
+  $core.bool hasPayload() => $_has(0);
   @$pb.TagNumber(1)
-  void clearDataId() => $_clearField(1);
+  void clearPayload() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $6.ValidationStatus get status => $_getN(1);
+  $core.List<$core.int> get signature => $_getN(1);
   @$pb.TagNumber(2)
-  set status($6.ValidationStatus v) { $_setField(2, v); }
+  set signature($core.List<$core.int> v) { $_setBytes(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasStatus() => $_has(1);
+  $core.bool hasSignature() => $_has(1);
   @$pb.TagNumber(2)
-  void clearStatus() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get hash => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set hash($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasHash() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearHash() => $_clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.String get signature => $_getSZ(3);
-  @$pb.TagNumber(4)
-  set signature($core.String v) { $_setString(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasSignature() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearSignature() => $_clearField(4);
+  void clearSignature() => $_clearField(2);
 }
 
 class SetValidationDataResponse extends $pb.GeneratedMessage {
@@ -391,11 +362,11 @@ class SetValidationDataResponse extends $pb.GeneratedMessage {
 
 class RemoveValidationDataRequest extends $pb.GeneratedMessage {
   factory RemoveValidationDataRequest({
-    $core.String? id,
+    $core.String? dataHash,
   }) {
     final $result = create();
-    if (id != null) {
-      $result.id = id;
+    if (dataHash != null) {
+      $result.dataHash = dataHash;
     }
     return $result;
   }
@@ -404,7 +375,7 @@ class RemoveValidationDataRequest extends $pb.GeneratedMessage {
   factory RemoveValidationDataRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RemoveValidationDataRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.partner'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(1, _omitFieldNames ? '' : 'dataHash')
     ..hasRequiredFields = false
   ;
 
@@ -430,13 +401,13 @@ class RemoveValidationDataRequest extends $pb.GeneratedMessage {
   static RemoveValidationDataRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $core.String get dataHash => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String v) { $_setString(0, v); }
+  set dataHash($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasDataHash() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearDataHash() => $_clearField(1);
 }
 
 class RemoveValidationDataResponse extends $pb.GeneratedMessage {
@@ -551,16 +522,12 @@ class GetKycStatusRequest extends $pb.GeneratedMessage {
 
 class GetKycStatusResponse extends $pb.GeneratedMessage {
   factory GetKycStatusResponse({
-    $9.KycStatus? status,
-    $core.List<$core.int>? data,
+    $core.List<$core.int>? payload,
     $core.List<$core.int>? signature,
   }) {
     final $result = create();
-    if (status != null) {
-      $result.status = status;
-    }
-    if (data != null) {
-      $result.data = data;
+    if (payload != null) {
+      $result.payload = payload;
     }
     if (signature != null) {
       $result.signature = signature;
@@ -572,9 +539,8 @@ class GetKycStatusResponse extends $pb.GeneratedMessage {
   factory GetKycStatusResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetKycStatusResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.partner'), createEmptyInstance: create)
-    ..e<$9.KycStatus>(1, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: $9.KycStatus.KYC_STATUS_UNSPECIFIED, valueOf: $9.KycStatus.valueOf, enumValues: $9.KycStatus.values)
-    ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
-    ..a<$core.List<$core.int>>(3, _omitFieldNames ? '' : 'signature', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'payload', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'signature', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
@@ -599,42 +565,34 @@ class GetKycStatusResponse extends $pb.GeneratedMessage {
   static GetKycStatusResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetKycStatusResponse>(create);
   static GetKycStatusResponse? _defaultInstance;
 
+  /// KycEnvelope
   @$pb.TagNumber(1)
-  $9.KycStatus get status => $_getN(0);
+  $core.List<$core.int> get payload => $_getN(0);
   @$pb.TagNumber(1)
-  set status($9.KycStatus v) { $_setField(1, v); }
+  set payload($core.List<$core.int> v) { $_setBytes(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasStatus() => $_has(0);
+  $core.bool hasPayload() => $_has(0);
   @$pb.TagNumber(1)
-  void clearStatus() => $_clearField(1);
+  void clearPayload() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.List<$core.int> get data => $_getN(1);
+  $core.List<$core.int> get signature => $_getN(1);
   @$pb.TagNumber(2)
-  set data($core.List<$core.int> v) { $_setBytes(1, v); }
+  set signature($core.List<$core.int> v) { $_setBytes(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasData() => $_has(1);
+  $core.bool hasSignature() => $_has(1);
   @$pb.TagNumber(2)
-  void clearData() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.List<$core.int> get signature => $_getN(2);
-  @$pb.TagNumber(3)
-  set signature($core.List<$core.int> v) { $_setBytes(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasSignature() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearSignature() => $_clearField(3);
+  void clearSignature() => $_clearField(2);
 }
 
 class CreateKycStatusRequest extends $pb.GeneratedMessage {
   factory CreateKycStatusRequest({
-    $core.List<$core.int>? data,
+    $core.List<$core.int>? payload,
     $core.List<$core.int>? signature,
   }) {
     final $result = create();
-    if (data != null) {
-      $result.data = data;
+    if (payload != null) {
+      $result.payload = payload;
     }
     if (signature != null) {
       $result.signature = signature;
@@ -646,7 +604,7 @@ class CreateKycStatusRequest extends $pb.GeneratedMessage {
   factory CreateKycStatusRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateKycStatusRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.partner'), createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'payload', $pb.PbFieldType.OY)
     ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'signature', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
@@ -672,14 +630,15 @@ class CreateKycStatusRequest extends $pb.GeneratedMessage {
   static CreateKycStatusRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateKycStatusRequest>(create);
   static CreateKycStatusRequest? _defaultInstance;
 
+  /// KycEnvelope
   @$pb.TagNumber(1)
-  $core.List<$core.int> get data => $_getN(0);
+  $core.List<$core.int> get payload => $_getN(0);
   @$pb.TagNumber(1)
-  set data($core.List<$core.int> v) { $_setBytes(0, v); }
+  set payload($core.List<$core.int> v) { $_setBytes(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasData() => $_has(0);
+  $core.bool hasPayload() => $_has(0);
   @$pb.TagNumber(1)
-  void clearData() => $_clearField(1);
+  void clearPayload() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.List<$core.int> get signature => $_getN(1);
@@ -744,15 +703,15 @@ class CreateKycStatusResponse extends $pb.GeneratedMessage {
 class UpdateKycStatusRequest extends $pb.GeneratedMessage {
   factory UpdateKycStatusRequest({
     $core.String? kycId,
-    $core.List<$core.int>? data,
+    $core.List<$core.int>? payload,
     $core.List<$core.int>? signature,
   }) {
     final $result = create();
     if (kycId != null) {
       $result.kycId = kycId;
     }
-    if (data != null) {
-      $result.data = data;
+    if (payload != null) {
+      $result.payload = payload;
     }
     if (signature != null) {
       $result.signature = signature;
@@ -765,7 +724,7 @@ class UpdateKycStatusRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateKycStatusRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.partner'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'kycId')
-    ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'payload', $pb.PbFieldType.OY)
     ..a<$core.List<$core.int>>(3, _omitFieldNames ? '' : 'signature', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
@@ -800,14 +759,15 @@ class UpdateKycStatusRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearKycId() => $_clearField(1);
 
+  /// KycEnvelope
   @$pb.TagNumber(2)
-  $core.List<$core.int> get data => $_getN(1);
+  $core.List<$core.int> get payload => $_getN(1);
   @$pb.TagNumber(2)
-  set data($core.List<$core.int> v) { $_setBytes(1, v); }
+  set payload($core.List<$core.int> v) { $_setBytes(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasData() => $_has(1);
+  $core.bool hasPayload() => $_has(1);
   @$pb.TagNumber(2)
-  void clearData() => $_clearField(2);
+  void clearPayload() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.List<$core.int> get signature => $_getN(2);

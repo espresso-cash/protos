@@ -13,9 +13,8 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-import '../../../../google/protobuf/timestamp.pbjson.dart' as $4;
-import '../common/user_data_field.pbjson.dart' as $7;
-import '../common/validation_data_field.pbjson.dart' as $8;
+import '../common/user_data.pbjson.dart' as $6;
+import '../common/validation_data.pbjson.dart' as $7;
 
 @$core.Deprecated('Use getInfoRequestDescriptor instead')
 const GetInfoRequest$json = {
@@ -79,19 +78,15 @@ final $typed_data.Uint8List getUserDataResponseDescriptor = $convert.base64Decod
 const SetValidationDataRequest$json = {
   '1': 'SetValidationDataRequest',
   '2': [
-    {'1': 'data_id', '3': 1, '4': 1, '5': 9, '10': 'dataId'},
-    {'1': 'status', '3': 2, '4': 1, '5': 14, '6': '.brij.storage.v1.common.ValidationStatus', '10': 'status'},
-    {'1': 'hash', '3': 3, '4': 1, '5': 9, '10': 'hash'},
-    {'1': 'signature', '3': 4, '4': 1, '5': 9, '10': 'signature'},
+    {'1': 'payload', '3': 1, '4': 1, '5': 12, '10': 'payload'},
+    {'1': 'signature', '3': 2, '4': 1, '5': 12, '10': 'signature'},
   ],
 };
 
 /// Descriptor for `SetValidationDataRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List setValidationDataRequestDescriptor = $convert.base64Decode(
-    'ChhTZXRWYWxpZGF0aW9uRGF0YVJlcXVlc3QSFwoHZGF0YV9pZBgBIAEoCVIGZGF0YUlkEkAKBn'
-    'N0YXR1cxgCIAEoDjIoLmJyaWouc3RvcmFnZS52MS5jb21tb24uVmFsaWRhdGlvblN0YXR1c1IG'
-    'c3RhdHVzEhIKBGhhc2gYAyABKAlSBGhhc2gSHAoJc2lnbmF0dXJlGAQgASgJUglzaWduYXR1cm'
-    'U=');
+    'ChhTZXRWYWxpZGF0aW9uRGF0YVJlcXVlc3QSGAoHcGF5bG9hZBgBIAEoDFIHcGF5bG9hZBIcCg'
+    'lzaWduYXR1cmUYAiABKAxSCXNpZ25hdHVyZQ==');
 
 @$core.Deprecated('Use setValidationDataResponseDescriptor instead')
 const SetValidationDataResponse$json = {
@@ -106,13 +101,14 @@ final $typed_data.Uint8List setValidationDataResponseDescriptor = $convert.base6
 const RemoveValidationDataRequest$json = {
   '1': 'RemoveValidationDataRequest',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'data_hash', '3': 1, '4': 1, '5': 9, '10': 'dataHash'},
   ],
 };
 
 /// Descriptor for `RemoveValidationDataRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List removeValidationDataRequestDescriptor = $convert.base64Decode(
-    'ChtSZW1vdmVWYWxpZGF0aW9uRGF0YVJlcXVlc3QSDgoCaWQYASABKAlSAmlk');
+    'ChtSZW1vdmVWYWxpZGF0aW9uRGF0YVJlcXVlc3QSGwoJZGF0YV9oYXNoGAEgASgJUghkYXRhSG'
+    'FzaA==');
 
 @$core.Deprecated('Use removeValidationDataResponseDescriptor instead')
 const RemoveValidationDataResponse$json = {
@@ -143,31 +139,29 @@ final $typed_data.Uint8List getKycStatusRequestDescriptor = $convert.base64Decod
 const GetKycStatusResponse$json = {
   '1': 'GetKycStatusResponse',
   '2': [
-    {'1': 'status', '3': 1, '4': 1, '5': 14, '6': '.brij.storage.v1.common.KycStatus', '10': 'status'},
-    {'1': 'data', '3': 2, '4': 1, '5': 12, '10': 'data'},
-    {'1': 'signature', '3': 3, '4': 1, '5': 12, '10': 'signature'},
+    {'1': 'payload', '3': 1, '4': 1, '5': 12, '10': 'payload'},
+    {'1': 'signature', '3': 2, '4': 1, '5': 12, '10': 'signature'},
   ],
 };
 
 /// Descriptor for `GetKycStatusResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getKycStatusResponseDescriptor = $convert.base64Decode(
-    'ChRHZXRLeWNTdGF0dXNSZXNwb25zZRI5CgZzdGF0dXMYASABKA4yIS5icmlqLnN0b3JhZ2Uudj'
-    'EuY29tbW9uLkt5Y1N0YXR1c1IGc3RhdHVzEhIKBGRhdGEYAiABKAxSBGRhdGESHAoJc2lnbmF0'
-    'dXJlGAMgASgMUglzaWduYXR1cmU=');
+    'ChRHZXRLeWNTdGF0dXNSZXNwb25zZRIYCgdwYXlsb2FkGAEgASgMUgdwYXlsb2FkEhwKCXNpZ2'
+    '5hdHVyZRgCIAEoDFIJc2lnbmF0dXJl');
 
 @$core.Deprecated('Use createKycStatusRequestDescriptor instead')
 const CreateKycStatusRequest$json = {
   '1': 'CreateKycStatusRequest',
   '2': [
-    {'1': 'data', '3': 1, '4': 1, '5': 12, '10': 'data'},
+    {'1': 'payload', '3': 1, '4': 1, '5': 12, '10': 'payload'},
     {'1': 'signature', '3': 2, '4': 1, '5': 12, '10': 'signature'},
   ],
 };
 
 /// Descriptor for `CreateKycStatusRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createKycStatusRequestDescriptor = $convert.base64Decode(
-    'ChZDcmVhdGVLeWNTdGF0dXNSZXF1ZXN0EhIKBGRhdGEYASABKAxSBGRhdGESHAoJc2lnbmF0dX'
-    'JlGAIgASgMUglzaWduYXR1cmU=');
+    'ChZDcmVhdGVLeWNTdGF0dXNSZXF1ZXN0EhgKB3BheWxvYWQYASABKAxSB3BheWxvYWQSHAoJc2'
+    'lnbmF0dXJlGAIgASgMUglzaWduYXR1cmU=');
 
 @$core.Deprecated('Use createKycStatusResponseDescriptor instead')
 const CreateKycStatusResponse$json = {
@@ -186,15 +180,15 @@ const UpdateKycStatusRequest$json = {
   '1': 'UpdateKycStatusRequest',
   '2': [
     {'1': 'kyc_id', '3': 1, '4': 1, '5': 9, '10': 'kycId'},
-    {'1': 'data', '3': 2, '4': 1, '5': 12, '10': 'data'},
+    {'1': 'payload', '3': 2, '4': 1, '5': 12, '10': 'payload'},
     {'1': 'signature', '3': 3, '4': 1, '5': 12, '10': 'signature'},
   ],
 };
 
 /// Descriptor for `UpdateKycStatusRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateKycStatusRequestDescriptor = $convert.base64Decode(
-    'ChZVcGRhdGVLeWNTdGF0dXNSZXF1ZXN0EhUKBmt5Y19pZBgBIAEoCVIFa3ljSWQSEgoEZGF0YR'
-    'gCIAEoDFIEZGF0YRIcCglzaWduYXR1cmUYAyABKAxSCXNpZ25hdHVyZQ==');
+    'ChZVcGRhdGVLeWNTdGF0dXNSZXF1ZXN0EhUKBmt5Y19pZBgBIAEoCVIFa3ljSWQSGAoHcGF5bG'
+    '9hZBgCIAEoDFIHcGF5bG9hZBIcCglzaWduYXR1cmUYAyABKAxSCXNpZ25hdHVyZQ==');
 
 @$core.Deprecated('Use updateKycStatusResponseDescriptor instead')
 const UpdateKycStatusResponse$json = {
@@ -224,9 +218,8 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> PartnerSer
   '.brij.storage.v1.partner.GetInfoResponse': GetInfoResponse$json,
   '.brij.storage.v1.partner.GetUserDataRequest': GetUserDataRequest$json,
   '.brij.storage.v1.partner.GetUserDataResponse': GetUserDataResponse$json,
-  '.brij.storage.v1.common.UserDataField': $7.UserDataField$json,
-  '.google.protobuf.Timestamp': $4.Timestamp$json,
-  '.brij.storage.v1.common.ValidationDataField': $8.ValidationDataField$json,
+  '.brij.storage.v1.common.UserDataField': $6.UserDataField$json,
+  '.brij.storage.v1.common.ValidationDataField': $7.ValidationDataField$json,
   '.brij.storage.v1.partner.SetValidationDataRequest': SetValidationDataRequest$json,
   '.brij.storage.v1.partner.SetValidationDataResponse': SetValidationDataResponse$json,
   '.brij.storage.v1.partner.RemoveValidationDataRequest': RemoveValidationDataRequest$json,

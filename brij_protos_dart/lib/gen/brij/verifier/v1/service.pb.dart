@@ -14,12 +14,12 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'get_kyc_requirements.pb.dart' as $19;
-import 'init_email_validation.pb.dart' as $14;
-import 'init_phone_validation.pb.dart' as $16;
-import 'start_kyc.pb.dart' as $18;
-import 'validate_email.pb.dart' as $15;
-import 'validate_phone.pb.dart' as $17;
+import 'get_kyc_requirements.pb.dart' as $18;
+import 'init_email_validation.pb.dart' as $13;
+import 'init_phone_validation.pb.dart' as $15;
+import 'start_kyc.pb.dart' as $17;
+import 'validate_email.pb.dart' as $14;
+import 'validate_phone.pb.dart' as $16;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -27,23 +27,23 @@ class VerifierServiceApi {
   $pb.RpcClient _client;
   VerifierServiceApi(this._client);
 
-  $async.Future<$14.InitEmailValidationResponse> initEmailValidation($pb.ClientContext? ctx, $14.InitEmailValidationRequest request) =>
-    _client.invoke<$14.InitEmailValidationResponse>(ctx, 'VerifierService', 'InitEmailValidation', request, $14.InitEmailValidationResponse())
+  $async.Future<$13.InitEmailValidationResponse> initEmailValidation($pb.ClientContext? ctx, $13.InitEmailValidationRequest request) =>
+    _client.invoke<$13.InitEmailValidationResponse>(ctx, 'VerifierService', 'InitEmailValidation', request, $13.InitEmailValidationResponse())
   ;
-  $async.Future<$15.ValidateEmailResponse> validateEmail($pb.ClientContext? ctx, $15.ValidateEmailRequest request) =>
-    _client.invoke<$15.ValidateEmailResponse>(ctx, 'VerifierService', 'ValidateEmail', request, $15.ValidateEmailResponse())
+  $async.Future<$14.ValidateEmailResponse> validateEmail($pb.ClientContext? ctx, $14.ValidateEmailRequest request) =>
+    _client.invoke<$14.ValidateEmailResponse>(ctx, 'VerifierService', 'ValidateEmail', request, $14.ValidateEmailResponse())
   ;
-  $async.Future<$16.InitPhoneValidationResponse> initPhoneValidation($pb.ClientContext? ctx, $16.InitPhoneValidationRequest request) =>
-    _client.invoke<$16.InitPhoneValidationResponse>(ctx, 'VerifierService', 'InitPhoneValidation', request, $16.InitPhoneValidationResponse())
+  $async.Future<$15.InitPhoneValidationResponse> initPhoneValidation($pb.ClientContext? ctx, $15.InitPhoneValidationRequest request) =>
+    _client.invoke<$15.InitPhoneValidationResponse>(ctx, 'VerifierService', 'InitPhoneValidation', request, $15.InitPhoneValidationResponse())
   ;
-  $async.Future<$17.ValidatePhoneResponse> validatePhone($pb.ClientContext? ctx, $17.ValidatePhoneRequest request) =>
-    _client.invoke<$17.ValidatePhoneResponse>(ctx, 'VerifierService', 'ValidatePhone', request, $17.ValidatePhoneResponse())
+  $async.Future<$16.ValidatePhoneResponse> validatePhone($pb.ClientContext? ctx, $16.ValidatePhoneRequest request) =>
+    _client.invoke<$16.ValidatePhoneResponse>(ctx, 'VerifierService', 'ValidatePhone', request, $16.ValidatePhoneResponse())
   ;
-  $async.Future<$18.StartKycResponse> startKyc($pb.ClientContext? ctx, $18.StartKycRequest request) =>
-    _client.invoke<$18.StartKycResponse>(ctx, 'VerifierService', 'StartKyc', request, $18.StartKycResponse())
+  $async.Future<$17.StartKycResponse> startKyc($pb.ClientContext? ctx, $17.StartKycRequest request) =>
+    _client.invoke<$17.StartKycResponse>(ctx, 'VerifierService', 'StartKyc', request, $17.StartKycResponse())
   ;
-  $async.Future<$19.GetKycRequirementsResponse> getKycRequirements($pb.ClientContext? ctx, $19.GetKycRequirementsRequest request) =>
-    _client.invoke<$19.GetKycRequirementsResponse>(ctx, 'VerifierService', 'GetKycRequirements', request, $19.GetKycRequirementsResponse())
+  $async.Future<$18.GetKycRequirementsResponse> getKycRequirements($pb.ClientContext? ctx, $18.GetKycRequirementsRequest request) =>
+    _client.invoke<$18.GetKycRequirementsResponse>(ctx, 'VerifierService', 'GetKycRequirements', request, $18.GetKycRequirementsResponse())
   ;
 }
 

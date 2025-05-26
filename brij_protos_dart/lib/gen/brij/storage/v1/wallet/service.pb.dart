@@ -14,10 +14,9 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../common/data.pbenum.dart' as $5;
-import '../common/kyc_item.pbenum.dart' as $9;
-import '../common/user_data_field.pb.dart' as $7;
-import '../common/validation_data_field.pb.dart' as $8;
+import '../common/kyc.pbenum.dart' as $9;
+import '../common/user_data.pb.dart' as $6;
+import '../common/validation_data.pb.dart' as $7;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -905,17 +904,13 @@ class GetGrantedAccessPartnersResponse extends $pb.GeneratedMessage {
 
 class SetUserDataRequest extends $pb.GeneratedMessage {
   factory SetUserDataRequest({
-    $5.DataType? type,
-    $core.List<$core.int>? encryptedValue,
+    $core.List<$core.int>? payload,
     $core.String? hash,
-    $core.String? signature,
+    $core.List<$core.int>? signature,
   }) {
     final $result = create();
-    if (type != null) {
-      $result.type = type;
-    }
-    if (encryptedValue != null) {
-      $result.encryptedValue = encryptedValue;
+    if (payload != null) {
+      $result.payload = payload;
     }
     if (hash != null) {
       $result.hash = hash;
@@ -930,10 +925,9 @@ class SetUserDataRequest extends $pb.GeneratedMessage {
   factory SetUserDataRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SetUserDataRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
-    ..e<$5.DataType>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: $5.DataType.DATA_TYPE_UNSPECIFIED, valueOf: $5.DataType.valueOf, enumValues: $5.DataType.values)
-    ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'encryptedValue', $pb.PbFieldType.OY)
-    ..aOS(3, _omitFieldNames ? '' : 'hash')
-    ..aOS(4, _omitFieldNames ? '' : 'signature')
+    ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'payload', $pb.PbFieldType.OY)
+    ..aOS(2, _omitFieldNames ? '' : 'hash')
+    ..a<$core.List<$core.int>>(3, _omitFieldNames ? '' : 'signature', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
@@ -958,41 +952,33 @@ class SetUserDataRequest extends $pb.GeneratedMessage {
   static SetUserDataRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetUserDataRequest>(create);
   static SetUserDataRequest? _defaultInstance;
 
+  /// UserDataEnvelope
   @$pb.TagNumber(1)
-  $5.DataType get type => $_getN(0);
+  $core.List<$core.int> get payload => $_getN(0);
   @$pb.TagNumber(1)
-  set type($5.DataType v) { $_setField(1, v); }
+  set payload($core.List<$core.int> v) { $_setBytes(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasType() => $_has(0);
+  $core.bool hasPayload() => $_has(0);
   @$pb.TagNumber(1)
-  void clearType() => $_clearField(1);
+  void clearPayload() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.List<$core.int> get encryptedValue => $_getN(1);
+  $core.String get hash => $_getSZ(1);
   @$pb.TagNumber(2)
-  set encryptedValue($core.List<$core.int> v) { $_setBytes(1, v); }
+  set hash($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasEncryptedValue() => $_has(1);
+  $core.bool hasHash() => $_has(1);
   @$pb.TagNumber(2)
-  void clearEncryptedValue() => $_clearField(2);
+  void clearHash() => $_clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get hash => $_getSZ(2);
+  $core.List<$core.int> get signature => $_getN(2);
   @$pb.TagNumber(3)
-  set hash($core.String v) { $_setString(2, v); }
+  set signature($core.List<$core.int> v) { $_setBytes(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasHash() => $_has(2);
+  $core.bool hasSignature() => $_has(2);
   @$pb.TagNumber(3)
-  void clearHash() => $_clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.String get signature => $_getSZ(3);
-  @$pb.TagNumber(4)
-  set signature($core.String v) { $_setString(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasSignature() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearSignature() => $_clearField(4);
+  void clearSignature() => $_clearField(3);
 }
 
 class SetUserDataResponse extends $pb.GeneratedMessage {
@@ -1029,11 +1015,11 @@ class SetUserDataResponse extends $pb.GeneratedMessage {
 
 class RemoveUserDataRequest extends $pb.GeneratedMessage {
   factory RemoveUserDataRequest({
-    $core.String? id,
+    $core.String? hash,
   }) {
     final $result = create();
-    if (id != null) {
-      $result.id = id;
+    if (hash != null) {
+      $result.hash = hash;
     }
     return $result;
   }
@@ -1042,7 +1028,7 @@ class RemoveUserDataRequest extends $pb.GeneratedMessage {
   factory RemoveUserDataRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RemoveUserDataRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(1, _omitFieldNames ? '' : 'hash')
     ..hasRequiredFields = false
   ;
 
@@ -1068,13 +1054,13 @@ class RemoveUserDataRequest extends $pb.GeneratedMessage {
   static RemoveUserDataRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $core.String get hash => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String v) { $_setString(0, v); }
+  set hash($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasHash() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearHash() => $_clearField(1);
 }
 
 class RemoveUserDataResponse extends $pb.GeneratedMessage {
@@ -1161,8 +1147,8 @@ class GetUserDataRequest extends $pb.GeneratedMessage {
 
 class GetUserDataResponse extends $pb.GeneratedMessage {
   factory GetUserDataResponse({
-    $core.Iterable<$7.UserDataField>? userData,
-    $core.Iterable<$8.ValidationDataField>? validationData,
+    $core.Iterable<$6.UserDataField>? userData,
+    $core.Iterable<$7.ValidationDataField>? validationData,
   }) {
     final $result = create();
     if (userData != null) {
@@ -1178,8 +1164,8 @@ class GetUserDataResponse extends $pb.GeneratedMessage {
   factory GetUserDataResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserDataResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
-    ..pc<$7.UserDataField>(1, _omitFieldNames ? '' : 'userData', $pb.PbFieldType.PM, subBuilder: $7.UserDataField.create)
-    ..pc<$8.ValidationDataField>(2, _omitFieldNames ? '' : 'validationData', $pb.PbFieldType.PM, subBuilder: $8.ValidationDataField.create)
+    ..pc<$6.UserDataField>(1, _omitFieldNames ? '' : 'userData', $pb.PbFieldType.PM, subBuilder: $6.UserDataField.create)
+    ..pc<$7.ValidationDataField>(2, _omitFieldNames ? '' : 'validationData', $pb.PbFieldType.PM, subBuilder: $7.ValidationDataField.create)
     ..hasRequiredFields = false
   ;
 
@@ -1205,10 +1191,10 @@ class GetUserDataResponse extends $pb.GeneratedMessage {
   static GetUserDataResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $pb.PbList<$7.UserDataField> get userData => $_getList(0);
+  $pb.PbList<$6.UserDataField> get userData => $_getList(0);
 
   @$pb.TagNumber(2)
-  $pb.PbList<$8.ValidationDataField> get validationData => $_getList(1);
+  $pb.PbList<$7.ValidationDataField> get validationData => $_getList(1);
 }
 
 class CheckAccessRequest extends $pb.GeneratedMessage {

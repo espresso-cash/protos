@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: brij/storage/v1/common/kyc_item.proto
+//  source: brij/storage/v1/common/kyc.proto
 //
 // @dart = 3.3
 
@@ -30,22 +30,22 @@ final $typed_data.Uint8List kycStatusDescriptor = $convert.base64Decode(
     'VORElORxABEhcKE0tZQ19TVEFUVVNfQVBQUk9WRUQQAhIXChNLWUNfU1RBVFVTX1JFSkVDVEVE'
     'EAM=');
 
-@$core.Deprecated('Use kycItemDescriptor instead')
-const KycItem$json = {
-  '1': 'KycItem',
+@$core.Deprecated('Use kycEnvelopeDescriptor instead')
+const KycEnvelope$json = {
+  '1': 'KycEnvelope',
   '2': [
     {'1': 'countries', '3': 1, '4': 3, '5': 9, '10': 'countries'},
     {'1': 'status', '3': 2, '4': 1, '5': 14, '6': '.brij.storage.v1.common.KycStatus', '10': 'status'},
     {'1': 'provider', '3': 3, '4': 1, '5': 9, '10': 'provider'},
     {'1': 'user_public_key', '3': 4, '4': 1, '5': 9, '10': 'userPublicKey'},
     {'1': 'hashes', '3': 5, '4': 3, '5': 9, '10': 'hashes'},
-    {'1': 'additional_data', '3': 6, '4': 3, '5': 11, '6': '.brij.storage.v1.common.KycItem.AdditionalDataEntry', '10': 'additionalData'},
+    {'1': 'additional_data', '3': 6, '4': 3, '5': 11, '6': '.brij.storage.v1.common.KycEnvelope.AdditionalDataEntry', '10': 'additionalData'},
   ],
-  '3': [KycItem_AdditionalDataEntry$json],
+  '3': [KycEnvelope_AdditionalDataEntry$json],
 };
 
-@$core.Deprecated('Use kycItemDescriptor instead')
-const KycItem_AdditionalDataEntry$json = {
+@$core.Deprecated('Use kycEnvelopeDescriptor instead')
+const KycEnvelope_AdditionalDataEntry$json = {
   '1': 'AdditionalDataEntry',
   '2': [
     {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
@@ -54,13 +54,13 @@ const KycItem_AdditionalDataEntry$json = {
   '7': {'7': true},
 };
 
-/// Descriptor for `KycItem`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List kycItemDescriptor = $convert.base64Decode(
-    'CgdLeWNJdGVtEhwKCWNvdW50cmllcxgBIAMoCVIJY291bnRyaWVzEjkKBnN0YXR1cxgCIAEoDj'
-    'IhLmJyaWouc3RvcmFnZS52MS5jb21tb24uS3ljU3RhdHVzUgZzdGF0dXMSGgoIcHJvdmlkZXIY'
-    'AyABKAlSCHByb3ZpZGVyEiYKD3VzZXJfcHVibGljX2tleRgEIAEoCVINdXNlclB1YmxpY0tleR'
-    'IWCgZoYXNoZXMYBSADKAlSBmhhc2hlcxJcCg9hZGRpdGlvbmFsX2RhdGEYBiADKAsyMy5icmlq'
-    'LnN0b3JhZ2UudjEuY29tbW9uLkt5Y0l0ZW0uQWRkaXRpb25hbERhdGFFbnRyeVIOYWRkaXRpb2'
-    '5hbERhdGEaQQoTQWRkaXRpb25hbERhdGFFbnRyeRIQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1'
-    'ZRgCIAEoDFIFdmFsdWU6AjgB');
+/// Descriptor for `KycEnvelope`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List kycEnvelopeDescriptor = $convert.base64Decode(
+    'CgtLeWNFbnZlbG9wZRIcCgljb3VudHJpZXMYASADKAlSCWNvdW50cmllcxI5CgZzdGF0dXMYAi'
+    'ABKA4yIS5icmlqLnN0b3JhZ2UudjEuY29tbW9uLkt5Y1N0YXR1c1IGc3RhdHVzEhoKCHByb3Zp'
+    'ZGVyGAMgASgJUghwcm92aWRlchImCg91c2VyX3B1YmxpY19rZXkYBCABKAlSDXVzZXJQdWJsaW'
+    'NLZXkSFgoGaGFzaGVzGAUgAygJUgZoYXNoZXMSYAoPYWRkaXRpb25hbF9kYXRhGAYgAygLMjcu'
+    'YnJpai5zdG9yYWdlLnYxLmNvbW1vbi5LeWNFbnZlbG9wZS5BZGRpdGlvbmFsRGF0YUVudHJ5Ug'
+    '5hZGRpdGlvbmFsRGF0YRpBChNBZGRpdGlvbmFsRGF0YUVudHJ5EhAKA2tleRgBIAEoCVIDa2V5'
+    'EhQKBXZhbHVlGAIgASgMUgV2YWx1ZToCOAE=');
 

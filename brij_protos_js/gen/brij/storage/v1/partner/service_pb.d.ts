@@ -4,10 +4,8 @@
 
 import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv1";
 import type { Message } from "@bufbuild/protobuf";
-import type { UserDataField } from "../common/user_data_field_pb";
-import type { ValidationDataField } from "../common/validation_data_field_pb";
-import type { ValidationStatus } from "../common/validation_status_pb";
-import type { KycStatus } from "../common/kyc_item_pb";
+import type { UserDataField } from "../common/user_data_pb";
+import type { ValidationDataField } from "../common/validation_data_pb";
 
 /**
  * Describes the file brij/storage/v1/partner/service.proto.
@@ -103,24 +101,16 @@ export declare const GetUserDataResponseSchema: GenMessage<GetUserDataResponse>;
  */
 export declare type SetValidationDataRequest = Message<"brij.storage.v1.partner.SetValidationDataRequest"> & {
   /**
-   * @generated from field: string data_id = 1;
+   * ValidationDataEnvelope
+   *
+   * @generated from field: bytes payload = 1;
    */
-  dataId: string;
+  payload: Uint8Array;
 
   /**
-   * @generated from field: brij.storage.v1.common.ValidationStatus status = 2;
+   * @generated from field: bytes signature = 2;
    */
-  status: ValidationStatus;
-
-  /**
-   * @generated from field: string hash = 3;
-   */
-  hash: string;
-
-  /**
-   * @generated from field: string signature = 4;
-   */
-  signature: string;
+  signature: Uint8Array;
 };
 
 /**
@@ -146,9 +136,9 @@ export declare const SetValidationDataResponseSchema: GenMessage<SetValidationDa
  */
 export declare type RemoveValidationDataRequest = Message<"brij.storage.v1.partner.RemoveValidationDataRequest"> & {
   /**
-   * @generated from field: string id = 1;
+   * @generated from field: string data_hash = 1;
    */
-  id: string;
+  dataHash: string;
 };
 
 /**
@@ -200,17 +190,14 @@ export declare const GetKycStatusRequestSchema: GenMessage<GetKycStatusRequest>;
  */
 export declare type GetKycStatusResponse = Message<"brij.storage.v1.partner.GetKycStatusResponse"> & {
   /**
-   * @generated from field: brij.storage.v1.common.KycStatus status = 1;
+   * KycEnvelope
+   *
+   * @generated from field: bytes payload = 1;
    */
-  status: KycStatus;
+  payload: Uint8Array;
 
   /**
-   * @generated from field: bytes data = 2;
-   */
-  data: Uint8Array;
-
-  /**
-   * @generated from field: bytes signature = 3;
+   * @generated from field: bytes signature = 2;
    */
   signature: Uint8Array;
 };
@@ -226,9 +213,11 @@ export declare const GetKycStatusResponseSchema: GenMessage<GetKycStatusResponse
  */
 export declare type CreateKycStatusRequest = Message<"brij.storage.v1.partner.CreateKycStatusRequest"> & {
   /**
-   * @generated from field: bytes data = 1;
+   * KycEnvelope
+   *
+   * @generated from field: bytes payload = 1;
    */
-  data: Uint8Array;
+  payload: Uint8Array;
 
   /**
    * @generated from field: bytes signature = 2;
@@ -268,9 +257,11 @@ export declare type UpdateKycStatusRequest = Message<"brij.storage.v1.partner.Up
   kycId: string;
 
   /**
-   * @generated from field: bytes data = 2;
+   * KycEnvelope
+   *
+   * @generated from field: bytes payload = 2;
    */
-  data: Uint8Array;
+  payload: Uint8Array;
 
   /**
    * @generated from field: bytes signature = 3;

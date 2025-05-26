@@ -13,9 +13,8 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-import '../../../../google/protobuf/timestamp.pbjson.dart' as $4;
-import '../common/user_data_field.pbjson.dart' as $7;
-import '../common/validation_data_field.pbjson.dart' as $8;
+import '../common/user_data.pbjson.dart' as $6;
+import '../common/validation_data.pbjson.dart' as $7;
 
 @$core.Deprecated('Use getPartnerInfoRequestDescriptor instead')
 const GetPartnerInfoRequest$json = {
@@ -225,18 +224,16 @@ final $typed_data.Uint8List getGrantedAccessPartnersResponseDescriptor = $conver
 const SetUserDataRequest$json = {
   '1': 'SetUserDataRequest',
   '2': [
-    {'1': 'type', '3': 1, '4': 1, '5': 14, '6': '.brij.storage.v1.common.DataType', '10': 'type'},
-    {'1': 'encrypted_value', '3': 2, '4': 1, '5': 12, '10': 'encryptedValue'},
-    {'1': 'hash', '3': 3, '4': 1, '5': 9, '10': 'hash'},
-    {'1': 'signature', '3': 4, '4': 1, '5': 9, '10': 'signature'},
+    {'1': 'payload', '3': 1, '4': 1, '5': 12, '10': 'payload'},
+    {'1': 'hash', '3': 2, '4': 1, '5': 9, '10': 'hash'},
+    {'1': 'signature', '3': 3, '4': 1, '5': 12, '10': 'signature'},
   ],
 };
 
 /// Descriptor for `SetUserDataRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List setUserDataRequestDescriptor = $convert.base64Decode(
-    'ChJTZXRVc2VyRGF0YVJlcXVlc3QSNAoEdHlwZRgBIAEoDjIgLmJyaWouc3RvcmFnZS52MS5jb2'
-    '1tb24uRGF0YVR5cGVSBHR5cGUSJwoPZW5jcnlwdGVkX3ZhbHVlGAIgASgMUg5lbmNyeXB0ZWRW'
-    'YWx1ZRISCgRoYXNoGAMgASgJUgRoYXNoEhwKCXNpZ25hdHVyZRgEIAEoCVIJc2lnbmF0dXJl');
+    'ChJTZXRVc2VyRGF0YVJlcXVlc3QSGAoHcGF5bG9hZBgBIAEoDFIHcGF5bG9hZBISCgRoYXNoGA'
+    'IgASgJUgRoYXNoEhwKCXNpZ25hdHVyZRgDIAEoDFIJc2lnbmF0dXJl');
 
 @$core.Deprecated('Use setUserDataResponseDescriptor instead')
 const SetUserDataResponse$json = {
@@ -251,13 +248,13 @@ final $typed_data.Uint8List setUserDataResponseDescriptor = $convert.base64Decod
 const RemoveUserDataRequest$json = {
   '1': 'RemoveUserDataRequest',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'hash', '3': 1, '4': 1, '5': 9, '10': 'hash'},
   ],
 };
 
 /// Descriptor for `RemoveUserDataRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List removeUserDataRequestDescriptor = $convert.base64Decode(
-    'ChVSZW1vdmVVc2VyRGF0YVJlcXVlc3QSDgoCaWQYASABKAlSAmlk');
+    'ChVSZW1vdmVVc2VyRGF0YVJlcXVlc3QSEgoEaGFzaBgBIAEoCVIEaGFzaA==');
 
 @$core.Deprecated('Use removeUserDataResponseDescriptor instead')
 const RemoveUserDataResponse$json = {
@@ -417,9 +414,8 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> WalletServ
   '.brij.storage.v1.wallet.RemoveAllUserDataResponse': RemoveAllUserDataResponse$json,
   '.brij.storage.v1.wallet.GetUserDataRequest': GetUserDataRequest$json,
   '.brij.storage.v1.wallet.GetUserDataResponse': GetUserDataResponse$json,
-  '.brij.storage.v1.common.UserDataField': $7.UserDataField$json,
-  '.google.protobuf.Timestamp': $4.Timestamp$json,
-  '.brij.storage.v1.common.ValidationDataField': $8.ValidationDataField$json,
+  '.brij.storage.v1.common.UserDataField': $6.UserDataField$json,
+  '.brij.storage.v1.common.ValidationDataField': $7.ValidationDataField$json,
   '.brij.storage.v1.wallet.CheckAccessRequest': CheckAccessRequest$json,
   '.brij.storage.v1.wallet.CheckAccessResponse': CheckAccessResponse$json,
   '.brij.storage.v1.wallet.GetKycStatusRequest': GetKycStatusRequest$json,

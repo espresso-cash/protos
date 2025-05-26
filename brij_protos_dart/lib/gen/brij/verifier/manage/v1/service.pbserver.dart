@@ -15,27 +15,27 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'service.pb.dart' as $12;
+import 'service.pb.dart' as $11;
 import 'service.pbjson.dart';
 
 export 'service.pb.dart';
 
 abstract class ManageServiceBase extends $pb.GeneratedService {
-  $async.Future<$12.SmileIdCheckStatusResponse> smileIdCheckStatus($pb.ServerContext ctx, $12.SmileIdCheckStatusRequest request);
-  $async.Future<$12.SumsubCheckStatusResponse> sumsubCheckStatus($pb.ServerContext ctx, $12.SumsubCheckStatusRequest request);
+  $async.Future<$11.SmileIdCheckStatusResponse> smileIdCheckStatus($pb.ServerContext ctx, $11.SmileIdCheckStatusRequest request);
+  $async.Future<$11.SumsubCheckStatusResponse> sumsubCheckStatus($pb.ServerContext ctx, $11.SumsubCheckStatusRequest request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
-      case 'SmileIdCheckStatus': return $12.SmileIdCheckStatusRequest();
-      case 'SumsubCheckStatus': return $12.SumsubCheckStatusRequest();
+      case 'SmileIdCheckStatus': return $11.SmileIdCheckStatusRequest();
+      case 'SumsubCheckStatus': return $11.SumsubCheckStatusRequest();
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }
 
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
-      case 'SmileIdCheckStatus': return this.smileIdCheckStatus(ctx, request as $12.SmileIdCheckStatusRequest);
-      case 'SumsubCheckStatus': return this.sumsubCheckStatus(ctx, request as $12.SumsubCheckStatusRequest);
+      case 'SmileIdCheckStatus': return this.smileIdCheckStatus(ctx, request as $11.SmileIdCheckStatusRequest);
+      case 'SumsubCheckStatus': return this.sumsubCheckStatus(ctx, request as $11.SumsubCheckStatusRequest);
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }

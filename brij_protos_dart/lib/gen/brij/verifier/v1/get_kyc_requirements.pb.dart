@@ -13,7 +13,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'data.pbenum.dart' as $13;
+import 'data.pbenum.dart' as $12;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -127,7 +127,7 @@ class GetKycRequirementsResponse extends $pb.GeneratedMessage {
 
 class Requirement extends $pb.GeneratedMessage {
   factory Requirement({
-    $13.DataType? type,
+    $12.DataType? type,
     Formula? formula,
   }) {
     final $result = create();
@@ -144,7 +144,7 @@ class Requirement extends $pb.GeneratedMessage {
   factory Requirement.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Requirement', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.verifier.v1'), createEmptyInstance: create)
-    ..e<$13.DataType>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: $13.DataType.DATA_TYPE_UNSPECIFIED, valueOf: $13.DataType.valueOf, enumValues: $13.DataType.values)
+    ..e<$12.DataType>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: $12.DataType.DATA_TYPE_UNSPECIFIED, valueOf: $12.DataType.valueOf, enumValues: $12.DataType.values)
     ..aOM<Formula>(2, _omitFieldNames ? '' : 'formula', subBuilder: Formula.create)
     ..hasRequiredFields = false
   ;
@@ -171,9 +171,9 @@ class Requirement extends $pb.GeneratedMessage {
   static Requirement? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $13.DataType get type => $_getN(0);
+  $12.DataType get type => $_getN(0);
   @$pb.TagNumber(1)
-  set type($13.DataType v) { $_setField(1, v); }
+  set type($12.DataType v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasType() => $_has(0);
   @$pb.TagNumber(1)
@@ -245,8 +245,8 @@ enum Formula_Condition_Value {
 class Formula_Condition extends $pb.GeneratedMessage {
   factory Formula_Condition({
     $core.String? countryCode,
-    $13.DocumentType? documentType,
-    $13.DocumentFieldType? documentField,
+    $12.DocumentType? documentType,
+    $12.DocumentFieldType? documentField,
   }) {
     final $result = create();
     if (countryCode != null) {
@@ -273,8 +273,8 @@ class Formula_Condition extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Formula.Condition', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.verifier.v1'), createEmptyInstance: create)
     ..oo(0, [1, 2, 3])
     ..aOS(1, _omitFieldNames ? '' : 'countryCode')
-    ..e<$13.DocumentType>(2, _omitFieldNames ? '' : 'documentType', $pb.PbFieldType.OE, defaultOrMaker: $13.DocumentType.DOCUMENT_TYPE_UNSPECIFIED, valueOf: $13.DocumentType.valueOf, enumValues: $13.DocumentType.values)
-    ..e<$13.DocumentFieldType>(3, _omitFieldNames ? '' : 'documentField', $pb.PbFieldType.OE, defaultOrMaker: $13.DocumentFieldType.DOCUMENT_FIELD_TYPE_UNSPECIFIED, valueOf: $13.DocumentFieldType.valueOf, enumValues: $13.DocumentFieldType.values)
+    ..e<$12.DocumentType>(2, _omitFieldNames ? '' : 'documentType', $pb.PbFieldType.OE, defaultOrMaker: $12.DocumentType.DOCUMENT_TYPE_UNSPECIFIED, valueOf: $12.DocumentType.valueOf, enumValues: $12.DocumentType.values)
+    ..e<$12.DocumentFieldType>(3, _omitFieldNames ? '' : 'documentField', $pb.PbFieldType.OE, defaultOrMaker: $12.DocumentFieldType.DOCUMENT_FIELD_TYPE_UNSPECIFIED, valueOf: $12.DocumentFieldType.valueOf, enumValues: $12.DocumentFieldType.values)
     ..hasRequiredFields = false
   ;
 
@@ -312,18 +312,18 @@ class Formula_Condition extends $pb.GeneratedMessage {
   void clearCountryCode() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $13.DocumentType get documentType => $_getN(1);
+  $12.DocumentType get documentType => $_getN(1);
   @$pb.TagNumber(2)
-  set documentType($13.DocumentType v) { $_setField(2, v); }
+  set documentType($12.DocumentType v) { $_setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasDocumentType() => $_has(1);
   @$pb.TagNumber(2)
   void clearDocumentType() => $_clearField(2);
 
   @$pb.TagNumber(3)
-  $13.DocumentFieldType get documentField => $_getN(2);
+  $12.DocumentFieldType get documentField => $_getN(2);
   @$pb.TagNumber(3)
-  set documentField($13.DocumentFieldType v) { $_setField(3, v); }
+  set documentField($12.DocumentFieldType v) { $_setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasDocumentField() => $_has(2);
   @$pb.TagNumber(3)

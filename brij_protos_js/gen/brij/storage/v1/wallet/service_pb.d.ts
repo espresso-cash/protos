@@ -4,10 +4,9 @@
 
 import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv1";
 import type { Message } from "@bufbuild/protobuf";
-import type { DataType } from "../common/data_pb";
-import type { UserDataField } from "../common/user_data_field_pb";
-import type { ValidationDataField } from "../common/validation_data_field_pb";
-import type { KycStatus } from "../common/kyc_item_pb";
+import type { UserDataField } from "../common/user_data_pb";
+import type { ValidationDataField } from "../common/validation_data_pb";
+import type { KycStatus } from "../common/kyc_pb";
 
 /**
  * Describes the file brij/storage/v1/wallet/service.proto.
@@ -321,24 +320,21 @@ export declare const GetGrantedAccessPartnersResponseSchema: GenMessage<GetGrant
  */
 export declare type SetUserDataRequest = Message<"brij.storage.v1.wallet.SetUserDataRequest"> & {
   /**
-   * @generated from field: brij.storage.v1.common.DataType type = 1;
+   * UserDataEnvelope
+   *
+   * @generated from field: bytes payload = 1;
    */
-  type: DataType;
+  payload: Uint8Array;
 
   /**
-   * @generated from field: bytes encrypted_value = 2;
-   */
-  encryptedValue: Uint8Array;
-
-  /**
-   * @generated from field: string hash = 3;
+   * @generated from field: string hash = 2;
    */
   hash: string;
 
   /**
-   * @generated from field: string signature = 4;
+   * @generated from field: bytes signature = 3;
    */
-  signature: string;
+  signature: Uint8Array;
 };
 
 /**
@@ -364,9 +360,9 @@ export declare const SetUserDataResponseSchema: GenMessage<SetUserDataResponse>;
  */
 export declare type RemoveUserDataRequest = Message<"brij.storage.v1.wallet.RemoveUserDataRequest"> & {
   /**
-   * @generated from field: string id = 1;
+   * @generated from field: string hash = 1;
    */
-  id: string;
+  hash: string;
 };
 
 /**

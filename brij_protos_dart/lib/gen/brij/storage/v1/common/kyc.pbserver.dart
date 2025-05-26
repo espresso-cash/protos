@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: brij/storage/v1/common/user_data_field.proto
+//  source: brij/storage/v1/common/kyc.proto
 //
 // @dart = 3.3
 
@@ -10,5 +10,5 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
-export 'user_data_field.pb.dart';
+export 'kyc.pb.dart';
 
