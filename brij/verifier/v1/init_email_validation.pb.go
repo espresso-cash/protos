@@ -23,7 +23,7 @@ const (
 
 type InitEmailValidationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	DataId        string                 `protobuf:"bytes,1,opt,name=data_id,json=dataId,proto3" json:"data_id,omitempty"`
+	DataHash      string                 `protobuf:"bytes,1,opt,name=data_hash,json=dataHash,proto3" json:"data_hash,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -58,9 +58,9 @@ func (*InitEmailValidationRequest) Descriptor() ([]byte, []int) {
 	return file_brij_verifier_v1_init_email_validation_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *InitEmailValidationRequest) GetDataId() string {
+func (x *InitEmailValidationRequest) GetDataHash() string {
 	if x != nil {
-		return x.DataId
+		return x.DataHash
 	}
 	return ""
 }
@@ -105,9 +105,9 @@ var File_brij_verifier_v1_init_email_validation_proto protoreflect.FileDescripto
 
 const file_brij_verifier_v1_init_email_validation_proto_rawDesc = "" +
 	"\n" +
-	",brij/verifier/v1/init_email_validation.proto\x12\x10brij.verifier.v1\"5\n" +
-	"\x1aInitEmailValidationRequest\x12\x17\n" +
-	"\adata_id\x18\x01 \x01(\tR\x06dataId\"\x1d\n" +
+	",brij/verifier/v1/init_email_validation.proto\x12\x10brij.verifier.v1\"9\n" +
+	"\x1aInitEmailValidationRequest\x12\x1b\n" +
+	"\tdata_hash\x18\x01 \x01(\tR\bdataHash\"\x1d\n" +
 	"\x1bInitEmailValidationResponseB$Z\"go.brij.fi/protos/brij/verifier/v1b\x06proto3"
 
 var (

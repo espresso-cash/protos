@@ -17,13 +17,14 @@ import 'dart:typed_data' as $typed_data;
 const InitPhoneValidationRequest$json = {
   '1': 'InitPhoneValidationRequest',
   '2': [
-    {'1': 'data_id', '3': 1, '4': 1, '5': 9, '10': 'dataId'},
+    {'1': 'data_hash', '3': 1, '4': 1, '5': 9, '10': 'dataHash'},
   ],
 };
 
 /// Descriptor for `InitPhoneValidationRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List initPhoneValidationRequestDescriptor = $convert.base64Decode(
-    'ChpJbml0UGhvbmVWYWxpZGF0aW9uUmVxdWVzdBIXCgdkYXRhX2lkGAEgASgJUgZkYXRhSWQ=');
+    'ChpJbml0UGhvbmVWYWxpZGF0aW9uUmVxdWVzdBIbCglkYXRhX2hhc2gYASABKAlSCGRhdGFIYX'
+    'No');
 
 @$core.Deprecated('Use initPhoneValidationResponseDescriptor instead')
 const InitPhoneValidationResponse$json = {

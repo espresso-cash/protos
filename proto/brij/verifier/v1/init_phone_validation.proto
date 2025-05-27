@@ -5,7 +5,7 @@ package brij.verifier.v1;
 option go_package = "go.brij.fi/protos/brij/verifier/v1";
 
 message InitPhoneValidationRequest {
-  string data_id = 1;
+  string data_hash = 1;
 }
 
 message InitPhoneValidationResponse {}

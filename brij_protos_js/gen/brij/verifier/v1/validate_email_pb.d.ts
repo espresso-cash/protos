@@ -20,9 +20,9 @@ export declare type ValidateEmailRequest = Message<"brij.verifier.v1.ValidateEma
   code: string;
 
   /**
-   * @generated from field: string data_id = 2;
+   * @generated from field: string data_hash = 2;
    */
-  dataId: string;
+  dataHash: string;
 };
 
 /**

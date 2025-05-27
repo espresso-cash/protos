@@ -6,7 +6,7 @@ option go_package = "go.brij.fi/protos/brij/verifier/v1";
 
 message ValidatePhoneRequest {
   string code = 1;
-  string data_id = 2;
+  string data_hash = 2;
 }
 
 message ValidatePhoneResponse {}

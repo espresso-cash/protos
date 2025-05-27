@@ -15,9 +15,9 @@ export declare const file_brij_verifier_v1_init_email_validation: GenFile;
  */
 export declare type InitEmailValidationRequest = Message<"brij.verifier.v1.InitEmailValidationRequest"> & {
   /**
-   * @generated from field: string data_id = 1;
+   * @generated from field: string data_hash = 1;
    */
-  dataId: string;
+  dataHash: string;
 };
 
 /**
