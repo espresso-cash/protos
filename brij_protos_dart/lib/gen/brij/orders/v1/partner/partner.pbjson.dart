@@ -31,68 +31,47 @@ final $typed_data.Uint8List getOrderRequestDescriptor = $convert.base64Decode(
 const GetOrderResponse$json = {
   '1': 'GetOrderResponse',
   '2': [
-    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
-    {'1': 'created', '3': 2, '4': 1, '5': 9, '10': 'created'},
-    {'1': 'status', '3': 3, '4': 1, '5': 9, '10': 'status'},
-    {'1': 'partner_public_key', '3': 4, '4': 1, '5': 9, '10': 'partnerPublicKey'},
-    {'1': 'user_public_key', '3': 5, '4': 1, '5': 9, '10': 'userPublicKey'},
-    {'1': 'comment', '3': 7, '4': 1, '5': 9, '10': 'comment'},
-    {'1': 'type', '3': 8, '4': 1, '5': 14, '6': '.brij.orders.v1.common.RampType', '10': 'type'},
-    {'1': 'crypto_amount', '3': 9, '4': 1, '5': 1, '10': 'cryptoAmount'},
-    {'1': 'crypto_currency', '3': 10, '4': 1, '5': 9, '10': 'cryptoCurrency'},
-    {'1': 'fiat_amount', '3': 11, '4': 1, '5': 1, '10': 'fiatAmount'},
-    {'1': 'fiat_currency', '3': 12, '4': 1, '5': 9, '10': 'fiatCurrency'},
-    {'1': 'bank_name', '3': 13, '4': 1, '5': 9, '10': 'bankName'},
-    {'1': 'bank_account', '3': 14, '4': 1, '5': 9, '10': 'bankAccount'},
-    {'1': 'crypto_wallet_address', '3': 15, '4': 1, '5': 9, '10': 'cryptoWalletAddress'},
-    {'1': 'transaction', '3': 16, '4': 1, '5': 9, '10': 'transaction'},
-    {'1': 'transaction_id', '3': 17, '4': 1, '5': 9, '10': 'transactionId'},
-    {'1': 'external_id', '3': 18, '4': 1, '5': 9, '10': 'externalId'},
-    {'1': 'user_signature', '3': 19, '4': 1, '5': 9, '10': 'userSignature'},
-    {'1': 'partner_signature', '3': 20, '4': 1, '5': 9, '10': 'partnerSignature'},
-    {'1': 'user_wallet_address', '3': 21, '4': 1, '5': 9, '10': 'userWalletAddress'},
-    {'1': 'wallet_public_key', '3': 22, '4': 1, '5': 9, '10': 'walletPublicKey'},
+    {'1': 'user_payload', '3': 1, '4': 1, '5': 12, '10': 'userPayload'},
+    {'1': 'user_signature', '3': 2, '4': 1, '5': 12, '10': 'userSignature'},
+    {'1': 'partner_payload', '3': 3, '4': 1, '5': 12, '10': 'partnerPayload'},
+    {'1': 'partner_signature', '3': 4, '4': 1, '5': 12, '10': 'partnerSignature'},
+    {'1': 'created', '3': 5, '4': 1, '5': 9, '10': 'created'},
+    {'1': 'status', '3': 6, '4': 1, '5': 9, '10': 'status'},
+    {'1': 'user_public_key', '3': 7, '4': 1, '5': 9, '10': 'userPublicKey'},
+    {'1': 'partner_public_key', '3': 8, '4': 1, '5': 9, '10': 'partnerPublicKey'},
+    {'1': 'type', '3': 9, '4': 1, '5': 14, '6': '.brij.orders.v1.common.RampType', '10': 'type'},
+    {'1': 'transaction', '3': 10, '4': 1, '5': 9, '10': 'transaction'},
+    {'1': 'transaction_id', '3': 11, '4': 1, '5': 9, '10': 'transactionId'},
+    {'1': 'external_id', '3': 12, '4': 1, '5': 9, '10': 'externalId'},
   ],
 };
 
 /// Descriptor for `GetOrderResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getOrderResponseDescriptor = $convert.base64Decode(
-    'ChBHZXRPcmRlclJlc3BvbnNlEhkKCG9yZGVyX2lkGAEgASgJUgdvcmRlcklkEhgKB2NyZWF0ZW'
-    'QYAiABKAlSB2NyZWF0ZWQSFgoGc3RhdHVzGAMgASgJUgZzdGF0dXMSLAoScGFydG5lcl9wdWJs'
-    'aWNfa2V5GAQgASgJUhBwYXJ0bmVyUHVibGljS2V5EiYKD3VzZXJfcHVibGljX2tleRgFIAEoCV'
-    'INdXNlclB1YmxpY0tleRIYCgdjb21tZW50GAcgASgJUgdjb21tZW50EjMKBHR5cGUYCCABKA4y'
-    'Hy5icmlqLm9yZGVycy52MS5jb21tb24uUmFtcFR5cGVSBHR5cGUSIwoNY3J5cHRvX2Ftb3VudB'
-    'gJIAEoAVIMY3J5cHRvQW1vdW50EicKD2NyeXB0b19jdXJyZW5jeRgKIAEoCVIOY3J5cHRvQ3Vy'
-    'cmVuY3kSHwoLZmlhdF9hbW91bnQYCyABKAFSCmZpYXRBbW91bnQSIwoNZmlhdF9jdXJyZW5jeR'
-    'gMIAEoCVIMZmlhdEN1cnJlbmN5EhsKCWJhbmtfbmFtZRgNIAEoCVIIYmFua05hbWUSIQoMYmFu'
-    'a19hY2NvdW50GA4gASgJUgtiYW5rQWNjb3VudBIyChVjcnlwdG9fd2FsbGV0X2FkZHJlc3MYDy'
-    'ABKAlSE2NyeXB0b1dhbGxldEFkZHJlc3MSIAoLdHJhbnNhY3Rpb24YECABKAlSC3RyYW5zYWN0'
-    'aW9uEiUKDnRyYW5zYWN0aW9uX2lkGBEgASgJUg10cmFuc2FjdGlvbklkEh8KC2V4dGVybmFsX2'
-    'lkGBIgASgJUgpleHRlcm5hbElkEiUKDnVzZXJfc2lnbmF0dXJlGBMgASgJUg11c2VyU2lnbmF0'
-    'dXJlEisKEXBhcnRuZXJfc2lnbmF0dXJlGBQgASgJUhBwYXJ0bmVyU2lnbmF0dXJlEi4KE3VzZX'
-    'Jfd2FsbGV0X2FkZHJlc3MYFSABKAlSEXVzZXJXYWxsZXRBZGRyZXNzEioKEXdhbGxldF9wdWJs'
-    'aWNfa2V5GBYgASgJUg93YWxsZXRQdWJsaWNLZXk=');
+    'ChBHZXRPcmRlclJlc3BvbnNlEiEKDHVzZXJfcGF5bG9hZBgBIAEoDFILdXNlclBheWxvYWQSJQ'
+    'oOdXNlcl9zaWduYXR1cmUYAiABKAxSDXVzZXJTaWduYXR1cmUSJwoPcGFydG5lcl9wYXlsb2Fk'
+    'GAMgASgMUg5wYXJ0bmVyUGF5bG9hZBIrChFwYXJ0bmVyX3NpZ25hdHVyZRgEIAEoDFIQcGFydG'
+    '5lclNpZ25hdHVyZRIYCgdjcmVhdGVkGAUgASgJUgdjcmVhdGVkEhYKBnN0YXR1cxgGIAEoCVIG'
+    'c3RhdHVzEiYKD3VzZXJfcHVibGljX2tleRgHIAEoCVINdXNlclB1YmxpY0tleRIsChJwYXJ0bm'
+    'VyX3B1YmxpY19rZXkYCCABKAlSEHBhcnRuZXJQdWJsaWNLZXkSMwoEdHlwZRgJIAEoDjIfLmJy'
+    'aWoub3JkZXJzLnYxLmNvbW1vbi5SYW1wVHlwZVIEdHlwZRIgCgt0cmFuc2FjdGlvbhgKIAEoCV'
+    'ILdHJhbnNhY3Rpb24SJQoOdHJhbnNhY3Rpb25faWQYCyABKAlSDXRyYW5zYWN0aW9uSWQSHwoL'
+    'ZXh0ZXJuYWxfaWQYDCABKAlSCmV4dGVybmFsSWQ=');
 
 @$core.Deprecated('Use acceptOrderRequestDescriptor instead')
 const AcceptOrderRequest$json = {
   '1': 'AcceptOrderRequest',
   '2': [
-    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
-    {'1': 'bank_name', '3': 2, '4': 1, '5': 9, '10': 'bankName'},
-    {'1': 'bank_account', '3': 3, '4': 1, '5': 9, '10': 'bankAccount'},
-    {'1': 'crypto_wallet_address', '3': 4, '4': 1, '5': 9, '10': 'cryptoWalletAddress'},
-    {'1': 'external_id', '3': 5, '4': 1, '5': 9, '10': 'externalId'},
-    {'1': 'partner_signature', '3': 6, '4': 1, '5': 9, '10': 'partnerSignature'},
+    {'1': 'payload', '3': 1, '4': 1, '5': 12, '10': 'payload'},
+    {'1': 'signature', '3': 2, '4': 1, '5': 12, '10': 'signature'},
+    {'1': 'external_id', '3': 3, '4': 1, '5': 9, '10': 'externalId'},
   ],
 };
 
 /// Descriptor for `AcceptOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List acceptOrderRequestDescriptor = $convert.base64Decode(
-    'ChJBY2NlcHRPcmRlclJlcXVlc3QSGQoIb3JkZXJfaWQYASABKAlSB29yZGVySWQSGwoJYmFua1'
-    '9uYW1lGAIgASgJUghiYW5rTmFtZRIhCgxiYW5rX2FjY291bnQYAyABKAlSC2JhbmtBY2NvdW50'
-    'EjIKFWNyeXB0b193YWxsZXRfYWRkcmVzcxgEIAEoCVITY3J5cHRvV2FsbGV0QWRkcmVzcxIfCg'
-    'tleHRlcm5hbF9pZBgFIAEoCVIKZXh0ZXJuYWxJZBIrChFwYXJ0bmVyX3NpZ25hdHVyZRgGIAEo'
-    'CVIQcGFydG5lclNpZ25hdHVyZQ==');
+    'ChJBY2NlcHRPcmRlclJlcXVlc3QSGAoHcGF5bG9hZBgBIAEoDFIHcGF5bG9hZBIcCglzaWduYX'
+    'R1cmUYAiABKAxSCXNpZ25hdHVyZRIfCgtleHRlcm5hbF9pZBgDIAEoCVIKZXh0ZXJuYWxJZA==');
 
 @$core.Deprecated('Use acceptOrderResponseDescriptor instead')
 const AcceptOrderResponse$json = {

@@ -20,43 +20,15 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 class CreateOnRampOrderRequest extends $pb.GeneratedMessage {
   factory CreateOnRampOrderRequest({
-    $core.String? partnerPublicKey,
-    $core.double? cryptoAmount,
-    $core.String? cryptoCurrency,
-    $core.double? fiatAmount,
-    $core.String? fiatCurrency,
-    $core.String? userSignature,
-    $core.String? userWalletAddress,
-    $core.String? walletPublicKey,
-    $core.String? orderId,
+    $core.List<$core.int>? payload,
+    $core.List<$core.int>? signature,
   }) {
     final $result = create();
-    if (partnerPublicKey != null) {
-      $result.partnerPublicKey = partnerPublicKey;
+    if (payload != null) {
+      $result.payload = payload;
     }
-    if (cryptoAmount != null) {
-      $result.cryptoAmount = cryptoAmount;
-    }
-    if (cryptoCurrency != null) {
-      $result.cryptoCurrency = cryptoCurrency;
-    }
-    if (fiatAmount != null) {
-      $result.fiatAmount = fiatAmount;
-    }
-    if (fiatCurrency != null) {
-      $result.fiatCurrency = fiatCurrency;
-    }
-    if (userSignature != null) {
-      $result.userSignature = userSignature;
-    }
-    if (userWalletAddress != null) {
-      $result.userWalletAddress = userWalletAddress;
-    }
-    if (walletPublicKey != null) {
-      $result.walletPublicKey = walletPublicKey;
-    }
-    if (orderId != null) {
-      $result.orderId = orderId;
+    if (signature != null) {
+      $result.signature = signature;
     }
     return $result;
   }
@@ -65,15 +37,8 @@ class CreateOnRampOrderRequest extends $pb.GeneratedMessage {
   factory CreateOnRampOrderRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateOnRampOrderRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.orders.v1.wallet'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'partnerPublicKey')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'cryptoAmount', $pb.PbFieldType.OD)
-    ..aOS(3, _omitFieldNames ? '' : 'cryptoCurrency')
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'fiatAmount', $pb.PbFieldType.OD)
-    ..aOS(5, _omitFieldNames ? '' : 'fiatCurrency')
-    ..aOS(6, _omitFieldNames ? '' : 'userSignature')
-    ..aOS(7, _omitFieldNames ? '' : 'userWalletAddress')
-    ..aOS(8, _omitFieldNames ? '' : 'walletPublicKey')
-    ..aOS(9, _omitFieldNames ? '' : 'orderId')
+    ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'payload', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'signature', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
@@ -98,86 +63,24 @@ class CreateOnRampOrderRequest extends $pb.GeneratedMessage {
   static CreateOnRampOrderRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateOnRampOrderRequest>(create);
   static CreateOnRampOrderRequest? _defaultInstance;
 
+  /// OnRampOrderUserEnvelope
   @$pb.TagNumber(1)
-  $core.String get partnerPublicKey => $_getSZ(0);
+  $core.List<$core.int> get payload => $_getN(0);
   @$pb.TagNumber(1)
-  set partnerPublicKey($core.String v) { $_setString(0, v); }
+  set payload($core.List<$core.int> v) { $_setBytes(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPartnerPublicKey() => $_has(0);
+  $core.bool hasPayload() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPartnerPublicKey() => $_clearField(1);
+  void clearPayload() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get cryptoAmount => $_getN(1);
+  $core.List<$core.int> get signature => $_getN(1);
   @$pb.TagNumber(2)
-  set cryptoAmount($core.double v) { $_setDouble(1, v); }
+  set signature($core.List<$core.int> v) { $_setBytes(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasCryptoAmount() => $_has(1);
+  $core.bool hasSignature() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCryptoAmount() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get cryptoCurrency => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set cryptoCurrency($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasCryptoCurrency() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearCryptoCurrency() => $_clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.double get fiatAmount => $_getN(3);
-  @$pb.TagNumber(4)
-  set fiatAmount($core.double v) { $_setDouble(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasFiatAmount() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearFiatAmount() => $_clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.String get fiatCurrency => $_getSZ(4);
-  @$pb.TagNumber(5)
-  set fiatCurrency($core.String v) { $_setString(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasFiatCurrency() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearFiatCurrency() => $_clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.String get userSignature => $_getSZ(5);
-  @$pb.TagNumber(6)
-  set userSignature($core.String v) { $_setString(5, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasUserSignature() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearUserSignature() => $_clearField(6);
-
-  @$pb.TagNumber(7)
-  $core.String get userWalletAddress => $_getSZ(6);
-  @$pb.TagNumber(7)
-  set userWalletAddress($core.String v) { $_setString(6, v); }
-  @$pb.TagNumber(7)
-  $core.bool hasUserWalletAddress() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearUserWalletAddress() => $_clearField(7);
-
-  @$pb.TagNumber(8)
-  $core.String get walletPublicKey => $_getSZ(7);
-  @$pb.TagNumber(8)
-  set walletPublicKey($core.String v) { $_setString(7, v); }
-  @$pb.TagNumber(8)
-  $core.bool hasWalletPublicKey() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearWalletPublicKey() => $_clearField(8);
-
-  @$pb.TagNumber(9)
-  $core.String get orderId => $_getSZ(8);
-  @$pb.TagNumber(9)
-  set orderId($core.String v) { $_setString(8, v); }
-  @$pb.TagNumber(9)
-  $core.bool hasOrderId() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearOrderId() => $_clearField(9);
+  void clearSignature() => $_clearField(2);
 }
 
 class CreateOnRampOrderResponse extends $pb.GeneratedMessage {
@@ -232,51 +135,15 @@ class CreateOnRampOrderResponse extends $pb.GeneratedMessage {
 
 class CreateOffRampOrderRequest extends $pb.GeneratedMessage {
   factory CreateOffRampOrderRequest({
-    $core.String? partnerPublicKey,
-    $core.double? cryptoAmount,
-    $core.String? cryptoCurrency,
-    $core.double? fiatAmount,
-    $core.String? fiatCurrency,
-    $core.String? bankName,
-    $core.String? bankAccount,
-    $core.String? userSignature,
-    $core.String? userWalletAddress,
-    $core.String? walletPublicKey,
-    $core.String? orderId,
+    $core.List<$core.int>? payload,
+    $core.List<$core.int>? signature,
   }) {
     final $result = create();
-    if (partnerPublicKey != null) {
-      $result.partnerPublicKey = partnerPublicKey;
+    if (payload != null) {
+      $result.payload = payload;
     }
-    if (cryptoAmount != null) {
-      $result.cryptoAmount = cryptoAmount;
-    }
-    if (cryptoCurrency != null) {
-      $result.cryptoCurrency = cryptoCurrency;
-    }
-    if (fiatAmount != null) {
-      $result.fiatAmount = fiatAmount;
-    }
-    if (fiatCurrency != null) {
-      $result.fiatCurrency = fiatCurrency;
-    }
-    if (bankName != null) {
-      $result.bankName = bankName;
-    }
-    if (bankAccount != null) {
-      $result.bankAccount = bankAccount;
-    }
-    if (userSignature != null) {
-      $result.userSignature = userSignature;
-    }
-    if (userWalletAddress != null) {
-      $result.userWalletAddress = userWalletAddress;
-    }
-    if (walletPublicKey != null) {
-      $result.walletPublicKey = walletPublicKey;
-    }
-    if (orderId != null) {
-      $result.orderId = orderId;
+    if (signature != null) {
+      $result.signature = signature;
     }
     return $result;
   }
@@ -285,17 +152,8 @@ class CreateOffRampOrderRequest extends $pb.GeneratedMessage {
   factory CreateOffRampOrderRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateOffRampOrderRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.orders.v1.wallet'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'partnerPublicKey')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'cryptoAmount', $pb.PbFieldType.OD)
-    ..aOS(3, _omitFieldNames ? '' : 'cryptoCurrency')
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'fiatAmount', $pb.PbFieldType.OD)
-    ..aOS(5, _omitFieldNames ? '' : 'fiatCurrency')
-    ..aOS(6, _omitFieldNames ? '' : 'bankName')
-    ..aOS(7, _omitFieldNames ? '' : 'bankAccount')
-    ..aOS(8, _omitFieldNames ? '' : 'userSignature')
-    ..aOS(9, _omitFieldNames ? '' : 'userWalletAddress')
-    ..aOS(10, _omitFieldNames ? '' : 'walletPublicKey')
-    ..aOS(11, _omitFieldNames ? '' : 'orderId')
+    ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'payload', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'signature', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
@@ -320,104 +178,24 @@ class CreateOffRampOrderRequest extends $pb.GeneratedMessage {
   static CreateOffRampOrderRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateOffRampOrderRequest>(create);
   static CreateOffRampOrderRequest? _defaultInstance;
 
+  /// OffRampOrderUserEnvelope
   @$pb.TagNumber(1)
-  $core.String get partnerPublicKey => $_getSZ(0);
+  $core.List<$core.int> get payload => $_getN(0);
   @$pb.TagNumber(1)
-  set partnerPublicKey($core.String v) { $_setString(0, v); }
+  set payload($core.List<$core.int> v) { $_setBytes(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPartnerPublicKey() => $_has(0);
+  $core.bool hasPayload() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPartnerPublicKey() => $_clearField(1);
+  void clearPayload() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get cryptoAmount => $_getN(1);
+  $core.List<$core.int> get signature => $_getN(1);
   @$pb.TagNumber(2)
-  set cryptoAmount($core.double v) { $_setDouble(1, v); }
+  set signature($core.List<$core.int> v) { $_setBytes(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasCryptoAmount() => $_has(1);
+  $core.bool hasSignature() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCryptoAmount() => $_clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get cryptoCurrency => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set cryptoCurrency($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasCryptoCurrency() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearCryptoCurrency() => $_clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.double get fiatAmount => $_getN(3);
-  @$pb.TagNumber(4)
-  set fiatAmount($core.double v) { $_setDouble(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasFiatAmount() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearFiatAmount() => $_clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.String get fiatCurrency => $_getSZ(4);
-  @$pb.TagNumber(5)
-  set fiatCurrency($core.String v) { $_setString(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasFiatCurrency() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearFiatCurrency() => $_clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.String get bankName => $_getSZ(5);
-  @$pb.TagNumber(6)
-  set bankName($core.String v) { $_setString(5, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasBankName() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearBankName() => $_clearField(6);
-
-  @$pb.TagNumber(7)
-  $core.String get bankAccount => $_getSZ(6);
-  @$pb.TagNumber(7)
-  set bankAccount($core.String v) { $_setString(6, v); }
-  @$pb.TagNumber(7)
-  $core.bool hasBankAccount() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearBankAccount() => $_clearField(7);
-
-  @$pb.TagNumber(8)
-  $core.String get userSignature => $_getSZ(7);
-  @$pb.TagNumber(8)
-  set userSignature($core.String v) { $_setString(7, v); }
-  @$pb.TagNumber(8)
-  $core.bool hasUserSignature() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearUserSignature() => $_clearField(8);
-
-  @$pb.TagNumber(9)
-  $core.String get userWalletAddress => $_getSZ(8);
-  @$pb.TagNumber(9)
-  set userWalletAddress($core.String v) { $_setString(8, v); }
-  @$pb.TagNumber(9)
-  $core.bool hasUserWalletAddress() => $_has(8);
-  @$pb.TagNumber(9)
-  void clearUserWalletAddress() => $_clearField(9);
-
-  @$pb.TagNumber(10)
-  $core.String get walletPublicKey => $_getSZ(9);
-  @$pb.TagNumber(10)
-  set walletPublicKey($core.String v) { $_setString(9, v); }
-  @$pb.TagNumber(10)
-  $core.bool hasWalletPublicKey() => $_has(9);
-  @$pb.TagNumber(10)
-  void clearWalletPublicKey() => $_clearField(10);
-
-  @$pb.TagNumber(11)
-  $core.String get orderId => $_getSZ(10);
-  @$pb.TagNumber(11)
-  set orderId($core.String v) { $_setString(10, v); }
-  @$pb.TagNumber(11)
-  $core.bool hasOrderId() => $_has(10);
-  @$pb.TagNumber(11)
-  void clearOrderId() => $_clearField(11);
+  void clearSignature() => $_clearField(2);
 }
 
 class CreateOffRampOrderResponse extends $pb.GeneratedMessage {
@@ -536,30 +314,30 @@ class GetOrderRequest extends $pb.GeneratedMessage {
 
 class GetOrderResponse extends $pb.GeneratedMessage {
   factory GetOrderResponse({
-    $core.String? orderId,
+    $core.List<$core.int>? userPayload,
+    $core.List<$core.int>? userSignature,
+    $core.List<$core.int>? partnerPayload,
+    $core.List<$core.int>? partnerSignature,
     $core.String? created,
     $core.String? status,
-    $core.String? partnerPublicKey,
     $core.String? userPublicKey,
-    $core.String? comment,
+    $core.String? partnerPublicKey,
     $1.RampType? type,
-    $core.double? cryptoAmount,
-    $core.String? cryptoCurrency,
-    $core.double? fiatAmount,
-    $core.String? fiatCurrency,
-    $core.String? bankName,
-    $core.String? bankAccount,
-    $core.String? cryptoWalletAddress,
     $core.String? transaction,
     $core.String? transactionId,
-    $core.String? userSignature,
-    $core.String? partnerSignature,
-    $core.String? userWalletAddress,
-    $core.String? walletPublicKey,
   }) {
     final $result = create();
-    if (orderId != null) {
-      $result.orderId = orderId;
+    if (userPayload != null) {
+      $result.userPayload = userPayload;
+    }
+    if (userSignature != null) {
+      $result.userSignature = userSignature;
+    }
+    if (partnerPayload != null) {
+      $result.partnerPayload = partnerPayload;
+    }
+    if (partnerSignature != null) {
+      $result.partnerSignature = partnerSignature;
     }
     if (created != null) {
       $result.created = created;
@@ -567,56 +345,20 @@ class GetOrderResponse extends $pb.GeneratedMessage {
     if (status != null) {
       $result.status = status;
     }
-    if (partnerPublicKey != null) {
-      $result.partnerPublicKey = partnerPublicKey;
-    }
     if (userPublicKey != null) {
       $result.userPublicKey = userPublicKey;
     }
-    if (comment != null) {
-      $result.comment = comment;
+    if (partnerPublicKey != null) {
+      $result.partnerPublicKey = partnerPublicKey;
     }
     if (type != null) {
       $result.type = type;
-    }
-    if (cryptoAmount != null) {
-      $result.cryptoAmount = cryptoAmount;
-    }
-    if (cryptoCurrency != null) {
-      $result.cryptoCurrency = cryptoCurrency;
-    }
-    if (fiatAmount != null) {
-      $result.fiatAmount = fiatAmount;
-    }
-    if (fiatCurrency != null) {
-      $result.fiatCurrency = fiatCurrency;
-    }
-    if (bankName != null) {
-      $result.bankName = bankName;
-    }
-    if (bankAccount != null) {
-      $result.bankAccount = bankAccount;
-    }
-    if (cryptoWalletAddress != null) {
-      $result.cryptoWalletAddress = cryptoWalletAddress;
     }
     if (transaction != null) {
       $result.transaction = transaction;
     }
     if (transactionId != null) {
       $result.transactionId = transactionId;
-    }
-    if (userSignature != null) {
-      $result.userSignature = userSignature;
-    }
-    if (partnerSignature != null) {
-      $result.partnerSignature = partnerSignature;
-    }
-    if (userWalletAddress != null) {
-      $result.userWalletAddress = userWalletAddress;
-    }
-    if (walletPublicKey != null) {
-      $result.walletPublicKey = walletPublicKey;
     }
     return $result;
   }
@@ -625,26 +367,17 @@ class GetOrderResponse extends $pb.GeneratedMessage {
   factory GetOrderResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetOrderResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.orders.v1.wallet'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'orderId')
-    ..aOS(2, _omitFieldNames ? '' : 'created')
-    ..aOS(3, _omitFieldNames ? '' : 'status')
-    ..aOS(4, _omitFieldNames ? '' : 'partnerPublicKey')
-    ..aOS(5, _omitFieldNames ? '' : 'userPublicKey')
-    ..aOS(7, _omitFieldNames ? '' : 'comment')
-    ..e<$1.RampType>(8, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: $1.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $1.RampType.valueOf, enumValues: $1.RampType.values)
-    ..a<$core.double>(9, _omitFieldNames ? '' : 'cryptoAmount', $pb.PbFieldType.OD)
-    ..aOS(10, _omitFieldNames ? '' : 'cryptoCurrency')
-    ..a<$core.double>(11, _omitFieldNames ? '' : 'fiatAmount', $pb.PbFieldType.OD)
-    ..aOS(12, _omitFieldNames ? '' : 'fiatCurrency')
-    ..aOS(13, _omitFieldNames ? '' : 'bankName')
-    ..aOS(14, _omitFieldNames ? '' : 'bankAccount')
-    ..aOS(15, _omitFieldNames ? '' : 'cryptoWalletAddress')
-    ..aOS(16, _omitFieldNames ? '' : 'transaction')
-    ..aOS(17, _omitFieldNames ? '' : 'transactionId')
-    ..aOS(19, _omitFieldNames ? '' : 'userSignature')
-    ..aOS(20, _omitFieldNames ? '' : 'partnerSignature')
-    ..aOS(21, _omitFieldNames ? '' : 'userWalletAddress')
-    ..aOS(22, _omitFieldNames ? '' : 'walletPublicKey')
+    ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'userPayload', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'userSignature', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(3, _omitFieldNames ? '' : 'partnerPayload', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(4, _omitFieldNames ? '' : 'partnerSignature', $pb.PbFieldType.OY)
+    ..aOS(5, _omitFieldNames ? '' : 'created')
+    ..aOS(6, _omitFieldNames ? '' : 'status')
+    ..aOS(7, _omitFieldNames ? '' : 'userPublicKey')
+    ..aOS(8, _omitFieldNames ? '' : 'partnerPublicKey')
+    ..e<$1.RampType>(9, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: $1.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $1.RampType.valueOf, enumValues: $1.RampType.values)
+    ..aOS(10, _omitFieldNames ? '' : 'transaction')
+    ..aOS(11, _omitFieldNames ? '' : 'transactionId')
     ..hasRequiredFields = false
   ;
 
@@ -669,185 +402,106 @@ class GetOrderResponse extends $pb.GeneratedMessage {
   static GetOrderResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetOrderResponse>(create);
   static GetOrderResponse? _defaultInstance;
 
+  /// OnRampOrderUserEnvelope or OffRampOrderUserEnvelope
   @$pb.TagNumber(1)
-  $core.String get orderId => $_getSZ(0);
+  $core.List<$core.int> get userPayload => $_getN(0);
   @$pb.TagNumber(1)
-  set orderId($core.String v) { $_setString(0, v); }
+  set userPayload($core.List<$core.int> v) { $_setBytes(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasOrderId() => $_has(0);
+  $core.bool hasUserPayload() => $_has(0);
   @$pb.TagNumber(1)
-  void clearOrderId() => $_clearField(1);
+  void clearUserPayload() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get created => $_getSZ(1);
+  $core.List<$core.int> get userSignature => $_getN(1);
   @$pb.TagNumber(2)
-  set created($core.String v) { $_setString(1, v); }
+  set userSignature($core.List<$core.int> v) { $_setBytes(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasCreated() => $_has(1);
+  $core.bool hasUserSignature() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCreated() => $_clearField(2);
+  void clearUserSignature() => $_clearField(2);
 
+  /// OnRampOrderPartnerEnvelope or OffRampOrderPartnerEnvelope
   @$pb.TagNumber(3)
-  $core.String get status => $_getSZ(2);
+  $core.List<$core.int> get partnerPayload => $_getN(2);
   @$pb.TagNumber(3)
-  set status($core.String v) { $_setString(2, v); }
+  set partnerPayload($core.List<$core.int> v) { $_setBytes(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasStatus() => $_has(2);
+  $core.bool hasPartnerPayload() => $_has(2);
   @$pb.TagNumber(3)
-  void clearStatus() => $_clearField(3);
+  void clearPartnerPayload() => $_clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get partnerPublicKey => $_getSZ(3);
+  $core.List<$core.int> get partnerSignature => $_getN(3);
   @$pb.TagNumber(4)
-  set partnerPublicKey($core.String v) { $_setString(3, v); }
+  set partnerSignature($core.List<$core.int> v) { $_setBytes(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasPartnerPublicKey() => $_has(3);
+  $core.bool hasPartnerSignature() => $_has(3);
   @$pb.TagNumber(4)
-  void clearPartnerPublicKey() => $_clearField(4);
+  void clearPartnerSignature() => $_clearField(4);
 
   @$pb.TagNumber(5)
-  $core.String get userPublicKey => $_getSZ(4);
+  $core.String get created => $_getSZ(4);
   @$pb.TagNumber(5)
-  set userPublicKey($core.String v) { $_setString(4, v); }
+  set created($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasUserPublicKey() => $_has(4);
+  $core.bool hasCreated() => $_has(4);
   @$pb.TagNumber(5)
-  void clearUserPublicKey() => $_clearField(5);
+  void clearCreated() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get status => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set status($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasStatus() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearStatus() => $_clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get comment => $_getSZ(5);
+  $core.String get userPublicKey => $_getSZ(6);
   @$pb.TagNumber(7)
-  set comment($core.String v) { $_setString(5, v); }
+  set userPublicKey($core.String v) { $_setString(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasComment() => $_has(5);
+  $core.bool hasUserPublicKey() => $_has(6);
   @$pb.TagNumber(7)
-  void clearComment() => $_clearField(7);
+  void clearUserPublicKey() => $_clearField(7);
 
   @$pb.TagNumber(8)
-  $1.RampType get type => $_getN(6);
+  $core.String get partnerPublicKey => $_getSZ(7);
   @$pb.TagNumber(8)
-  set type($1.RampType v) { $_setField(8, v); }
+  set partnerPublicKey($core.String v) { $_setString(7, v); }
   @$pb.TagNumber(8)
-  $core.bool hasType() => $_has(6);
+  $core.bool hasPartnerPublicKey() => $_has(7);
   @$pb.TagNumber(8)
-  void clearType() => $_clearField(8);
+  void clearPartnerPublicKey() => $_clearField(8);
 
   @$pb.TagNumber(9)
-  $core.double get cryptoAmount => $_getN(7);
+  $1.RampType get type => $_getN(8);
   @$pb.TagNumber(9)
-  set cryptoAmount($core.double v) { $_setDouble(7, v); }
+  set type($1.RampType v) { $_setField(9, v); }
   @$pb.TagNumber(9)
-  $core.bool hasCryptoAmount() => $_has(7);
+  $core.bool hasType() => $_has(8);
   @$pb.TagNumber(9)
-  void clearCryptoAmount() => $_clearField(9);
+  void clearType() => $_clearField(9);
 
   @$pb.TagNumber(10)
-  $core.String get cryptoCurrency => $_getSZ(8);
+  $core.String get transaction => $_getSZ(9);
   @$pb.TagNumber(10)
-  set cryptoCurrency($core.String v) { $_setString(8, v); }
+  set transaction($core.String v) { $_setString(9, v); }
   @$pb.TagNumber(10)
-  $core.bool hasCryptoCurrency() => $_has(8);
+  $core.bool hasTransaction() => $_has(9);
   @$pb.TagNumber(10)
-  void clearCryptoCurrency() => $_clearField(10);
+  void clearTransaction() => $_clearField(10);
 
   @$pb.TagNumber(11)
-  $core.double get fiatAmount => $_getN(9);
+  $core.String get transactionId => $_getSZ(10);
   @$pb.TagNumber(11)
-  set fiatAmount($core.double v) { $_setDouble(9, v); }
+  set transactionId($core.String v) { $_setString(10, v); }
   @$pb.TagNumber(11)
-  $core.bool hasFiatAmount() => $_has(9);
+  $core.bool hasTransactionId() => $_has(10);
   @$pb.TagNumber(11)
-  void clearFiatAmount() => $_clearField(11);
-
-  @$pb.TagNumber(12)
-  $core.String get fiatCurrency => $_getSZ(10);
-  @$pb.TagNumber(12)
-  set fiatCurrency($core.String v) { $_setString(10, v); }
-  @$pb.TagNumber(12)
-  $core.bool hasFiatCurrency() => $_has(10);
-  @$pb.TagNumber(12)
-  void clearFiatCurrency() => $_clearField(12);
-
-  @$pb.TagNumber(13)
-  $core.String get bankName => $_getSZ(11);
-  @$pb.TagNumber(13)
-  set bankName($core.String v) { $_setString(11, v); }
-  @$pb.TagNumber(13)
-  $core.bool hasBankName() => $_has(11);
-  @$pb.TagNumber(13)
-  void clearBankName() => $_clearField(13);
-
-  @$pb.TagNumber(14)
-  $core.String get bankAccount => $_getSZ(12);
-  @$pb.TagNumber(14)
-  set bankAccount($core.String v) { $_setString(12, v); }
-  @$pb.TagNumber(14)
-  $core.bool hasBankAccount() => $_has(12);
-  @$pb.TagNumber(14)
-  void clearBankAccount() => $_clearField(14);
-
-  @$pb.TagNumber(15)
-  $core.String get cryptoWalletAddress => $_getSZ(13);
-  @$pb.TagNumber(15)
-  set cryptoWalletAddress($core.String v) { $_setString(13, v); }
-  @$pb.TagNumber(15)
-  $core.bool hasCryptoWalletAddress() => $_has(13);
-  @$pb.TagNumber(15)
-  void clearCryptoWalletAddress() => $_clearField(15);
-
-  @$pb.TagNumber(16)
-  $core.String get transaction => $_getSZ(14);
-  @$pb.TagNumber(16)
-  set transaction($core.String v) { $_setString(14, v); }
-  @$pb.TagNumber(16)
-  $core.bool hasTransaction() => $_has(14);
-  @$pb.TagNumber(16)
-  void clearTransaction() => $_clearField(16);
-
-  @$pb.TagNumber(17)
-  $core.String get transactionId => $_getSZ(15);
-  @$pb.TagNumber(17)
-  set transactionId($core.String v) { $_setString(15, v); }
-  @$pb.TagNumber(17)
-  $core.bool hasTransactionId() => $_has(15);
-  @$pb.TagNumber(17)
-  void clearTransactionId() => $_clearField(17);
-
-  @$pb.TagNumber(19)
-  $core.String get userSignature => $_getSZ(16);
-  @$pb.TagNumber(19)
-  set userSignature($core.String v) { $_setString(16, v); }
-  @$pb.TagNumber(19)
-  $core.bool hasUserSignature() => $_has(16);
-  @$pb.TagNumber(19)
-  void clearUserSignature() => $_clearField(19);
-
-  @$pb.TagNumber(20)
-  $core.String get partnerSignature => $_getSZ(17);
-  @$pb.TagNumber(20)
-  set partnerSignature($core.String v) { $_setString(17, v); }
-  @$pb.TagNumber(20)
-  $core.bool hasPartnerSignature() => $_has(17);
-  @$pb.TagNumber(20)
-  void clearPartnerSignature() => $_clearField(20);
-
-  @$pb.TagNumber(21)
-  $core.String get userWalletAddress => $_getSZ(18);
-  @$pb.TagNumber(21)
-  set userWalletAddress($core.String v) { $_setString(18, v); }
-  @$pb.TagNumber(21)
-  $core.bool hasUserWalletAddress() => $_has(18);
-  @$pb.TagNumber(21)
-  void clearUserWalletAddress() => $_clearField(21);
-
-  @$pb.TagNumber(22)
-  $core.String get walletPublicKey => $_getSZ(19);
-  @$pb.TagNumber(22)
-  set walletPublicKey($core.String v) { $_setString(19, v); }
-  @$pb.TagNumber(22)
-  $core.bool hasWalletPublicKey() => $_has(19);
-  @$pb.TagNumber(22)
-  void clearWalletPublicKey() => $_clearField(22);
+  void clearTransactionId() => $_clearField(11);
 }
 
 class GetOrdersRequest extends $pb.GeneratedMessage {

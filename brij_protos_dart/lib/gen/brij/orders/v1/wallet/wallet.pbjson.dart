@@ -17,27 +17,15 @@ import 'dart:typed_data' as $typed_data;
 const CreateOnRampOrderRequest$json = {
   '1': 'CreateOnRampOrderRequest',
   '2': [
-    {'1': 'partner_public_key', '3': 1, '4': 1, '5': 9, '10': 'partnerPublicKey'},
-    {'1': 'crypto_amount', '3': 2, '4': 1, '5': 1, '10': 'cryptoAmount'},
-    {'1': 'crypto_currency', '3': 3, '4': 1, '5': 9, '10': 'cryptoCurrency'},
-    {'1': 'fiat_amount', '3': 4, '4': 1, '5': 1, '10': 'fiatAmount'},
-    {'1': 'fiat_currency', '3': 5, '4': 1, '5': 9, '10': 'fiatCurrency'},
-    {'1': 'user_signature', '3': 6, '4': 1, '5': 9, '10': 'userSignature'},
-    {'1': 'user_wallet_address', '3': 7, '4': 1, '5': 9, '10': 'userWalletAddress'},
-    {'1': 'wallet_public_key', '3': 8, '4': 1, '5': 9, '10': 'walletPublicKey'},
-    {'1': 'order_id', '3': 9, '4': 1, '5': 9, '10': 'orderId'},
+    {'1': 'payload', '3': 1, '4': 1, '5': 12, '10': 'payload'},
+    {'1': 'signature', '3': 2, '4': 1, '5': 12, '10': 'signature'},
   ],
 };
 
 /// Descriptor for `CreateOnRampOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createOnRampOrderRequestDescriptor = $convert.base64Decode(
-    'ChhDcmVhdGVPblJhbXBPcmRlclJlcXVlc3QSLAoScGFydG5lcl9wdWJsaWNfa2V5GAEgASgJUh'
-    'BwYXJ0bmVyUHVibGljS2V5EiMKDWNyeXB0b19hbW91bnQYAiABKAFSDGNyeXB0b0Ftb3VudBIn'
-    'Cg9jcnlwdG9fY3VycmVuY3kYAyABKAlSDmNyeXB0b0N1cnJlbmN5Eh8KC2ZpYXRfYW1vdW50GA'
-    'QgASgBUgpmaWF0QW1vdW50EiMKDWZpYXRfY3VycmVuY3kYBSABKAlSDGZpYXRDdXJyZW5jeRIl'
-    'Cg51c2VyX3NpZ25hdHVyZRgGIAEoCVINdXNlclNpZ25hdHVyZRIuChN1c2VyX3dhbGxldF9hZG'
-    'RyZXNzGAcgASgJUhF1c2VyV2FsbGV0QWRkcmVzcxIqChF3YWxsZXRfcHVibGljX2tleRgIIAEo'
-    'CVIPd2FsbGV0UHVibGljS2V5EhkKCG9yZGVyX2lkGAkgASgJUgdvcmRlcklk');
+    'ChhDcmVhdGVPblJhbXBPcmRlclJlcXVlc3QSGAoHcGF5bG9hZBgBIAEoDFIHcGF5bG9hZBIcCg'
+    'lzaWduYXR1cmUYAiABKAxSCXNpZ25hdHVyZQ==');
 
 @$core.Deprecated('Use createOnRampOrderResponseDescriptor instead')
 const CreateOnRampOrderResponse$json = {
@@ -55,30 +43,15 @@ final $typed_data.Uint8List createOnRampOrderResponseDescriptor = $convert.base6
 const CreateOffRampOrderRequest$json = {
   '1': 'CreateOffRampOrderRequest',
   '2': [
-    {'1': 'partner_public_key', '3': 1, '4': 1, '5': 9, '10': 'partnerPublicKey'},
-    {'1': 'crypto_amount', '3': 2, '4': 1, '5': 1, '10': 'cryptoAmount'},
-    {'1': 'crypto_currency', '3': 3, '4': 1, '5': 9, '10': 'cryptoCurrency'},
-    {'1': 'fiat_amount', '3': 4, '4': 1, '5': 1, '10': 'fiatAmount'},
-    {'1': 'fiat_currency', '3': 5, '4': 1, '5': 9, '10': 'fiatCurrency'},
-    {'1': 'bank_name', '3': 6, '4': 1, '5': 9, '10': 'bankName'},
-    {'1': 'bank_account', '3': 7, '4': 1, '5': 9, '10': 'bankAccount'},
-    {'1': 'user_signature', '3': 8, '4': 1, '5': 9, '10': 'userSignature'},
-    {'1': 'user_wallet_address', '3': 9, '4': 1, '5': 9, '10': 'userWalletAddress'},
-    {'1': 'wallet_public_key', '3': 10, '4': 1, '5': 9, '10': 'walletPublicKey'},
-    {'1': 'order_id', '3': 11, '4': 1, '5': 9, '10': 'orderId'},
+    {'1': 'payload', '3': 1, '4': 1, '5': 12, '10': 'payload'},
+    {'1': 'signature', '3': 2, '4': 1, '5': 12, '10': 'signature'},
   ],
 };
 
 /// Descriptor for `CreateOffRampOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createOffRampOrderRequestDescriptor = $convert.base64Decode(
-    'ChlDcmVhdGVPZmZSYW1wT3JkZXJSZXF1ZXN0EiwKEnBhcnRuZXJfcHVibGljX2tleRgBIAEoCV'
-    'IQcGFydG5lclB1YmxpY0tleRIjCg1jcnlwdG9fYW1vdW50GAIgASgBUgxjcnlwdG9BbW91bnQS'
-    'JwoPY3J5cHRvX2N1cnJlbmN5GAMgASgJUg5jcnlwdG9DdXJyZW5jeRIfCgtmaWF0X2Ftb3VudB'
-    'gEIAEoAVIKZmlhdEFtb3VudBIjCg1maWF0X2N1cnJlbmN5GAUgASgJUgxmaWF0Q3VycmVuY3kS'
-    'GwoJYmFua19uYW1lGAYgASgJUghiYW5rTmFtZRIhCgxiYW5rX2FjY291bnQYByABKAlSC2Jhbm'
-    'tBY2NvdW50EiUKDnVzZXJfc2lnbmF0dXJlGAggASgJUg11c2VyU2lnbmF0dXJlEi4KE3VzZXJf'
-    'd2FsbGV0X2FkZHJlc3MYCSABKAlSEXVzZXJXYWxsZXRBZGRyZXNzEioKEXdhbGxldF9wdWJsaW'
-    'Nfa2V5GAogASgJUg93YWxsZXRQdWJsaWNLZXkSGQoIb3JkZXJfaWQYCyABKAlSB29yZGVySWQ=');
+    'ChlDcmVhdGVPZmZSYW1wT3JkZXJSZXF1ZXN0EhgKB3BheWxvYWQYASABKAxSB3BheWxvYWQSHA'
+    'oJc2lnbmF0dXJlGAIgASgMUglzaWduYXR1cmU=');
 
 @$core.Deprecated('Use createOffRampOrderResponseDescriptor instead')
 const CreateOffRampOrderResponse$json = {
@@ -111,45 +84,30 @@ final $typed_data.Uint8List getOrderRequestDescriptor = $convert.base64Decode(
 const GetOrderResponse$json = {
   '1': 'GetOrderResponse',
   '2': [
-    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
-    {'1': 'created', '3': 2, '4': 1, '5': 9, '10': 'created'},
-    {'1': 'status', '3': 3, '4': 1, '5': 9, '10': 'status'},
-    {'1': 'partner_public_key', '3': 4, '4': 1, '5': 9, '10': 'partnerPublicKey'},
-    {'1': 'user_public_key', '3': 5, '4': 1, '5': 9, '10': 'userPublicKey'},
-    {'1': 'comment', '3': 7, '4': 1, '5': 9, '10': 'comment'},
-    {'1': 'type', '3': 8, '4': 1, '5': 14, '6': '.brij.orders.v1.common.RampType', '10': 'type'},
-    {'1': 'crypto_amount', '3': 9, '4': 1, '5': 1, '10': 'cryptoAmount'},
-    {'1': 'crypto_currency', '3': 10, '4': 1, '5': 9, '10': 'cryptoCurrency'},
-    {'1': 'fiat_amount', '3': 11, '4': 1, '5': 1, '10': 'fiatAmount'},
-    {'1': 'fiat_currency', '3': 12, '4': 1, '5': 9, '10': 'fiatCurrency'},
-    {'1': 'bank_name', '3': 13, '4': 1, '5': 9, '10': 'bankName'},
-    {'1': 'bank_account', '3': 14, '4': 1, '5': 9, '10': 'bankAccount'},
-    {'1': 'crypto_wallet_address', '3': 15, '4': 1, '5': 9, '10': 'cryptoWalletAddress'},
-    {'1': 'transaction', '3': 16, '4': 1, '5': 9, '10': 'transaction'},
-    {'1': 'transaction_id', '3': 17, '4': 1, '5': 9, '10': 'transactionId'},
-    {'1': 'user_signature', '3': 19, '4': 1, '5': 9, '10': 'userSignature'},
-    {'1': 'partner_signature', '3': 20, '4': 1, '5': 9, '10': 'partnerSignature'},
-    {'1': 'user_wallet_address', '3': 21, '4': 1, '5': 9, '10': 'userWalletAddress'},
-    {'1': 'wallet_public_key', '3': 22, '4': 1, '5': 9, '10': 'walletPublicKey'},
+    {'1': 'user_payload', '3': 1, '4': 1, '5': 12, '10': 'userPayload'},
+    {'1': 'user_signature', '3': 2, '4': 1, '5': 12, '10': 'userSignature'},
+    {'1': 'partner_payload', '3': 3, '4': 1, '5': 12, '10': 'partnerPayload'},
+    {'1': 'partner_signature', '3': 4, '4': 1, '5': 12, '10': 'partnerSignature'},
+    {'1': 'created', '3': 5, '4': 1, '5': 9, '10': 'created'},
+    {'1': 'status', '3': 6, '4': 1, '5': 9, '10': 'status'},
+    {'1': 'user_public_key', '3': 7, '4': 1, '5': 9, '10': 'userPublicKey'},
+    {'1': 'partner_public_key', '3': 8, '4': 1, '5': 9, '10': 'partnerPublicKey'},
+    {'1': 'type', '3': 9, '4': 1, '5': 14, '6': '.brij.orders.v1.common.RampType', '10': 'type'},
+    {'1': 'transaction', '3': 10, '4': 1, '5': 9, '10': 'transaction'},
+    {'1': 'transaction_id', '3': 11, '4': 1, '5': 9, '10': 'transactionId'},
   ],
 };
 
 /// Descriptor for `GetOrderResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getOrderResponseDescriptor = $convert.base64Decode(
-    'ChBHZXRPcmRlclJlc3BvbnNlEhkKCG9yZGVyX2lkGAEgASgJUgdvcmRlcklkEhgKB2NyZWF0ZW'
-    'QYAiABKAlSB2NyZWF0ZWQSFgoGc3RhdHVzGAMgASgJUgZzdGF0dXMSLAoScGFydG5lcl9wdWJs'
-    'aWNfa2V5GAQgASgJUhBwYXJ0bmVyUHVibGljS2V5EiYKD3VzZXJfcHVibGljX2tleRgFIAEoCV'
-    'INdXNlclB1YmxpY0tleRIYCgdjb21tZW50GAcgASgJUgdjb21tZW50EjMKBHR5cGUYCCABKA4y'
-    'Hy5icmlqLm9yZGVycy52MS5jb21tb24uUmFtcFR5cGVSBHR5cGUSIwoNY3J5cHRvX2Ftb3VudB'
-    'gJIAEoAVIMY3J5cHRvQW1vdW50EicKD2NyeXB0b19jdXJyZW5jeRgKIAEoCVIOY3J5cHRvQ3Vy'
-    'cmVuY3kSHwoLZmlhdF9hbW91bnQYCyABKAFSCmZpYXRBbW91bnQSIwoNZmlhdF9jdXJyZW5jeR'
-    'gMIAEoCVIMZmlhdEN1cnJlbmN5EhsKCWJhbmtfbmFtZRgNIAEoCVIIYmFua05hbWUSIQoMYmFu'
-    'a19hY2NvdW50GA4gASgJUgtiYW5rQWNjb3VudBIyChVjcnlwdG9fd2FsbGV0X2FkZHJlc3MYDy'
-    'ABKAlSE2NyeXB0b1dhbGxldEFkZHJlc3MSIAoLdHJhbnNhY3Rpb24YECABKAlSC3RyYW5zYWN0'
-    'aW9uEiUKDnRyYW5zYWN0aW9uX2lkGBEgASgJUg10cmFuc2FjdGlvbklkEiUKDnVzZXJfc2lnbm'
-    'F0dXJlGBMgASgJUg11c2VyU2lnbmF0dXJlEisKEXBhcnRuZXJfc2lnbmF0dXJlGBQgASgJUhBw'
-    'YXJ0bmVyU2lnbmF0dXJlEi4KE3VzZXJfd2FsbGV0X2FkZHJlc3MYFSABKAlSEXVzZXJXYWxsZX'
-    'RBZGRyZXNzEioKEXdhbGxldF9wdWJsaWNfa2V5GBYgASgJUg93YWxsZXRQdWJsaWNLZXk=');
+    'ChBHZXRPcmRlclJlc3BvbnNlEiEKDHVzZXJfcGF5bG9hZBgBIAEoDFILdXNlclBheWxvYWQSJQ'
+    'oOdXNlcl9zaWduYXR1cmUYAiABKAxSDXVzZXJTaWduYXR1cmUSJwoPcGFydG5lcl9wYXlsb2Fk'
+    'GAMgASgMUg5wYXJ0bmVyUGF5bG9hZBIrChFwYXJ0bmVyX3NpZ25hdHVyZRgEIAEoDFIQcGFydG'
+    '5lclNpZ25hdHVyZRIYCgdjcmVhdGVkGAUgASgJUgdjcmVhdGVkEhYKBnN0YXR1cxgGIAEoCVIG'
+    'c3RhdHVzEiYKD3VzZXJfcHVibGljX2tleRgHIAEoCVINdXNlclB1YmxpY0tleRIsChJwYXJ0bm'
+    'VyX3B1YmxpY19rZXkYCCABKAlSEHBhcnRuZXJQdWJsaWNLZXkSMwoEdHlwZRgJIAEoDjIfLmJy'
+    'aWoub3JkZXJzLnYxLmNvbW1vbi5SYW1wVHlwZVIEdHlwZRIgCgt0cmFuc2FjdGlvbhgKIAEoCV'
+    'ILdHJhbnNhY3Rpb24SJQoOdHJhbnNhY3Rpb25faWQYCyABKAlSDXRyYW5zYWN0aW9uSWQ=');
 
 @$core.Deprecated('Use getOrdersRequestDescriptor instead')
 const GetOrdersRequest$json = {
