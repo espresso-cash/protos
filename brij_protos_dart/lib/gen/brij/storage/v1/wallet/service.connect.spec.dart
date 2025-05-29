@@ -17,18 +17,18 @@ abstract final class WalletService {
     brijstoragev1walletservice.GetWalletProofResponse.new,
   );
 
-  static const login = connect.Spec(
-    '/$name/Login',
+  static const restoreConnection = connect.Spec(
+    '/$name/RestoreConnection',
     connect.StreamType.unary,
-    brijstoragev1walletservice.LoginRequest.new,
-    brijstoragev1walletservice.LoginResponse.new,
+    brijstoragev1walletservice.RestoreConnectionRequest.new,
+    brijstoragev1walletservice.RestoreConnectionResponse.new,
   );
 
-  static const register = connect.Spec(
-    '/$name/Register',
+  static const connect = connect.Spec(
+    '/$name/Connect',
     connect.StreamType.unary,
-    brijstoragev1walletservice.RegisterRequest.new,
-    brijstoragev1walletservice.RegisterResponse.new,
+    brijstoragev1walletservice.ConnectRequest.new,
+    brijstoragev1walletservice.ConnectResponse.new,
   );
 
   static const getInfo = connect.Spec(

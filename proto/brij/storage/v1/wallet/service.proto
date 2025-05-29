@@ -11,9 +11,9 @@ option go_package = 'go.brij.fi/protos/brij/storage/v1/wallet';
 service WalletService {
   rpc GetWalletProof(GetWalletProofRequest) returns (GetWalletProofResponse);
 
-  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc RestoreConnection(RestoreConnectionRequest) returns (RestoreConnectionResponse);
 
-  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Connect(ConnectRequest) returns (ConnectResponse);
 
   rpc GetInfo(GetInfoRequest) returns (GetInfoResponse);
 
@@ -38,12 +38,12 @@ service WalletService {
   rpc GetKycStatus(GetKycStatusRequest) returns (GetKycStatusResponse);
 }
 
-message LoginRequest {
+message RestoreConnectionRequest {
   string wallet_address = 1;
   string wallet_proof_signature = 2;
 }
 
-message LoginResponse {
+message RestoreConnectionResponse {
   message NotRegistered {
     string registration_token = 1;
   }
@@ -59,13 +59,13 @@ message LoginResponse {
   }
 }
 
-message RegisterRequest {
+message ConnectRequest {
   string wallet_address = 1;
   string registration_token = 2;
   string seed_message = 3;
 }
 
-message RegisterResponse {}
+message ConnectResponse {}
 
 message GetPartnerInfoRequest {
   string id = 1;

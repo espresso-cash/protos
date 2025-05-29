@@ -16,43 +16,44 @@ import 'dart:typed_data' as $typed_data;
 import '../common/user_data.pbjson.dart' as $6;
 import '../common/validation_data.pbjson.dart' as $7;
 
-@$core.Deprecated('Use loginRequestDescriptor instead')
-const LoginRequest$json = {
-  '1': 'LoginRequest',
+@$core.Deprecated('Use restoreConnectionRequestDescriptor instead')
+const RestoreConnectionRequest$json = {
+  '1': 'RestoreConnectionRequest',
   '2': [
     {'1': 'wallet_address', '3': 1, '4': 1, '5': 9, '10': 'walletAddress'},
     {'1': 'wallet_proof_signature', '3': 2, '4': 1, '5': 9, '10': 'walletProofSignature'},
   ],
 };
 
-/// Descriptor for `LoginRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List loginRequestDescriptor = $convert.base64Decode(
-    'CgxMb2dpblJlcXVlc3QSJQoOd2FsbGV0X2FkZHJlc3MYASABKAlSDXdhbGxldEFkZHJlc3MSNA'
-    'oWd2FsbGV0X3Byb29mX3NpZ25hdHVyZRgCIAEoCVIUd2FsbGV0UHJvb2ZTaWduYXR1cmU=');
+/// Descriptor for `RestoreConnectionRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List restoreConnectionRequestDescriptor = $convert.base64Decode(
+    'ChhSZXN0b3JlQ29ubmVjdGlvblJlcXVlc3QSJQoOd2FsbGV0X2FkZHJlc3MYASABKAlSDXdhbG'
+    'xldEFkZHJlc3MSNAoWd2FsbGV0X3Byb29mX3NpZ25hdHVyZRgCIAEoCVIUd2FsbGV0UHJvb2ZT'
+    'aWduYXR1cmU=');
 
-@$core.Deprecated('Use loginResponseDescriptor instead')
-const LoginResponse$json = {
-  '1': 'LoginResponse',
+@$core.Deprecated('Use restoreConnectionResponseDescriptor instead')
+const RestoreConnectionResponse$json = {
+  '1': 'RestoreConnectionResponse',
   '2': [
-    {'1': 'not_registered', '3': 1, '4': 1, '5': 11, '6': '.brij.storage.v1.wallet.LoginResponse.NotRegistered', '9': 0, '10': 'notRegistered'},
-    {'1': 'registered', '3': 2, '4': 1, '5': 11, '6': '.brij.storage.v1.wallet.LoginResponse.Registered', '9': 0, '10': 'registered'},
+    {'1': 'not_registered', '3': 1, '4': 1, '5': 11, '6': '.brij.storage.v1.wallet.RestoreConnectionResponse.NotRegistered', '9': 0, '10': 'notRegistered'},
+    {'1': 'registered', '3': 2, '4': 1, '5': 11, '6': '.brij.storage.v1.wallet.RestoreConnectionResponse.Registered', '9': 0, '10': 'registered'},
   ],
-  '3': [LoginResponse_NotRegistered$json, LoginResponse_Registered$json],
+  '3': [RestoreConnectionResponse_NotRegistered$json, RestoreConnectionResponse_Registered$json],
   '8': [
     {'1': 'result'},
   ],
 };
 
-@$core.Deprecated('Use loginResponseDescriptor instead')
-const LoginResponse_NotRegistered$json = {
+@$core.Deprecated('Use restoreConnectionResponseDescriptor instead')
+const RestoreConnectionResponse_NotRegistered$json = {
   '1': 'NotRegistered',
   '2': [
     {'1': 'registration_token', '3': 1, '4': 1, '5': 9, '10': 'registrationToken'},
   ],
 };
 
-@$core.Deprecated('Use loginResponseDescriptor instead')
-const LoginResponse_Registered$json = {
+@$core.Deprecated('Use restoreConnectionResponseDescriptor instead')
+const RestoreConnectionResponse_Registered$json = {
   '1': 'Registered',
   '2': [
     {'1': 'public_key', '3': 1, '4': 1, '5': 9, '10': 'publicKey'},
@@ -60,19 +61,19 @@ const LoginResponse_Registered$json = {
   ],
 };
 
-/// Descriptor for `LoginResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List loginResponseDescriptor = $convert.base64Decode(
-    'Cg1Mb2dpblJlc3BvbnNlElwKDm5vdF9yZWdpc3RlcmVkGAEgASgLMjMuYnJpai5zdG9yYWdlLn'
-    'YxLndhbGxldC5Mb2dpblJlc3BvbnNlLk5vdFJlZ2lzdGVyZWRIAFINbm90UmVnaXN0ZXJlZBJS'
-    'CgpyZWdpc3RlcmVkGAIgASgLMjAuYnJpai5zdG9yYWdlLnYxLndhbGxldC5Mb2dpblJlc3Bvbn'
-    'NlLlJlZ2lzdGVyZWRIAFIKcmVnaXN0ZXJlZBo+Cg1Ob3RSZWdpc3RlcmVkEi0KEnJlZ2lzdHJh'
-    'dGlvbl90b2tlbhgBIAEoCVIRcmVnaXN0cmF0aW9uVG9rZW4aTgoKUmVnaXN0ZXJlZBIdCgpwdW'
-    'JsaWNfa2V5GAEgASgJUglwdWJsaWNLZXkSIQoMc2VlZF9tZXNzYWdlGAIgASgJUgtzZWVkTWVz'
-    'c2FnZUIICgZyZXN1bHQ=');
+/// Descriptor for `RestoreConnectionResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List restoreConnectionResponseDescriptor = $convert.base64Decode(
+    'ChlSZXN0b3JlQ29ubmVjdGlvblJlc3BvbnNlEmgKDm5vdF9yZWdpc3RlcmVkGAEgASgLMj8uYn'
+    'Jpai5zdG9yYWdlLnYxLndhbGxldC5SZXN0b3JlQ29ubmVjdGlvblJlc3BvbnNlLk5vdFJlZ2lz'
+    'dGVyZWRIAFINbm90UmVnaXN0ZXJlZBJeCgpyZWdpc3RlcmVkGAIgASgLMjwuYnJpai5zdG9yYW'
+    'dlLnYxLndhbGxldC5SZXN0b3JlQ29ubmVjdGlvblJlc3BvbnNlLlJlZ2lzdGVyZWRIAFIKcmVn'
+    'aXN0ZXJlZBo+Cg1Ob3RSZWdpc3RlcmVkEi0KEnJlZ2lzdHJhdGlvbl90b2tlbhgBIAEoCVIRcm'
+    'VnaXN0cmF0aW9uVG9rZW4aTgoKUmVnaXN0ZXJlZBIdCgpwdWJsaWNfa2V5GAEgASgJUglwdWJs'
+    'aWNLZXkSIQoMc2VlZF9tZXNzYWdlGAIgASgJUgtzZWVkTWVzc2FnZUIICgZyZXN1bHQ=');
 
-@$core.Deprecated('Use registerRequestDescriptor instead')
-const RegisterRequest$json = {
-  '1': 'RegisterRequest',
+@$core.Deprecated('Use connectRequestDescriptor instead')
+const ConnectRequest$json = {
+  '1': 'ConnectRequest',
   '2': [
     {'1': 'wallet_address', '3': 1, '4': 1, '5': 9, '10': 'walletAddress'},
     {'1': 'registration_token', '3': 2, '4': 1, '5': 9, '10': 'registrationToken'},
@@ -80,20 +81,20 @@ const RegisterRequest$json = {
   ],
 };
 
-/// Descriptor for `RegisterRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List registerRequestDescriptor = $convert.base64Decode(
-    'Cg9SZWdpc3RlclJlcXVlc3QSJQoOd2FsbGV0X2FkZHJlc3MYASABKAlSDXdhbGxldEFkZHJlc3'
-    'MSLQoScmVnaXN0cmF0aW9uX3Rva2VuGAIgASgJUhFyZWdpc3RyYXRpb25Ub2tlbhIhCgxzZWVk'
-    'X21lc3NhZ2UYAyABKAlSC3NlZWRNZXNzYWdl');
+/// Descriptor for `ConnectRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List connectRequestDescriptor = $convert.base64Decode(
+    'Cg5Db25uZWN0UmVxdWVzdBIlCg53YWxsZXRfYWRkcmVzcxgBIAEoCVINd2FsbGV0QWRkcmVzcx'
+    'ItChJyZWdpc3RyYXRpb25fdG9rZW4YAiABKAlSEXJlZ2lzdHJhdGlvblRva2VuEiEKDHNlZWRf'
+    'bWVzc2FnZRgDIAEoCVILc2VlZE1lc3NhZ2U=');
 
-@$core.Deprecated('Use registerResponseDescriptor instead')
-const RegisterResponse$json = {
-  '1': 'RegisterResponse',
+@$core.Deprecated('Use connectResponseDescriptor instead')
+const ConnectResponse$json = {
+  '1': 'ConnectResponse',
 };
 
-/// Descriptor for `RegisterResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List registerResponseDescriptor = $convert.base64Decode(
-    'ChBSZWdpc3RlclJlc3BvbnNl');
+/// Descriptor for `ConnectResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List connectResponseDescriptor = $convert.base64Decode(
+    'Cg9Db25uZWN0UmVzcG9uc2U=');
 
 @$core.Deprecated('Use getPartnerInfoRequestDescriptor instead')
 const GetPartnerInfoRequest$json = {
@@ -391,8 +392,8 @@ const $core.Map<$core.String, $core.dynamic> WalletServiceBase$json = {
   '1': 'WalletService',
   '2': [
     {'1': 'GetWalletProof', '2': '.brij.storage.v1.wallet.GetWalletProofRequest', '3': '.brij.storage.v1.wallet.GetWalletProofResponse'},
-    {'1': 'Login', '2': '.brij.storage.v1.wallet.LoginRequest', '3': '.brij.storage.v1.wallet.LoginResponse'},
-    {'1': 'Register', '2': '.brij.storage.v1.wallet.RegisterRequest', '3': '.brij.storage.v1.wallet.RegisterResponse'},
+    {'1': 'RestoreConnection', '2': '.brij.storage.v1.wallet.RestoreConnectionRequest', '3': '.brij.storage.v1.wallet.RestoreConnectionResponse'},
+    {'1': 'Connect', '2': '.brij.storage.v1.wallet.ConnectRequest', '3': '.brij.storage.v1.wallet.ConnectResponse'},
     {'1': 'GetInfo', '2': '.brij.storage.v1.wallet.GetInfoRequest', '3': '.brij.storage.v1.wallet.GetInfoResponse'},
     {'1': 'GetPartnerInfo', '2': '.brij.storage.v1.wallet.GetPartnerInfoRequest', '3': '.brij.storage.v1.wallet.GetPartnerInfoResponse'},
     {'1': 'GetGrantedAccessPartners', '2': '.brij.storage.v1.wallet.GetGrantedAccessPartnersRequest', '3': '.brij.storage.v1.wallet.GetGrantedAccessPartnersResponse'},
@@ -411,12 +412,12 @@ const $core.Map<$core.String, $core.dynamic> WalletServiceBase$json = {
 const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> WalletServiceBase$messageJson = {
   '.brij.storage.v1.wallet.GetWalletProofRequest': GetWalletProofRequest$json,
   '.brij.storage.v1.wallet.GetWalletProofResponse': GetWalletProofResponse$json,
-  '.brij.storage.v1.wallet.LoginRequest': LoginRequest$json,
-  '.brij.storage.v1.wallet.LoginResponse': LoginResponse$json,
-  '.brij.storage.v1.wallet.LoginResponse.NotRegistered': LoginResponse_NotRegistered$json,
-  '.brij.storage.v1.wallet.LoginResponse.Registered': LoginResponse_Registered$json,
-  '.brij.storage.v1.wallet.RegisterRequest': RegisterRequest$json,
-  '.brij.storage.v1.wallet.RegisterResponse': RegisterResponse$json,
+  '.brij.storage.v1.wallet.RestoreConnectionRequest': RestoreConnectionRequest$json,
+  '.brij.storage.v1.wallet.RestoreConnectionResponse': RestoreConnectionResponse$json,
+  '.brij.storage.v1.wallet.RestoreConnectionResponse.NotRegistered': RestoreConnectionResponse_NotRegistered$json,
+  '.brij.storage.v1.wallet.RestoreConnectionResponse.Registered': RestoreConnectionResponse_Registered$json,
+  '.brij.storage.v1.wallet.ConnectRequest': ConnectRequest$json,
+  '.brij.storage.v1.wallet.ConnectResponse': ConnectResponse$json,
   '.brij.storage.v1.wallet.GetInfoRequest': GetInfoRequest$json,
   '.brij.storage.v1.wallet.GetInfoResponse': GetInfoResponse$json,
   '.brij.storage.v1.wallet.GetPartnerInfoRequest': GetPartnerInfoRequest$json,
@@ -447,30 +448,31 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> WalletServ
 final $typed_data.Uint8List walletServiceDescriptor = $convert.base64Decode(
     'Cg1XYWxsZXRTZXJ2aWNlEm8KDkdldFdhbGxldFByb29mEi0uYnJpai5zdG9yYWdlLnYxLndhbG'
     'xldC5HZXRXYWxsZXRQcm9vZlJlcXVlc3QaLi5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldFdh'
-    'bGxldFByb29mUmVzcG9uc2USVAoFTG9naW4SJC5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkxvZ2'
-    'luUmVxdWVzdBolLmJyaWouc3RvcmFnZS52MS53YWxsZXQuTG9naW5SZXNwb25zZRJdCghSZWdp'
-    'c3RlchInLmJyaWouc3RvcmFnZS52MS53YWxsZXQuUmVnaXN0ZXJSZXF1ZXN0GiguYnJpai5zdG'
-    '9yYWdlLnYxLndhbGxldC5SZWdpc3RlclJlc3BvbnNlEloKB0dldEluZm8SJi5icmlqLnN0b3Jh'
-    'Z2UudjEud2FsbGV0LkdldEluZm9SZXF1ZXN0GicuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZX'
-    'RJbmZvUmVzcG9uc2USbwoOR2V0UGFydG5lckluZm8SLS5icmlqLnN0b3JhZ2UudjEud2FsbGV0'
-    'LkdldFBhcnRuZXJJbmZvUmVxdWVzdBouLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0UGFydG'
-    '5lckluZm9SZXNwb25zZRKNAQoYR2V0R3JhbnRlZEFjY2Vzc1BhcnRuZXJzEjcuYnJpai5zdG9y'
-    'YWdlLnYxLndhbGxldC5HZXRHcmFudGVkQWNjZXNzUGFydG5lcnNSZXF1ZXN0GjguYnJpai5zdG'
-    '9yYWdlLnYxLndhbGxldC5HZXRHcmFudGVkQWNjZXNzUGFydG5lcnNSZXNwb25zZRJmCgtHcmFu'
-    'dEFjY2VzcxIqLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR3JhbnRBY2Nlc3NSZXF1ZXN0GisuYn'
-    'Jpai5zdG9yYWdlLnYxLndhbGxldC5HcmFudEFjY2Vzc1Jlc3BvbnNlEmYKC1NldFVzZXJEYXRh'
-    'EiouYnJpai5zdG9yYWdlLnYxLndhbGxldC5TZXRVc2VyRGF0YVJlcXVlc3QaKy5icmlqLnN0b3'
-    'JhZ2UudjEud2FsbGV0LlNldFVzZXJEYXRhUmVzcG9uc2USbwoOUmVtb3ZlVXNlckRhdGESLS5i'
-    'cmlqLnN0b3JhZ2UudjEud2FsbGV0LlJlbW92ZVVzZXJEYXRhUmVxdWVzdBouLmJyaWouc3Rvcm'
-    'FnZS52MS53YWxsZXQuUmVtb3ZlVXNlckRhdGFSZXNwb25zZRJpCgxSZXZva2VBY2Nlc3MSKy5i'
-    'cmlqLnN0b3JhZ2UudjEud2FsbGV0LlJldm9rZUFjY2Vzc1JlcXVlc3QaLC5icmlqLnN0b3JhZ2'
-    'UudjEud2FsbGV0LlJldm9rZUFjY2Vzc1Jlc3BvbnNlEngKEVJlbW92ZUFsbFVzZXJEYXRhEjAu'
-    'YnJpai5zdG9yYWdlLnYxLndhbGxldC5SZW1vdmVBbGxVc2VyRGF0YVJlcXVlc3QaMS5icmlqLn'
-    'N0b3JhZ2UudjEud2FsbGV0LlJlbW92ZUFsbFVzZXJEYXRhUmVzcG9uc2USZgoLR2V0VXNlckRh'
-    'dGESKi5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldFVzZXJEYXRhUmVxdWVzdBorLmJyaWouc3'
-    'RvcmFnZS52MS53YWxsZXQuR2V0VXNlckRhdGFSZXNwb25zZRJmCgtDaGVja0FjY2VzcxIqLmJy'
-    'aWouc3RvcmFnZS52MS53YWxsZXQuQ2hlY2tBY2Nlc3NSZXF1ZXN0GisuYnJpai5zdG9yYWdlLn'
-    'YxLndhbGxldC5DaGVja0FjY2Vzc1Jlc3BvbnNlEmkKDEdldEt5Y1N0YXR1cxIrLmJyaWouc3Rv'
-    'cmFnZS52MS53YWxsZXQuR2V0S3ljU3RhdHVzUmVxdWVzdBosLmJyaWouc3RvcmFnZS52MS53YW'
-    'xsZXQuR2V0S3ljU3RhdHVzUmVzcG9uc2U=');
+    'bGxldFByb29mUmVzcG9uc2USeAoRUmVzdG9yZUNvbm5lY3Rpb24SMC5icmlqLnN0b3JhZ2Uudj'
+    'Eud2FsbGV0LlJlc3RvcmVDb25uZWN0aW9uUmVxdWVzdBoxLmJyaWouc3RvcmFnZS52MS53YWxs'
+    'ZXQuUmVzdG9yZUNvbm5lY3Rpb25SZXNwb25zZRJaCgdDb25uZWN0EiYuYnJpai5zdG9yYWdlLn'
+    'YxLndhbGxldC5Db25uZWN0UmVxdWVzdBonLmJyaWouc3RvcmFnZS52MS53YWxsZXQuQ29ubmVj'
+    'dFJlc3BvbnNlEloKB0dldEluZm8SJi5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldEluZm9SZX'
+    'F1ZXN0GicuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRJbmZvUmVzcG9uc2USbwoOR2V0UGFy'
+    'dG5lckluZm8SLS5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldFBhcnRuZXJJbmZvUmVxdWVzdB'
+    'ouLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0UGFydG5lckluZm9SZXNwb25zZRKNAQoYR2V0'
+    'R3JhbnRlZEFjY2Vzc1BhcnRuZXJzEjcuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRHcmFudG'
+    'VkQWNjZXNzUGFydG5lcnNSZXF1ZXN0GjguYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRHcmFu'
+    'dGVkQWNjZXNzUGFydG5lcnNSZXNwb25zZRJmCgtHcmFudEFjY2VzcxIqLmJyaWouc3RvcmFnZS'
+    '52MS53YWxsZXQuR3JhbnRBY2Nlc3NSZXF1ZXN0GisuYnJpai5zdG9yYWdlLnYxLndhbGxldC5H'
+    'cmFudEFjY2Vzc1Jlc3BvbnNlEmYKC1NldFVzZXJEYXRhEiouYnJpai5zdG9yYWdlLnYxLndhbG'
+    'xldC5TZXRVc2VyRGF0YVJlcXVlc3QaKy5icmlqLnN0b3JhZ2UudjEud2FsbGV0LlNldFVzZXJE'
+    'YXRhUmVzcG9uc2USbwoOUmVtb3ZlVXNlckRhdGESLS5icmlqLnN0b3JhZ2UudjEud2FsbGV0Ll'
+    'JlbW92ZVVzZXJEYXRhUmVxdWVzdBouLmJyaWouc3RvcmFnZS52MS53YWxsZXQuUmVtb3ZlVXNl'
+    'ckRhdGFSZXNwb25zZRJpCgxSZXZva2VBY2Nlc3MSKy5icmlqLnN0b3JhZ2UudjEud2FsbGV0Ll'
+    'Jldm9rZUFjY2Vzc1JlcXVlc3QaLC5icmlqLnN0b3JhZ2UudjEud2FsbGV0LlJldm9rZUFjY2Vz'
+    'c1Jlc3BvbnNlEngKEVJlbW92ZUFsbFVzZXJEYXRhEjAuYnJpai5zdG9yYWdlLnYxLndhbGxldC'
+    '5SZW1vdmVBbGxVc2VyRGF0YVJlcXVlc3QaMS5icmlqLnN0b3JhZ2UudjEud2FsbGV0LlJlbW92'
+    'ZUFsbFVzZXJEYXRhUmVzcG9uc2USZgoLR2V0VXNlckRhdGESKi5icmlqLnN0b3JhZ2UudjEud2'
+    'FsbGV0LkdldFVzZXJEYXRhUmVxdWVzdBorLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0VXNl'
+    'ckRhdGFSZXNwb25zZRJmCgtDaGVja0FjY2VzcxIqLmJyaWouc3RvcmFnZS52MS53YWxsZXQuQ2'
+    'hlY2tBY2Nlc3NSZXF1ZXN0GisuYnJpai5zdG9yYWdlLnYxLndhbGxldC5DaGVja0FjY2Vzc1Jl'
+    'c3BvbnNlEmkKDEdldEt5Y1N0YXR1cxIrLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0S3ljU3'
+    'RhdHVzUmVxdWVzdBosLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0S3ljU3RhdHVzUmVzcG9u'
+    'c2U=');
 

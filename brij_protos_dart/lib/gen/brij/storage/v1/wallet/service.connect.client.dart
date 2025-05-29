@@ -25,15 +25,15 @@ extension type WalletServiceClient (connect.Transport _transport) {
     );
   }
 
-  Future<brijstoragev1walletservice.LoginResponse> login(
-    brijstoragev1walletservice.LoginRequest input, {
+  Future<brijstoragev1walletservice.RestoreConnectionResponse> restoreConnection(
+    brijstoragev1walletservice.RestoreConnectionRequest input, {
     connect.Headers? headers,
     connect.AbortSignal? signal,
     Function(connect.Headers)? onHeader,
     Function(connect.Headers)? onTrailer,
   }) {
     return connect.Client(_transport).unary(
-      specs.WalletService.login,
+      specs.WalletService.restoreConnection,
       input,
       signal: signal,
       headers: headers,
@@ -42,15 +42,15 @@ extension type WalletServiceClient (connect.Transport _transport) {
     );
   }
 
-  Future<brijstoragev1walletservice.RegisterResponse> register(
-    brijstoragev1walletservice.RegisterRequest input, {
+  Future<brijstoragev1walletservice.ConnectResponse> connect(
+    brijstoragev1walletservice.ConnectRequest input, {
     connect.Headers? headers,
     connect.AbortSignal? signal,
     Function(connect.Headers)? onHeader,
     Function(connect.Headers)? onTrailer,
   }) {
     return connect.Client(_transport).unary(
-      specs.WalletService.register,
+      specs.WalletService.connect,
       input,
       signal: signal,
       headers: headers,

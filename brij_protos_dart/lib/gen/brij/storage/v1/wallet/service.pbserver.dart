@@ -22,8 +22,8 @@ export 'service.pb.dart';
 
 abstract class WalletServiceBase extends $pb.GeneratedService {
   $async.Future<$10.GetWalletProofResponse> getWalletProof($pb.ServerContext ctx, $10.GetWalletProofRequest request);
-  $async.Future<$10.LoginResponse> login($pb.ServerContext ctx, $10.LoginRequest request);
-  $async.Future<$10.RegisterResponse> register($pb.ServerContext ctx, $10.RegisterRequest request);
+  $async.Future<$10.RestoreConnectionResponse> restoreConnection($pb.ServerContext ctx, $10.RestoreConnectionRequest request);
+  $async.Future<$10.ConnectResponse> connect($pb.ServerContext ctx, $10.ConnectRequest request);
   $async.Future<$10.GetInfoResponse> getInfo($pb.ServerContext ctx, $10.GetInfoRequest request);
   $async.Future<$10.GetPartnerInfoResponse> getPartnerInfo($pb.ServerContext ctx, $10.GetPartnerInfoRequest request);
   $async.Future<$10.GetGrantedAccessPartnersResponse> getGrantedAccessPartners($pb.ServerContext ctx, $10.GetGrantedAccessPartnersRequest request);
@@ -39,8 +39,8 @@ abstract class WalletServiceBase extends $pb.GeneratedService {
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
       case 'GetWalletProof': return $10.GetWalletProofRequest();
-      case 'Login': return $10.LoginRequest();
-      case 'Register': return $10.RegisterRequest();
+      case 'RestoreConnection': return $10.RestoreConnectionRequest();
+      case 'Connect': return $10.ConnectRequest();
       case 'GetInfo': return $10.GetInfoRequest();
       case 'GetPartnerInfo': return $10.GetPartnerInfoRequest();
       case 'GetGrantedAccessPartners': return $10.GetGrantedAccessPartnersRequest();
@@ -59,8 +59,8 @@ abstract class WalletServiceBase extends $pb.GeneratedService {
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
       case 'GetWalletProof': return this.getWalletProof(ctx, request as $10.GetWalletProofRequest);
-      case 'Login': return this.login(ctx, request as $10.LoginRequest);
-      case 'Register': return this.register(ctx, request as $10.RegisterRequest);
+      case 'RestoreConnection': return this.restoreConnection(ctx, request as $10.RestoreConnectionRequest);
+      case 'Connect': return this.connect(ctx, request as $10.ConnectRequest);
       case 'GetInfo': return this.getInfo(ctx, request as $10.GetInfoRequest);
       case 'GetPartnerInfo': return this.getPartnerInfo(ctx, request as $10.GetPartnerInfoRequest);
       case 'GetGrantedAccessPartners': return this.getGrantedAccessPartners(ctx, request as $10.GetGrantedAccessPartnersRequest);

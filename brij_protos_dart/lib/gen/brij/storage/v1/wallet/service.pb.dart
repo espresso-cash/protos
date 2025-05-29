@@ -20,8 +20,8 @@ import '../common/validation_data.pb.dart' as $7;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
-class LoginRequest extends $pb.GeneratedMessage {
-  factory LoginRequest({
+class RestoreConnectionRequest extends $pb.GeneratedMessage {
+  factory RestoreConnectionRequest({
     $core.String? walletAddress,
     $core.String? walletProofSignature,
   }) {
@@ -34,11 +34,11 @@ class LoginRequest extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  LoginRequest._() : super();
-  factory LoginRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory LoginRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  RestoreConnectionRequest._() : super();
+  factory RestoreConnectionRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RestoreConnectionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LoginRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RestoreConnectionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'walletAddress')
     ..aOS(2, _omitFieldNames ? '' : 'walletProofSignature')
     ..hasRequiredFields = false
@@ -48,22 +48,22 @@ class LoginRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  LoginRequest clone() => LoginRequest()..mergeFromMessage(this);
+  RestoreConnectionRequest clone() => RestoreConnectionRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  LoginRequest copyWith(void Function(LoginRequest) updates) => super.copyWith((message) => updates(message as LoginRequest)) as LoginRequest;
+  RestoreConnectionRequest copyWith(void Function(RestoreConnectionRequest) updates) => super.copyWith((message) => updates(message as RestoreConnectionRequest)) as RestoreConnectionRequest;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static LoginRequest create() => LoginRequest._();
-  LoginRequest createEmptyInstance() => create();
-  static $pb.PbList<LoginRequest> createRepeated() => $pb.PbList<LoginRequest>();
+  static RestoreConnectionRequest create() => RestoreConnectionRequest._();
+  RestoreConnectionRequest createEmptyInstance() => create();
+  static $pb.PbList<RestoreConnectionRequest> createRepeated() => $pb.PbList<RestoreConnectionRequest>();
   @$core.pragma('dart2js:noInline')
-  static LoginRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LoginRequest>(create);
-  static LoginRequest? _defaultInstance;
+  static RestoreConnectionRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RestoreConnectionRequest>(create);
+  static RestoreConnectionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get walletAddress => $_getSZ(0);
@@ -84,8 +84,8 @@ class LoginRequest extends $pb.GeneratedMessage {
   void clearWalletProofSignature() => $_clearField(2);
 }
 
-class LoginResponse_NotRegistered extends $pb.GeneratedMessage {
-  factory LoginResponse_NotRegistered({
+class RestoreConnectionResponse_NotRegistered extends $pb.GeneratedMessage {
+  factory RestoreConnectionResponse_NotRegistered({
     $core.String? registrationToken,
   }) {
     final $result = create();
@@ -94,11 +94,11 @@ class LoginResponse_NotRegistered extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  LoginResponse_NotRegistered._() : super();
-  factory LoginResponse_NotRegistered.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory LoginResponse_NotRegistered.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  RestoreConnectionResponse_NotRegistered._() : super();
+  factory RestoreConnectionResponse_NotRegistered.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RestoreConnectionResponse_NotRegistered.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LoginResponse.NotRegistered', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RestoreConnectionResponse.NotRegistered', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'registrationToken')
     ..hasRequiredFields = false
   ;
@@ -107,22 +107,22 @@ class LoginResponse_NotRegistered extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  LoginResponse_NotRegistered clone() => LoginResponse_NotRegistered()..mergeFromMessage(this);
+  RestoreConnectionResponse_NotRegistered clone() => RestoreConnectionResponse_NotRegistered()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  LoginResponse_NotRegistered copyWith(void Function(LoginResponse_NotRegistered) updates) => super.copyWith((message) => updates(message as LoginResponse_NotRegistered)) as LoginResponse_NotRegistered;
+  RestoreConnectionResponse_NotRegistered copyWith(void Function(RestoreConnectionResponse_NotRegistered) updates) => super.copyWith((message) => updates(message as RestoreConnectionResponse_NotRegistered)) as RestoreConnectionResponse_NotRegistered;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static LoginResponse_NotRegistered create() => LoginResponse_NotRegistered._();
-  LoginResponse_NotRegistered createEmptyInstance() => create();
-  static $pb.PbList<LoginResponse_NotRegistered> createRepeated() => $pb.PbList<LoginResponse_NotRegistered>();
+  static RestoreConnectionResponse_NotRegistered create() => RestoreConnectionResponse_NotRegistered._();
+  RestoreConnectionResponse_NotRegistered createEmptyInstance() => create();
+  static $pb.PbList<RestoreConnectionResponse_NotRegistered> createRepeated() => $pb.PbList<RestoreConnectionResponse_NotRegistered>();
   @$core.pragma('dart2js:noInline')
-  static LoginResponse_NotRegistered getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LoginResponse_NotRegistered>(create);
-  static LoginResponse_NotRegistered? _defaultInstance;
+  static RestoreConnectionResponse_NotRegistered getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RestoreConnectionResponse_NotRegistered>(create);
+  static RestoreConnectionResponse_NotRegistered? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get registrationToken => $_getSZ(0);
@@ -134,8 +134,8 @@ class LoginResponse_NotRegistered extends $pb.GeneratedMessage {
   void clearRegistrationToken() => $_clearField(1);
 }
 
-class LoginResponse_Registered extends $pb.GeneratedMessage {
-  factory LoginResponse_Registered({
+class RestoreConnectionResponse_Registered extends $pb.GeneratedMessage {
+  factory RestoreConnectionResponse_Registered({
     $core.String? publicKey,
     $core.String? seedMessage,
   }) {
@@ -148,11 +148,11 @@ class LoginResponse_Registered extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  LoginResponse_Registered._() : super();
-  factory LoginResponse_Registered.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory LoginResponse_Registered.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  RestoreConnectionResponse_Registered._() : super();
+  factory RestoreConnectionResponse_Registered.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RestoreConnectionResponse_Registered.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LoginResponse.Registered', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RestoreConnectionResponse.Registered', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'publicKey')
     ..aOS(2, _omitFieldNames ? '' : 'seedMessage')
     ..hasRequiredFields = false
@@ -162,22 +162,22 @@ class LoginResponse_Registered extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  LoginResponse_Registered clone() => LoginResponse_Registered()..mergeFromMessage(this);
+  RestoreConnectionResponse_Registered clone() => RestoreConnectionResponse_Registered()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  LoginResponse_Registered copyWith(void Function(LoginResponse_Registered) updates) => super.copyWith((message) => updates(message as LoginResponse_Registered)) as LoginResponse_Registered;
+  RestoreConnectionResponse_Registered copyWith(void Function(RestoreConnectionResponse_Registered) updates) => super.copyWith((message) => updates(message as RestoreConnectionResponse_Registered)) as RestoreConnectionResponse_Registered;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static LoginResponse_Registered create() => LoginResponse_Registered._();
-  LoginResponse_Registered createEmptyInstance() => create();
-  static $pb.PbList<LoginResponse_Registered> createRepeated() => $pb.PbList<LoginResponse_Registered>();
+  static RestoreConnectionResponse_Registered create() => RestoreConnectionResponse_Registered._();
+  RestoreConnectionResponse_Registered createEmptyInstance() => create();
+  static $pb.PbList<RestoreConnectionResponse_Registered> createRepeated() => $pb.PbList<RestoreConnectionResponse_Registered>();
   @$core.pragma('dart2js:noInline')
-  static LoginResponse_Registered getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LoginResponse_Registered>(create);
-  static LoginResponse_Registered? _defaultInstance;
+  static RestoreConnectionResponse_Registered getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RestoreConnectionResponse_Registered>(create);
+  static RestoreConnectionResponse_Registered? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get publicKey => $_getSZ(0);
@@ -198,16 +198,16 @@ class LoginResponse_Registered extends $pb.GeneratedMessage {
   void clearSeedMessage() => $_clearField(2);
 }
 
-enum LoginResponse_Result {
+enum RestoreConnectionResponse_Result {
   notRegistered, 
   registered, 
   notSet
 }
 
-class LoginResponse extends $pb.GeneratedMessage {
-  factory LoginResponse({
-    LoginResponse_NotRegistered? notRegistered,
-    LoginResponse_Registered? registered,
+class RestoreConnectionResponse extends $pb.GeneratedMessage {
+  factory RestoreConnectionResponse({
+    RestoreConnectionResponse_NotRegistered? notRegistered,
+    RestoreConnectionResponse_Registered? registered,
   }) {
     final $result = create();
     if (notRegistered != null) {
@@ -218,19 +218,19 @@ class LoginResponse extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  LoginResponse._() : super();
-  factory LoginResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory LoginResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  RestoreConnectionResponse._() : super();
+  factory RestoreConnectionResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RestoreConnectionResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static const $core.Map<$core.int, LoginResponse_Result> _LoginResponse_ResultByTag = {
-    1 : LoginResponse_Result.notRegistered,
-    2 : LoginResponse_Result.registered,
-    0 : LoginResponse_Result.notSet
+  static const $core.Map<$core.int, RestoreConnectionResponse_Result> _RestoreConnectionResponse_ResultByTag = {
+    1 : RestoreConnectionResponse_Result.notRegistered,
+    2 : RestoreConnectionResponse_Result.registered,
+    0 : RestoreConnectionResponse_Result.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LoginResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RestoreConnectionResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<LoginResponse_NotRegistered>(1, _omitFieldNames ? '' : 'notRegistered', subBuilder: LoginResponse_NotRegistered.create)
-    ..aOM<LoginResponse_Registered>(2, _omitFieldNames ? '' : 'registered', subBuilder: LoginResponse_Registered.create)
+    ..aOM<RestoreConnectionResponse_NotRegistered>(1, _omitFieldNames ? '' : 'notRegistered', subBuilder: RestoreConnectionResponse_NotRegistered.create)
+    ..aOM<RestoreConnectionResponse_Registered>(2, _omitFieldNames ? '' : 'registered', subBuilder: RestoreConnectionResponse_Registered.create)
     ..hasRequiredFields = false
   ;
 
@@ -238,51 +238,51 @@ class LoginResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  LoginResponse clone() => LoginResponse()..mergeFromMessage(this);
+  RestoreConnectionResponse clone() => RestoreConnectionResponse()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  LoginResponse copyWith(void Function(LoginResponse) updates) => super.copyWith((message) => updates(message as LoginResponse)) as LoginResponse;
+  RestoreConnectionResponse copyWith(void Function(RestoreConnectionResponse) updates) => super.copyWith((message) => updates(message as RestoreConnectionResponse)) as RestoreConnectionResponse;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static LoginResponse create() => LoginResponse._();
-  LoginResponse createEmptyInstance() => create();
-  static $pb.PbList<LoginResponse> createRepeated() => $pb.PbList<LoginResponse>();
+  static RestoreConnectionResponse create() => RestoreConnectionResponse._();
+  RestoreConnectionResponse createEmptyInstance() => create();
+  static $pb.PbList<RestoreConnectionResponse> createRepeated() => $pb.PbList<RestoreConnectionResponse>();
   @$core.pragma('dart2js:noInline')
-  static LoginResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LoginResponse>(create);
-  static LoginResponse? _defaultInstance;
+  static RestoreConnectionResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RestoreConnectionResponse>(create);
+  static RestoreConnectionResponse? _defaultInstance;
 
-  LoginResponse_Result whichResult() => _LoginResponse_ResultByTag[$_whichOneof(0)]!;
+  RestoreConnectionResponse_Result whichResult() => _RestoreConnectionResponse_ResultByTag[$_whichOneof(0)]!;
   void clearResult() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  LoginResponse_NotRegistered get notRegistered => $_getN(0);
+  RestoreConnectionResponse_NotRegistered get notRegistered => $_getN(0);
   @$pb.TagNumber(1)
-  set notRegistered(LoginResponse_NotRegistered v) { $_setField(1, v); }
+  set notRegistered(RestoreConnectionResponse_NotRegistered v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasNotRegistered() => $_has(0);
   @$pb.TagNumber(1)
   void clearNotRegistered() => $_clearField(1);
   @$pb.TagNumber(1)
-  LoginResponse_NotRegistered ensureNotRegistered() => $_ensure(0);
+  RestoreConnectionResponse_NotRegistered ensureNotRegistered() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  LoginResponse_Registered get registered => $_getN(1);
+  RestoreConnectionResponse_Registered get registered => $_getN(1);
   @$pb.TagNumber(2)
-  set registered(LoginResponse_Registered v) { $_setField(2, v); }
+  set registered(RestoreConnectionResponse_Registered v) { $_setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasRegistered() => $_has(1);
   @$pb.TagNumber(2)
   void clearRegistered() => $_clearField(2);
   @$pb.TagNumber(2)
-  LoginResponse_Registered ensureRegistered() => $_ensure(1);
+  RestoreConnectionResponse_Registered ensureRegistered() => $_ensure(1);
 }
 
-class RegisterRequest extends $pb.GeneratedMessage {
-  factory RegisterRequest({
+class ConnectRequest extends $pb.GeneratedMessage {
+  factory ConnectRequest({
     $core.String? walletAddress,
     $core.String? registrationToken,
     $core.String? seedMessage,
@@ -299,11 +299,11 @@ class RegisterRequest extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  RegisterRequest._() : super();
-  factory RegisterRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory RegisterRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  ConnectRequest._() : super();
+  factory ConnectRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ConnectRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RegisterRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ConnectRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'walletAddress')
     ..aOS(2, _omitFieldNames ? '' : 'registrationToken')
     ..aOS(3, _omitFieldNames ? '' : 'seedMessage')
@@ -314,22 +314,22 @@ class RegisterRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  RegisterRequest clone() => RegisterRequest()..mergeFromMessage(this);
+  ConnectRequest clone() => ConnectRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  RegisterRequest copyWith(void Function(RegisterRequest) updates) => super.copyWith((message) => updates(message as RegisterRequest)) as RegisterRequest;
+  ConnectRequest copyWith(void Function(ConnectRequest) updates) => super.copyWith((message) => updates(message as ConnectRequest)) as ConnectRequest;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static RegisterRequest create() => RegisterRequest._();
-  RegisterRequest createEmptyInstance() => create();
-  static $pb.PbList<RegisterRequest> createRepeated() => $pb.PbList<RegisterRequest>();
+  static ConnectRequest create() => ConnectRequest._();
+  ConnectRequest createEmptyInstance() => create();
+  static $pb.PbList<ConnectRequest> createRepeated() => $pb.PbList<ConnectRequest>();
   @$core.pragma('dart2js:noInline')
-  static RegisterRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RegisterRequest>(create);
-  static RegisterRequest? _defaultInstance;
+  static ConnectRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ConnectRequest>(create);
+  static ConnectRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get walletAddress => $_getSZ(0);
@@ -359,13 +359,13 @@ class RegisterRequest extends $pb.GeneratedMessage {
   void clearSeedMessage() => $_clearField(3);
 }
 
-class RegisterResponse extends $pb.GeneratedMessage {
-  factory RegisterResponse() => create();
-  RegisterResponse._() : super();
-  factory RegisterResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory RegisterResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+class ConnectResponse extends $pb.GeneratedMessage {
+  factory ConnectResponse() => create();
+  ConnectResponse._() : super();
+  factory ConnectResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ConnectResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RegisterResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ConnectResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
@@ -373,22 +373,22 @@ class RegisterResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  RegisterResponse clone() => RegisterResponse()..mergeFromMessage(this);
+  ConnectResponse clone() => ConnectResponse()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  RegisterResponse copyWith(void Function(RegisterResponse) updates) => super.copyWith((message) => updates(message as RegisterResponse)) as RegisterResponse;
+  ConnectResponse copyWith(void Function(ConnectResponse) updates) => super.copyWith((message) => updates(message as ConnectResponse)) as ConnectResponse;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static RegisterResponse create() => RegisterResponse._();
-  RegisterResponse createEmptyInstance() => create();
-  static $pb.PbList<RegisterResponse> createRepeated() => $pb.PbList<RegisterResponse>();
+  static ConnectResponse create() => ConnectResponse._();
+  ConnectResponse createEmptyInstance() => create();
+  static $pb.PbList<ConnectResponse> createRepeated() => $pb.PbList<ConnectResponse>();
   @$core.pragma('dart2js:noInline')
-  static RegisterResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RegisterResponse>(create);
-  static RegisterResponse? _defaultInstance;
+  static ConnectResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ConnectResponse>(create);
+  static ConnectResponse? _defaultInstance;
 }
 
 class GetPartnerInfoRequest extends $pb.GeneratedMessage {
@@ -1577,11 +1577,11 @@ class WalletServiceApi {
   $async.Future<GetWalletProofResponse> getWalletProof($pb.ClientContext? ctx, GetWalletProofRequest request) =>
     _client.invoke<GetWalletProofResponse>(ctx, 'WalletService', 'GetWalletProof', request, GetWalletProofResponse())
   ;
-  $async.Future<LoginResponse> login($pb.ClientContext? ctx, LoginRequest request) =>
-    _client.invoke<LoginResponse>(ctx, 'WalletService', 'Login', request, LoginResponse())
+  $async.Future<RestoreConnectionResponse> restoreConnection($pb.ClientContext? ctx, RestoreConnectionRequest request) =>
+    _client.invoke<RestoreConnectionResponse>(ctx, 'WalletService', 'RestoreConnection', request, RestoreConnectionResponse())
   ;
-  $async.Future<RegisterResponse> register($pb.ClientContext? ctx, RegisterRequest request) =>
-    _client.invoke<RegisterResponse>(ctx, 'WalletService', 'Register', request, RegisterResponse())
+  $async.Future<ConnectResponse> connect($pb.ClientContext? ctx, ConnectRequest request) =>
+    _client.invoke<ConnectResponse>(ctx, 'WalletService', 'Connect', request, ConnectResponse())
   ;
   $async.Future<GetInfoResponse> getInfo($pb.ClientContext? ctx, GetInfoRequest request) =>
     _client.invoke<GetInfoResponse>(ctx, 'WalletService', 'GetInfo', request, GetInfoResponse())
