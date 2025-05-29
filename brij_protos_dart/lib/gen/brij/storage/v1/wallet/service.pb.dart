@@ -284,15 +284,15 @@ class LoginResponse extends $pb.GeneratedMessage {
 class RegisterRequest extends $pb.GeneratedMessage {
   factory RegisterRequest({
     $core.String? walletAddress,
-    $core.String? walletProofSignature,
+    $core.String? registrationToken,
     $core.String? seedMessage,
   }) {
     final $result = create();
     if (walletAddress != null) {
       $result.walletAddress = walletAddress;
     }
-    if (walletProofSignature != null) {
-      $result.walletProofSignature = walletProofSignature;
+    if (registrationToken != null) {
+      $result.registrationToken = registrationToken;
     }
     if (seedMessage != null) {
       $result.seedMessage = seedMessage;
@@ -305,7 +305,7 @@ class RegisterRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RegisterRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'walletAddress')
-    ..aOS(2, _omitFieldNames ? '' : 'walletProofSignature')
+    ..aOS(2, _omitFieldNames ? '' : 'registrationToken')
     ..aOS(3, _omitFieldNames ? '' : 'seedMessage')
     ..hasRequiredFields = false
   ;
@@ -341,13 +341,13 @@ class RegisterRequest extends $pb.GeneratedMessage {
   void clearWalletAddress() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get walletProofSignature => $_getSZ(1);
+  $core.String get registrationToken => $_getSZ(1);
   @$pb.TagNumber(2)
-  set walletProofSignature($core.String v) { $_setString(1, v); }
+  set registrationToken($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasWalletProofSignature() => $_has(1);
+  $core.bool hasRegistrationToken() => $_has(1);
   @$pb.TagNumber(2)
-  void clearWalletProofSignature() => $_clearField(2);
+  void clearRegistrationToken() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get seedMessage => $_getSZ(2);

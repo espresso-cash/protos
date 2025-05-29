@@ -157,12 +157,12 @@ func (*LoginResponse_NotRegistered_) isLoginResponse_Result() {}
 func (*LoginResponse_Registered_) isLoginResponse_Result() {}
 
 type RegisterRequest struct {
-	state                protoimpl.MessageState `protogen:"open.v1"`
-	WalletAddress        string                 `protobuf:"bytes,1,opt,name=wallet_address,json=walletAddress,proto3" json:"wallet_address,omitempty"`
-	WalletProofSignature string                 `protobuf:"bytes,2,opt,name=wallet_proof_signature,json=walletProofSignature,proto3" json:"wallet_proof_signature,omitempty"`
-	SeedMessage          string                 `protobuf:"bytes,3,opt,name=seed_message,json=seedMessage,proto3" json:"seed_message,omitempty"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	WalletAddress     string                 `protobuf:"bytes,1,opt,name=wallet_address,json=walletAddress,proto3" json:"wallet_address,omitempty"`
+	RegistrationToken string                 `protobuf:"bytes,2,opt,name=registration_token,json=registrationToken,proto3" json:"registration_token,omitempty"`
+	SeedMessage       string                 `protobuf:"bytes,3,opt,name=seed_message,json=seedMessage,proto3" json:"seed_message,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *RegisterRequest) Reset() {
@@ -202,9 +202,9 @@ func (x *RegisterRequest) GetWalletAddress() string {
 	return ""
 }
 
-func (x *RegisterRequest) GetWalletProofSignature() string {
+func (x *RegisterRequest) GetRegistrationToken() string {
 	if x != nil {
-		return x.WalletProofSignature
+		return x.RegistrationToken
 	}
 	return ""
 }
@@ -1441,10 +1441,10 @@ const file_brij_storage_v1_wallet_service_proto_rawDesc = "" +
 	"\n" +
 	"public_key\x18\x01 \x01(\tR\tpublicKey\x12!\n" +
 	"\fseed_message\x18\x02 \x01(\tR\vseedMessageB\b\n" +
-	"\x06result\"\x91\x01\n" +
+	"\x06result\"\x8a\x01\n" +
 	"\x0fRegisterRequest\x12%\n" +
-	"\x0ewallet_address\x18\x01 \x01(\tR\rwalletAddress\x124\n" +
-	"\x16wallet_proof_signature\x18\x02 \x01(\tR\x14walletProofSignature\x12!\n" +
+	"\x0ewallet_address\x18\x01 \x01(\tR\rwalletAddress\x12-\n" +
+	"\x12registration_token\x18\x02 \x01(\tR\x11registrationToken\x12!\n" +
 	"\fseed_message\x18\x03 \x01(\tR\vseedMessage\"\x12\n" +
 	"\x10RegisterResponse\"'\n" +
 	"\x15GetPartnerInfoRequest\x12\x0e\n" +

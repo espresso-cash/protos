@@ -109,9 +109,9 @@ export declare type RegisterRequest = Message<"brij.storage.v1.wallet.RegisterRe
   walletAddress: string;
 
   /**
-   * @generated from field: string wallet_proof_signature = 2;
+   * @generated from field: string registration_token = 2;
    */
-  walletProofSignature: string;
+  registrationToken: string;
 
   /**
    * @generated from field: string seed_message = 3;

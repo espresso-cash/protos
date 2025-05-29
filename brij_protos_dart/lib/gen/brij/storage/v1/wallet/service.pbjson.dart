@@ -75,7 +75,7 @@ const RegisterRequest$json = {
   '1': 'RegisterRequest',
   '2': [
     {'1': 'wallet_address', '3': 1, '4': 1, '5': 9, '10': 'walletAddress'},
-    {'1': 'wallet_proof_signature', '3': 2, '4': 1, '5': 9, '10': 'walletProofSignature'},
+    {'1': 'registration_token', '3': 2, '4': 1, '5': 9, '10': 'registrationToken'},
     {'1': 'seed_message', '3': 3, '4': 1, '5': 9, '10': 'seedMessage'},
   ],
 };
@@ -83,8 +83,8 @@ const RegisterRequest$json = {
 /// Descriptor for `RegisterRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List registerRequestDescriptor = $convert.base64Decode(
     'Cg9SZWdpc3RlclJlcXVlc3QSJQoOd2FsbGV0X2FkZHJlc3MYASABKAlSDXdhbGxldEFkZHJlc3'
-    'MSNAoWd2FsbGV0X3Byb29mX3NpZ25hdHVyZRgCIAEoCVIUd2FsbGV0UHJvb2ZTaWduYXR1cmUS'
-    'IQoMc2VlZF9tZXNzYWdlGAMgASgJUgtzZWVkTWVzc2FnZQ==');
+    'MSLQoScmVnaXN0cmF0aW9uX3Rva2VuGAIgASgJUhFyZWdpc3RyYXRpb25Ub2tlbhIhCgxzZWVk'
+    'X21lc3NhZ2UYAyABKAlSC3NlZWRNZXNzYWdl');
 
 @$core.Deprecated('Use registerResponseDescriptor instead')
 const RegisterResponse$json = {
