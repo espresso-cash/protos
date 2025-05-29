@@ -75,30 +75,23 @@ func (x *GetOrderRequest) GetExternalId() string {
 }
 
 type GetOrderResponse struct {
-	state               protoimpl.MessageState `protogen:"open.v1"`
-	OrderId             string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
-	Created             string                 `protobuf:"bytes,2,opt,name=created,proto3" json:"created,omitempty"`
-	Status              string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
-	PartnerPublicKey    string                 `protobuf:"bytes,4,opt,name=partner_public_key,json=partnerPublicKey,proto3" json:"partner_public_key,omitempty"`
-	UserPublicKey       string                 `protobuf:"bytes,5,opt,name=user_public_key,json=userPublicKey,proto3" json:"user_public_key,omitempty"`
-	Comment             string                 `protobuf:"bytes,7,opt,name=comment,proto3" json:"comment,omitempty"`
-	Type                common.RampType        `protobuf:"varint,8,opt,name=type,proto3,enum=brij.orders.v1.common.RampType" json:"type,omitempty"`
-	CryptoAmount        float64                `protobuf:"fixed64,9,opt,name=crypto_amount,json=cryptoAmount,proto3" json:"crypto_amount,omitempty"`
-	CryptoCurrency      string                 `protobuf:"bytes,10,opt,name=crypto_currency,json=cryptoCurrency,proto3" json:"crypto_currency,omitempty"`
-	FiatAmount          float64                `protobuf:"fixed64,11,opt,name=fiat_amount,json=fiatAmount,proto3" json:"fiat_amount,omitempty"`
-	FiatCurrency        string                 `protobuf:"bytes,12,opt,name=fiat_currency,json=fiatCurrency,proto3" json:"fiat_currency,omitempty"`
-	BankName            string                 `protobuf:"bytes,13,opt,name=bank_name,json=bankName,proto3" json:"bank_name,omitempty"`
-	BankAccount         string                 `protobuf:"bytes,14,opt,name=bank_account,json=bankAccount,proto3" json:"bank_account,omitempty"`
-	CryptoWalletAddress string                 `protobuf:"bytes,15,opt,name=crypto_wallet_address,json=cryptoWalletAddress,proto3" json:"crypto_wallet_address,omitempty"`
-	Transaction         string                 `protobuf:"bytes,16,opt,name=transaction,proto3" json:"transaction,omitempty"`
-	TransactionId       string                 `protobuf:"bytes,17,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
-	ExternalId          string                 `protobuf:"bytes,18,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
-	UserSignature       string                 `protobuf:"bytes,19,opt,name=user_signature,json=userSignature,proto3" json:"user_signature,omitempty"`
-	PartnerSignature    string                 `protobuf:"bytes,20,opt,name=partner_signature,json=partnerSignature,proto3" json:"partner_signature,omitempty"`
-	UserWalletAddress   string                 `protobuf:"bytes,21,opt,name=user_wallet_address,json=userWalletAddress,proto3" json:"user_wallet_address,omitempty"`
-	WalletPublicKey     string                 `protobuf:"bytes,22,opt,name=wallet_public_key,json=walletPublicKey,proto3" json:"wallet_public_key,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// OnRampOrderUserEnvelope or OffRampOrderUserEnvelope
+	UserPayload   []byte `protobuf:"bytes,1,opt,name=user_payload,json=userPayload,proto3" json:"user_payload,omitempty"`
+	UserSignature []byte `protobuf:"bytes,2,opt,name=user_signature,json=userSignature,proto3" json:"user_signature,omitempty"`
+	// OnRampOrderPartnerEnvelope or OffRampOrderPartnerEnvelope
+	PartnerPayload   []byte          `protobuf:"bytes,3,opt,name=partner_payload,json=partnerPayload,proto3" json:"partner_payload,omitempty"`
+	PartnerSignature []byte          `protobuf:"bytes,4,opt,name=partner_signature,json=partnerSignature,proto3" json:"partner_signature,omitempty"`
+	Created          string          `protobuf:"bytes,5,opt,name=created,proto3" json:"created,omitempty"`
+	Status           string          `protobuf:"bytes,6,opt,name=status,proto3" json:"status,omitempty"`
+	UserPublicKey    string          `protobuf:"bytes,7,opt,name=user_public_key,json=userPublicKey,proto3" json:"user_public_key,omitempty"`
+	PartnerPublicKey string          `protobuf:"bytes,8,opt,name=partner_public_key,json=partnerPublicKey,proto3" json:"partner_public_key,omitempty"`
+	Type             common.RampType `protobuf:"varint,9,opt,name=type,proto3,enum=brij.orders.v1.common.RampType" json:"type,omitempty"`
+	Transaction      string          `protobuf:"bytes,10,opt,name=transaction,proto3" json:"transaction,omitempty"`
+	TransactionId    string          `protobuf:"bytes,11,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
+	ExternalId       string          `protobuf:"bytes,12,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *GetOrderResponse) Reset() {
@@ -131,11 +124,32 @@ func (*GetOrderResponse) Descriptor() ([]byte, []int) {
 	return file_brij_orders_v1_partner_partner_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetOrderResponse) GetOrderId() string {
+func (x *GetOrderResponse) GetUserPayload() []byte {
 	if x != nil {
-		return x.OrderId
+		return x.UserPayload
 	}
-	return ""
+	return nil
+}
+
+func (x *GetOrderResponse) GetUserSignature() []byte {
+	if x != nil {
+		return x.UserSignature
+	}
+	return nil
+}
+
+func (x *GetOrderResponse) GetPartnerPayload() []byte {
+	if x != nil {
+		return x.PartnerPayload
+	}
+	return nil
+}
+
+func (x *GetOrderResponse) GetPartnerSignature() []byte {
+	if x != nil {
+		return x.PartnerSignature
+	}
+	return nil
 }
 
 func (x *GetOrderResponse) GetCreated() string {
@@ -152,13 +166,6 @@ func (x *GetOrderResponse) GetStatus() string {
 	return ""
 }
 
-func (x *GetOrderResponse) GetPartnerPublicKey() string {
-	if x != nil {
-		return x.PartnerPublicKey
-	}
-	return ""
-}
-
 func (x *GetOrderResponse) GetUserPublicKey() string {
 	if x != nil {
 		return x.UserPublicKey
@@ -166,9 +173,9 @@ func (x *GetOrderResponse) GetUserPublicKey() string {
 	return ""
 }
 
-func (x *GetOrderResponse) GetComment() string {
+func (x *GetOrderResponse) GetPartnerPublicKey() string {
 	if x != nil {
-		return x.Comment
+		return x.PartnerPublicKey
 	}
 	return ""
 }
@@ -178,55 +185,6 @@ func (x *GetOrderResponse) GetType() common.RampType {
 		return x.Type
 	}
 	return common.RampType(0)
-}
-
-func (x *GetOrderResponse) GetCryptoAmount() float64 {
-	if x != nil {
-		return x.CryptoAmount
-	}
-	return 0
-}
-
-func (x *GetOrderResponse) GetCryptoCurrency() string {
-	if x != nil {
-		return x.CryptoCurrency
-	}
-	return ""
-}
-
-func (x *GetOrderResponse) GetFiatAmount() float64 {
-	if x != nil {
-		return x.FiatAmount
-	}
-	return 0
-}
-
-func (x *GetOrderResponse) GetFiatCurrency() string {
-	if x != nil {
-		return x.FiatCurrency
-	}
-	return ""
-}
-
-func (x *GetOrderResponse) GetBankName() string {
-	if x != nil {
-		return x.BankName
-	}
-	return ""
-}
-
-func (x *GetOrderResponse) GetBankAccount() string {
-	if x != nil {
-		return x.BankAccount
-	}
-	return ""
-}
-
-func (x *GetOrderResponse) GetCryptoWalletAddress() string {
-	if x != nil {
-		return x.CryptoWalletAddress
-	}
-	return ""
 }
 
 func (x *GetOrderResponse) GetTransaction() string {
@@ -250,44 +208,14 @@ func (x *GetOrderResponse) GetExternalId() string {
 	return ""
 }
 
-func (x *GetOrderResponse) GetUserSignature() string {
-	if x != nil {
-		return x.UserSignature
-	}
-	return ""
-}
-
-func (x *GetOrderResponse) GetPartnerSignature() string {
-	if x != nil {
-		return x.PartnerSignature
-	}
-	return ""
-}
-
-func (x *GetOrderResponse) GetUserWalletAddress() string {
-	if x != nil {
-		return x.UserWalletAddress
-	}
-	return ""
-}
-
-func (x *GetOrderResponse) GetWalletPublicKey() string {
-	if x != nil {
-		return x.WalletPublicKey
-	}
-	return ""
-}
-
 type AcceptOrderRequest struct {
-	state               protoimpl.MessageState `protogen:"open.v1"`
-	OrderId             string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
-	BankName            string                 `protobuf:"bytes,2,opt,name=bank_name,json=bankName,proto3" json:"bank_name,omitempty"`
-	BankAccount         string                 `protobuf:"bytes,3,opt,name=bank_account,json=bankAccount,proto3" json:"bank_account,omitempty"`
-	CryptoWalletAddress string                 `protobuf:"bytes,4,opt,name=crypto_wallet_address,json=cryptoWalletAddress,proto3" json:"crypto_wallet_address,omitempty"`
-	ExternalId          string                 `protobuf:"bytes,5,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
-	PartnerSignature    string                 `protobuf:"bytes,6,opt,name=partner_signature,json=partnerSignature,proto3" json:"partner_signature,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// OnRampOrderPartnerEnvelope or OffRampOrderPartnerEnvelope
+	Payload       []byte `protobuf:"bytes,1,opt,name=payload,proto3" json:"payload,omitempty"`
+	Signature     []byte `protobuf:"bytes,2,opt,name=signature,proto3" json:"signature,omitempty"`
+	ExternalId    string `protobuf:"bytes,3,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AcceptOrderRequest) Reset() {
@@ -320,44 +248,23 @@ func (*AcceptOrderRequest) Descriptor() ([]byte, []int) {
 	return file_brij_orders_v1_partner_partner_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *AcceptOrderRequest) GetOrderId() string {
+func (x *AcceptOrderRequest) GetPayload() []byte {
 	if x != nil {
-		return x.OrderId
+		return x.Payload
 	}
-	return ""
+	return nil
 }
 
-func (x *AcceptOrderRequest) GetBankName() string {
+func (x *AcceptOrderRequest) GetSignature() []byte {
 	if x != nil {
-		return x.BankName
+		return x.Signature
 	}
-	return ""
-}
-
-func (x *AcceptOrderRequest) GetBankAccount() string {
-	if x != nil {
-		return x.BankAccount
-	}
-	return ""
-}
-
-func (x *AcceptOrderRequest) GetCryptoWalletAddress() string {
-	if x != nil {
-		return x.CryptoWalletAddress
-	}
-	return ""
+	return nil
 }
 
 func (x *AcceptOrderRequest) GetExternalId() string {
 	if x != nil {
 		return x.ExternalId
-	}
-	return ""
-}
-
-func (x *AcceptOrderRequest) GetPartnerSignature() string {
-	if x != nil {
-		return x.PartnerSignature
 	}
 	return ""
 }
@@ -1086,40 +993,27 @@ const file_brij_orders_v1_partner_partner_proto_rawDesc = "" +
 	"\x0fGetOrderRequest\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x1f\n" +
 	"\vexternal_id\x18\x02 \x01(\tR\n" +
-	"externalId\"\xa6\x06\n" +
-	"\x10GetOrderResponse\x12\x19\n" +
-	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x18\n" +
-	"\acreated\x18\x02 \x01(\tR\acreated\x12\x16\n" +
-	"\x06status\x18\x03 \x01(\tR\x06status\x12,\n" +
-	"\x12partner_public_key\x18\x04 \x01(\tR\x10partnerPublicKey\x12&\n" +
-	"\x0fuser_public_key\x18\x05 \x01(\tR\ruserPublicKey\x12\x18\n" +
-	"\acomment\x18\a \x01(\tR\acomment\x123\n" +
-	"\x04type\x18\b \x01(\x0e2\x1f.brij.orders.v1.common.RampTypeR\x04type\x12#\n" +
-	"\rcrypto_amount\x18\t \x01(\x01R\fcryptoAmount\x12'\n" +
-	"\x0fcrypto_currency\x18\n" +
-	" \x01(\tR\x0ecryptoCurrency\x12\x1f\n" +
-	"\vfiat_amount\x18\v \x01(\x01R\n" +
-	"fiatAmount\x12#\n" +
-	"\rfiat_currency\x18\f \x01(\tR\ffiatCurrency\x12\x1b\n" +
-	"\tbank_name\x18\r \x01(\tR\bbankName\x12!\n" +
-	"\fbank_account\x18\x0e \x01(\tR\vbankAccount\x122\n" +
-	"\x15crypto_wallet_address\x18\x0f \x01(\tR\x13cryptoWalletAddress\x12 \n" +
-	"\vtransaction\x18\x10 \x01(\tR\vtransaction\x12%\n" +
-	"\x0etransaction_id\x18\x11 \x01(\tR\rtransactionId\x12\x1f\n" +
-	"\vexternal_id\x18\x12 \x01(\tR\n" +
-	"externalId\x12%\n" +
-	"\x0euser_signature\x18\x13 \x01(\tR\ruserSignature\x12+\n" +
-	"\x11partner_signature\x18\x14 \x01(\tR\x10partnerSignature\x12.\n" +
-	"\x13user_wallet_address\x18\x15 \x01(\tR\x11userWalletAddress\x12*\n" +
-	"\x11wallet_public_key\x18\x16 \x01(\tR\x0fwalletPublicKey\"\xf1\x01\n" +
-	"\x12AcceptOrderRequest\x12\x19\n" +
-	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x1b\n" +
-	"\tbank_name\x18\x02 \x01(\tR\bbankName\x12!\n" +
-	"\fbank_account\x18\x03 \x01(\tR\vbankAccount\x122\n" +
-	"\x15crypto_wallet_address\x18\x04 \x01(\tR\x13cryptoWalletAddress\x12\x1f\n" +
-	"\vexternal_id\x18\x05 \x01(\tR\n" +
-	"externalId\x12+\n" +
-	"\x11partner_signature\x18\x06 \x01(\tR\x10partnerSignature\"\x15\n" +
+	"externalId\"\xd9\x03\n" +
+	"\x10GetOrderResponse\x12!\n" +
+	"\fuser_payload\x18\x01 \x01(\fR\vuserPayload\x12%\n" +
+	"\x0euser_signature\x18\x02 \x01(\fR\ruserSignature\x12'\n" +
+	"\x0fpartner_payload\x18\x03 \x01(\fR\x0epartnerPayload\x12+\n" +
+	"\x11partner_signature\x18\x04 \x01(\fR\x10partnerSignature\x12\x18\n" +
+	"\acreated\x18\x05 \x01(\tR\acreated\x12\x16\n" +
+	"\x06status\x18\x06 \x01(\tR\x06status\x12&\n" +
+	"\x0fuser_public_key\x18\a \x01(\tR\ruserPublicKey\x12,\n" +
+	"\x12partner_public_key\x18\b \x01(\tR\x10partnerPublicKey\x123\n" +
+	"\x04type\x18\t \x01(\x0e2\x1f.brij.orders.v1.common.RampTypeR\x04type\x12 \n" +
+	"\vtransaction\x18\n" +
+	" \x01(\tR\vtransaction\x12%\n" +
+	"\x0etransaction_id\x18\v \x01(\tR\rtransactionId\x12\x1f\n" +
+	"\vexternal_id\x18\f \x01(\tR\n" +
+	"externalId\"m\n" +
+	"\x12AcceptOrderRequest\x12\x18\n" +
+	"\apayload\x18\x01 \x01(\fR\apayload\x12\x1c\n" +
+	"\tsignature\x18\x02 \x01(\fR\tsignature\x12\x1f\n" +
+	"\vexternal_id\x18\x03 \x01(\tR\n" +
+	"externalId\"\x15\n" +
 	"\x13AcceptOrderResponse\"G\n" +
 	"\x12RejectOrderRequest\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x16\n" +

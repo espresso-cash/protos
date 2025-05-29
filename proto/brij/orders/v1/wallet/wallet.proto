@@ -21,15 +21,9 @@ service WalletService {
 }
 
 message CreateOnRampOrderRequest {
-  string partner_public_key = 1;
-  double crypto_amount = 2;
-  string crypto_currency = 3;
-  double fiat_amount = 4;
-  string fiat_currency = 5;
-  string user_signature = 6;
-  string user_wallet_address = 7;
-  string wallet_public_key = 8;
-  string order_id = 9;
+  // OnRampOrderUserEnvelope
+  bytes payload = 1;
+  bytes signature = 2;
 }
 
 message CreateOnRampOrderResponse {
@@ -37,17 +31,9 @@ message CreateOnRampOrderResponse {
 }
 
 message CreateOffRampOrderRequest {
-  string partner_public_key = 1;
-  double crypto_amount = 2;
-  string crypto_currency = 3;
-  double fiat_amount = 4;
-  string fiat_currency = 5;
-  string bank_name = 6;
-  string bank_account = 7;
-  string user_signature = 8;
-  string user_wallet_address = 9;
-  string wallet_public_key = 10;
-  string order_id = 11;
+  // OffRampOrderUserEnvelope
+  bytes payload = 1;
+  bytes signature = 2;
 }
 
 message CreateOffRampOrderResponse {
@@ -60,26 +46,19 @@ message GetOrderRequest {
 }
 
 message GetOrderResponse {
-  string order_id = 1;
-  string created = 2;
-  string status = 3;
-  string partner_public_key = 4;
-  string user_public_key = 5;
-  string comment = 7;
-  brij.orders.v1.common.RampType type = 8;
-  double crypto_amount = 9;
-  string crypto_currency = 10;
-  double fiat_amount = 11;
-  string fiat_currency = 12;
-  string bank_name = 13;
-  string bank_account = 14;
-  string crypto_wallet_address = 15;
-  string transaction = 16;
-  string transaction_id = 17;
-  string user_signature = 19;
-  string partner_signature = 20;
-  string user_wallet_address = 21;
-  string wallet_public_key = 22;
+  // OnRampOrderUserEnvelope or OffRampOrderUserEnvelope
+  bytes user_payload = 1;
+  bytes user_signature = 2;
+  // OnRampOrderPartnerEnvelope or OffRampOrderPartnerEnvelope
+  bytes partner_payload = 3;
+  bytes partner_signature = 4;
+  string created = 5;
+  string status = 6;
+  string user_public_key = 7;
+  string partner_public_key = 8;
+  brij.orders.v1.common.RampType type = 9;
+  string transaction = 10;
+  string transaction_id = 11;
 }
 
 message GetOrdersRequest {}

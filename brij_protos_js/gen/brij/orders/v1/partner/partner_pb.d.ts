@@ -37,109 +37,68 @@ export declare const GetOrderRequestSchema: GenMessage<GetOrderRequest>;
  */
 export declare type GetOrderResponse = Message<"brij.orders.v1.partner.GetOrderResponse"> & {
   /**
-   * @generated from field: string order_id = 1;
+   * OnRampOrderUserEnvelope or OffRampOrderUserEnvelope
+   *
+   * @generated from field: bytes user_payload = 1;
    */
-  orderId: string;
+  userPayload: Uint8Array;
 
   /**
-   * @generated from field: string created = 2;
+   * @generated from field: bytes user_signature = 2;
+   */
+  userSignature: Uint8Array;
+
+  /**
+   * OnRampOrderPartnerEnvelope or OffRampOrderPartnerEnvelope
+   *
+   * @generated from field: bytes partner_payload = 3;
+   */
+  partnerPayload: Uint8Array;
+
+  /**
+   * @generated from field: bytes partner_signature = 4;
+   */
+  partnerSignature: Uint8Array;
+
+  /**
+   * @generated from field: string created = 5;
    */
   created: string;
 
   /**
-   * @generated from field: string status = 3;
+   * @generated from field: string status = 6;
    */
   status: string;
 
   /**
-   * @generated from field: string partner_public_key = 4;
-   */
-  partnerPublicKey: string;
-
-  /**
-   * @generated from field: string user_public_key = 5;
+   * @generated from field: string user_public_key = 7;
    */
   userPublicKey: string;
 
   /**
-   * @generated from field: string comment = 7;
+   * @generated from field: string partner_public_key = 8;
    */
-  comment: string;
+  partnerPublicKey: string;
 
   /**
-   * @generated from field: brij.orders.v1.common.RampType type = 8;
+   * @generated from field: brij.orders.v1.common.RampType type = 9;
    */
   type: RampType;
 
   /**
-   * @generated from field: double crypto_amount = 9;
-   */
-  cryptoAmount: number;
-
-  /**
-   * @generated from field: string crypto_currency = 10;
-   */
-  cryptoCurrency: string;
-
-  /**
-   * @generated from field: double fiat_amount = 11;
-   */
-  fiatAmount: number;
-
-  /**
-   * @generated from field: string fiat_currency = 12;
-   */
-  fiatCurrency: string;
-
-  /**
-   * @generated from field: string bank_name = 13;
-   */
-  bankName: string;
-
-  /**
-   * @generated from field: string bank_account = 14;
-   */
-  bankAccount: string;
-
-  /**
-   * @generated from field: string crypto_wallet_address = 15;
-   */
-  cryptoWalletAddress: string;
-
-  /**
-   * @generated from field: string transaction = 16;
+   * @generated from field: string transaction = 10;
    */
   transaction: string;
 
   /**
-   * @generated from field: string transaction_id = 17;
+   * @generated from field: string transaction_id = 11;
    */
   transactionId: string;
 
   /**
-   * @generated from field: string external_id = 18;
+   * @generated from field: string external_id = 12;
    */
   externalId: string;
-
-  /**
-   * @generated from field: string user_signature = 19;
-   */
-  userSignature: string;
-
-  /**
-   * @generated from field: string partner_signature = 20;
-   */
-  partnerSignature: string;
-
-  /**
-   * @generated from field: string user_wallet_address = 21;
-   */
-  userWalletAddress: string;
-
-  /**
-   * @generated from field: string wallet_public_key = 22;
-   */
-  walletPublicKey: string;
 };
 
 /**
@@ -153,34 +112,21 @@ export declare const GetOrderResponseSchema: GenMessage<GetOrderResponse>;
  */
 export declare type AcceptOrderRequest = Message<"brij.orders.v1.partner.AcceptOrderRequest"> & {
   /**
-   * @generated from field: string order_id = 1;
+   * OnRampOrderPartnerEnvelope or OffRampOrderPartnerEnvelope
+   *
+   * @generated from field: bytes payload = 1;
    */
-  orderId: string;
+  payload: Uint8Array;
 
   /**
-   * @generated from field: string bank_name = 2;
+   * @generated from field: bytes signature = 2;
    */
-  bankName: string;
+  signature: Uint8Array;
 
   /**
-   * @generated from field: string bank_account = 3;
-   */
-  bankAccount: string;
-
-  /**
-   * @generated from field: string crypto_wallet_address = 4;
-   */
-  cryptoWalletAddress: string;
-
-  /**
-   * @generated from field: string external_id = 5;
+   * @generated from field: string external_id = 3;
    */
   externalId: string;
-
-  /**
-   * @generated from field: string partner_signature = 6;
-   */
-  partnerSignature: string;
 };
 
 /**

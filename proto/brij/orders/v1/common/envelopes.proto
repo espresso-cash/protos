@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package brij.orders.v1.common;
+
+option go_package = "go.brij.fi/protos/brij/orders/v1/common";
+
+message OnRampOrderUserEnvelope {
+  string order_id = 1;
+  string partner_public_key = 2;
+  double crypto_amount = 3;
+  string crypto_currency = 4;
+  double fiat_amount = 5;
+  string fiat_currency = 6;
+  string user_wallet_address = 8;
+  string wallet_public_key = 9;
+}
+
+message OffRampOrderUserEnvelope {
+  string order_id = 1;
+  string partner_public_key = 2;
+  double crypto_amount = 3;
+  string crypto_currency = 4;
+  double fiat_amount = 5;
+  string fiat_currency = 6;
+  string bank_data_hash = 7;
+  string user_wallet_address = 8;
+  string wallet_public_key = 9;
+}
+
+message OnRampOrderPartnerEnvelope {
+  string order_id = 1;
+  string bank_name = 2;
+  string bank_account = 3;
+}
+
+message OffRampOrderPartnerEnvelope {
+  string order_id = 1;
+  string crypto_wallet_address = 2;
+}
