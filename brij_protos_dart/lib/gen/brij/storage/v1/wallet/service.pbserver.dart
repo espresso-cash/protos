@@ -21,9 +21,11 @@ import 'service.pbjson.dart';
 export 'service.pb.dart';
 
 abstract class WalletServiceBase extends $pb.GeneratedService {
-  $async.Future<$10.GetPartnerInfoResponse> getPartnerInfo($pb.ServerContext ctx, $10.GetPartnerInfoRequest request);
-  $async.Future<$10.InitStorageResponse> initStorage($pb.ServerContext ctx, $10.InitStorageRequest request);
+  $async.Future<$10.GetWalletProofResponse> getWalletProof($pb.ServerContext ctx, $10.GetWalletProofRequest request);
+  $async.Future<$10.LoginResponse> login($pb.ServerContext ctx, $10.LoginRequest request);
+  $async.Future<$10.RegisterResponse> register($pb.ServerContext ctx, $10.RegisterRequest request);
   $async.Future<$10.GetInfoResponse> getInfo($pb.ServerContext ctx, $10.GetInfoRequest request);
+  $async.Future<$10.GetPartnerInfoResponse> getPartnerInfo($pb.ServerContext ctx, $10.GetPartnerInfoRequest request);
   $async.Future<$10.GetGrantedAccessPartnersResponse> getGrantedAccessPartners($pb.ServerContext ctx, $10.GetGrantedAccessPartnersRequest request);
   $async.Future<$10.GrantAccessResponse> grantAccess($pb.ServerContext ctx, $10.GrantAccessRequest request);
   $async.Future<$10.SetUserDataResponse> setUserData($pb.ServerContext ctx, $10.SetUserDataRequest request);
@@ -33,14 +35,14 @@ abstract class WalletServiceBase extends $pb.GeneratedService {
   $async.Future<$10.GetUserDataResponse> getUserData($pb.ServerContext ctx, $10.GetUserDataRequest request);
   $async.Future<$10.CheckAccessResponse> checkAccess($pb.ServerContext ctx, $10.CheckAccessRequest request);
   $async.Future<$10.GetKycStatusResponse> getKycStatus($pb.ServerContext ctx, $10.GetKycStatusRequest request);
-  $async.Future<$10.GetWalletProofResponse> getWalletProof($pb.ServerContext ctx, $10.GetWalletProofRequest request);
-  $async.Future<$10.GetSeedMessageResponse> getSeedMessage($pb.ServerContext ctx, $10.GetSeedMessageRequest request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
-      case 'GetPartnerInfo': return $10.GetPartnerInfoRequest();
-      case 'InitStorage': return $10.InitStorageRequest();
+      case 'GetWalletProof': return $10.GetWalletProofRequest();
+      case 'Login': return $10.LoginRequest();
+      case 'Register': return $10.RegisterRequest();
       case 'GetInfo': return $10.GetInfoRequest();
+      case 'GetPartnerInfo': return $10.GetPartnerInfoRequest();
       case 'GetGrantedAccessPartners': return $10.GetGrantedAccessPartnersRequest();
       case 'GrantAccess': return $10.GrantAccessRequest();
       case 'SetUserData': return $10.SetUserDataRequest();
@@ -50,17 +52,17 @@ abstract class WalletServiceBase extends $pb.GeneratedService {
       case 'GetUserData': return $10.GetUserDataRequest();
       case 'CheckAccess': return $10.CheckAccessRequest();
       case 'GetKycStatus': return $10.GetKycStatusRequest();
-      case 'GetWalletProof': return $10.GetWalletProofRequest();
-      case 'GetSeedMessage': return $10.GetSeedMessageRequest();
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }
 
   $async.Future<$pb.GeneratedMessage> handleCall($pb.ServerContext ctx, $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
-      case 'GetPartnerInfo': return this.getPartnerInfo(ctx, request as $10.GetPartnerInfoRequest);
-      case 'InitStorage': return this.initStorage(ctx, request as $10.InitStorageRequest);
+      case 'GetWalletProof': return this.getWalletProof(ctx, request as $10.GetWalletProofRequest);
+      case 'Login': return this.login(ctx, request as $10.LoginRequest);
+      case 'Register': return this.register(ctx, request as $10.RegisterRequest);
       case 'GetInfo': return this.getInfo(ctx, request as $10.GetInfoRequest);
+      case 'GetPartnerInfo': return this.getPartnerInfo(ctx, request as $10.GetPartnerInfoRequest);
       case 'GetGrantedAccessPartners': return this.getGrantedAccessPartners(ctx, request as $10.GetGrantedAccessPartnersRequest);
       case 'GrantAccess': return this.grantAccess(ctx, request as $10.GrantAccessRequest);
       case 'SetUserData': return this.setUserData(ctx, request as $10.SetUserDataRequest);
@@ -70,8 +72,6 @@ abstract class WalletServiceBase extends $pb.GeneratedService {
       case 'GetUserData': return this.getUserData(ctx, request as $10.GetUserDataRequest);
       case 'CheckAccess': return this.checkAccess(ctx, request as $10.CheckAccessRequest);
       case 'GetKycStatus': return this.getKycStatus(ctx, request as $10.GetKycStatusRequest);
-      case 'GetWalletProof': return this.getWalletProof(ctx, request as $10.GetWalletProofRequest);
-      case 'GetSeedMessage': return this.getSeedMessage(ctx, request as $10.GetSeedMessageRequest);
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
   }

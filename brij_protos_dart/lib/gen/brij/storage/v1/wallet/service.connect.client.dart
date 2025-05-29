@@ -8,15 +8,15 @@ import "service.pb.dart" as brijstoragev1walletservice;
 import "service.connect.spec.dart" as specs;
 
 extension type WalletServiceClient (connect.Transport _transport) {
-  Future<brijstoragev1walletservice.GetPartnerInfoResponse> getPartnerInfo(
-    brijstoragev1walletservice.GetPartnerInfoRequest input, {
+  Future<brijstoragev1walletservice.GetWalletProofResponse> getWalletProof(
+    brijstoragev1walletservice.GetWalletProofRequest input, {
     connect.Headers? headers,
     connect.AbortSignal? signal,
     Function(connect.Headers)? onHeader,
     Function(connect.Headers)? onTrailer,
   }) {
     return connect.Client(_transport).unary(
-      specs.WalletService.getPartnerInfo,
+      specs.WalletService.getWalletProof,
       input,
       signal: signal,
       headers: headers,
@@ -25,15 +25,32 @@ extension type WalletServiceClient (connect.Transport _transport) {
     );
   }
 
-  Future<brijstoragev1walletservice.InitStorageResponse> initStorage(
-    brijstoragev1walletservice.InitStorageRequest input, {
+  Future<brijstoragev1walletservice.LoginResponse> login(
+    brijstoragev1walletservice.LoginRequest input, {
     connect.Headers? headers,
     connect.AbortSignal? signal,
     Function(connect.Headers)? onHeader,
     Function(connect.Headers)? onTrailer,
   }) {
     return connect.Client(_transport).unary(
-      specs.WalletService.initStorage,
+      specs.WalletService.login,
+      input,
+      signal: signal,
+      headers: headers,
+      onHeader: onHeader,
+      onTrailer: onTrailer,
+    );
+  }
+
+  Future<brijstoragev1walletservice.RegisterResponse> register(
+    brijstoragev1walletservice.RegisterRequest input, {
+    connect.Headers? headers,
+    connect.AbortSignal? signal,
+    Function(connect.Headers)? onHeader,
+    Function(connect.Headers)? onTrailer,
+  }) {
+    return connect.Client(_transport).unary(
+      specs.WalletService.register,
       input,
       signal: signal,
       headers: headers,
@@ -51,6 +68,23 @@ extension type WalletServiceClient (connect.Transport _transport) {
   }) {
     return connect.Client(_transport).unary(
       specs.WalletService.getInfo,
+      input,
+      signal: signal,
+      headers: headers,
+      onHeader: onHeader,
+      onTrailer: onTrailer,
+    );
+  }
+
+  Future<brijstoragev1walletservice.GetPartnerInfoResponse> getPartnerInfo(
+    brijstoragev1walletservice.GetPartnerInfoRequest input, {
+    connect.Headers? headers,
+    connect.AbortSignal? signal,
+    Function(connect.Headers)? onHeader,
+    Function(connect.Headers)? onTrailer,
+  }) {
+    return connect.Client(_transport).unary(
+      specs.WalletService.getPartnerInfo,
       input,
       signal: signal,
       headers: headers,
@@ -204,40 +238,6 @@ extension type WalletServiceClient (connect.Transport _transport) {
   }) {
     return connect.Client(_transport).unary(
       specs.WalletService.getKycStatus,
-      input,
-      signal: signal,
-      headers: headers,
-      onHeader: onHeader,
-      onTrailer: onTrailer,
-    );
-  }
-
-  Future<brijstoragev1walletservice.GetWalletProofResponse> getWalletProof(
-    brijstoragev1walletservice.GetWalletProofRequest input, {
-    connect.Headers? headers,
-    connect.AbortSignal? signal,
-    Function(connect.Headers)? onHeader,
-    Function(connect.Headers)? onTrailer,
-  }) {
-    return connect.Client(_transport).unary(
-      specs.WalletService.getWalletProof,
-      input,
-      signal: signal,
-      headers: headers,
-      onHeader: onHeader,
-      onTrailer: onTrailer,
-    );
-  }
-
-  Future<brijstoragev1walletservice.GetSeedMessageResponse> getSeedMessage(
-    brijstoragev1walletservice.GetSeedMessageRequest input, {
-    connect.Headers? headers,
-    connect.AbortSignal? signal,
-    Function(connect.Headers)? onHeader,
-    Function(connect.Headers)? onTrailer,
-  }) {
-    return connect.Client(_transport).unary(
-      specs.WalletService.getSeedMessage,
       input,
       signal: signal,
       headers: headers,
