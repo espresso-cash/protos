@@ -35,26 +35,26 @@ final $typed_data.Uint8List restoreConnectionRequestDescriptor = $convert.base64
 const RestoreConnectionResponse$json = {
   '1': 'RestoreConnectionResponse',
   '2': [
-    {'1': 'not_registered', '3': 1, '4': 1, '5': 11, '6': '.brij.storage.v1.wallet.RestoreConnectionResponse.NotRegistered', '9': 0, '10': 'notRegistered'},
-    {'1': 'registered', '3': 2, '4': 1, '5': 11, '6': '.brij.storage.v1.wallet.RestoreConnectionResponse.Registered', '9': 0, '10': 'registered'},
+    {'1': 'Not_connected', '3': 1, '4': 1, '5': 11, '6': '.brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected', '9': 0, '10': 'NotConnected'},
+    {'1': 'connected', '3': 2, '4': 1, '5': 11, '6': '.brij.storage.v1.wallet.RestoreConnectionResponse.Connected', '9': 0, '10': 'connected'},
   ],
-  '3': [RestoreConnectionResponse_NotRegistered$json, RestoreConnectionResponse_Registered$json],
+  '3': [RestoreConnectionResponse_NotConnected$json, RestoreConnectionResponse_Connected$json],
   '8': [
     {'1': 'result'},
   ],
 };
 
 @$core.Deprecated('Use restoreConnectionResponseDescriptor instead')
-const RestoreConnectionResponse_NotRegistered$json = {
-  '1': 'NotRegistered',
+const RestoreConnectionResponse_NotConnected$json = {
+  '1': 'NotConnected',
   '2': [
-    {'1': 'registration_token', '3': 1, '4': 1, '5': 9, '10': 'registrationToken'},
+    {'1': 'connect_token', '3': 1, '4': 1, '5': 9, '10': 'connectToken'},
   ],
 };
 
 @$core.Deprecated('Use restoreConnectionResponseDescriptor instead')
-const RestoreConnectionResponse_Registered$json = {
-  '1': 'Registered',
+const RestoreConnectionResponse_Connected$json = {
+  '1': 'Connected',
   '2': [
     {'1': 'public_key', '3': 1, '4': 1, '5': 9, '10': 'publicKey'},
     {'1': 'seed_message', '3': 2, '4': 1, '5': 9, '10': 'seedMessage'},
@@ -63,20 +63,20 @@ const RestoreConnectionResponse_Registered$json = {
 
 /// Descriptor for `RestoreConnectionResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List restoreConnectionResponseDescriptor = $convert.base64Decode(
-    'ChlSZXN0b3JlQ29ubmVjdGlvblJlc3BvbnNlEmgKDm5vdF9yZWdpc3RlcmVkGAEgASgLMj8uYn'
-    'Jpai5zdG9yYWdlLnYxLndhbGxldC5SZXN0b3JlQ29ubmVjdGlvblJlc3BvbnNlLk5vdFJlZ2lz'
-    'dGVyZWRIAFINbm90UmVnaXN0ZXJlZBJeCgpyZWdpc3RlcmVkGAIgASgLMjwuYnJpai5zdG9yYW'
-    'dlLnYxLndhbGxldC5SZXN0b3JlQ29ubmVjdGlvblJlc3BvbnNlLlJlZ2lzdGVyZWRIAFIKcmVn'
-    'aXN0ZXJlZBo+Cg1Ob3RSZWdpc3RlcmVkEi0KEnJlZ2lzdHJhdGlvbl90b2tlbhgBIAEoCVIRcm'
-    'VnaXN0cmF0aW9uVG9rZW4aTgoKUmVnaXN0ZXJlZBIdCgpwdWJsaWNfa2V5GAEgASgJUglwdWJs'
-    'aWNLZXkSIQoMc2VlZF9tZXNzYWdlGAIgASgJUgtzZWVkTWVzc2FnZUIICgZyZXN1bHQ=');
+    'ChlSZXN0b3JlQ29ubmVjdGlvblJlc3BvbnNlEmUKDU5vdF9jb25uZWN0ZWQYASABKAsyPi5icm'
+    'lqLnN0b3JhZ2UudjEud2FsbGV0LlJlc3RvcmVDb25uZWN0aW9uUmVzcG9uc2UuTm90Q29ubmVj'
+    'dGVkSABSDE5vdENvbm5lY3RlZBJbCgljb25uZWN0ZWQYAiABKAsyOy5icmlqLnN0b3JhZ2Uudj'
+    'Eud2FsbGV0LlJlc3RvcmVDb25uZWN0aW9uUmVzcG9uc2UuQ29ubmVjdGVkSABSCWNvbm5lY3Rl'
+    'ZBozCgxOb3RDb25uZWN0ZWQSIwoNY29ubmVjdF90b2tlbhgBIAEoCVIMY29ubmVjdFRva2VuGk'
+    '0KCUNvbm5lY3RlZBIdCgpwdWJsaWNfa2V5GAEgASgJUglwdWJsaWNLZXkSIQoMc2VlZF9tZXNz'
+    'YWdlGAIgASgJUgtzZWVkTWVzc2FnZUIICgZyZXN1bHQ=');
 
 @$core.Deprecated('Use connectRequestDescriptor instead')
 const ConnectRequest$json = {
   '1': 'ConnectRequest',
   '2': [
     {'1': 'wallet_address', '3': 1, '4': 1, '5': 9, '10': 'walletAddress'},
-    {'1': 'registration_token', '3': 2, '4': 1, '5': 9, '10': 'registrationToken'},
+    {'1': 'connect_token', '3': 2, '4': 1, '5': 9, '10': 'connectToken'},
     {'1': 'seed_message', '3': 3, '4': 1, '5': 9, '10': 'seedMessage'},
   ],
 };
@@ -84,8 +84,8 @@ const ConnectRequest$json = {
 /// Descriptor for `ConnectRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List connectRequestDescriptor = $convert.base64Decode(
     'Cg5Db25uZWN0UmVxdWVzdBIlCg53YWxsZXRfYWRkcmVzcxgBIAEoCVINd2FsbGV0QWRkcmVzcx'
-    'ItChJyZWdpc3RyYXRpb25fdG9rZW4YAiABKAlSEXJlZ2lzdHJhdGlvblRva2VuEiEKDHNlZWRf'
-    'bWVzc2FnZRgDIAEoCVILc2VlZE1lc3NhZ2U=');
+    'IjCg1jb25uZWN0X3Rva2VuGAIgASgJUgxjb25uZWN0VG9rZW4SIQoMc2VlZF9tZXNzYWdlGAMg'
+    'ASgJUgtzZWVkTWVzc2FnZQ==');
 
 @$core.Deprecated('Use connectResponseDescriptor instead')
 const ConnectResponse$json = {
@@ -414,8 +414,8 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> WalletServ
   '.brij.storage.v1.wallet.GetWalletProofResponse': GetWalletProofResponse$json,
   '.brij.storage.v1.wallet.RestoreConnectionRequest': RestoreConnectionRequest$json,
   '.brij.storage.v1.wallet.RestoreConnectionResponse': RestoreConnectionResponse$json,
-  '.brij.storage.v1.wallet.RestoreConnectionResponse.NotRegistered': RestoreConnectionResponse_NotRegistered$json,
-  '.brij.storage.v1.wallet.RestoreConnectionResponse.Registered': RestoreConnectionResponse_Registered$json,
+  '.brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected': RestoreConnectionResponse_NotConnected$json,
+  '.brij.storage.v1.wallet.RestoreConnectionResponse.Connected': RestoreConnectionResponse_Connected$json,
   '.brij.storage.v1.wallet.ConnectRequest': ConnectRequest$json,
   '.brij.storage.v1.wallet.ConnectResponse': ConnectResponse$json,
   '.brij.storage.v1.wallet.GetInfoRequest': GetInfoRequest$json,

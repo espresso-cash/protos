@@ -43,16 +43,16 @@ export declare type RestoreConnectionResponse = Message<"brij.storage.v1.wallet.
    */
   result: {
     /**
-     * @generated from field: brij.storage.v1.wallet.RestoreConnectionResponse.NotRegistered not_registered = 1;
+     * @generated from field: brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected Not_connected = 1;
      */
-    value: RestoreConnectionResponse_NotRegistered;
-    case: "notRegistered";
+    value: RestoreConnectionResponse_NotConnected;
+    case: "NotConnected";
   } | {
     /**
-     * @generated from field: brij.storage.v1.wallet.RestoreConnectionResponse.Registered registered = 2;
+     * @generated from field: brij.storage.v1.wallet.RestoreConnectionResponse.Connected connected = 2;
      */
-    value: RestoreConnectionResponse_Registered;
-    case: "registered";
+    value: RestoreConnectionResponse_Connected;
+    case: "connected";
   } | { case: undefined; value?: undefined };
 };
 
@@ -63,25 +63,25 @@ export declare type RestoreConnectionResponse = Message<"brij.storage.v1.wallet.
 export declare const RestoreConnectionResponseSchema: GenMessage<RestoreConnectionResponse>;
 
 /**
- * @generated from message brij.storage.v1.wallet.RestoreConnectionResponse.NotRegistered
+ * @generated from message brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected
  */
-export declare type RestoreConnectionResponse_NotRegistered = Message<"brij.storage.v1.wallet.RestoreConnectionResponse.NotRegistered"> & {
+export declare type RestoreConnectionResponse_NotConnected = Message<"brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected"> & {
   /**
-   * @generated from field: string registration_token = 1;
+   * @generated from field: string connect_token = 1;
    */
-  registrationToken: string;
+  connectToken: string;
 };
 
 /**
- * Describes the message brij.storage.v1.wallet.RestoreConnectionResponse.NotRegistered.
- * Use `create(RestoreConnectionResponse_NotRegisteredSchema)` to create a new message.
+ * Describes the message brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected.
+ * Use `create(RestoreConnectionResponse_NotConnectedSchema)` to create a new message.
  */
-export declare const RestoreConnectionResponse_NotRegisteredSchema: GenMessage<RestoreConnectionResponse_NotRegistered>;
+export declare const RestoreConnectionResponse_NotConnectedSchema: GenMessage<RestoreConnectionResponse_NotConnected>;
 
 /**
- * @generated from message brij.storage.v1.wallet.RestoreConnectionResponse.Registered
+ * @generated from message brij.storage.v1.wallet.RestoreConnectionResponse.Connected
  */
-export declare type RestoreConnectionResponse_Registered = Message<"brij.storage.v1.wallet.RestoreConnectionResponse.Registered"> & {
+export declare type RestoreConnectionResponse_Connected = Message<"brij.storage.v1.wallet.RestoreConnectionResponse.Connected"> & {
   /**
    * @generated from field: string public_key = 1;
    */
@@ -94,10 +94,10 @@ export declare type RestoreConnectionResponse_Registered = Message<"brij.storage
 };
 
 /**
- * Describes the message brij.storage.v1.wallet.RestoreConnectionResponse.Registered.
- * Use `create(RestoreConnectionResponse_RegisteredSchema)` to create a new message.
+ * Describes the message brij.storage.v1.wallet.RestoreConnectionResponse.Connected.
+ * Use `create(RestoreConnectionResponse_ConnectedSchema)` to create a new message.
  */
-export declare const RestoreConnectionResponse_RegisteredSchema: GenMessage<RestoreConnectionResponse_Registered>;
+export declare const RestoreConnectionResponse_ConnectedSchema: GenMessage<RestoreConnectionResponse_Connected>;
 
 /**
  * @generated from message brij.storage.v1.wallet.ConnectRequest
@@ -109,9 +109,9 @@ export declare type ConnectRequest = Message<"brij.storage.v1.wallet.ConnectRequ
   walletAddress: string;
 
   /**
-   * @generated from field: string registration_token = 2;
+   * @generated from field: string connect_token = 2;
    */
-  registrationToken: string;
+  connectToken: string;
 
   /**
    * @generated from field: string seed_message = 3;

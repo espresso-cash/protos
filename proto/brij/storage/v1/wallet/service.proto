@@ -44,24 +44,24 @@ message RestoreConnectionRequest {
 }
 
 message RestoreConnectionResponse {
-  message NotRegistered {
-    string registration_token = 1;
+  message NotConnected {
+    string connect_token = 1;
   }
 
-  message Registered {
+  message Connected {
     string public_key = 1;
     string seed_message = 2;
   }
 
   oneof result {
-    NotRegistered not_registered = 1;
-    Registered registered = 2;
+    NotConnected Not_connected = 1;
+    Connected connected = 2;
   }
 }
 
 message ConnectRequest {
   string wallet_address = 1;
-  string registration_token = 2;
+  string connect_token = 2;
   string seed_message = 3;
 }
 
