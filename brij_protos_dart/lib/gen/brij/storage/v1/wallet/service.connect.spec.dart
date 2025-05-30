@@ -10,18 +10,25 @@ abstract final class WalletService {
   /// Fully-qualified name of the WalletService service.
   static const name = 'brij.storage.v1.wallet.WalletService';
 
-  static const getPartnerInfo = connect.Spec(
-    '/$name/GetPartnerInfo',
+  static const getWalletProof = connect.Spec(
+    '/$name/GetWalletProof',
     connect.StreamType.unary,
-    brijstoragev1walletservice.GetPartnerInfoRequest.new,
-    brijstoragev1walletservice.GetPartnerInfoResponse.new,
+    brijstoragev1walletservice.GetWalletProofRequest.new,
+    brijstoragev1walletservice.GetWalletProofResponse.new,
   );
 
-  static const initStorage = connect.Spec(
-    '/$name/InitStorage',
+  static const restoreConnection = connect.Spec(
+    '/$name/RestoreConnection',
     connect.StreamType.unary,
-    brijstoragev1walletservice.InitStorageRequest.new,
-    brijstoragev1walletservice.InitStorageResponse.new,
+    brijstoragev1walletservice.RestoreConnectionRequest.new,
+    brijstoragev1walletservice.RestoreConnectionResponse.new,
+  );
+
+  static const connect = connect.Spec(
+    '/$name/Connect',
+    connect.StreamType.unary,
+    brijstoragev1walletservice.ConnectRequest.new,
+    brijstoragev1walletservice.ConnectResponse.new,
   );
 
   static const getInfo = connect.Spec(
@@ -29,6 +36,13 @@ abstract final class WalletService {
     connect.StreamType.unary,
     brijstoragev1walletservice.GetInfoRequest.new,
     brijstoragev1walletservice.GetInfoResponse.new,
+  );
+
+  static const getPartnerInfo = connect.Spec(
+    '/$name/GetPartnerInfo',
+    connect.StreamType.unary,
+    brijstoragev1walletservice.GetPartnerInfoRequest.new,
+    brijstoragev1walletservice.GetPartnerInfoResponse.new,
   );
 
   static const getGrantedAccessPartners = connect.Spec(
@@ -92,19 +106,5 @@ abstract final class WalletService {
     connect.StreamType.unary,
     brijstoragev1walletservice.GetKycStatusRequest.new,
     brijstoragev1walletservice.GetKycStatusResponse.new,
-  );
-
-  static const getWalletProof = connect.Spec(
-    '/$name/GetWalletProof',
-    connect.StreamType.unary,
-    brijstoragev1walletservice.GetWalletProofRequest.new,
-    brijstoragev1walletservice.GetWalletProofResponse.new,
-  );
-
-  static const getSeedMessage = connect.Spec(
-    '/$name/GetSeedMessage',
-    connect.StreamType.unary,
-    brijstoragev1walletservice.GetSeedMessageRequest.new,
-    brijstoragev1walletservice.GetSeedMessageResponse.new,
   );
 }

@@ -14,6 +14,130 @@ import type { KycStatus } from "../common/kyc_pb";
 export declare const file_brij_storage_v1_wallet_service: GenFile;
 
 /**
+ * @generated from message brij.storage.v1.wallet.RestoreConnectionRequest
+ */
+export declare type RestoreConnectionRequest = Message<"brij.storage.v1.wallet.RestoreConnectionRequest"> & {
+  /**
+   * @generated from field: string wallet_address = 1;
+   */
+  walletAddress: string;
+
+  /**
+   * @generated from field: string wallet_proof_signature = 2;
+   */
+  walletProofSignature: string;
+};
+
+/**
+ * Describes the message brij.storage.v1.wallet.RestoreConnectionRequest.
+ * Use `create(RestoreConnectionRequestSchema)` to create a new message.
+ */
+export declare const RestoreConnectionRequestSchema: GenMessage<RestoreConnectionRequest>;
+
+/**
+ * @generated from message brij.storage.v1.wallet.RestoreConnectionResponse
+ */
+export declare type RestoreConnectionResponse = Message<"brij.storage.v1.wallet.RestoreConnectionResponse"> & {
+  /**
+   * @generated from oneof brij.storage.v1.wallet.RestoreConnectionResponse.result
+   */
+  result: {
+    /**
+     * @generated from field: brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected Not_connected = 1;
+     */
+    value: RestoreConnectionResponse_NotConnected;
+    case: "NotConnected";
+  } | {
+    /**
+     * @generated from field: brij.storage.v1.wallet.RestoreConnectionResponse.Connected connected = 2;
+     */
+    value: RestoreConnectionResponse_Connected;
+    case: "connected";
+  } | { case: undefined; value?: undefined };
+};
+
+/**
+ * Describes the message brij.storage.v1.wallet.RestoreConnectionResponse.
+ * Use `create(RestoreConnectionResponseSchema)` to create a new message.
+ */
+export declare const RestoreConnectionResponseSchema: GenMessage<RestoreConnectionResponse>;
+
+/**
+ * @generated from message brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected
+ */
+export declare type RestoreConnectionResponse_NotConnected = Message<"brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected"> & {
+  /**
+   * @generated from field: string connect_token = 1;
+   */
+  connectToken: string;
+};
+
+/**
+ * Describes the message brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected.
+ * Use `create(RestoreConnectionResponse_NotConnectedSchema)` to create a new message.
+ */
+export declare const RestoreConnectionResponse_NotConnectedSchema: GenMessage<RestoreConnectionResponse_NotConnected>;
+
+/**
+ * @generated from message brij.storage.v1.wallet.RestoreConnectionResponse.Connected
+ */
+export declare type RestoreConnectionResponse_Connected = Message<"brij.storage.v1.wallet.RestoreConnectionResponse.Connected"> & {
+  /**
+   * @generated from field: string public_key = 1;
+   */
+  publicKey: string;
+
+  /**
+   * @generated from field: string seed_message = 2;
+   */
+  seedMessage: string;
+};
+
+/**
+ * Describes the message brij.storage.v1.wallet.RestoreConnectionResponse.Connected.
+ * Use `create(RestoreConnectionResponse_ConnectedSchema)` to create a new message.
+ */
+export declare const RestoreConnectionResponse_ConnectedSchema: GenMessage<RestoreConnectionResponse_Connected>;
+
+/**
+ * @generated from message brij.storage.v1.wallet.ConnectRequest
+ */
+export declare type ConnectRequest = Message<"brij.storage.v1.wallet.ConnectRequest"> & {
+  /**
+   * @generated from field: string wallet_address = 1;
+   */
+  walletAddress: string;
+
+  /**
+   * @generated from field: string connect_token = 2;
+   */
+  connectToken: string;
+
+  /**
+   * @generated from field: string seed_message = 3;
+   */
+  seedMessage: string;
+};
+
+/**
+ * Describes the message brij.storage.v1.wallet.ConnectRequest.
+ * Use `create(ConnectRequestSchema)` to create a new message.
+ */
+export declare const ConnectRequestSchema: GenMessage<ConnectRequest>;
+
+/**
+ * @generated from message brij.storage.v1.wallet.ConnectResponse
+ */
+export declare type ConnectResponse = Message<"brij.storage.v1.wallet.ConnectResponse"> & {
+};
+
+/**
+ * Describes the message brij.storage.v1.wallet.ConnectResponse.
+ * Use `create(ConnectResponseSchema)` to create a new message.
+ */
+export declare const ConnectResponseSchema: GenMessage<ConnectResponse>;
+
+/**
  * @generated from message brij.storage.v1.wallet.GetPartnerInfoRequest
  */
 export declare type GetPartnerInfoRequest = Message<"brij.storage.v1.wallet.GetPartnerInfoRequest"> & {
@@ -61,61 +185,9 @@ export declare type GetPartnerInfoResponse = Message<"brij.storage.v1.wallet.Get
 export declare const GetPartnerInfoResponseSchema: GenMessage<GetPartnerInfoResponse>;
 
 /**
- * @generated from message brij.storage.v1.wallet.InitStorageRequest
- */
-export declare type InitStorageRequest = Message<"brij.storage.v1.wallet.InitStorageRequest"> & {
-  /**
-   * @generated from field: string wallet_address = 1;
-   */
-  walletAddress: string;
-
-  /**
-   * @generated from field: string message = 2;
-   */
-  message: string;
-
-  /**
-   * @generated from field: string encrypted_secret_key = 3;
-   */
-  encryptedSecretKey: string;
-
-  /**
-   * @generated from field: string wallet_proof_signature = 4;
-   */
-  walletProofSignature: string;
-};
-
-/**
- * Describes the message brij.storage.v1.wallet.InitStorageRequest.
- * Use `create(InitStorageRequestSchema)` to create a new message.
- */
-export declare const InitStorageRequestSchema: GenMessage<InitStorageRequest>;
-
-/**
- * @generated from message brij.storage.v1.wallet.InitStorageResponse
- */
-export declare type InitStorageResponse = Message<"brij.storage.v1.wallet.InitStorageResponse"> & {
-};
-
-/**
- * Describes the message brij.storage.v1.wallet.InitStorageResponse.
- * Use `create(InitStorageResponseSchema)` to create a new message.
- */
-export declare const InitStorageResponseSchema: GenMessage<InitStorageResponse>;
-
-/**
  * @generated from message brij.storage.v1.wallet.GetInfoRequest
  */
 export declare type GetInfoRequest = Message<"brij.storage.v1.wallet.GetInfoRequest"> & {
-  /**
-   * @generated from field: string public_key = 1;
-   */
-  publicKey: string;
-
-  /**
-   * @generated from field: string wallet_address = 2;
-   */
-  walletAddress: string;
 };
 
 /**
@@ -129,24 +201,19 @@ export declare const GetInfoRequestSchema: GenMessage<GetInfoRequest>;
  */
 export declare type GetInfoResponse = Message<"brij.storage.v1.wallet.GetInfoResponse"> & {
   /**
-   * @generated from field: string encrypted_secret_key = 1;
-   */
-  encryptedSecretKey: string;
-
-  /**
-   * @generated from field: string message = 2;
-   */
-  message: string;
-
-  /**
-   * @generated from field: string public_key = 3;
+   * @generated from field: string public_key = 1;
    */
   publicKey: string;
 
   /**
-   * @generated from field: string wallet_address = 4;
+   * @generated from field: string wallet_address = 2;
    */
   walletAddress: string;
+
+  /**
+   * @generated from field: string seed_message = 3;
+   */
+  seedMessage: string;
 };
 
 /**
@@ -154,53 +221,6 @@ export declare type GetInfoResponse = Message<"brij.storage.v1.wallet.GetInfoRes
  * Use `create(GetInfoResponseSchema)` to create a new message.
  */
 export declare const GetInfoResponseSchema: GenMessage<GetInfoResponse>;
-
-/**
- * @generated from message brij.storage.v1.wallet.GetSeedMessageRequest
- */
-export declare type GetSeedMessageRequest = Message<"brij.storage.v1.wallet.GetSeedMessageRequest"> & {
-  /**
-   * @generated from field: string wallet_address = 1;
-   */
-  walletAddress: string;
-
-  /**
-   * @generated from field: string wallet_proof_signature = 2;
-   */
-  walletProofSignature: string;
-};
-
-/**
- * Describes the message brij.storage.v1.wallet.GetSeedMessageRequest.
- * Use `create(GetSeedMessageRequestSchema)` to create a new message.
- */
-export declare const GetSeedMessageRequestSchema: GenMessage<GetSeedMessageRequest>;
-
-/**
- * @generated from message brij.storage.v1.wallet.GetSeedMessageResponse
- */
-export declare type GetSeedMessageResponse = Message<"brij.storage.v1.wallet.GetSeedMessageResponse"> & {
-  /**
-   * @generated from field: string message = 1;
-   */
-  message: string;
-
-  /**
-   * @generated from field: string encrypted_secret_key = 2;
-   */
-  encryptedSecretKey: string;
-
-  /**
-   * @generated from field: string public_key = 3;
-   */
-  publicKey: string;
-};
-
-/**
- * Describes the message brij.storage.v1.wallet.GetSeedMessageResponse.
- * Use `create(GetSeedMessageResponseSchema)` to create a new message.
- */
-export declare const GetSeedMessageResponseSchema: GenMessage<GetSeedMessageResponse>;
 
 /**
  * @generated from message brij.storage.v1.wallet.GrantAccessRequest
@@ -526,20 +546,28 @@ export declare const GetWalletProofResponseSchema: GenMessage<GetWalletProofResp
  */
 export declare const WalletService: GenService<{
   /**
-   * @generated from rpc brij.storage.v1.wallet.WalletService.GetPartnerInfo
+   * @generated from rpc brij.storage.v1.wallet.WalletService.GetWalletProof
    */
-  getPartnerInfo: {
+  getWalletProof: {
     methodKind: "unary";
-    input: typeof GetPartnerInfoRequestSchema;
-    output: typeof GetPartnerInfoResponseSchema;
+    input: typeof GetWalletProofRequestSchema;
+    output: typeof GetWalletProofResponseSchema;
   },
   /**
-   * @generated from rpc brij.storage.v1.wallet.WalletService.InitStorage
+   * @generated from rpc brij.storage.v1.wallet.WalletService.RestoreConnection
    */
-  initStorage: {
+  restoreConnection: {
     methodKind: "unary";
-    input: typeof InitStorageRequestSchema;
-    output: typeof InitStorageResponseSchema;
+    input: typeof RestoreConnectionRequestSchema;
+    output: typeof RestoreConnectionResponseSchema;
+  },
+  /**
+   * @generated from rpc brij.storage.v1.wallet.WalletService.Connect
+   */
+  connect: {
+    methodKind: "unary";
+    input: typeof ConnectRequestSchema;
+    output: typeof ConnectResponseSchema;
   },
   /**
    * @generated from rpc brij.storage.v1.wallet.WalletService.GetInfo
@@ -548,6 +576,14 @@ export declare const WalletService: GenService<{
     methodKind: "unary";
     input: typeof GetInfoRequestSchema;
     output: typeof GetInfoResponseSchema;
+  },
+  /**
+   * @generated from rpc brij.storage.v1.wallet.WalletService.GetPartnerInfo
+   */
+  getPartnerInfo: {
+    methodKind: "unary";
+    input: typeof GetPartnerInfoRequestSchema;
+    output: typeof GetPartnerInfoResponseSchema;
   },
   /**
    * @generated from rpc brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners
@@ -620,22 +656,6 @@ export declare const WalletService: GenService<{
     methodKind: "unary";
     input: typeof GetKycStatusRequestSchema;
     output: typeof GetKycStatusResponseSchema;
-  },
-  /**
-   * @generated from rpc brij.storage.v1.wallet.WalletService.GetWalletProof
-   */
-  getWalletProof: {
-    methodKind: "unary";
-    input: typeof GetWalletProofRequestSchema;
-    output: typeof GetWalletProofResponseSchema;
-  },
-  /**
-   * @generated from rpc brij.storage.v1.wallet.WalletService.GetSeedMessage
-   */
-  getSeedMessage: {
-    methodKind: "unary";
-    input: typeof GetSeedMessageRequestSchema;
-    output: typeof GetSeedMessageResponseSchema;
   },
 }>;
 

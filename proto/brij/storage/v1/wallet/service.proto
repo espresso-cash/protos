@@ -9,11 +9,15 @@ import "brij/storage/v1/common/validation_data.proto";
 option go_package = 'go.brij.fi/protos/brij/storage/v1/wallet';
 
 service WalletService {
-  rpc GetPartnerInfo(GetPartnerInfoRequest) returns (GetPartnerInfoResponse);
+  rpc GetWalletProof(GetWalletProofRequest) returns (GetWalletProofResponse);
 
-  rpc InitStorage(InitStorageRequest) returns (InitStorageResponse);
+  rpc RestoreConnection(RestoreConnectionRequest) returns (RestoreConnectionResponse);
+
+  rpc Connect(ConnectRequest) returns (ConnectResponse);
 
   rpc GetInfo(GetInfoRequest) returns (GetInfoResponse);
+
+  rpc GetPartnerInfo(GetPartnerInfoRequest) returns (GetPartnerInfoResponse);
 
   rpc GetGrantedAccessPartners(GetGrantedAccessPartnersRequest) returns (GetGrantedAccessPartnersResponse);
 
@@ -32,11 +36,36 @@ service WalletService {
   rpc CheckAccess(CheckAccessRequest) returns (CheckAccessResponse);
 
   rpc GetKycStatus(GetKycStatusRequest) returns (GetKycStatusResponse);
-
-  rpc GetWalletProof(GetWalletProofRequest) returns (GetWalletProofResponse);
-
-  rpc GetSeedMessage(GetSeedMessageRequest) returns (GetSeedMessageResponse);
 }
+
+message RestoreConnectionRequest {
+  string wallet_address = 1;
+  string wallet_proof_signature = 2;
+}
+
+message RestoreConnectionResponse {
+  message NotConnected {
+    string connect_token = 1;
+  }
+
+  message Connected {
+    string public_key = 1;
+    string seed_message = 2;
+  }
+
+  oneof result {
+    NotConnected Not_connected = 1;
+    Connected connected = 2;
+  }
+}
+
+message ConnectRequest {
+  string wallet_address = 1;
+  string connect_token = 2;
+  string seed_message = 3;
+}
+
+message ConnectResponse {}
 
 message GetPartnerInfoRequest {
   string id = 1;
@@ -49,36 +78,12 @@ message GetPartnerInfoResponse {
   string terms_url = 4;
 }
 
-message InitStorageRequest {
-  string wallet_address = 1;
-  string message = 2;
-  string encrypted_secret_key = 3;
-  string wallet_proof_signature = 4;
-}
-
-message InitStorageResponse {}
-
-message GetInfoRequest {
-  string public_key = 1;
-  string wallet_address = 2;
-}
+message GetInfoRequest {}
 
 message GetInfoResponse {
-  string encrypted_secret_key = 1;
-  string message = 2;
-  string public_key = 3;
-  string wallet_address = 4;
-}
-
-message GetSeedMessageRequest {
-  string wallet_address = 1;
-  string wallet_proof_signature = 2;
-}
-
-message GetSeedMessageResponse {
-  string message = 1;
-  string encrypted_secret_key = 2;
-  string public_key = 3;
+  string public_key = 1;
+  string wallet_address = 2;
+  string seed_message = 3;
 }
 
 message GrantAccessRequest {
