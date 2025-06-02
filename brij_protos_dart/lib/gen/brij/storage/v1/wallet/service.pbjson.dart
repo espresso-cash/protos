@@ -35,7 +35,7 @@ final $typed_data.Uint8List restoreConnectionRequestDescriptor = $convert.base64
 const RestoreConnectionResponse$json = {
   '1': 'RestoreConnectionResponse',
   '2': [
-    {'1': 'Not_connected', '3': 1, '4': 1, '5': 11, '6': '.brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected', '9': 0, '10': 'NotConnected'},
+    {'1': 'not_connected', '3': 1, '4': 1, '5': 11, '6': '.brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected', '9': 0, '10': 'notConnected'},
     {'1': 'connected', '3': 2, '4': 1, '5': 11, '6': '.brij.storage.v1.wallet.RestoreConnectionResponse.Connected', '9': 0, '10': 'connected'},
   ],
   '3': [RestoreConnectionResponse_NotConnected$json, RestoreConnectionResponse_Connected$json],
@@ -63,17 +63,17 @@ const RestoreConnectionResponse_Connected$json = {
 
 /// Descriptor for `RestoreConnectionResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List restoreConnectionResponseDescriptor = $convert.base64Decode(
-    'ChlSZXN0b3JlQ29ubmVjdGlvblJlc3BvbnNlEmUKDU5vdF9jb25uZWN0ZWQYASABKAsyPi5icm'
+    'ChlSZXN0b3JlQ29ubmVjdGlvblJlc3BvbnNlEmUKDW5vdF9jb25uZWN0ZWQYASABKAsyPi5icm'
     'lqLnN0b3JhZ2UudjEud2FsbGV0LlJlc3RvcmVDb25uZWN0aW9uUmVzcG9uc2UuTm90Q29ubmVj'
-    'dGVkSABSDE5vdENvbm5lY3RlZBJbCgljb25uZWN0ZWQYAiABKAsyOy5icmlqLnN0b3JhZ2Uudj'
+    'dGVkSABSDG5vdENvbm5lY3RlZBJbCgljb25uZWN0ZWQYAiABKAsyOy5icmlqLnN0b3JhZ2Uudj'
     'Eud2FsbGV0LlJlc3RvcmVDb25uZWN0aW9uUmVzcG9uc2UuQ29ubmVjdGVkSABSCWNvbm5lY3Rl'
     'ZBozCgxOb3RDb25uZWN0ZWQSIwoNY29ubmVjdF90b2tlbhgBIAEoCVIMY29ubmVjdFRva2VuGk'
     '0KCUNvbm5lY3RlZBIdCgpwdWJsaWNfa2V5GAEgASgJUglwdWJsaWNLZXkSIQoMc2VlZF9tZXNz'
     'YWdlGAIgASgJUgtzZWVkTWVzc2FnZUIICgZyZXN1bHQ=');
 
-@$core.Deprecated('Use connectRequestDescriptor instead')
-const ConnectRequest$json = {
-  '1': 'ConnectRequest',
+@$core.Deprecated('Use connectWalletRequestDescriptor instead')
+const ConnectWalletRequest$json = {
+  '1': 'ConnectWalletRequest',
   '2': [
     {'1': 'wallet_address', '3': 1, '4': 1, '5': 9, '10': 'walletAddress'},
     {'1': 'connect_token', '3': 2, '4': 1, '5': 9, '10': 'connectToken'},
@@ -81,20 +81,20 @@ const ConnectRequest$json = {
   ],
 };
 
-/// Descriptor for `ConnectRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List connectRequestDescriptor = $convert.base64Decode(
-    'Cg5Db25uZWN0UmVxdWVzdBIlCg53YWxsZXRfYWRkcmVzcxgBIAEoCVINd2FsbGV0QWRkcmVzcx'
-    'IjCg1jb25uZWN0X3Rva2VuGAIgASgJUgxjb25uZWN0VG9rZW4SIQoMc2VlZF9tZXNzYWdlGAMg'
-    'ASgJUgtzZWVkTWVzc2FnZQ==');
+/// Descriptor for `ConnectWalletRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List connectWalletRequestDescriptor = $convert.base64Decode(
+    'ChRDb25uZWN0V2FsbGV0UmVxdWVzdBIlCg53YWxsZXRfYWRkcmVzcxgBIAEoCVINd2FsbGV0QW'
+    'RkcmVzcxIjCg1jb25uZWN0X3Rva2VuGAIgASgJUgxjb25uZWN0VG9rZW4SIQoMc2VlZF9tZXNz'
+    'YWdlGAMgASgJUgtzZWVkTWVzc2FnZQ==');
 
-@$core.Deprecated('Use connectResponseDescriptor instead')
-const ConnectResponse$json = {
-  '1': 'ConnectResponse',
+@$core.Deprecated('Use connectWalletResponseDescriptor instead')
+const ConnectWalletResponse$json = {
+  '1': 'ConnectWalletResponse',
 };
 
-/// Descriptor for `ConnectResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List connectResponseDescriptor = $convert.base64Decode(
-    'Cg9Db25uZWN0UmVzcG9uc2U=');
+/// Descriptor for `ConnectWalletResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List connectWalletResponseDescriptor = $convert.base64Decode(
+    'ChVDb25uZWN0V2FsbGV0UmVzcG9uc2U=');
 
 @$core.Deprecated('Use getPartnerInfoRequestDescriptor instead')
 const GetPartnerInfoRequest$json = {
@@ -393,7 +393,7 @@ const $core.Map<$core.String, $core.dynamic> WalletServiceBase$json = {
   '2': [
     {'1': 'GetWalletProof', '2': '.brij.storage.v1.wallet.GetWalletProofRequest', '3': '.brij.storage.v1.wallet.GetWalletProofResponse'},
     {'1': 'RestoreConnection', '2': '.brij.storage.v1.wallet.RestoreConnectionRequest', '3': '.brij.storage.v1.wallet.RestoreConnectionResponse'},
-    {'1': 'ConnectWallet', '2': '.brij.storage.v1.wallet.ConnectRequest', '3': '.brij.storage.v1.wallet.ConnectResponse'},
+    {'1': 'ConnectWallet', '2': '.brij.storage.v1.wallet.ConnectWalletRequest', '3': '.brij.storage.v1.wallet.ConnectWalletResponse'},
     {'1': 'GetInfo', '2': '.brij.storage.v1.wallet.GetInfoRequest', '3': '.brij.storage.v1.wallet.GetInfoResponse'},
     {'1': 'GetPartnerInfo', '2': '.brij.storage.v1.wallet.GetPartnerInfoRequest', '3': '.brij.storage.v1.wallet.GetPartnerInfoResponse'},
     {'1': 'GetGrantedAccessPartners', '2': '.brij.storage.v1.wallet.GetGrantedAccessPartnersRequest', '3': '.brij.storage.v1.wallet.GetGrantedAccessPartnersResponse'},
@@ -416,8 +416,8 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> WalletServ
   '.brij.storage.v1.wallet.RestoreConnectionResponse': RestoreConnectionResponse$json,
   '.brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected': RestoreConnectionResponse_NotConnected$json,
   '.brij.storage.v1.wallet.RestoreConnectionResponse.Connected': RestoreConnectionResponse_Connected$json,
-  '.brij.storage.v1.wallet.ConnectRequest': ConnectRequest$json,
-  '.brij.storage.v1.wallet.ConnectResponse': ConnectResponse$json,
+  '.brij.storage.v1.wallet.ConnectWalletRequest': ConnectWalletRequest$json,
+  '.brij.storage.v1.wallet.ConnectWalletResponse': ConnectWalletResponse$json,
   '.brij.storage.v1.wallet.GetInfoRequest': GetInfoRequest$json,
   '.brij.storage.v1.wallet.GetInfoResponse': GetInfoResponse$json,
   '.brij.storage.v1.wallet.GetPartnerInfoRequest': GetPartnerInfoRequest$json,
@@ -450,29 +450,29 @@ final $typed_data.Uint8List walletServiceDescriptor = $convert.base64Decode(
     'xldC5HZXRXYWxsZXRQcm9vZlJlcXVlc3QaLi5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldFdh'
     'bGxldFByb29mUmVzcG9uc2USeAoRUmVzdG9yZUNvbm5lY3Rpb24SMC5icmlqLnN0b3JhZ2Uudj'
     'Eud2FsbGV0LlJlc3RvcmVDb25uZWN0aW9uUmVxdWVzdBoxLmJyaWouc3RvcmFnZS52MS53YWxs'
-    'ZXQuUmVzdG9yZUNvbm5lY3Rpb25SZXNwb25zZRJgCg1Db25uZWN0V2FsbGV0EiYuYnJpai5zdG'
-    '9yYWdlLnYxLndhbGxldC5Db25uZWN0UmVxdWVzdBonLmJyaWouc3RvcmFnZS52MS53YWxsZXQu'
-    'Q29ubmVjdFJlc3BvbnNlEloKB0dldEluZm8SJi5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldE'
-    'luZm9SZXF1ZXN0GicuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRJbmZvUmVzcG9uc2USbwoO'
-    'R2V0UGFydG5lckluZm8SLS5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldFBhcnRuZXJJbmZvUm'
-    'VxdWVzdBouLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0UGFydG5lckluZm9SZXNwb25zZRKN'
-    'AQoYR2V0R3JhbnRlZEFjY2Vzc1BhcnRuZXJzEjcuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZX'
-    'RHcmFudGVkQWNjZXNzUGFydG5lcnNSZXF1ZXN0GjguYnJpai5zdG9yYWdlLnYxLndhbGxldC5H'
-    'ZXRHcmFudGVkQWNjZXNzUGFydG5lcnNSZXNwb25zZRJmCgtHcmFudEFjY2VzcxIqLmJyaWouc3'
-    'RvcmFnZS52MS53YWxsZXQuR3JhbnRBY2Nlc3NSZXF1ZXN0GisuYnJpai5zdG9yYWdlLnYxLndh'
-    'bGxldC5HcmFudEFjY2Vzc1Jlc3BvbnNlEmYKC1NldFVzZXJEYXRhEiouYnJpai5zdG9yYWdlLn'
-    'YxLndhbGxldC5TZXRVc2VyRGF0YVJlcXVlc3QaKy5icmlqLnN0b3JhZ2UudjEud2FsbGV0LlNl'
-    'dFVzZXJEYXRhUmVzcG9uc2USbwoOUmVtb3ZlVXNlckRhdGESLS5icmlqLnN0b3JhZ2UudjEud2'
-    'FsbGV0LlJlbW92ZVVzZXJEYXRhUmVxdWVzdBouLmJyaWouc3RvcmFnZS52MS53YWxsZXQuUmVt'
-    'b3ZlVXNlckRhdGFSZXNwb25zZRJpCgxSZXZva2VBY2Nlc3MSKy5icmlqLnN0b3JhZ2UudjEud2'
-    'FsbGV0LlJldm9rZUFjY2Vzc1JlcXVlc3QaLC5icmlqLnN0b3JhZ2UudjEud2FsbGV0LlJldm9r'
-    'ZUFjY2Vzc1Jlc3BvbnNlEngKEVJlbW92ZUFsbFVzZXJEYXRhEjAuYnJpai5zdG9yYWdlLnYxLn'
-    'dhbGxldC5SZW1vdmVBbGxVc2VyRGF0YVJlcXVlc3QaMS5icmlqLnN0b3JhZ2UudjEud2FsbGV0'
-    'LlJlbW92ZUFsbFVzZXJEYXRhUmVzcG9uc2USZgoLR2V0VXNlckRhdGESKi5icmlqLnN0b3JhZ2'
-    'UudjEud2FsbGV0LkdldFVzZXJEYXRhUmVxdWVzdBorLmJyaWouc3RvcmFnZS52MS53YWxsZXQu'
-    'R2V0VXNlckRhdGFSZXNwb25zZRJmCgtDaGVja0FjY2VzcxIqLmJyaWouc3RvcmFnZS52MS53YW'
-    'xsZXQuQ2hlY2tBY2Nlc3NSZXF1ZXN0GisuYnJpai5zdG9yYWdlLnYxLndhbGxldC5DaGVja0Fj'
-    'Y2Vzc1Jlc3BvbnNlEmkKDEdldEt5Y1N0YXR1cxIrLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2'
-    'V0S3ljU3RhdHVzUmVxdWVzdBosLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0S3ljU3RhdHVz'
-    'UmVzcG9uc2U=');
+    'ZXQuUmVzdG9yZUNvbm5lY3Rpb25SZXNwb25zZRJsCg1Db25uZWN0V2FsbGV0EiwuYnJpai5zdG'
+    '9yYWdlLnYxLndhbGxldC5Db25uZWN0V2FsbGV0UmVxdWVzdBotLmJyaWouc3RvcmFnZS52MS53'
+    'YWxsZXQuQ29ubmVjdFdhbGxldFJlc3BvbnNlEloKB0dldEluZm8SJi5icmlqLnN0b3JhZ2Uudj'
+    'Eud2FsbGV0LkdldEluZm9SZXF1ZXN0GicuYnJpai5zdG9yYWdlLnYxLndhbGxldC5HZXRJbmZv'
+    'UmVzcG9uc2USbwoOR2V0UGFydG5lckluZm8SLS5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldF'
+    'BhcnRuZXJJbmZvUmVxdWVzdBouLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR2V0UGFydG5lcklu'
+    'Zm9SZXNwb25zZRKNAQoYR2V0R3JhbnRlZEFjY2Vzc1BhcnRuZXJzEjcuYnJpai5zdG9yYWdlLn'
+    'YxLndhbGxldC5HZXRHcmFudGVkQWNjZXNzUGFydG5lcnNSZXF1ZXN0GjguYnJpai5zdG9yYWdl'
+    'LnYxLndhbGxldC5HZXRHcmFudGVkQWNjZXNzUGFydG5lcnNSZXNwb25zZRJmCgtHcmFudEFjY2'
+    'VzcxIqLmJyaWouc3RvcmFnZS52MS53YWxsZXQuR3JhbnRBY2Nlc3NSZXF1ZXN0GisuYnJpai5z'
+    'dG9yYWdlLnYxLndhbGxldC5HcmFudEFjY2Vzc1Jlc3BvbnNlEmYKC1NldFVzZXJEYXRhEiouYn'
+    'Jpai5zdG9yYWdlLnYxLndhbGxldC5TZXRVc2VyRGF0YVJlcXVlc3QaKy5icmlqLnN0b3JhZ2Uu'
+    'djEud2FsbGV0LlNldFVzZXJEYXRhUmVzcG9uc2USbwoOUmVtb3ZlVXNlckRhdGESLS5icmlqLn'
+    'N0b3JhZ2UudjEud2FsbGV0LlJlbW92ZVVzZXJEYXRhUmVxdWVzdBouLmJyaWouc3RvcmFnZS52'
+    'MS53YWxsZXQuUmVtb3ZlVXNlckRhdGFSZXNwb25zZRJpCgxSZXZva2VBY2Nlc3MSKy5icmlqLn'
+    'N0b3JhZ2UudjEud2FsbGV0LlJldm9rZUFjY2Vzc1JlcXVlc3QaLC5icmlqLnN0b3JhZ2UudjEu'
+    'd2FsbGV0LlJldm9rZUFjY2Vzc1Jlc3BvbnNlEngKEVJlbW92ZUFsbFVzZXJEYXRhEjAuYnJpai'
+    '5zdG9yYWdlLnYxLndhbGxldC5SZW1vdmVBbGxVc2VyRGF0YVJlcXVlc3QaMS5icmlqLnN0b3Jh'
+    'Z2UudjEud2FsbGV0LlJlbW92ZUFsbFVzZXJEYXRhUmVzcG9uc2USZgoLR2V0VXNlckRhdGESKi'
+    '5icmlqLnN0b3JhZ2UudjEud2FsbGV0LkdldFVzZXJEYXRhUmVxdWVzdBorLmJyaWouc3RvcmFn'
+    'ZS52MS53YWxsZXQuR2V0VXNlckRhdGFSZXNwb25zZRJmCgtDaGVja0FjY2VzcxIqLmJyaWouc3'
+    'RvcmFnZS52MS53YWxsZXQuQ2hlY2tBY2Nlc3NSZXF1ZXN0GisuYnJpai5zdG9yYWdlLnYxLndh'
+    'bGxldC5DaGVja0FjY2Vzc1Jlc3BvbnNlEmkKDEdldEt5Y1N0YXR1cxIrLmJyaWouc3RvcmFnZS'
+    '52MS53YWxsZXQuR2V0S3ljU3RhdHVzUmVxdWVzdBosLmJyaWouc3RvcmFnZS52MS53YWxsZXQu'
+    'R2V0S3ljU3RhdHVzUmVzcG9uc2U=');
 

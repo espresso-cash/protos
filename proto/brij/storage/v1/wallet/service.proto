@@ -13,7 +13,7 @@ service WalletService {
 
   rpc RestoreConnection(RestoreConnectionRequest) returns (RestoreConnectionResponse);
 
-  rpc ConnectWallet(ConnectRequest) returns (ConnectResponse);
+  rpc ConnectWallet(ConnectWalletRequest) returns (ConnectWalletResponse);
 
   rpc GetInfo(GetInfoRequest) returns (GetInfoResponse);
 
@@ -54,18 +54,18 @@ message RestoreConnectionResponse {
   }
 
   oneof result {
-    NotConnected Not_connected = 1;
+    NotConnected not_connected = 1;
     Connected connected = 2;
   }
 }
 
-message ConnectRequest {
+message ConnectWalletRequest {
   string wallet_address = 1;
   string connect_token = 2;
   string seed_message = 3;
 }
 
-message ConnectResponse {}
+message ConnectWalletResponse {}
 
 message GetPartnerInfoRequest {
   string id = 1;

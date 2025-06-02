@@ -145,7 +145,7 @@ type isRestoreConnectionResponse_Result interface {
 }
 
 type RestoreConnectionResponse_NotConnected_ struct {
-	NotConnected *RestoreConnectionResponse_NotConnected `protobuf:"bytes,1,opt,name=Not_connected,json=NotConnected,proto3,oneof"`
+	NotConnected *RestoreConnectionResponse_NotConnected `protobuf:"bytes,1,opt,name=not_connected,json=notConnected,proto3,oneof"`
 }
 
 type RestoreConnectionResponse_Connected_ struct {
@@ -156,7 +156,7 @@ func (*RestoreConnectionResponse_NotConnected_) isRestoreConnectionResponse_Resu
 
 func (*RestoreConnectionResponse_Connected_) isRestoreConnectionResponse_Result() {}
 
-type ConnectRequest struct {
+type ConnectWalletRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	WalletAddress string                 `protobuf:"bytes,1,opt,name=wallet_address,json=walletAddress,proto3" json:"wallet_address,omitempty"`
 	ConnectToken  string                 `protobuf:"bytes,2,opt,name=connect_token,json=connectToken,proto3" json:"connect_token,omitempty"`
@@ -165,20 +165,20 @@ type ConnectRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ConnectRequest) Reset() {
-	*x = ConnectRequest{}
+func (x *ConnectWalletRequest) Reset() {
+	*x = ConnectWalletRequest{}
 	mi := &file_brij_storage_v1_wallet_service_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ConnectRequest) String() string {
+func (x *ConnectWalletRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ConnectRequest) ProtoMessage() {}
+func (*ConnectWalletRequest) ProtoMessage() {}
 
-func (x *ConnectRequest) ProtoReflect() protoreflect.Message {
+func (x *ConnectWalletRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_brij_storage_v1_wallet_service_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -190,52 +190,52 @@ func (x *ConnectRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ConnectRequest.ProtoReflect.Descriptor instead.
-func (*ConnectRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use ConnectWalletRequest.ProtoReflect.Descriptor instead.
+func (*ConnectWalletRequest) Descriptor() ([]byte, []int) {
 	return file_brij_storage_v1_wallet_service_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *ConnectRequest) GetWalletAddress() string {
+func (x *ConnectWalletRequest) GetWalletAddress() string {
 	if x != nil {
 		return x.WalletAddress
 	}
 	return ""
 }
 
-func (x *ConnectRequest) GetConnectToken() string {
+func (x *ConnectWalletRequest) GetConnectToken() string {
 	if x != nil {
 		return x.ConnectToken
 	}
 	return ""
 }
 
-func (x *ConnectRequest) GetSeedMessage() string {
+func (x *ConnectWalletRequest) GetSeedMessage() string {
 	if x != nil {
 		return x.SeedMessage
 	}
 	return ""
 }
 
-type ConnectResponse struct {
+type ConnectWalletResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ConnectResponse) Reset() {
-	*x = ConnectResponse{}
+func (x *ConnectWalletResponse) Reset() {
+	*x = ConnectWalletResponse{}
 	mi := &file_brij_storage_v1_wallet_service_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ConnectResponse) String() string {
+func (x *ConnectWalletResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ConnectResponse) ProtoMessage() {}
+func (*ConnectWalletResponse) ProtoMessage() {}
 
-func (x *ConnectResponse) ProtoReflect() protoreflect.Message {
+func (x *ConnectWalletResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_brij_storage_v1_wallet_service_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -247,8 +247,8 @@ func (x *ConnectResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ConnectResponse.ProtoReflect.Descriptor instead.
-func (*ConnectResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use ConnectWalletResponse.ProtoReflect.Descriptor instead.
+func (*ConnectWalletResponse) Descriptor() ([]byte, []int) {
 	return file_brij_storage_v1_wallet_service_proto_rawDescGZIP(), []int{3}
 }
 
@@ -1430,7 +1430,7 @@ const file_brij_storage_v1_wallet_service_proto_rawDesc = "" +
 	"\x0ewallet_address\x18\x01 \x01(\tR\rwalletAddress\x124\n" +
 	"\x16wallet_proof_signature\x18\x02 \x01(\tR\x14walletProofSignature\"\xed\x02\n" +
 	"\x19RestoreConnectionResponse\x12e\n" +
-	"\rNot_connected\x18\x01 \x01(\v2>.brij.storage.v1.wallet.RestoreConnectionResponse.NotConnectedH\x00R\fNotConnected\x12[\n" +
+	"\rnot_connected\x18\x01 \x01(\v2>.brij.storage.v1.wallet.RestoreConnectionResponse.NotConnectedH\x00R\fnotConnected\x12[\n" +
 	"\tconnected\x18\x02 \x01(\v2;.brij.storage.v1.wallet.RestoreConnectionResponse.ConnectedH\x00R\tconnected\x1a3\n" +
 	"\fNotConnected\x12#\n" +
 	"\rconnect_token\x18\x01 \x01(\tR\fconnectToken\x1aM\n" +
@@ -1438,12 +1438,12 @@ const file_brij_storage_v1_wallet_service_proto_rawDesc = "" +
 	"\n" +
 	"public_key\x18\x01 \x01(\tR\tpublicKey\x12!\n" +
 	"\fseed_message\x18\x02 \x01(\tR\vseedMessageB\b\n" +
-	"\x06result\"\x7f\n" +
-	"\x0eConnectRequest\x12%\n" +
+	"\x06result\"\x85\x01\n" +
+	"\x14ConnectWalletRequest\x12%\n" +
 	"\x0ewallet_address\x18\x01 \x01(\tR\rwalletAddress\x12#\n" +
 	"\rconnect_token\x18\x02 \x01(\tR\fconnectToken\x12!\n" +
-	"\fseed_message\x18\x03 \x01(\tR\vseedMessage\"\x11\n" +
-	"\x0fConnectResponse\"'\n" +
+	"\fseed_message\x18\x03 \x01(\tR\vseedMessage\"\x17\n" +
+	"\x15ConnectWalletResponse\"'\n" +
 	"\x15GetPartnerInfoRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"\x89\x01\n" +
 	"\x16GetPartnerInfoResponse\x12\x12\n" +
@@ -1497,11 +1497,11 @@ const file_brij_storage_v1_wallet_service_proto_rawDesc = "" +
 	"\x15GetWalletProofRequest\x12%\n" +
 	"\x0ewallet_address\x18\x01 \x01(\tR\rwalletAddress\"=\n" +
 	"\x16GetWalletProofResponse\x12#\n" +
-	"\rproof_message\x18\x01 \x01(\tR\fproofMessage2\x9a\f\n" +
+	"\rproof_message\x18\x01 \x01(\tR\fproofMessage2\xa6\f\n" +
 	"\rWalletService\x12o\n" +
 	"\x0eGetWalletProof\x12-.brij.storage.v1.wallet.GetWalletProofRequest\x1a..brij.storage.v1.wallet.GetWalletProofResponse\x12x\n" +
-	"\x11RestoreConnection\x120.brij.storage.v1.wallet.RestoreConnectionRequest\x1a1.brij.storage.v1.wallet.RestoreConnectionResponse\x12`\n" +
-	"\rConnectWallet\x12&.brij.storage.v1.wallet.ConnectRequest\x1a'.brij.storage.v1.wallet.ConnectResponse\x12Z\n" +
+	"\x11RestoreConnection\x120.brij.storage.v1.wallet.RestoreConnectionRequest\x1a1.brij.storage.v1.wallet.RestoreConnectionResponse\x12l\n" +
+	"\rConnectWallet\x12,.brij.storage.v1.wallet.ConnectWalletRequest\x1a-.brij.storage.v1.wallet.ConnectWalletResponse\x12Z\n" +
 	"\aGetInfo\x12&.brij.storage.v1.wallet.GetInfoRequest\x1a'.brij.storage.v1.wallet.GetInfoResponse\x12o\n" +
 	"\x0eGetPartnerInfo\x12-.brij.storage.v1.wallet.GetPartnerInfoRequest\x1a..brij.storage.v1.wallet.GetPartnerInfoResponse\x12\x8d\x01\n" +
 	"\x18GetGrantedAccessPartners\x127.brij.storage.v1.wallet.GetGrantedAccessPartnersRequest\x1a8.brij.storage.v1.wallet.GetGrantedAccessPartnersResponse\x12f\n" +
@@ -1530,8 +1530,8 @@ var file_brij_storage_v1_wallet_service_proto_msgTypes = make([]protoimpl.Messag
 var file_brij_storage_v1_wallet_service_proto_goTypes = []any{
 	(*RestoreConnectionRequest)(nil),               // 0: brij.storage.v1.wallet.RestoreConnectionRequest
 	(*RestoreConnectionResponse)(nil),              // 1: brij.storage.v1.wallet.RestoreConnectionResponse
-	(*ConnectRequest)(nil),                         // 2: brij.storage.v1.wallet.ConnectRequest
-	(*ConnectResponse)(nil),                        // 3: brij.storage.v1.wallet.ConnectResponse
+	(*ConnectWalletRequest)(nil),                   // 2: brij.storage.v1.wallet.ConnectWalletRequest
+	(*ConnectWalletResponse)(nil),                  // 3: brij.storage.v1.wallet.ConnectWalletResponse
 	(*GetPartnerInfoRequest)(nil),                  // 4: brij.storage.v1.wallet.GetPartnerInfoRequest
 	(*GetPartnerInfoResponse)(nil),                 // 5: brij.storage.v1.wallet.GetPartnerInfoResponse
 	(*GetInfoRequest)(nil),                         // 6: brij.storage.v1.wallet.GetInfoRequest
@@ -1563,7 +1563,7 @@ var file_brij_storage_v1_wallet_service_proto_goTypes = []any{
 	(common.KycStatus)(0),                          // 32: brij.storage.v1.common.KycStatus
 }
 var file_brij_storage_v1_wallet_service_proto_depIdxs = []int32{
-	28, // 0: brij.storage.v1.wallet.RestoreConnectionResponse.Not_connected:type_name -> brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected
+	28, // 0: brij.storage.v1.wallet.RestoreConnectionResponse.not_connected:type_name -> brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected
 	29, // 1: brij.storage.v1.wallet.RestoreConnectionResponse.connected:type_name -> brij.storage.v1.wallet.RestoreConnectionResponse.Connected
 	5,  // 2: brij.storage.v1.wallet.GetGrantedAccessPartnersResponse.partners:type_name -> brij.storage.v1.wallet.GetPartnerInfoResponse
 	30, // 3: brij.storage.v1.wallet.GetUserDataResponse.user_data:type_name -> brij.storage.v1.common.UserDataField
@@ -1571,7 +1571,7 @@ var file_brij_storage_v1_wallet_service_proto_depIdxs = []int32{
 	32, // 5: brij.storage.v1.wallet.GetKycStatusResponse.status:type_name -> brij.storage.v1.common.KycStatus
 	26, // 6: brij.storage.v1.wallet.WalletService.GetWalletProof:input_type -> brij.storage.v1.wallet.GetWalletProofRequest
 	0,  // 7: brij.storage.v1.wallet.WalletService.RestoreConnection:input_type -> brij.storage.v1.wallet.RestoreConnectionRequest
-	2,  // 8: brij.storage.v1.wallet.WalletService.ConnectWallet:input_type -> brij.storage.v1.wallet.ConnectRequest
+	2,  // 8: brij.storage.v1.wallet.WalletService.ConnectWallet:input_type -> brij.storage.v1.wallet.ConnectWalletRequest
 	6,  // 9: brij.storage.v1.wallet.WalletService.GetInfo:input_type -> brij.storage.v1.wallet.GetInfoRequest
 	4,  // 10: brij.storage.v1.wallet.WalletService.GetPartnerInfo:input_type -> brij.storage.v1.wallet.GetPartnerInfoRequest
 	14, // 11: brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners:input_type -> brij.storage.v1.wallet.GetGrantedAccessPartnersRequest
@@ -1585,7 +1585,7 @@ var file_brij_storage_v1_wallet_service_proto_depIdxs = []int32{
 	24, // 19: brij.storage.v1.wallet.WalletService.GetKycStatus:input_type -> brij.storage.v1.wallet.GetKycStatusRequest
 	27, // 20: brij.storage.v1.wallet.WalletService.GetWalletProof:output_type -> brij.storage.v1.wallet.GetWalletProofResponse
 	1,  // 21: brij.storage.v1.wallet.WalletService.RestoreConnection:output_type -> brij.storage.v1.wallet.RestoreConnectionResponse
-	3,  // 22: brij.storage.v1.wallet.WalletService.ConnectWallet:output_type -> brij.storage.v1.wallet.ConnectResponse
+	3,  // 22: brij.storage.v1.wallet.WalletService.ConnectWallet:output_type -> brij.storage.v1.wallet.ConnectWalletResponse
 	7,  // 23: brij.storage.v1.wallet.WalletService.GetInfo:output_type -> brij.storage.v1.wallet.GetInfoResponse
 	5,  // 24: brij.storage.v1.wallet.WalletService.GetPartnerInfo:output_type -> brij.storage.v1.wallet.GetPartnerInfoResponse
 	15, // 25: brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners:output_type -> brij.storage.v1.wallet.GetGrantedAccessPartnersResponse

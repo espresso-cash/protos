@@ -80,7 +80,7 @@ const (
 type WalletServiceClient interface {
 	GetWalletProof(context.Context, *connect.Request[wallet.GetWalletProofRequest]) (*connect.Response[wallet.GetWalletProofResponse], error)
 	RestoreConnection(context.Context, *connect.Request[wallet.RestoreConnectionRequest]) (*connect.Response[wallet.RestoreConnectionResponse], error)
-	ConnectWallet(context.Context, *connect.Request[wallet.ConnectRequest]) (*connect.Response[wallet.ConnectResponse], error)
+	ConnectWallet(context.Context, *connect.Request[wallet.ConnectWalletRequest]) (*connect.Response[wallet.ConnectWalletResponse], error)
 	GetInfo(context.Context, *connect.Request[wallet.GetInfoRequest]) (*connect.Response[wallet.GetInfoResponse], error)
 	GetPartnerInfo(context.Context, *connect.Request[wallet.GetPartnerInfoRequest]) (*connect.Response[wallet.GetPartnerInfoResponse], error)
 	GetGrantedAccessPartners(context.Context, *connect.Request[wallet.GetGrantedAccessPartnersRequest]) (*connect.Response[wallet.GetGrantedAccessPartnersResponse], error)
@@ -117,7 +117,7 @@ func NewWalletServiceClient(httpClient connect.HTTPClient, baseURL string, opts 
 			connect.WithSchema(walletServiceMethods.ByName("RestoreConnection")),
 			connect.WithClientOptions(opts...),
 		),
-		connectWallet: connect.NewClient[wallet.ConnectRequest, wallet.ConnectResponse](
+		connectWallet: connect.NewClient[wallet.ConnectWalletRequest, wallet.ConnectWalletResponse](
 			httpClient,
 			baseURL+WalletServiceConnectWalletProcedure,
 			connect.WithSchema(walletServiceMethods.ByName("ConnectWallet")),
@@ -196,7 +196,7 @@ func NewWalletServiceClient(httpClient connect.HTTPClient, baseURL string, opts 
 type walletServiceClient struct {
 	getWalletProof           *connect.Client[wallet.GetWalletProofRequest, wallet.GetWalletProofResponse]
 	restoreConnection        *connect.Client[wallet.RestoreConnectionRequest, wallet.RestoreConnectionResponse]
-	connectWallet            *connect.Client[wallet.ConnectRequest, wallet.ConnectResponse]
+	connectWallet            *connect.Client[wallet.ConnectWalletRequest, wallet.ConnectWalletResponse]
 	getInfo                  *connect.Client[wallet.GetInfoRequest, wallet.GetInfoResponse]
 	getPartnerInfo           *connect.Client[wallet.GetPartnerInfoRequest, wallet.GetPartnerInfoResponse]
 	getGrantedAccessPartners *connect.Client[wallet.GetGrantedAccessPartnersRequest, wallet.GetGrantedAccessPartnersResponse]
@@ -221,7 +221,7 @@ func (c *walletServiceClient) RestoreConnection(ctx context.Context, req *connec
 }
 
 // ConnectWallet calls brij.storage.v1.wallet.WalletService.ConnectWallet.
-func (c *walletServiceClient) ConnectWallet(ctx context.Context, req *connect.Request[wallet.ConnectRequest]) (*connect.Response[wallet.ConnectResponse], error) {
+func (c *walletServiceClient) ConnectWallet(ctx context.Context, req *connect.Request[wallet.ConnectWalletRequest]) (*connect.Response[wallet.ConnectWalletResponse], error) {
 	return c.connectWallet.CallUnary(ctx, req)
 }
 
@@ -284,7 +284,7 @@ func (c *walletServiceClient) GetKycStatus(ctx context.Context, req *connect.Req
 type WalletServiceHandler interface {
 	GetWalletProof(context.Context, *connect.Request[wallet.GetWalletProofRequest]) (*connect.Response[wallet.GetWalletProofResponse], error)
 	RestoreConnection(context.Context, *connect.Request[wallet.RestoreConnectionRequest]) (*connect.Response[wallet.RestoreConnectionResponse], error)
-	ConnectWallet(context.Context, *connect.Request[wallet.ConnectRequest]) (*connect.Response[wallet.ConnectResponse], error)
+	ConnectWallet(context.Context, *connect.Request[wallet.ConnectWalletRequest]) (*connect.Response[wallet.ConnectWalletResponse], error)
 	GetInfo(context.Context, *connect.Request[wallet.GetInfoRequest]) (*connect.Response[wallet.GetInfoResponse], error)
 	GetPartnerInfo(context.Context, *connect.Request[wallet.GetPartnerInfoRequest]) (*connect.Response[wallet.GetPartnerInfoResponse], error)
 	GetGrantedAccessPartners(context.Context, *connect.Request[wallet.GetGrantedAccessPartnersRequest]) (*connect.Response[wallet.GetGrantedAccessPartnersResponse], error)
@@ -436,7 +436,7 @@ func (UnimplementedWalletServiceHandler) RestoreConnection(context.Context, *con
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.RestoreConnection is not implemented"))
 }
 
-func (UnimplementedWalletServiceHandler) ConnectWallet(context.Context, *connect.Request[wallet.ConnectRequest]) (*connect.Response[wallet.ConnectResponse], error) {
+func (UnimplementedWalletServiceHandler) ConnectWallet(context.Context, *connect.Request[wallet.ConnectWalletRequest]) (*connect.Response[wallet.ConnectWalletResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.storage.v1.wallet.WalletService.ConnectWallet is not implemented"))
 }
 

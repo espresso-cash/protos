@@ -27,8 +27,8 @@ abstract final class WalletService {
   static const connectWallet = connect.Spec(
     '/$name/ConnectWallet',
     connect.StreamType.unary,
-    brijstoragev1walletservice.ConnectRequest.new,
-    brijstoragev1walletservice.ConnectResponse.new,
+    brijstoragev1walletservice.ConnectWalletRequest.new,
+    brijstoragev1walletservice.ConnectWalletResponse.new,
   );
 
   static const getInfo = connect.Spec(

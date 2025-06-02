@@ -43,10 +43,10 @@ export declare type RestoreConnectionResponse = Message<"brij.storage.v1.wallet.
    */
   result: {
     /**
-     * @generated from field: brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected Not_connected = 1;
+     * @generated from field: brij.storage.v1.wallet.RestoreConnectionResponse.NotConnected not_connected = 1;
      */
     value: RestoreConnectionResponse_NotConnected;
-    case: "NotConnected";
+    case: "notConnected";
   } | {
     /**
      * @generated from field: brij.storage.v1.wallet.RestoreConnectionResponse.Connected connected = 2;
@@ -100,9 +100,9 @@ export declare type RestoreConnectionResponse_Connected = Message<"brij.storage.
 export declare const RestoreConnectionResponse_ConnectedSchema: GenMessage<RestoreConnectionResponse_Connected>;
 
 /**
- * @generated from message brij.storage.v1.wallet.ConnectRequest
+ * @generated from message brij.storage.v1.wallet.ConnectWalletRequest
  */
-export declare type ConnectRequest = Message<"brij.storage.v1.wallet.ConnectRequest"> & {
+export declare type ConnectWalletRequest = Message<"brij.storage.v1.wallet.ConnectWalletRequest"> & {
   /**
    * @generated from field: string wallet_address = 1;
    */
@@ -120,22 +120,22 @@ export declare type ConnectRequest = Message<"brij.storage.v1.wallet.ConnectRequ
 };
 
 /**
- * Describes the message brij.storage.v1.wallet.ConnectRequest.
- * Use `create(ConnectRequestSchema)` to create a new message.
+ * Describes the message brij.storage.v1.wallet.ConnectWalletRequest.
+ * Use `create(ConnectWalletRequestSchema)` to create a new message.
  */
-export declare const ConnectRequestSchema: GenMessage<ConnectRequest>;
+export declare const ConnectWalletRequestSchema: GenMessage<ConnectWalletRequest>;
 
 /**
- * @generated from message brij.storage.v1.wallet.ConnectResponse
+ * @generated from message brij.storage.v1.wallet.ConnectWalletResponse
  */
-export declare type ConnectResponse = Message<"brij.storage.v1.wallet.ConnectResponse"> & {
+export declare type ConnectWalletResponse = Message<"brij.storage.v1.wallet.ConnectWalletResponse"> & {
 };
 
 /**
- * Describes the message brij.storage.v1.wallet.ConnectResponse.
- * Use `create(ConnectResponseSchema)` to create a new message.
+ * Describes the message brij.storage.v1.wallet.ConnectWalletResponse.
+ * Use `create(ConnectWalletResponseSchema)` to create a new message.
  */
-export declare const ConnectResponseSchema: GenMessage<ConnectResponse>;
+export declare const ConnectWalletResponseSchema: GenMessage<ConnectWalletResponse>;
 
 /**
  * @generated from message brij.storage.v1.wallet.GetPartnerInfoRequest
@@ -566,8 +566,8 @@ export declare const WalletService: GenService<{
    */
   connectWallet: {
     methodKind: "unary";
-    input: typeof ConnectRequestSchema;
-    output: typeof ConnectResponseSchema;
+    input: typeof ConnectWalletRequestSchema;
+    output: typeof ConnectWalletResponseSchema;
   },
   /**
    * @generated from rpc brij.storage.v1.wallet.WalletService.GetInfo

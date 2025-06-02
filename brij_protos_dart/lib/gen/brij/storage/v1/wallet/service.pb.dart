@@ -229,7 +229,7 @@ class RestoreConnectionResponse extends $pb.GeneratedMessage {
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RestoreConnectionResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<RestoreConnectionResponse_NotConnected>(1, _omitFieldNames ? '' : 'NotConnected', protoName: 'Not_connected', subBuilder: RestoreConnectionResponse_NotConnected.create)
+    ..aOM<RestoreConnectionResponse_NotConnected>(1, _omitFieldNames ? '' : 'notConnected', subBuilder: RestoreConnectionResponse_NotConnected.create)
     ..aOM<RestoreConnectionResponse_Connected>(2, _omitFieldNames ? '' : 'connected', subBuilder: RestoreConnectionResponse_Connected.create)
     ..hasRequiredFields = false
   ;
@@ -281,8 +281,8 @@ class RestoreConnectionResponse extends $pb.GeneratedMessage {
   RestoreConnectionResponse_Connected ensureConnected() => $_ensure(1);
 }
 
-class ConnectRequest extends $pb.GeneratedMessage {
-  factory ConnectRequest({
+class ConnectWalletRequest extends $pb.GeneratedMessage {
+  factory ConnectWalletRequest({
     $core.String? walletAddress,
     $core.String? connectToken,
     $core.String? seedMessage,
@@ -299,11 +299,11 @@ class ConnectRequest extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  ConnectRequest._() : super();
-  factory ConnectRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ConnectRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  ConnectWalletRequest._() : super();
+  factory ConnectWalletRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ConnectWalletRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ConnectRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ConnectWalletRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'walletAddress')
     ..aOS(2, _omitFieldNames ? '' : 'connectToken')
     ..aOS(3, _omitFieldNames ? '' : 'seedMessage')
@@ -314,22 +314,22 @@ class ConnectRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  ConnectRequest clone() => ConnectRequest()..mergeFromMessage(this);
+  ConnectWalletRequest clone() => ConnectWalletRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  ConnectRequest copyWith(void Function(ConnectRequest) updates) => super.copyWith((message) => updates(message as ConnectRequest)) as ConnectRequest;
+  ConnectWalletRequest copyWith(void Function(ConnectWalletRequest) updates) => super.copyWith((message) => updates(message as ConnectWalletRequest)) as ConnectWalletRequest;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ConnectRequest create() => ConnectRequest._();
-  ConnectRequest createEmptyInstance() => create();
-  static $pb.PbList<ConnectRequest> createRepeated() => $pb.PbList<ConnectRequest>();
+  static ConnectWalletRequest create() => ConnectWalletRequest._();
+  ConnectWalletRequest createEmptyInstance() => create();
+  static $pb.PbList<ConnectWalletRequest> createRepeated() => $pb.PbList<ConnectWalletRequest>();
   @$core.pragma('dart2js:noInline')
-  static ConnectRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ConnectRequest>(create);
-  static ConnectRequest? _defaultInstance;
+  static ConnectWalletRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ConnectWalletRequest>(create);
+  static ConnectWalletRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get walletAddress => $_getSZ(0);
@@ -359,13 +359,13 @@ class ConnectRequest extends $pb.GeneratedMessage {
   void clearSeedMessage() => $_clearField(3);
 }
 
-class ConnectResponse extends $pb.GeneratedMessage {
-  factory ConnectResponse() => create();
-  ConnectResponse._() : super();
-  factory ConnectResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ConnectResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+class ConnectWalletResponse extends $pb.GeneratedMessage {
+  factory ConnectWalletResponse() => create();
+  ConnectWalletResponse._() : super();
+  factory ConnectWalletResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ConnectWalletResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ConnectResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ConnectWalletResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.storage.v1.wallet'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
@@ -373,22 +373,22 @@ class ConnectResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  ConnectResponse clone() => ConnectResponse()..mergeFromMessage(this);
+  ConnectWalletResponse clone() => ConnectWalletResponse()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  ConnectResponse copyWith(void Function(ConnectResponse) updates) => super.copyWith((message) => updates(message as ConnectResponse)) as ConnectResponse;
+  ConnectWalletResponse copyWith(void Function(ConnectWalletResponse) updates) => super.copyWith((message) => updates(message as ConnectWalletResponse)) as ConnectWalletResponse;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ConnectResponse create() => ConnectResponse._();
-  ConnectResponse createEmptyInstance() => create();
-  static $pb.PbList<ConnectResponse> createRepeated() => $pb.PbList<ConnectResponse>();
+  static ConnectWalletResponse create() => ConnectWalletResponse._();
+  ConnectWalletResponse createEmptyInstance() => create();
+  static $pb.PbList<ConnectWalletResponse> createRepeated() => $pb.PbList<ConnectWalletResponse>();
   @$core.pragma('dart2js:noInline')
-  static ConnectResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ConnectResponse>(create);
-  static ConnectResponse? _defaultInstance;
+  static ConnectWalletResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ConnectWalletResponse>(create);
+  static ConnectWalletResponse? _defaultInstance;
 }
 
 class GetPartnerInfoRequest extends $pb.GeneratedMessage {
@@ -1580,8 +1580,8 @@ class WalletServiceApi {
   $async.Future<RestoreConnectionResponse> restoreConnection($pb.ClientContext? ctx, RestoreConnectionRequest request) =>
     _client.invoke<RestoreConnectionResponse>(ctx, 'WalletService', 'RestoreConnection', request, RestoreConnectionResponse())
   ;
-  $async.Future<ConnectResponse> connectWallet($pb.ClientContext? ctx, ConnectRequest request) =>
-    _client.invoke<ConnectResponse>(ctx, 'WalletService', 'ConnectWallet', request, ConnectResponse())
+  $async.Future<ConnectWalletResponse> connectWallet($pb.ClientContext? ctx, ConnectWalletRequest request) =>
+    _client.invoke<ConnectWalletResponse>(ctx, 'WalletService', 'ConnectWallet', request, ConnectWalletResponse())
   ;
   $async.Future<GetInfoResponse> getInfo($pb.ClientContext? ctx, GetInfoRequest request) =>
     _client.invoke<GetInfoResponse>(ctx, 'WalletService', 'GetInfo', request, GetInfoResponse())

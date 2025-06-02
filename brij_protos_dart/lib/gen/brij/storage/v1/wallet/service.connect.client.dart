@@ -42,8 +42,8 @@ extension type WalletServiceClient (connect.Transport _transport) {
     );
   }
 
-  Future<brijstoragev1walletservice.ConnectResponse> connectWallet(
-    brijstoragev1walletservice.ConnectRequest input, {
+  Future<brijstoragev1walletservice.ConnectWalletResponse> connectWallet(
+    brijstoragev1walletservice.ConnectWalletRequest input, {
     connect.Headers? headers,
     connect.AbortSignal? signal,
     Function(connect.Headers)? onHeader,
