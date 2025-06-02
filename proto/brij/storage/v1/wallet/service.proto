@@ -13,7 +13,7 @@ service WalletService {
 
   rpc RestoreConnection(RestoreConnectionRequest) returns (RestoreConnectionResponse);
 
-  rpc Connect(ConnectRequest) returns (ConnectResponse);
+  rpc ConnectWallet(ConnectRequest) returns (ConnectResponse);
 
   rpc GetInfo(GetInfoRequest) returns (GetInfoResponse);
 

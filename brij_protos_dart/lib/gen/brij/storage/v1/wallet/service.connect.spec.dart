@@ -24,8 +24,8 @@ abstract final class WalletService {
     brijstoragev1walletservice.RestoreConnectionResponse.new,
   );
 
-  static const connect = connect.Spec(
-    '/$name/Connect',
+  static const connectWallet = connect.Spec(
+    '/$name/ConnectWallet',
     connect.StreamType.unary,
     brijstoragev1walletservice.ConnectRequest.new,
     brijstoragev1walletservice.ConnectResponse.new,
