@@ -562,9 +562,9 @@ export declare const WalletService: GenService<{
     output: typeof RestoreConnectionResponseSchema;
   },
   /**
-   * @generated from rpc brij.storage.v1.wallet.WalletService.Connect
+   * @generated from rpc brij.storage.v1.wallet.WalletService.ConnectWallet
    */
-  connect: {
+  connectWallet: {
     methodKind: "unary";
     input: typeof ConnectRequestSchema;
     output: typeof ConnectResponseSchema;

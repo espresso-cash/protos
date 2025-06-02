@@ -42,7 +42,7 @@ extension type WalletServiceClient (connect.Transport _transport) {
     );
   }
 
-  Future<brijstoragev1walletservice.ConnectResponse> connect(
+  Future<brijstoragev1walletservice.ConnectResponse> connectWallet(
     brijstoragev1walletservice.ConnectRequest input, {
     connect.Headers? headers,
     connect.AbortSignal? signal,
@@ -50,7 +50,7 @@ extension type WalletServiceClient (connect.Transport _transport) {
     Function(connect.Headers)? onTrailer,
   }) {
     return connect.Client(_transport).unary(
-      specs.WalletService.connect,
+      specs.WalletService.connectWallet,
       input,
       signal: signal,
       headers: headers,

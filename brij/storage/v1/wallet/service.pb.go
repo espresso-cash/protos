@@ -1497,11 +1497,11 @@ const file_brij_storage_v1_wallet_service_proto_rawDesc = "" +
 	"\x15GetWalletProofRequest\x12%\n" +
 	"\x0ewallet_address\x18\x01 \x01(\tR\rwalletAddress\"=\n" +
 	"\x16GetWalletProofResponse\x12#\n" +
-	"\rproof_message\x18\x01 \x01(\tR\fproofMessage2\x94\f\n" +
+	"\rproof_message\x18\x01 \x01(\tR\fproofMessage2\x9a\f\n" +
 	"\rWalletService\x12o\n" +
 	"\x0eGetWalletProof\x12-.brij.storage.v1.wallet.GetWalletProofRequest\x1a..brij.storage.v1.wallet.GetWalletProofResponse\x12x\n" +
-	"\x11RestoreConnection\x120.brij.storage.v1.wallet.RestoreConnectionRequest\x1a1.brij.storage.v1.wallet.RestoreConnectionResponse\x12Z\n" +
-	"\aConnect\x12&.brij.storage.v1.wallet.ConnectRequest\x1a'.brij.storage.v1.wallet.ConnectResponse\x12Z\n" +
+	"\x11RestoreConnection\x120.brij.storage.v1.wallet.RestoreConnectionRequest\x1a1.brij.storage.v1.wallet.RestoreConnectionResponse\x12`\n" +
+	"\rConnectWallet\x12&.brij.storage.v1.wallet.ConnectRequest\x1a'.brij.storage.v1.wallet.ConnectResponse\x12Z\n" +
 	"\aGetInfo\x12&.brij.storage.v1.wallet.GetInfoRequest\x1a'.brij.storage.v1.wallet.GetInfoResponse\x12o\n" +
 	"\x0eGetPartnerInfo\x12-.brij.storage.v1.wallet.GetPartnerInfoRequest\x1a..brij.storage.v1.wallet.GetPartnerInfoResponse\x12\x8d\x01\n" +
 	"\x18GetGrantedAccessPartners\x127.brij.storage.v1.wallet.GetGrantedAccessPartnersRequest\x1a8.brij.storage.v1.wallet.GetGrantedAccessPartnersResponse\x12f\n" +
@@ -1571,7 +1571,7 @@ var file_brij_storage_v1_wallet_service_proto_depIdxs = []int32{
 	32, // 5: brij.storage.v1.wallet.GetKycStatusResponse.status:type_name -> brij.storage.v1.common.KycStatus
 	26, // 6: brij.storage.v1.wallet.WalletService.GetWalletProof:input_type -> brij.storage.v1.wallet.GetWalletProofRequest
 	0,  // 7: brij.storage.v1.wallet.WalletService.RestoreConnection:input_type -> brij.storage.v1.wallet.RestoreConnectionRequest
-	2,  // 8: brij.storage.v1.wallet.WalletService.Connect:input_type -> brij.storage.v1.wallet.ConnectRequest
+	2,  // 8: brij.storage.v1.wallet.WalletService.ConnectWallet:input_type -> brij.storage.v1.wallet.ConnectRequest
 	6,  // 9: brij.storage.v1.wallet.WalletService.GetInfo:input_type -> brij.storage.v1.wallet.GetInfoRequest
 	4,  // 10: brij.storage.v1.wallet.WalletService.GetPartnerInfo:input_type -> brij.storage.v1.wallet.GetPartnerInfoRequest
 	14, // 11: brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners:input_type -> brij.storage.v1.wallet.GetGrantedAccessPartnersRequest
@@ -1585,7 +1585,7 @@ var file_brij_storage_v1_wallet_service_proto_depIdxs = []int32{
 	24, // 19: brij.storage.v1.wallet.WalletService.GetKycStatus:input_type -> brij.storage.v1.wallet.GetKycStatusRequest
 	27, // 20: brij.storage.v1.wallet.WalletService.GetWalletProof:output_type -> brij.storage.v1.wallet.GetWalletProofResponse
 	1,  // 21: brij.storage.v1.wallet.WalletService.RestoreConnection:output_type -> brij.storage.v1.wallet.RestoreConnectionResponse
-	3,  // 22: brij.storage.v1.wallet.WalletService.Connect:output_type -> brij.storage.v1.wallet.ConnectResponse
+	3,  // 22: brij.storage.v1.wallet.WalletService.ConnectWallet:output_type -> brij.storage.v1.wallet.ConnectResponse
 	7,  // 23: brij.storage.v1.wallet.WalletService.GetInfo:output_type -> brij.storage.v1.wallet.GetInfoResponse
 	5,  // 24: brij.storage.v1.wallet.WalletService.GetPartnerInfo:output_type -> brij.storage.v1.wallet.GetPartnerInfoResponse
 	15, // 25: brij.storage.v1.wallet.WalletService.GetGrantedAccessPartners:output_type -> brij.storage.v1.wallet.GetGrantedAccessPartnersResponse

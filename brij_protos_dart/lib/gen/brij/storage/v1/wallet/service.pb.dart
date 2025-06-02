@@ -1580,8 +1580,8 @@ class WalletServiceApi {
   $async.Future<RestoreConnectionResponse> restoreConnection($pb.ClientContext? ctx, RestoreConnectionRequest request) =>
     _client.invoke<RestoreConnectionResponse>(ctx, 'WalletService', 'RestoreConnection', request, RestoreConnectionResponse())
   ;
-  $async.Future<ConnectResponse> connect($pb.ClientContext? ctx, ConnectRequest request) =>
-    _client.invoke<ConnectResponse>(ctx, 'WalletService', 'Connect', request, ConnectResponse())
+  $async.Future<ConnectResponse> connectWallet($pb.ClientContext? ctx, ConnectRequest request) =>
+    _client.invoke<ConnectResponse>(ctx, 'WalletService', 'ConnectWallet', request, ConnectResponse())
   ;
   $async.Future<GetInfoResponse> getInfo($pb.ClientContext? ctx, GetInfoRequest request) =>
     _client.invoke<GetInfoResponse>(ctx, 'WalletService', 'GetInfo', request, GetInfoResponse())
