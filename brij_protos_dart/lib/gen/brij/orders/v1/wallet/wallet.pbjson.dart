@@ -179,6 +179,54 @@ final $typed_data.Uint8List getQuoteResponseDescriptor = $convert.base64Decode(
     'RlcnMudjEud2FsbGV0LlJhbXBGZWVSC3BsYXRmb3JtRmVlEhsKCXRvdGFsX2ZlZRgJIAEoAVII'
     'dG90YWxGZWU=');
 
+@$core.Deprecated('Use getBestQuoteRequestDescriptor instead')
+const GetBestQuoteRequest$json = {
+  '1': 'GetBestQuoteRequest',
+  '2': [
+    {'1': 'country', '3': 1, '4': 1, '5': 9, '10': 'country'},
+    {'1': 'wallet_public_key', '3': 2, '4': 1, '5': 9, '10': 'walletPublicKey'},
+    {'1': 'crypto_amount', '3': 3, '4': 1, '5': 1, '10': 'cryptoAmount'},
+    {'1': 'ramp_type', '3': 4, '4': 1, '5': 14, '6': '.brij.orders.v1.common.RampType', '10': 'rampType'},
+    {'1': 'fiat_currency', '3': 5, '4': 1, '5': 9, '10': 'fiatCurrency'},
+  ],
+};
+
+/// Descriptor for `GetBestQuoteRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getBestQuoteRequestDescriptor = $convert.base64Decode(
+    'ChNHZXRCZXN0UXVvdGVSZXF1ZXN0EhgKB2NvdW50cnkYASABKAlSB2NvdW50cnkSKgoRd2FsbG'
+    'V0X3B1YmxpY19rZXkYAiABKAlSD3dhbGxldFB1YmxpY0tleRIjCg1jcnlwdG9fYW1vdW50GAMg'
+    'ASgBUgxjcnlwdG9BbW91bnQSPAoJcmFtcF90eXBlGAQgASgOMh8uYnJpai5vcmRlcnMudjEuY2'
+    '9tbW9uLlJhbXBUeXBlUghyYW1wVHlwZRIjCg1maWF0X2N1cnJlbmN5GAUgASgJUgxmaWF0Q3Vy'
+    'cmVuY3k=');
+
+@$core.Deprecated('Use getBestQuoteResponseDescriptor instead')
+const GetBestQuoteResponse$json = {
+  '1': 'GetBestQuoteResponse',
+  '2': [
+    {'1': 'crypto_amount', '3': 1, '4': 1, '5': 1, '10': 'cryptoAmount'},
+    {'1': 'fiat_amount', '3': 2, '4': 1, '5': 1, '10': 'fiatAmount'},
+    {'1': 'fiat_currency', '3': 3, '4': 1, '5': 9, '10': 'fiatCurrency'},
+    {'1': 'ramp_type', '3': 4, '4': 1, '5': 14, '6': '.brij.orders.v1.common.RampType', '10': 'rampType'},
+    {'1': 'conversion_rate', '3': 5, '4': 1, '5': 1, '10': 'conversionRate'},
+    {'1': 'partner_fee', '3': 6, '4': 1, '5': 11, '6': '.brij.orders.v1.wallet.RampFee', '10': 'partnerFee'},
+    {'1': 'wallet_fee', '3': 7, '4': 1, '5': 11, '6': '.brij.orders.v1.wallet.RampFee', '10': 'walletFee'},
+    {'1': 'platform_fee', '3': 8, '4': 1, '5': 11, '6': '.brij.orders.v1.wallet.RampFee', '10': 'platformFee'},
+    {'1': 'total_fee', '3': 9, '4': 1, '5': 1, '10': 'totalFee'},
+  ],
+};
+
+/// Descriptor for `GetBestQuoteResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getBestQuoteResponseDescriptor = $convert.base64Decode(
+    'ChRHZXRCZXN0UXVvdGVSZXNwb25zZRIjCg1jcnlwdG9fYW1vdW50GAEgASgBUgxjcnlwdG9BbW'
+    '91bnQSHwoLZmlhdF9hbW91bnQYAiABKAFSCmZpYXRBbW91bnQSIwoNZmlhdF9jdXJyZW5jeRgD'
+    'IAEoCVIMZmlhdEN1cnJlbmN5EjwKCXJhbXBfdHlwZRgEIAEoDjIfLmJyaWoub3JkZXJzLnYxLm'
+    'NvbW1vbi5SYW1wVHlwZVIIcmFtcFR5cGUSJwoPY29udmVyc2lvbl9yYXRlGAUgASgBUg5jb252'
+    'ZXJzaW9uUmF0ZRI/CgtwYXJ0bmVyX2ZlZRgGIAEoCzIeLmJyaWoub3JkZXJzLnYxLndhbGxldC'
+    '5SYW1wRmVlUgpwYXJ0bmVyRmVlEj0KCndhbGxldF9mZWUYByABKAsyHi5icmlqLm9yZGVycy52'
+    'MS53YWxsZXQuUmFtcEZlZVIJd2FsbGV0RmVlEkEKDHBsYXRmb3JtX2ZlZRgIIAEoCzIeLmJyaW'
+    'oub3JkZXJzLnYxLndhbGxldC5SYW1wRmVlUgtwbGF0Zm9ybUZlZRIbCgl0b3RhbF9mZWUYCSAB'
+    'KAFSCHRvdGFsRmVl');
+
 @$core.Deprecated('Use rampFeeDescriptor instead')
 const RampFee$json = {
   '1': 'RampFee',
@@ -228,6 +276,7 @@ const $core.Map<$core.String, $core.dynamic> WalletServiceBase$json = {
     {'1': 'GetOrder', '2': '.brij.orders.v1.wallet.GetOrderRequest', '3': '.brij.orders.v1.wallet.GetOrderResponse'},
     {'1': 'GetOrders', '2': '.brij.orders.v1.wallet.GetOrdersRequest', '3': '.brij.orders.v1.wallet.GetOrdersResponse'},
     {'1': 'GetQuote', '2': '.brij.orders.v1.wallet.GetQuoteRequest', '3': '.brij.orders.v1.wallet.GetQuoteResponse'},
+    {'1': 'GetBestQuote', '2': '.brij.orders.v1.wallet.GetBestQuoteRequest', '3': '.brij.orders.v1.wallet.GetBestQuoteResponse'},
     {'1': 'GenerateTransaction', '2': '.brij.orders.v1.wallet.GenerateTransactionRequest', '3': '.brij.orders.v1.wallet.GenerateTransactionResponse'},
   ],
 };
@@ -245,6 +294,8 @@ const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> WalletServ
   '.brij.orders.v1.wallet.GetQuoteRequest': GetQuoteRequest$json,
   '.brij.orders.v1.wallet.GetQuoteResponse': GetQuoteResponse$json,
   '.brij.orders.v1.wallet.RampFee': RampFee$json,
+  '.brij.orders.v1.wallet.GetBestQuoteRequest': GetBestQuoteRequest$json,
+  '.brij.orders.v1.wallet.GetBestQuoteResponse': GetBestQuoteResponse$json,
   '.brij.orders.v1.wallet.GenerateTransactionRequest': GenerateTransactionRequest$json,
   '.brij.orders.v1.wallet.GenerateTransactionResponse': GenerateTransactionResponse$json,
 };
@@ -260,7 +311,9 @@ final $typed_data.Uint8List walletServiceDescriptor = $convert.base64Decode(
     'dC5HZXRPcmRlclJlc3BvbnNlEl4KCUdldE9yZGVycxInLmJyaWoub3JkZXJzLnYxLndhbGxldC'
     '5HZXRPcmRlcnNSZXF1ZXN0GiguYnJpai5vcmRlcnMudjEud2FsbGV0LkdldE9yZGVyc1Jlc3Bv'
     'bnNlElsKCEdldFF1b3RlEiYuYnJpai5vcmRlcnMudjEud2FsbGV0LkdldFF1b3RlUmVxdWVzdB'
-    'onLmJyaWoub3JkZXJzLnYxLndhbGxldC5HZXRRdW90ZVJlc3BvbnNlEnwKE0dlbmVyYXRlVHJh'
-    'bnNhY3Rpb24SMS5icmlqLm9yZGVycy52MS53YWxsZXQuR2VuZXJhdGVUcmFuc2FjdGlvblJlcX'
-    'Vlc3QaMi5icmlqLm9yZGVycy52MS53YWxsZXQuR2VuZXJhdGVUcmFuc2FjdGlvblJlc3BvbnNl');
+    'onLmJyaWoub3JkZXJzLnYxLndhbGxldC5HZXRRdW90ZVJlc3BvbnNlEmcKDEdldEJlc3RRdW90'
+    'ZRIqLmJyaWoub3JkZXJzLnYxLndhbGxldC5HZXRCZXN0UXVvdGVSZXF1ZXN0GisuYnJpai5vcm'
+    'RlcnMudjEud2FsbGV0LkdldEJlc3RRdW90ZVJlc3BvbnNlEnwKE0dlbmVyYXRlVHJhbnNhY3Rp'
+    'b24SMS5icmlqLm9yZGVycy52MS53YWxsZXQuR2VuZXJhdGVUcmFuc2FjdGlvblJlcXVlc3QaMi'
+    '5icmlqLm9yZGVycy52MS53YWxsZXQuR2VuZXJhdGVUcmFuc2FjdGlvblJlc3BvbnNl');
 

@@ -854,6 +854,280 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
   void clearTotalFee() => $_clearField(9);
 }
 
+class GetBestQuoteRequest extends $pb.GeneratedMessage {
+  factory GetBestQuoteRequest({
+    $core.String? country,
+    $core.String? walletPublicKey,
+    $core.double? cryptoAmount,
+    $1.RampType? rampType,
+    $core.String? fiatCurrency,
+  }) {
+    final $result = create();
+    if (country != null) {
+      $result.country = country;
+    }
+    if (walletPublicKey != null) {
+      $result.walletPublicKey = walletPublicKey;
+    }
+    if (cryptoAmount != null) {
+      $result.cryptoAmount = cryptoAmount;
+    }
+    if (rampType != null) {
+      $result.rampType = rampType;
+    }
+    if (fiatCurrency != null) {
+      $result.fiatCurrency = fiatCurrency;
+    }
+    return $result;
+  }
+  GetBestQuoteRequest._() : super();
+  factory GetBestQuoteRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetBestQuoteRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetBestQuoteRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.orders.v1.wallet'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'country')
+    ..aOS(2, _omitFieldNames ? '' : 'walletPublicKey')
+    ..a<$core.double>(3, _omitFieldNames ? '' : 'cryptoAmount', $pb.PbFieldType.OD)
+    ..e<$1.RampType>(4, _omitFieldNames ? '' : 'rampType', $pb.PbFieldType.OE, defaultOrMaker: $1.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $1.RampType.valueOf, enumValues: $1.RampType.values)
+    ..aOS(5, _omitFieldNames ? '' : 'fiatCurrency')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetBestQuoteRequest clone() => GetBestQuoteRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetBestQuoteRequest copyWith(void Function(GetBestQuoteRequest) updates) => super.copyWith((message) => updates(message as GetBestQuoteRequest)) as GetBestQuoteRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetBestQuoteRequest create() => GetBestQuoteRequest._();
+  GetBestQuoteRequest createEmptyInstance() => create();
+  static $pb.PbList<GetBestQuoteRequest> createRepeated() => $pb.PbList<GetBestQuoteRequest>();
+  @$core.pragma('dart2js:noInline')
+  static GetBestQuoteRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetBestQuoteRequest>(create);
+  static GetBestQuoteRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get country => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set country($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCountry() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCountry() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get walletPublicKey => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set walletPublicKey($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasWalletPublicKey() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearWalletPublicKey() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.double get cryptoAmount => $_getN(2);
+  @$pb.TagNumber(3)
+  set cryptoAmount($core.double v) { $_setDouble(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasCryptoAmount() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCryptoAmount() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $1.RampType get rampType => $_getN(3);
+  @$pb.TagNumber(4)
+  set rampType($1.RampType v) { $_setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasRampType() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearRampType() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get fiatCurrency => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set fiatCurrency($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasFiatCurrency() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearFiatCurrency() => $_clearField(5);
+}
+
+class GetBestQuoteResponse extends $pb.GeneratedMessage {
+  factory GetBestQuoteResponse({
+    $core.double? cryptoAmount,
+    $core.double? fiatAmount,
+    $core.String? fiatCurrency,
+    $1.RampType? rampType,
+    $core.double? conversionRate,
+    RampFee? partnerFee,
+    RampFee? walletFee,
+    RampFee? platformFee,
+    $core.double? totalFee,
+  }) {
+    final $result = create();
+    if (cryptoAmount != null) {
+      $result.cryptoAmount = cryptoAmount;
+    }
+    if (fiatAmount != null) {
+      $result.fiatAmount = fiatAmount;
+    }
+    if (fiatCurrency != null) {
+      $result.fiatCurrency = fiatCurrency;
+    }
+    if (rampType != null) {
+      $result.rampType = rampType;
+    }
+    if (conversionRate != null) {
+      $result.conversionRate = conversionRate;
+    }
+    if (partnerFee != null) {
+      $result.partnerFee = partnerFee;
+    }
+    if (walletFee != null) {
+      $result.walletFee = walletFee;
+    }
+    if (platformFee != null) {
+      $result.platformFee = platformFee;
+    }
+    if (totalFee != null) {
+      $result.totalFee = totalFee;
+    }
+    return $result;
+  }
+  GetBestQuoteResponse._() : super();
+  factory GetBestQuoteResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetBestQuoteResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetBestQuoteResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.orders.v1.wallet'), createEmptyInstance: create)
+    ..a<$core.double>(1, _omitFieldNames ? '' : 'cryptoAmount', $pb.PbFieldType.OD)
+    ..a<$core.double>(2, _omitFieldNames ? '' : 'fiatAmount', $pb.PbFieldType.OD)
+    ..aOS(3, _omitFieldNames ? '' : 'fiatCurrency')
+    ..e<$1.RampType>(4, _omitFieldNames ? '' : 'rampType', $pb.PbFieldType.OE, defaultOrMaker: $1.RampType.RAMP_TYPE_UNSPECIFIED, valueOf: $1.RampType.valueOf, enumValues: $1.RampType.values)
+    ..a<$core.double>(5, _omitFieldNames ? '' : 'conversionRate', $pb.PbFieldType.OD)
+    ..aOM<RampFee>(6, _omitFieldNames ? '' : 'partnerFee', subBuilder: RampFee.create)
+    ..aOM<RampFee>(7, _omitFieldNames ? '' : 'walletFee', subBuilder: RampFee.create)
+    ..aOM<RampFee>(8, _omitFieldNames ? '' : 'platformFee', subBuilder: RampFee.create)
+    ..a<$core.double>(9, _omitFieldNames ? '' : 'totalFee', $pb.PbFieldType.OD)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetBestQuoteResponse clone() => GetBestQuoteResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetBestQuoteResponse copyWith(void Function(GetBestQuoteResponse) updates) => super.copyWith((message) => updates(message as GetBestQuoteResponse)) as GetBestQuoteResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetBestQuoteResponse create() => GetBestQuoteResponse._();
+  GetBestQuoteResponse createEmptyInstance() => create();
+  static $pb.PbList<GetBestQuoteResponse> createRepeated() => $pb.PbList<GetBestQuoteResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetBestQuoteResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetBestQuoteResponse>(create);
+  static GetBestQuoteResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.double get cryptoAmount => $_getN(0);
+  @$pb.TagNumber(1)
+  set cryptoAmount($core.double v) { $_setDouble(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCryptoAmount() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCryptoAmount() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.double get fiatAmount => $_getN(1);
+  @$pb.TagNumber(2)
+  set fiatAmount($core.double v) { $_setDouble(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasFiatAmount() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFiatAmount() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get fiatCurrency => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set fiatCurrency($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasFiatCurrency() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearFiatCurrency() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $1.RampType get rampType => $_getN(3);
+  @$pb.TagNumber(4)
+  set rampType($1.RampType v) { $_setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasRampType() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearRampType() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.double get conversionRate => $_getN(4);
+  @$pb.TagNumber(5)
+  set conversionRate($core.double v) { $_setDouble(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasConversionRate() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearConversionRate() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  RampFee get partnerFee => $_getN(5);
+  @$pb.TagNumber(6)
+  set partnerFee(RampFee v) { $_setField(6, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasPartnerFee() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearPartnerFee() => $_clearField(6);
+  @$pb.TagNumber(6)
+  RampFee ensurePartnerFee() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  RampFee get walletFee => $_getN(6);
+  @$pb.TagNumber(7)
+  set walletFee(RampFee v) { $_setField(7, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasWalletFee() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearWalletFee() => $_clearField(7);
+  @$pb.TagNumber(7)
+  RampFee ensureWalletFee() => $_ensure(6);
+
+  @$pb.TagNumber(8)
+  RampFee get platformFee => $_getN(7);
+  @$pb.TagNumber(8)
+  set platformFee(RampFee v) { $_setField(8, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasPlatformFee() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearPlatformFee() => $_clearField(8);
+  @$pb.TagNumber(8)
+  RampFee ensurePlatformFee() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  $core.double get totalFee => $_getN(8);
+  @$pb.TagNumber(9)
+  set totalFee($core.double v) { $_setDouble(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasTotalFee() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearTotalFee() => $_clearField(9);
+}
+
 class RampFee extends $pb.GeneratedMessage {
   factory RampFee({
     $core.double? fixedFee,
@@ -1050,6 +1324,9 @@ class WalletServiceApi {
   ;
   $async.Future<GetQuoteResponse> getQuote($pb.ClientContext? ctx, GetQuoteRequest request) =>
     _client.invoke<GetQuoteResponse>(ctx, 'WalletService', 'GetQuote', request, GetQuoteResponse())
+  ;
+  $async.Future<GetBestQuoteResponse> getBestQuote($pb.ClientContext? ctx, GetBestQuoteRequest request) =>
+    _client.invoke<GetBestQuoteResponse>(ctx, 'WalletService', 'GetBestQuote', request, GetBestQuoteResponse())
   ;
   $async.Future<GenerateTransactionResponse> generateTransaction($pb.ClientContext? ctx, GenerateTransactionRequest request) =>
     _client.invoke<GenerateTransactionResponse>(ctx, 'WalletService', 'GenerateTransaction', request, GenerateTransactionResponse())

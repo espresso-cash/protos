@@ -93,6 +93,23 @@ extension type WalletServiceClient (connect.Transport _transport) {
     );
   }
 
+  Future<brijordersv1walletwallet.GetBestQuoteResponse> getBestQuote(
+    brijordersv1walletwallet.GetBestQuoteRequest input, {
+    connect.Headers? headers,
+    connect.AbortSignal? signal,
+    Function(connect.Headers)? onHeader,
+    Function(connect.Headers)? onTrailer,
+  }) {
+    return connect.Client(_transport).unary(
+      specs.WalletService.getBestQuote,
+      input,
+      signal: signal,
+      headers: headers,
+      onHeader: onHeader,
+      onTrailer: onTrailer,
+    );
+  }
+
   Future<brijordersv1walletwallet.GenerateTransactionResponse> generateTransaction(
     brijordersv1walletwallet.GenerateTransactionRequest input, {
     connect.Headers? headers,

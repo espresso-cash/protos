@@ -45,6 +45,13 @@ abstract final class WalletService {
     brijordersv1walletwallet.GetQuoteResponse.new,
   );
 
+  static const getBestQuote = connect.Spec(
+    '/$name/GetBestQuote',
+    connect.StreamType.unary,
+    brijordersv1walletwallet.GetBestQuoteRequest.new,
+    brijordersv1walletwallet.GetBestQuoteResponse.new,
+  );
+
   static const generateTransaction = connect.Spec(
     '/$name/GenerateTransaction',
     connect.StreamType.unary,

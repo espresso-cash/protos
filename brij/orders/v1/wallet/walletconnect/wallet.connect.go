@@ -45,6 +45,9 @@ const (
 	WalletServiceGetOrdersProcedure = "/brij.orders.v1.wallet.WalletService/GetOrders"
 	// WalletServiceGetQuoteProcedure is the fully-qualified name of the WalletService's GetQuote RPC.
 	WalletServiceGetQuoteProcedure = "/brij.orders.v1.wallet.WalletService/GetQuote"
+	// WalletServiceGetBestQuoteProcedure is the fully-qualified name of the WalletService's
+	// GetBestQuote RPC.
+	WalletServiceGetBestQuoteProcedure = "/brij.orders.v1.wallet.WalletService/GetBestQuote"
 	// WalletServiceGenerateTransactionProcedure is the fully-qualified name of the WalletService's
 	// GenerateTransaction RPC.
 	WalletServiceGenerateTransactionProcedure = "/brij.orders.v1.wallet.WalletService/GenerateTransaction"
@@ -57,6 +60,7 @@ type WalletServiceClient interface {
 	GetOrder(context.Context, *connect.Request[wallet.GetOrderRequest]) (*connect.Response[wallet.GetOrderResponse], error)
 	GetOrders(context.Context, *connect.Request[wallet.GetOrdersRequest]) (*connect.Response[wallet.GetOrdersResponse], error)
 	GetQuote(context.Context, *connect.Request[wallet.GetQuoteRequest]) (*connect.Response[wallet.GetQuoteResponse], error)
+	GetBestQuote(context.Context, *connect.Request[wallet.GetBestQuoteRequest]) (*connect.Response[wallet.GetBestQuoteResponse], error)
 	GenerateTransaction(context.Context, *connect.Request[wallet.GenerateTransactionRequest]) (*connect.Response[wallet.GenerateTransactionResponse], error)
 }
 
@@ -101,6 +105,12 @@ func NewWalletServiceClient(httpClient connect.HTTPClient, baseURL string, opts 
 			connect.WithSchema(walletServiceMethods.ByName("GetQuote")),
 			connect.WithClientOptions(opts...),
 		),
+		getBestQuote: connect.NewClient[wallet.GetBestQuoteRequest, wallet.GetBestQuoteResponse](
+			httpClient,
+			baseURL+WalletServiceGetBestQuoteProcedure,
+			connect.WithSchema(walletServiceMethods.ByName("GetBestQuote")),
+			connect.WithClientOptions(opts...),
+		),
 		generateTransaction: connect.NewClient[wallet.GenerateTransactionRequest, wallet.GenerateTransactionResponse](
 			httpClient,
 			baseURL+WalletServiceGenerateTransactionProcedure,
@@ -117,6 +127,7 @@ type walletServiceClient struct {
 	getOrder            *connect.Client[wallet.GetOrderRequest, wallet.GetOrderResponse]
 	getOrders           *connect.Client[wallet.GetOrdersRequest, wallet.GetOrdersResponse]
 	getQuote            *connect.Client[wallet.GetQuoteRequest, wallet.GetQuoteResponse]
+	getBestQuote        *connect.Client[wallet.GetBestQuoteRequest, wallet.GetBestQuoteResponse]
 	generateTransaction *connect.Client[wallet.GenerateTransactionRequest, wallet.GenerateTransactionResponse]
 }
 
@@ -145,6 +156,11 @@ func (c *walletServiceClient) GetQuote(ctx context.Context, req *connect.Request
 	return c.getQuote.CallUnary(ctx, req)
 }
 
+// GetBestQuote calls brij.orders.v1.wallet.WalletService.GetBestQuote.
+func (c *walletServiceClient) GetBestQuote(ctx context.Context, req *connect.Request[wallet.GetBestQuoteRequest]) (*connect.Response[wallet.GetBestQuoteResponse], error) {
+	return c.getBestQuote.CallUnary(ctx, req)
+}
+
 // GenerateTransaction calls brij.orders.v1.wallet.WalletService.GenerateTransaction.
 func (c *walletServiceClient) GenerateTransaction(ctx context.Context, req *connect.Request[wallet.GenerateTransactionRequest]) (*connect.Response[wallet.GenerateTransactionResponse], error) {
 	return c.generateTransaction.CallUnary(ctx, req)
@@ -157,6 +173,7 @@ type WalletServiceHandler interface {
 	GetOrder(context.Context, *connect.Request[wallet.GetOrderRequest]) (*connect.Response[wallet.GetOrderResponse], error)
 	GetOrders(context.Context, *connect.Request[wallet.GetOrdersRequest]) (*connect.Response[wallet.GetOrdersResponse], error)
 	GetQuote(context.Context, *connect.Request[wallet.GetQuoteRequest]) (*connect.Response[wallet.GetQuoteResponse], error)
+	GetBestQuote(context.Context, *connect.Request[wallet.GetBestQuoteRequest]) (*connect.Response[wallet.GetBestQuoteResponse], error)
 	GenerateTransaction(context.Context, *connect.Request[wallet.GenerateTransactionRequest]) (*connect.Response[wallet.GenerateTransactionResponse], error)
 }
 
@@ -197,6 +214,12 @@ func NewWalletServiceHandler(svc WalletServiceHandler, opts ...connect.HandlerOp
 		connect.WithSchema(walletServiceMethods.ByName("GetQuote")),
 		connect.WithHandlerOptions(opts...),
 	)
+	walletServiceGetBestQuoteHandler := connect.NewUnaryHandler(
+		WalletServiceGetBestQuoteProcedure,
+		svc.GetBestQuote,
+		connect.WithSchema(walletServiceMethods.ByName("GetBestQuote")),
+		connect.WithHandlerOptions(opts...),
+	)
 	walletServiceGenerateTransactionHandler := connect.NewUnaryHandler(
 		WalletServiceGenerateTransactionProcedure,
 		svc.GenerateTransaction,
@@ -215,6 +238,8 @@ func NewWalletServiceHandler(svc WalletServiceHandler, opts ...connect.HandlerOp
 			walletServiceGetOrdersHandler.ServeHTTP(w, r)
 		case WalletServiceGetQuoteProcedure:
 			walletServiceGetQuoteHandler.ServeHTTP(w, r)
+		case WalletServiceGetBestQuoteProcedure:
+			walletServiceGetBestQuoteHandler.ServeHTTP(w, r)
 		case WalletServiceGenerateTransactionProcedure:
 			walletServiceGenerateTransactionHandler.ServeHTTP(w, r)
 		default:
@@ -244,6 +269,10 @@ func (UnimplementedWalletServiceHandler) GetOrders(context.Context, *connect.Req
 
 func (UnimplementedWalletServiceHandler) GetQuote(context.Context, *connect.Request[wallet.GetQuoteRequest]) (*connect.Response[wallet.GetQuoteResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.GetQuote is not implemented"))
+}
+
+func (UnimplementedWalletServiceHandler) GetBestQuote(context.Context, *connect.Request[wallet.GetBestQuoteRequest]) (*connect.Response[wallet.GetBestQuoteResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("brij.orders.v1.wallet.WalletService.GetBestQuote is not implemented"))
 }
 
 func (UnimplementedWalletServiceHandler) GenerateTransaction(context.Context, *connect.Request[wallet.GenerateTransactionRequest]) (*connect.Response[wallet.GenerateTransactionResponse], error) {

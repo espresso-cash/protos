@@ -301,6 +301,98 @@ export declare type GetQuoteResponse = Message<"brij.orders.v1.wallet.GetQuoteRe
 export declare const GetQuoteResponseSchema: GenMessage<GetQuoteResponse>;
 
 /**
+ * @generated from message brij.orders.v1.wallet.GetBestQuoteRequest
+ */
+export declare type GetBestQuoteRequest = Message<"brij.orders.v1.wallet.GetBestQuoteRequest"> & {
+  /**
+   * @generated from field: string country = 1;
+   */
+  country: string;
+
+  /**
+   * @generated from field: string wallet_public_key = 2;
+   */
+  walletPublicKey: string;
+
+  /**
+   * @generated from field: double crypto_amount = 3;
+   */
+  cryptoAmount: number;
+
+  /**
+   * @generated from field: brij.orders.v1.common.RampType ramp_type = 4;
+   */
+  rampType: RampType;
+
+  /**
+   * @generated from field: string fiat_currency = 5;
+   */
+  fiatCurrency: string;
+};
+
+/**
+ * Describes the message brij.orders.v1.wallet.GetBestQuoteRequest.
+ * Use `create(GetBestQuoteRequestSchema)` to create a new message.
+ */
+export declare const GetBestQuoteRequestSchema: GenMessage<GetBestQuoteRequest>;
+
+/**
+ * @generated from message brij.orders.v1.wallet.GetBestQuoteResponse
+ */
+export declare type GetBestQuoteResponse = Message<"brij.orders.v1.wallet.GetBestQuoteResponse"> & {
+  /**
+   * @generated from field: double crypto_amount = 1;
+   */
+  cryptoAmount: number;
+
+  /**
+   * @generated from field: double fiat_amount = 2;
+   */
+  fiatAmount: number;
+
+  /**
+   * @generated from field: string fiat_currency = 3;
+   */
+  fiatCurrency: string;
+
+  /**
+   * @generated from field: brij.orders.v1.common.RampType ramp_type = 4;
+   */
+  rampType: RampType;
+
+  /**
+   * @generated from field: double conversion_rate = 5;
+   */
+  conversionRate: number;
+
+  /**
+   * @generated from field: brij.orders.v1.wallet.RampFee partner_fee = 6;
+   */
+  partnerFee?: RampFee;
+
+  /**
+   * @generated from field: brij.orders.v1.wallet.RampFee wallet_fee = 7;
+   */
+  walletFee?: RampFee;
+
+  /**
+   * @generated from field: brij.orders.v1.wallet.RampFee platform_fee = 8;
+   */
+  platformFee?: RampFee;
+
+  /**
+   * @generated from field: double total_fee = 9;
+   */
+  totalFee: number;
+};
+
+/**
+ * Describes the message brij.orders.v1.wallet.GetBestQuoteResponse.
+ * Use `create(GetBestQuoteResponseSchema)` to create a new message.
+ */
+export declare const GetBestQuoteResponseSchema: GenMessage<GetBestQuoteResponse>;
+
+/**
  * @generated from message brij.orders.v1.wallet.RampFee
  */
 export declare type RampFee = Message<"brij.orders.v1.wallet.RampFee"> & {
@@ -401,6 +493,14 @@ export declare const WalletService: GenService<{
     methodKind: "unary";
     input: typeof GetQuoteRequestSchema;
     output: typeof GetQuoteResponseSchema;
+  },
+  /**
+   * @generated from rpc brij.orders.v1.wallet.WalletService.GetBestQuote
+   */
+  getBestQuote: {
+    methodKind: "unary";
+    input: typeof GetBestQuoteRequestSchema;
+    output: typeof GetBestQuoteResponseSchema;
   },
   /**
    * @generated from rpc brij.orders.v1.wallet.WalletService.GenerateTransaction

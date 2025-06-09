@@ -26,6 +26,7 @@ abstract class WalletServiceBase extends $pb.GeneratedService {
   $async.Future<$3.GetOrderResponse> getOrder($pb.ServerContext ctx, $3.GetOrderRequest request);
   $async.Future<$3.GetOrdersResponse> getOrders($pb.ServerContext ctx, $3.GetOrdersRequest request);
   $async.Future<$3.GetQuoteResponse> getQuote($pb.ServerContext ctx, $3.GetQuoteRequest request);
+  $async.Future<$3.GetBestQuoteResponse> getBestQuote($pb.ServerContext ctx, $3.GetBestQuoteRequest request);
   $async.Future<$3.GenerateTransactionResponse> generateTransaction($pb.ServerContext ctx, $3.GenerateTransactionRequest request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
@@ -35,6 +36,7 @@ abstract class WalletServiceBase extends $pb.GeneratedService {
       case 'GetOrder': return $3.GetOrderRequest();
       case 'GetOrders': return $3.GetOrdersRequest();
       case 'GetQuote': return $3.GetQuoteRequest();
+      case 'GetBestQuote': return $3.GetBestQuoteRequest();
       case 'GenerateTransaction': return $3.GenerateTransactionRequest();
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }
@@ -47,6 +49,7 @@ abstract class WalletServiceBase extends $pb.GeneratedService {
       case 'GetOrder': return this.getOrder(ctx, request as $3.GetOrderRequest);
       case 'GetOrders': return this.getOrders(ctx, request as $3.GetOrdersRequest);
       case 'GetQuote': return this.getQuote(ctx, request as $3.GetQuoteRequest);
+      case 'GetBestQuote': return this.getBestQuote(ctx, request as $3.GetBestQuoteRequest);
       case 'GenerateTransaction': return this.generateTransaction(ctx, request as $3.GenerateTransactionRequest);
       default: throw $core.ArgumentError('Unknown method: $methodName');
     }

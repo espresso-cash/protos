@@ -17,6 +17,8 @@ service WalletService {
 
   rpc GetQuote(GetQuoteRequest) returns (GetQuoteResponse);
 
+  rpc GetBestQuote(GetBestQuoteRequest) returns (GetBestQuoteResponse);
+
   rpc GenerateTransaction(GenerateTransactionRequest) returns (GenerateTransactionResponse);
 }
 
@@ -76,6 +78,26 @@ message GetQuoteRequest {
 }
 
 message GetQuoteResponse {
+  double crypto_amount = 1;
+  double fiat_amount = 2;
+  string fiat_currency = 3;
+  brij.orders.v1.common.RampType ramp_type = 4;
+  double conversion_rate = 5;
+  RampFee partner_fee = 6;
+  RampFee wallet_fee = 7;
+  RampFee platform_fee = 8;
+  double total_fee = 9;
+}
+
+message GetBestQuoteRequest {
+  string country = 1;
+  string wallet_public_key = 2;
+  double crypto_amount = 3;
+  brij.orders.v1.common.RampType ramp_type = 4;
+  string fiat_currency = 5;
+}
+
+message GetBestQuoteResponse {
   double crypto_amount = 1;
   double fiat_amount = 2;
   string fiat_currency = 3;
