@@ -164,6 +164,10 @@ const GetQuoteResponse$json = {
     {'1': 'wallet_fee', '3': 7, '4': 1, '5': 11, '6': '.brij.orders.v1.wallet.RampFee', '10': 'walletFee'},
     {'1': 'platform_fee', '3': 8, '4': 1, '5': 11, '6': '.brij.orders.v1.wallet.RampFee', '10': 'platformFee'},
     {'1': 'total_fee', '3': 9, '4': 1, '5': 1, '10': 'totalFee'},
+    {'1': 'partner_amount', '3': 10, '4': 1, '5': 1, '10': 'partnerAmount'},
+    {'1': 'wallet_total_fee', '3': 11, '4': 1, '5': 1, '10': 'walletTotalFee'},
+    {'1': 'platform_total_fee', '3': 12, '4': 1, '5': 1, '10': 'platformTotalFee'},
+    {'1': 'partner_total_fee', '3': 13, '4': 1, '5': 1, '10': 'partnerTotalFee'},
   ],
 };
 
@@ -177,7 +181,10 @@ final $typed_data.Uint8List getQuoteResponseDescriptor = $convert.base64Decode(
     'BGZWVSCnBhcnRuZXJGZWUSPQoKd2FsbGV0X2ZlZRgHIAEoCzIeLmJyaWoub3JkZXJzLnYxLndh'
     'bGxldC5SYW1wRmVlUgl3YWxsZXRGZWUSQQoMcGxhdGZvcm1fZmVlGAggASgLMh4uYnJpai5vcm'
     'RlcnMudjEud2FsbGV0LlJhbXBGZWVSC3BsYXRmb3JtRmVlEhsKCXRvdGFsX2ZlZRgJIAEoAVII'
-    'dG90YWxGZWU=');
+    'dG90YWxGZWUSJQoOcGFydG5lcl9hbW91bnQYCiABKAFSDXBhcnRuZXJBbW91bnQSKAoQd2FsbG'
+    'V0X3RvdGFsX2ZlZRgLIAEoAVIOd2FsbGV0VG90YWxGZWUSLAoScGxhdGZvcm1fdG90YWxfZmVl'
+    'GAwgASgBUhBwbGF0Zm9ybVRvdGFsRmVlEioKEXBhcnRuZXJfdG90YWxfZmVlGA0gASgBUg9wYX'
+    'J0bmVyVG90YWxGZWU=');
 
 @$core.Deprecated('Use getBestQuoteRequestDescriptor instead')
 const GetBestQuoteRequest$json = {
@@ -212,6 +219,10 @@ const GetBestQuoteResponse$json = {
     {'1': 'wallet_fee', '3': 7, '4': 1, '5': 11, '6': '.brij.orders.v1.wallet.RampFee', '10': 'walletFee'},
     {'1': 'platform_fee', '3': 8, '4': 1, '5': 11, '6': '.brij.orders.v1.wallet.RampFee', '10': 'platformFee'},
     {'1': 'total_fee', '3': 9, '4': 1, '5': 1, '10': 'totalFee'},
+    {'1': 'partner_amount', '3': 10, '4': 1, '5': 1, '10': 'partnerAmount'},
+    {'1': 'wallet_total_fee', '3': 11, '4': 1, '5': 1, '10': 'walletTotalFee'},
+    {'1': 'platform_total_fee', '3': 12, '4': 1, '5': 1, '10': 'platformTotalFee'},
+    {'1': 'partner_total_fee', '3': 13, '4': 1, '5': 1, '10': 'partnerTotalFee'},
   ],
 };
 
@@ -225,7 +236,10 @@ final $typed_data.Uint8List getBestQuoteResponseDescriptor = $convert.base64Deco
     '5SYW1wRmVlUgpwYXJ0bmVyRmVlEj0KCndhbGxldF9mZWUYByABKAsyHi5icmlqLm9yZGVycy52'
     'MS53YWxsZXQuUmFtcEZlZVIJd2FsbGV0RmVlEkEKDHBsYXRmb3JtX2ZlZRgIIAEoCzIeLmJyaW'
     'oub3JkZXJzLnYxLndhbGxldC5SYW1wRmVlUgtwbGF0Zm9ybUZlZRIbCgl0b3RhbF9mZWUYCSAB'
-    'KAFSCHRvdGFsRmVl');
+    'KAFSCHRvdGFsRmVlEiUKDnBhcnRuZXJfYW1vdW50GAogASgBUg1wYXJ0bmVyQW1vdW50EigKEH'
+    'dhbGxldF90b3RhbF9mZWUYCyABKAFSDndhbGxldFRvdGFsRmVlEiwKEnBsYXRmb3JtX3RvdGFs'
+    'X2ZlZRgMIAEoAVIQcGxhdGZvcm1Ub3RhbEZlZRIqChFwYXJ0bmVyX3RvdGFsX2ZlZRgNIAEoAV'
+    'IPcGFydG5lclRvdGFsRmVl');
 
 @$core.Deprecated('Use rampFeeDescriptor instead')
 const RampFee$json = {

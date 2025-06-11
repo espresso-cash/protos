@@ -25,6 +25,11 @@ class OnRampOrderUserEnvelope extends $pb.GeneratedMessage {
     $core.String? fiatCurrency,
     $core.String? userWalletAddress,
     $core.String? walletPublicKey,
+    $core.String? walletFeeAddress,
+    $core.double? walletFeeAmount,
+    $core.String? platformFeeAddress,
+    $core.double? platformFeeAmount,
+    $core.double? partnerCryptoAmount,
   }) {
     final $result = create();
     if (orderId != null) {
@@ -51,6 +56,21 @@ class OnRampOrderUserEnvelope extends $pb.GeneratedMessage {
     if (walletPublicKey != null) {
       $result.walletPublicKey = walletPublicKey;
     }
+    if (walletFeeAddress != null) {
+      $result.walletFeeAddress = walletFeeAddress;
+    }
+    if (walletFeeAmount != null) {
+      $result.walletFeeAmount = walletFeeAmount;
+    }
+    if (platformFeeAddress != null) {
+      $result.platformFeeAddress = platformFeeAddress;
+    }
+    if (platformFeeAmount != null) {
+      $result.platformFeeAmount = platformFeeAmount;
+    }
+    if (partnerCryptoAmount != null) {
+      $result.partnerCryptoAmount = partnerCryptoAmount;
+    }
     return $result;
   }
   OnRampOrderUserEnvelope._() : super();
@@ -66,6 +86,11 @@ class OnRampOrderUserEnvelope extends $pb.GeneratedMessage {
     ..aOS(6, _omitFieldNames ? '' : 'fiatCurrency')
     ..aOS(8, _omitFieldNames ? '' : 'userWalletAddress')
     ..aOS(9, _omitFieldNames ? '' : 'walletPublicKey')
+    ..aOS(10, _omitFieldNames ? '' : 'walletFeeAddress')
+    ..a<$core.double>(11, _omitFieldNames ? '' : 'walletFeeAmount', $pb.PbFieldType.OD)
+    ..aOS(12, _omitFieldNames ? '' : 'platformFeeAddress')
+    ..a<$core.double>(13, _omitFieldNames ? '' : 'platformFeeAmount', $pb.PbFieldType.OD)
+    ..a<$core.double>(14, _omitFieldNames ? '' : 'partnerCryptoAmount', $pb.PbFieldType.OD)
     ..hasRequiredFields = false
   ;
 
@@ -108,6 +133,7 @@ class OnRampOrderUserEnvelope extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearPartnerPublicKey() => $_clearField(2);
 
+  /// Exact crypto amount that user will receive to their wallet.
   @$pb.TagNumber(3)
   $core.double get cryptoAmount => $_getN(2);
   @$pb.TagNumber(3)
@@ -126,6 +152,7 @@ class OnRampOrderUserEnvelope extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearCryptoCurrency() => $_clearField(4);
 
+  /// Exact fiat amount that user will pay to the partner.
   @$pb.TagNumber(5)
   $core.double get fiatAmount => $_getN(4);
   @$pb.TagNumber(5)
@@ -161,6 +188,52 @@ class OnRampOrderUserEnvelope extends $pb.GeneratedMessage {
   $core.bool hasWalletPublicKey() => $_has(7);
   @$pb.TagNumber(9)
   void clearWalletPublicKey() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.String get walletFeeAddress => $_getSZ(8);
+  @$pb.TagNumber(10)
+  set walletFeeAddress($core.String v) { $_setString(8, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasWalletFeeAddress() => $_has(8);
+  @$pb.TagNumber(10)
+  void clearWalletFeeAddress() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.double get walletFeeAmount => $_getN(9);
+  @$pb.TagNumber(11)
+  set walletFeeAmount($core.double v) { $_setDouble(9, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasWalletFeeAmount() => $_has(9);
+  @$pb.TagNumber(11)
+  void clearWalletFeeAmount() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.String get platformFeeAddress => $_getSZ(10);
+  @$pb.TagNumber(12)
+  set platformFeeAddress($core.String v) { $_setString(10, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasPlatformFeeAddress() => $_has(10);
+  @$pb.TagNumber(12)
+  void clearPlatformFeeAddress() => $_clearField(12);
+
+  @$pb.TagNumber(13)
+  $core.double get platformFeeAmount => $_getN(11);
+  @$pb.TagNumber(13)
+  set platformFeeAmount($core.double v) { $_setDouble(11, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasPlatformFeeAmount() => $_has(11);
+  @$pb.TagNumber(13)
+  void clearPlatformFeeAmount() => $_clearField(13);
+
+  /// Exact crypto amount that partner will spend, which may differ from the crypto_amount due to fees.
+  @$pb.TagNumber(14)
+  $core.double get partnerCryptoAmount => $_getN(12);
+  @$pb.TagNumber(14)
+  set partnerCryptoAmount($core.double v) { $_setDouble(12, v); }
+  @$pb.TagNumber(14)
+  $core.bool hasPartnerCryptoAmount() => $_has(12);
+  @$pb.TagNumber(14)
+  void clearPartnerCryptoAmount() => $_clearField(14);
 }
 
 class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
@@ -174,6 +247,11 @@ class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
     $core.String? bankDataHash,
     $core.String? userWalletAddress,
     $core.String? walletPublicKey,
+    $core.String? walletFeeAddress,
+    $core.double? walletFeeAmount,
+    $core.String? platformFeeAddress,
+    $core.double? platformFeeAmount,
+    $core.double? partnerCryptoAmount,
   }) {
     final $result = create();
     if (orderId != null) {
@@ -203,6 +281,21 @@ class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
     if (walletPublicKey != null) {
       $result.walletPublicKey = walletPublicKey;
     }
+    if (walletFeeAddress != null) {
+      $result.walletFeeAddress = walletFeeAddress;
+    }
+    if (walletFeeAmount != null) {
+      $result.walletFeeAmount = walletFeeAmount;
+    }
+    if (platformFeeAddress != null) {
+      $result.platformFeeAddress = platformFeeAddress;
+    }
+    if (platformFeeAmount != null) {
+      $result.platformFeeAmount = platformFeeAmount;
+    }
+    if (partnerCryptoAmount != null) {
+      $result.partnerCryptoAmount = partnerCryptoAmount;
+    }
     return $result;
   }
   OffRampOrderUserEnvelope._() : super();
@@ -219,6 +312,11 @@ class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
     ..aOS(7, _omitFieldNames ? '' : 'bankDataHash')
     ..aOS(8, _omitFieldNames ? '' : 'userWalletAddress')
     ..aOS(9, _omitFieldNames ? '' : 'walletPublicKey')
+    ..aOS(10, _omitFieldNames ? '' : 'walletFeeAddress')
+    ..a<$core.double>(11, _omitFieldNames ? '' : 'walletFeeAmount', $pb.PbFieldType.OD)
+    ..aOS(12, _omitFieldNames ? '' : 'platformFeeAddress')
+    ..a<$core.double>(13, _omitFieldNames ? '' : 'platformFeeAmount', $pb.PbFieldType.OD)
+    ..a<$core.double>(14, _omitFieldNames ? '' : 'partnerCryptoAmount', $pb.PbFieldType.OD)
     ..hasRequiredFields = false
   ;
 
@@ -261,6 +359,7 @@ class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearPartnerPublicKey() => $_clearField(2);
 
+  /// Exact crypto amount that user will spend from their wallet.
   @$pb.TagNumber(3)
   $core.double get cryptoAmount => $_getN(2);
   @$pb.TagNumber(3)
@@ -279,6 +378,7 @@ class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearCryptoCurrency() => $_clearField(4);
 
+  /// Exact fiat amount that user will receive to their bank account.
   @$pb.TagNumber(5)
   $core.double get fiatAmount => $_getN(4);
   @$pb.TagNumber(5)
@@ -323,6 +423,52 @@ class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
   $core.bool hasWalletPublicKey() => $_has(8);
   @$pb.TagNumber(9)
   void clearWalletPublicKey() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.String get walletFeeAddress => $_getSZ(9);
+  @$pb.TagNumber(10)
+  set walletFeeAddress($core.String v) { $_setString(9, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasWalletFeeAddress() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearWalletFeeAddress() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.double get walletFeeAmount => $_getN(10);
+  @$pb.TagNumber(11)
+  set walletFeeAmount($core.double v) { $_setDouble(10, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasWalletFeeAmount() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearWalletFeeAmount() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.String get platformFeeAddress => $_getSZ(11);
+  @$pb.TagNumber(12)
+  set platformFeeAddress($core.String v) { $_setString(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasPlatformFeeAddress() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearPlatformFeeAddress() => $_clearField(12);
+
+  @$pb.TagNumber(13)
+  $core.double get platformFeeAmount => $_getN(12);
+  @$pb.TagNumber(13)
+  set platformFeeAmount($core.double v) { $_setDouble(12, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasPlatformFeeAmount() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearPlatformFeeAmount() => $_clearField(13);
+
+  /// Exact crypto amount that partner will receive, which may differ from the crypto_amount due to fees.
+  @$pb.TagNumber(14)
+  $core.double get partnerCryptoAmount => $_getN(13);
+  @$pb.TagNumber(14)
+  set partnerCryptoAmount($core.double v) { $_setDouble(13, v); }
+  @$pb.TagNumber(14)
+  $core.bool hasPartnerCryptoAmount() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearPartnerCryptoAmount() => $_clearField(14);
 }
 
 class OnRampOrderPartnerEnvelope extends $pb.GeneratedMessage {

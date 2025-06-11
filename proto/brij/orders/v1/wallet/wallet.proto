@@ -87,6 +87,10 @@ message GetQuoteResponse {
   RampFee wallet_fee = 7;
   RampFee platform_fee = 8;
   double total_fee = 9;
+  double partner_amount = 10;
+  double wallet_total_fee = 11;
+  double platform_total_fee = 12;
+  double partner_total_fee = 13;
 }
 
 message GetBestQuoteRequest {
@@ -107,6 +111,10 @@ message GetBestQuoteResponse {
   RampFee wallet_fee = 7;
   RampFee platform_fee = 8;
   double total_fee = 9;
+  double partner_amount = 10;
+  double wallet_total_fee = 11;
+  double platform_total_fee = 12;
+  double partner_total_fee = 13;
 }
 
 message RampFee {

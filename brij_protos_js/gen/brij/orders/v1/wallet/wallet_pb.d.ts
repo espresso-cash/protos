@@ -292,6 +292,26 @@ export declare type GetQuoteResponse = Message<"brij.orders.v1.wallet.GetQuoteRe
    * @generated from field: double total_fee = 9;
    */
   totalFee: number;
+
+  /**
+   * @generated from field: double partner_amount = 10;
+   */
+  partnerAmount: number;
+
+  /**
+   * @generated from field: double wallet_total_fee = 11;
+   */
+  walletTotalFee: number;
+
+  /**
+   * @generated from field: double platform_total_fee = 12;
+   */
+  platformTotalFee: number;
+
+  /**
+   * @generated from field: double partner_total_fee = 13;
+   */
+  partnerTotalFee: number;
 };
 
 /**
@@ -384,6 +404,26 @@ export declare type GetBestQuoteResponse = Message<"brij.orders.v1.wallet.GetBes
    * @generated from field: double total_fee = 9;
    */
   totalFee: number;
+
+  /**
+   * @generated from field: double partner_amount = 10;
+   */
+  partnerAmount: number;
+
+  /**
+   * @generated from field: double wallet_total_fee = 11;
+   */
+  walletTotalFee: number;
+
+  /**
+   * @generated from field: double platform_total_fee = 12;
+   */
+  platformTotalFee: number;
+
+  /**
+   * @generated from field: double partner_total_fee = 13;
+   */
+  partnerTotalFee: number;
 };
 
 /**

@@ -697,6 +697,10 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
     RampFee? walletFee,
     RampFee? platformFee,
     $core.double? totalFee,
+    $core.double? partnerAmount,
+    $core.double? walletTotalFee,
+    $core.double? platformTotalFee,
+    $core.double? partnerTotalFee,
   }) {
     final $result = create();
     if (cryptoAmount != null) {
@@ -726,6 +730,18 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
     if (totalFee != null) {
       $result.totalFee = totalFee;
     }
+    if (partnerAmount != null) {
+      $result.partnerAmount = partnerAmount;
+    }
+    if (walletTotalFee != null) {
+      $result.walletTotalFee = walletTotalFee;
+    }
+    if (platformTotalFee != null) {
+      $result.platformTotalFee = platformTotalFee;
+    }
+    if (partnerTotalFee != null) {
+      $result.partnerTotalFee = partnerTotalFee;
+    }
     return $result;
   }
   GetQuoteResponse._() : super();
@@ -742,6 +758,10 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
     ..aOM<RampFee>(7, _omitFieldNames ? '' : 'walletFee', subBuilder: RampFee.create)
     ..aOM<RampFee>(8, _omitFieldNames ? '' : 'platformFee', subBuilder: RampFee.create)
     ..a<$core.double>(9, _omitFieldNames ? '' : 'totalFee', $pb.PbFieldType.OD)
+    ..a<$core.double>(10, _omitFieldNames ? '' : 'partnerAmount', $pb.PbFieldType.OD)
+    ..a<$core.double>(11, _omitFieldNames ? '' : 'walletTotalFee', $pb.PbFieldType.OD)
+    ..a<$core.double>(12, _omitFieldNames ? '' : 'platformTotalFee', $pb.PbFieldType.OD)
+    ..a<$core.double>(13, _omitFieldNames ? '' : 'partnerTotalFee', $pb.PbFieldType.OD)
     ..hasRequiredFields = false
   ;
 
@@ -852,6 +872,42 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
   $core.bool hasTotalFee() => $_has(8);
   @$pb.TagNumber(9)
   void clearTotalFee() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.double get partnerAmount => $_getN(9);
+  @$pb.TagNumber(10)
+  set partnerAmount($core.double v) { $_setDouble(9, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasPartnerAmount() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearPartnerAmount() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.double get walletTotalFee => $_getN(10);
+  @$pb.TagNumber(11)
+  set walletTotalFee($core.double v) { $_setDouble(10, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasWalletTotalFee() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearWalletTotalFee() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.double get platformTotalFee => $_getN(11);
+  @$pb.TagNumber(12)
+  set platformTotalFee($core.double v) { $_setDouble(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasPlatformTotalFee() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearPlatformTotalFee() => $_clearField(12);
+
+  @$pb.TagNumber(13)
+  $core.double get partnerTotalFee => $_getN(12);
+  @$pb.TagNumber(13)
+  set partnerTotalFee($core.double v) { $_setDouble(12, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasPartnerTotalFee() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearPartnerTotalFee() => $_clearField(13);
 }
 
 class GetBestQuoteRequest extends $pb.GeneratedMessage {
@@ -971,6 +1027,10 @@ class GetBestQuoteResponse extends $pb.GeneratedMessage {
     RampFee? walletFee,
     RampFee? platformFee,
     $core.double? totalFee,
+    $core.double? partnerAmount,
+    $core.double? walletTotalFee,
+    $core.double? platformTotalFee,
+    $core.double? partnerTotalFee,
   }) {
     final $result = create();
     if (cryptoAmount != null) {
@@ -1000,6 +1060,18 @@ class GetBestQuoteResponse extends $pb.GeneratedMessage {
     if (totalFee != null) {
       $result.totalFee = totalFee;
     }
+    if (partnerAmount != null) {
+      $result.partnerAmount = partnerAmount;
+    }
+    if (walletTotalFee != null) {
+      $result.walletTotalFee = walletTotalFee;
+    }
+    if (platformTotalFee != null) {
+      $result.platformTotalFee = platformTotalFee;
+    }
+    if (partnerTotalFee != null) {
+      $result.partnerTotalFee = partnerTotalFee;
+    }
     return $result;
   }
   GetBestQuoteResponse._() : super();
@@ -1016,6 +1088,10 @@ class GetBestQuoteResponse extends $pb.GeneratedMessage {
     ..aOM<RampFee>(7, _omitFieldNames ? '' : 'walletFee', subBuilder: RampFee.create)
     ..aOM<RampFee>(8, _omitFieldNames ? '' : 'platformFee', subBuilder: RampFee.create)
     ..a<$core.double>(9, _omitFieldNames ? '' : 'totalFee', $pb.PbFieldType.OD)
+    ..a<$core.double>(10, _omitFieldNames ? '' : 'partnerAmount', $pb.PbFieldType.OD)
+    ..a<$core.double>(11, _omitFieldNames ? '' : 'walletTotalFee', $pb.PbFieldType.OD)
+    ..a<$core.double>(12, _omitFieldNames ? '' : 'platformTotalFee', $pb.PbFieldType.OD)
+    ..a<$core.double>(13, _omitFieldNames ? '' : 'partnerTotalFee', $pb.PbFieldType.OD)
     ..hasRequiredFields = false
   ;
 
@@ -1126,6 +1202,42 @@ class GetBestQuoteResponse extends $pb.GeneratedMessage {
   $core.bool hasTotalFee() => $_has(8);
   @$pb.TagNumber(9)
   void clearTotalFee() => $_clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.double get partnerAmount => $_getN(9);
+  @$pb.TagNumber(10)
+  set partnerAmount($core.double v) { $_setDouble(9, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasPartnerAmount() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearPartnerAmount() => $_clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.double get walletTotalFee => $_getN(10);
+  @$pb.TagNumber(11)
+  set walletTotalFee($core.double v) { $_setDouble(10, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasWalletTotalFee() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearWalletTotalFee() => $_clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.double get platformTotalFee => $_getN(11);
+  @$pb.TagNumber(12)
+  set platformTotalFee($core.double v) { $_setDouble(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasPlatformTotalFee() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearPlatformTotalFee() => $_clearField(12);
+
+  @$pb.TagNumber(13)
+  $core.double get partnerTotalFee => $_getN(12);
+  @$pb.TagNumber(13)
+  set partnerTotalFee($core.double v) { $_setDouble(12, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasPartnerTotalFee() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearPartnerTotalFee() => $_clearField(13);
 }
 
 class RampFee extends $pb.GeneratedMessage {

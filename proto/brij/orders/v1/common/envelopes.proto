@@ -7,24 +7,40 @@ option go_package = "go.brij.fi/protos/brij/orders/v1/common";
 message OnRampOrderUserEnvelope {
   string order_id = 1;
   string partner_public_key = 2;
+  // Exact crypto amount that user will receive to their wallet.
   double crypto_amount = 3;
   string crypto_currency = 4;
+  // Exact fiat amount that user will pay to the partner.
   double fiat_amount = 5;
   string fiat_currency = 6;
   string user_wallet_address = 8;
   string wallet_public_key = 9;
+  string wallet_fee_address = 10;
+  double wallet_fee_amount = 11;
+  string platform_fee_address = 12;
+  double platform_fee_amount = 13;
+  // Exact crypto amount that partner will spend, which may differ from the crypto_amount due to fees.
+  double partner_crypto_amount = 14;
 }
 
 message OffRampOrderUserEnvelope {
   string order_id = 1;
   string partner_public_key = 2;
+  // Exact crypto amount that user will spend from their wallet.
   double crypto_amount = 3;
   string crypto_currency = 4;
+  // Exact fiat amount that user will receive to their bank account.
   double fiat_amount = 5;
   string fiat_currency = 6;
   string bank_data_hash = 7;
   string user_wallet_address = 8;
   string wallet_public_key = 9;
+  string wallet_fee_address = 10;
+  double wallet_fee_amount = 11;
+  string platform_fee_address = 12;
+  double platform_fee_amount = 13;
+  // Exact crypto amount that partner will receive, which may differ from the crypto_amount due to fees.
+  double partner_crypto_amount = 14;
 }
 
 message OnRampOrderPartnerEnvelope {

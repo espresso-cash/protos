@@ -25,6 +25,8 @@ export declare type OnRampOrderUserEnvelope = Message<"brij.orders.v1.common.OnR
   partnerPublicKey: string;
 
   /**
+   * Exact crypto amount that user will receive to their wallet.
+   *
    * @generated from field: double crypto_amount = 3;
    */
   cryptoAmount: number;
@@ -35,6 +37,8 @@ export declare type OnRampOrderUserEnvelope = Message<"brij.orders.v1.common.OnR
   cryptoCurrency: string;
 
   /**
+   * Exact fiat amount that user will pay to the partner.
+   *
    * @generated from field: double fiat_amount = 5;
    */
   fiatAmount: number;
@@ -53,6 +57,33 @@ export declare type OnRampOrderUserEnvelope = Message<"brij.orders.v1.common.OnR
    * @generated from field: string wallet_public_key = 9;
    */
   walletPublicKey: string;
+
+  /**
+   * @generated from field: string wallet_fee_address = 10;
+   */
+  walletFeeAddress: string;
+
+  /**
+   * @generated from field: double wallet_fee_amount = 11;
+   */
+  walletFeeAmount: number;
+
+  /**
+   * @generated from field: string platform_fee_address = 12;
+   */
+  platformFeeAddress: string;
+
+  /**
+   * @generated from field: double platform_fee_amount = 13;
+   */
+  platformFeeAmount: number;
+
+  /**
+   * Exact crypto amount that partner will spend, which may differ from the crypto_amount due to fees.
+   *
+   * @generated from field: double partner_crypto_amount = 14;
+   */
+  partnerCryptoAmount: number;
 };
 
 /**
@@ -76,6 +107,8 @@ export declare type OffRampOrderUserEnvelope = Message<"brij.orders.v1.common.Of
   partnerPublicKey: string;
 
   /**
+   * Exact crypto amount that user will spend from their wallet.
+   *
    * @generated from field: double crypto_amount = 3;
    */
   cryptoAmount: number;
@@ -86,6 +119,8 @@ export declare type OffRampOrderUserEnvelope = Message<"brij.orders.v1.common.Of
   cryptoCurrency: string;
 
   /**
+   * Exact fiat amount that user will receive to their bank account.
+   *
    * @generated from field: double fiat_amount = 5;
    */
   fiatAmount: number;
@@ -109,6 +144,33 @@ export declare type OffRampOrderUserEnvelope = Message<"brij.orders.v1.common.Of
    * @generated from field: string wallet_public_key = 9;
    */
   walletPublicKey: string;
+
+  /**
+   * @generated from field: string wallet_fee_address = 10;
+   */
+  walletFeeAddress: string;
+
+  /**
+   * @generated from field: double wallet_fee_amount = 11;
+   */
+  walletFeeAmount: number;
+
+  /**
+   * @generated from field: string platform_fee_address = 12;
+   */
+  platformFeeAddress: string;
+
+  /**
+   * @generated from field: double platform_fee_amount = 13;
+   */
+  platformFeeAmount: number;
+
+  /**
+   * Exact crypto amount that partner will receive, which may differ from the crypto_amount due to fees.
+   *
+   * @generated from field: double partner_crypto_amount = 14;
+   */
+  partnerCryptoAmount: number;
 };
 
 /**

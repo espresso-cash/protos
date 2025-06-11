@@ -25,6 +25,11 @@ const OnRampOrderUserEnvelope$json = {
     {'1': 'fiat_currency', '3': 6, '4': 1, '5': 9, '10': 'fiatCurrency'},
     {'1': 'user_wallet_address', '3': 8, '4': 1, '5': 9, '10': 'userWalletAddress'},
     {'1': 'wallet_public_key', '3': 9, '4': 1, '5': 9, '10': 'walletPublicKey'},
+    {'1': 'wallet_fee_address', '3': 10, '4': 1, '5': 9, '10': 'walletFeeAddress'},
+    {'1': 'wallet_fee_amount', '3': 11, '4': 1, '5': 1, '10': 'walletFeeAmount'},
+    {'1': 'platform_fee_address', '3': 12, '4': 1, '5': 9, '10': 'platformFeeAddress'},
+    {'1': 'platform_fee_amount', '3': 13, '4': 1, '5': 1, '10': 'platformFeeAmount'},
+    {'1': 'partner_crypto_amount', '3': 14, '4': 1, '5': 1, '10': 'partnerCryptoAmount'},
   ],
 };
 
@@ -36,7 +41,11 @@ final $typed_data.Uint8List onRampOrderUserEnvelopeDescriptor = $convert.base64D
     'RvQ3VycmVuY3kSHwoLZmlhdF9hbW91bnQYBSABKAFSCmZpYXRBbW91bnQSIwoNZmlhdF9jdXJy'
     'ZW5jeRgGIAEoCVIMZmlhdEN1cnJlbmN5Ei4KE3VzZXJfd2FsbGV0X2FkZHJlc3MYCCABKAlSEX'
     'VzZXJXYWxsZXRBZGRyZXNzEioKEXdhbGxldF9wdWJsaWNfa2V5GAkgASgJUg93YWxsZXRQdWJs'
-    'aWNLZXk=');
+    'aWNLZXkSLAoSd2FsbGV0X2ZlZV9hZGRyZXNzGAogASgJUhB3YWxsZXRGZWVBZGRyZXNzEioKEX'
+    'dhbGxldF9mZWVfYW1vdW50GAsgASgBUg93YWxsZXRGZWVBbW91bnQSMAoUcGxhdGZvcm1fZmVl'
+    'X2FkZHJlc3MYDCABKAlSEnBsYXRmb3JtRmVlQWRkcmVzcxIuChNwbGF0Zm9ybV9mZWVfYW1vdW'
+    '50GA0gASgBUhFwbGF0Zm9ybUZlZUFtb3VudBIyChVwYXJ0bmVyX2NyeXB0b19hbW91bnQYDiAB'
+    'KAFSE3BhcnRuZXJDcnlwdG9BbW91bnQ=');
 
 @$core.Deprecated('Use offRampOrderUserEnvelopeDescriptor instead')
 const OffRampOrderUserEnvelope$json = {
@@ -51,6 +60,11 @@ const OffRampOrderUserEnvelope$json = {
     {'1': 'bank_data_hash', '3': 7, '4': 1, '5': 9, '10': 'bankDataHash'},
     {'1': 'user_wallet_address', '3': 8, '4': 1, '5': 9, '10': 'userWalletAddress'},
     {'1': 'wallet_public_key', '3': 9, '4': 1, '5': 9, '10': 'walletPublicKey'},
+    {'1': 'wallet_fee_address', '3': 10, '4': 1, '5': 9, '10': 'walletFeeAddress'},
+    {'1': 'wallet_fee_amount', '3': 11, '4': 1, '5': 1, '10': 'walletFeeAmount'},
+    {'1': 'platform_fee_address', '3': 12, '4': 1, '5': 9, '10': 'platformFeeAddress'},
+    {'1': 'platform_fee_amount', '3': 13, '4': 1, '5': 1, '10': 'platformFeeAmount'},
+    {'1': 'partner_crypto_amount', '3': 14, '4': 1, '5': 1, '10': 'partnerCryptoAmount'},
   ],
 };
 
@@ -62,7 +76,12 @@ final $typed_data.Uint8List offRampOrderUserEnvelopeDescriptor = $convert.base64
     'B0b0N1cnJlbmN5Eh8KC2ZpYXRfYW1vdW50GAUgASgBUgpmaWF0QW1vdW50EiMKDWZpYXRfY3Vy'
     'cmVuY3kYBiABKAlSDGZpYXRDdXJyZW5jeRIkCg5iYW5rX2RhdGFfaGFzaBgHIAEoCVIMYmFua0'
     'RhdGFIYXNoEi4KE3VzZXJfd2FsbGV0X2FkZHJlc3MYCCABKAlSEXVzZXJXYWxsZXRBZGRyZXNz'
-    'EioKEXdhbGxldF9wdWJsaWNfa2V5GAkgASgJUg93YWxsZXRQdWJsaWNLZXk=');
+    'EioKEXdhbGxldF9wdWJsaWNfa2V5GAkgASgJUg93YWxsZXRQdWJsaWNLZXkSLAoSd2FsbGV0X2'
+    'ZlZV9hZGRyZXNzGAogASgJUhB3YWxsZXRGZWVBZGRyZXNzEioKEXdhbGxldF9mZWVfYW1vdW50'
+    'GAsgASgBUg93YWxsZXRGZWVBbW91bnQSMAoUcGxhdGZvcm1fZmVlX2FkZHJlc3MYDCABKAlSEn'
+    'BsYXRmb3JtRmVlQWRkcmVzcxIuChNwbGF0Zm9ybV9mZWVfYW1vdW50GA0gASgBUhFwbGF0Zm9y'
+    'bUZlZUFtb3VudBIyChVwYXJ0bmVyX2NyeXB0b19hbW91bnQYDiABKAFSE3BhcnRuZXJDcnlwdG'
+    '9BbW91bnQ=');
 
 @$core.Deprecated('Use onRampOrderPartnerEnvelopeDescriptor instead')
 const OnRampOrderPartnerEnvelope$json = {

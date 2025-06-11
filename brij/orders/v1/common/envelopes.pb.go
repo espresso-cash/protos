@@ -22,17 +22,25 @@ const (
 )
 
 type OnRampOrderUserEnvelope struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	OrderId           string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
-	PartnerPublicKey  string                 `protobuf:"bytes,2,opt,name=partner_public_key,json=partnerPublicKey,proto3" json:"partner_public_key,omitempty"`
-	CryptoAmount      float64                `protobuf:"fixed64,3,opt,name=crypto_amount,json=cryptoAmount,proto3" json:"crypto_amount,omitempty"`
-	CryptoCurrency    string                 `protobuf:"bytes,4,opt,name=crypto_currency,json=cryptoCurrency,proto3" json:"crypto_currency,omitempty"`
-	FiatAmount        float64                `protobuf:"fixed64,5,opt,name=fiat_amount,json=fiatAmount,proto3" json:"fiat_amount,omitempty"`
-	FiatCurrency      string                 `protobuf:"bytes,6,opt,name=fiat_currency,json=fiatCurrency,proto3" json:"fiat_currency,omitempty"`
-	UserWalletAddress string                 `protobuf:"bytes,8,opt,name=user_wallet_address,json=userWalletAddress,proto3" json:"user_wallet_address,omitempty"`
-	WalletPublicKey   string                 `protobuf:"bytes,9,opt,name=wallet_public_key,json=walletPublicKey,proto3" json:"wallet_public_key,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	OrderId          string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
+	PartnerPublicKey string                 `protobuf:"bytes,2,opt,name=partner_public_key,json=partnerPublicKey,proto3" json:"partner_public_key,omitempty"`
+	// Exact crypto amount that user will receive to their wallet.
+	CryptoAmount   float64 `protobuf:"fixed64,3,opt,name=crypto_amount,json=cryptoAmount,proto3" json:"crypto_amount,omitempty"`
+	CryptoCurrency string  `protobuf:"bytes,4,opt,name=crypto_currency,json=cryptoCurrency,proto3" json:"crypto_currency,omitempty"`
+	// Exact fiat amount that user will pay to the partner.
+	FiatAmount         float64 `protobuf:"fixed64,5,opt,name=fiat_amount,json=fiatAmount,proto3" json:"fiat_amount,omitempty"`
+	FiatCurrency       string  `protobuf:"bytes,6,opt,name=fiat_currency,json=fiatCurrency,proto3" json:"fiat_currency,omitempty"`
+	UserWalletAddress  string  `protobuf:"bytes,8,opt,name=user_wallet_address,json=userWalletAddress,proto3" json:"user_wallet_address,omitempty"`
+	WalletPublicKey    string  `protobuf:"bytes,9,opt,name=wallet_public_key,json=walletPublicKey,proto3" json:"wallet_public_key,omitempty"`
+	WalletFeeAddress   string  `protobuf:"bytes,10,opt,name=wallet_fee_address,json=walletFeeAddress,proto3" json:"wallet_fee_address,omitempty"`
+	WalletFeeAmount    float64 `protobuf:"fixed64,11,opt,name=wallet_fee_amount,json=walletFeeAmount,proto3" json:"wallet_fee_amount,omitempty"`
+	PlatformFeeAddress string  `protobuf:"bytes,12,opt,name=platform_fee_address,json=platformFeeAddress,proto3" json:"platform_fee_address,omitempty"`
+	PlatformFeeAmount  float64 `protobuf:"fixed64,13,opt,name=platform_fee_amount,json=platformFeeAmount,proto3" json:"platform_fee_amount,omitempty"`
+	// Exact crypto amount that partner will spend, which may differ from the crypto_amount due to fees.
+	PartnerCryptoAmount float64 `protobuf:"fixed64,14,opt,name=partner_crypto_amount,json=partnerCryptoAmount,proto3" json:"partner_crypto_amount,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *OnRampOrderUserEnvelope) Reset() {
@@ -121,19 +129,62 @@ func (x *OnRampOrderUserEnvelope) GetWalletPublicKey() string {
 	return ""
 }
 
+func (x *OnRampOrderUserEnvelope) GetWalletFeeAddress() string {
+	if x != nil {
+		return x.WalletFeeAddress
+	}
+	return ""
+}
+
+func (x *OnRampOrderUserEnvelope) GetWalletFeeAmount() float64 {
+	if x != nil {
+		return x.WalletFeeAmount
+	}
+	return 0
+}
+
+func (x *OnRampOrderUserEnvelope) GetPlatformFeeAddress() string {
+	if x != nil {
+		return x.PlatformFeeAddress
+	}
+	return ""
+}
+
+func (x *OnRampOrderUserEnvelope) GetPlatformFeeAmount() float64 {
+	if x != nil {
+		return x.PlatformFeeAmount
+	}
+	return 0
+}
+
+func (x *OnRampOrderUserEnvelope) GetPartnerCryptoAmount() float64 {
+	if x != nil {
+		return x.PartnerCryptoAmount
+	}
+	return 0
+}
+
 type OffRampOrderUserEnvelope struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	OrderId           string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
-	PartnerPublicKey  string                 `protobuf:"bytes,2,opt,name=partner_public_key,json=partnerPublicKey,proto3" json:"partner_public_key,omitempty"`
-	CryptoAmount      float64                `protobuf:"fixed64,3,opt,name=crypto_amount,json=cryptoAmount,proto3" json:"crypto_amount,omitempty"`
-	CryptoCurrency    string                 `protobuf:"bytes,4,opt,name=crypto_currency,json=cryptoCurrency,proto3" json:"crypto_currency,omitempty"`
-	FiatAmount        float64                `protobuf:"fixed64,5,opt,name=fiat_amount,json=fiatAmount,proto3" json:"fiat_amount,omitempty"`
-	FiatCurrency      string                 `protobuf:"bytes,6,opt,name=fiat_currency,json=fiatCurrency,proto3" json:"fiat_currency,omitempty"`
-	BankDataHash      string                 `protobuf:"bytes,7,opt,name=bank_data_hash,json=bankDataHash,proto3" json:"bank_data_hash,omitempty"`
-	UserWalletAddress string                 `protobuf:"bytes,8,opt,name=user_wallet_address,json=userWalletAddress,proto3" json:"user_wallet_address,omitempty"`
-	WalletPublicKey   string                 `protobuf:"bytes,9,opt,name=wallet_public_key,json=walletPublicKey,proto3" json:"wallet_public_key,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	OrderId          string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
+	PartnerPublicKey string                 `protobuf:"bytes,2,opt,name=partner_public_key,json=partnerPublicKey,proto3" json:"partner_public_key,omitempty"`
+	// Exact crypto amount that user will spend from their wallet.
+	CryptoAmount   float64 `protobuf:"fixed64,3,opt,name=crypto_amount,json=cryptoAmount,proto3" json:"crypto_amount,omitempty"`
+	CryptoCurrency string  `protobuf:"bytes,4,opt,name=crypto_currency,json=cryptoCurrency,proto3" json:"crypto_currency,omitempty"`
+	// Exact fiat amount that user will receive to their bank account.
+	FiatAmount         float64 `protobuf:"fixed64,5,opt,name=fiat_amount,json=fiatAmount,proto3" json:"fiat_amount,omitempty"`
+	FiatCurrency       string  `protobuf:"bytes,6,opt,name=fiat_currency,json=fiatCurrency,proto3" json:"fiat_currency,omitempty"`
+	BankDataHash       string  `protobuf:"bytes,7,opt,name=bank_data_hash,json=bankDataHash,proto3" json:"bank_data_hash,omitempty"`
+	UserWalletAddress  string  `protobuf:"bytes,8,opt,name=user_wallet_address,json=userWalletAddress,proto3" json:"user_wallet_address,omitempty"`
+	WalletPublicKey    string  `protobuf:"bytes,9,opt,name=wallet_public_key,json=walletPublicKey,proto3" json:"wallet_public_key,omitempty"`
+	WalletFeeAddress   string  `protobuf:"bytes,10,opt,name=wallet_fee_address,json=walletFeeAddress,proto3" json:"wallet_fee_address,omitempty"`
+	WalletFeeAmount    float64 `protobuf:"fixed64,11,opt,name=wallet_fee_amount,json=walletFeeAmount,proto3" json:"wallet_fee_amount,omitempty"`
+	PlatformFeeAddress string  `protobuf:"bytes,12,opt,name=platform_fee_address,json=platformFeeAddress,proto3" json:"platform_fee_address,omitempty"`
+	PlatformFeeAmount  float64 `protobuf:"fixed64,13,opt,name=platform_fee_amount,json=platformFeeAmount,proto3" json:"platform_fee_amount,omitempty"`
+	// Exact crypto amount that partner will receive, which may differ from the crypto_amount due to fees.
+	PartnerCryptoAmount float64 `protobuf:"fixed64,14,opt,name=partner_crypto_amount,json=partnerCryptoAmount,proto3" json:"partner_crypto_amount,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *OffRampOrderUserEnvelope) Reset() {
@@ -227,6 +278,41 @@ func (x *OffRampOrderUserEnvelope) GetWalletPublicKey() string {
 		return x.WalletPublicKey
 	}
 	return ""
+}
+
+func (x *OffRampOrderUserEnvelope) GetWalletFeeAddress() string {
+	if x != nil {
+		return x.WalletFeeAddress
+	}
+	return ""
+}
+
+func (x *OffRampOrderUserEnvelope) GetWalletFeeAmount() float64 {
+	if x != nil {
+		return x.WalletFeeAmount
+	}
+	return 0
+}
+
+func (x *OffRampOrderUserEnvelope) GetPlatformFeeAddress() string {
+	if x != nil {
+		return x.PlatformFeeAddress
+	}
+	return ""
+}
+
+func (x *OffRampOrderUserEnvelope) GetPlatformFeeAmount() float64 {
+	if x != nil {
+		return x.PlatformFeeAmount
+	}
+	return 0
+}
+
+func (x *OffRampOrderUserEnvelope) GetPartnerCryptoAmount() float64 {
+	if x != nil {
+		return x.PartnerCryptoAmount
+	}
+	return 0
 }
 
 type OnRampOrderPartnerEnvelope struct {
@@ -345,7 +431,7 @@ var File_brij_orders_v1_common_envelopes_proto protoreflect.FileDescriptor
 
 const file_brij_orders_v1_common_envelopes_proto_rawDesc = "" +
 	"\n" +
-	"%brij/orders/v1/common/envelopes.proto\x12\x15brij.orders.v1.common\"\xd2\x02\n" +
+	"%brij/orders/v1/common/envelopes.proto\x12\x15brij.orders.v1.common\"\xc2\x04\n" +
 	"\x17OnRampOrderUserEnvelope\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12,\n" +
 	"\x12partner_public_key\x18\x02 \x01(\tR\x10partnerPublicKey\x12#\n" +
@@ -355,7 +441,13 @@ const file_brij_orders_v1_common_envelopes_proto_rawDesc = "" +
 	"fiatAmount\x12#\n" +
 	"\rfiat_currency\x18\x06 \x01(\tR\ffiatCurrency\x12.\n" +
 	"\x13user_wallet_address\x18\b \x01(\tR\x11userWalletAddress\x12*\n" +
-	"\x11wallet_public_key\x18\t \x01(\tR\x0fwalletPublicKey\"\xf9\x02\n" +
+	"\x11wallet_public_key\x18\t \x01(\tR\x0fwalletPublicKey\x12,\n" +
+	"\x12wallet_fee_address\x18\n" +
+	" \x01(\tR\x10walletFeeAddress\x12*\n" +
+	"\x11wallet_fee_amount\x18\v \x01(\x01R\x0fwalletFeeAmount\x120\n" +
+	"\x14platform_fee_address\x18\f \x01(\tR\x12platformFeeAddress\x12.\n" +
+	"\x13platform_fee_amount\x18\r \x01(\x01R\x11platformFeeAmount\x122\n" +
+	"\x15partner_crypto_amount\x18\x0e \x01(\x01R\x13partnerCryptoAmount\"\xe9\x04\n" +
 	"\x18OffRampOrderUserEnvelope\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12,\n" +
 	"\x12partner_public_key\x18\x02 \x01(\tR\x10partnerPublicKey\x12#\n" +
@@ -366,7 +458,13 @@ const file_brij_orders_v1_common_envelopes_proto_rawDesc = "" +
 	"\rfiat_currency\x18\x06 \x01(\tR\ffiatCurrency\x12$\n" +
 	"\x0ebank_data_hash\x18\a \x01(\tR\fbankDataHash\x12.\n" +
 	"\x13user_wallet_address\x18\b \x01(\tR\x11userWalletAddress\x12*\n" +
-	"\x11wallet_public_key\x18\t \x01(\tR\x0fwalletPublicKey\"w\n" +
+	"\x11wallet_public_key\x18\t \x01(\tR\x0fwalletPublicKey\x12,\n" +
+	"\x12wallet_fee_address\x18\n" +
+	" \x01(\tR\x10walletFeeAddress\x12*\n" +
+	"\x11wallet_fee_amount\x18\v \x01(\x01R\x0fwalletFeeAmount\x120\n" +
+	"\x14platform_fee_address\x18\f \x01(\tR\x12platformFeeAddress\x12.\n" +
+	"\x13platform_fee_amount\x18\r \x01(\x01R\x11platformFeeAmount\x122\n" +
+	"\x15partner_crypto_amount\x18\x0e \x01(\x01R\x13partnerCryptoAmount\"w\n" +
 	"\x1aOnRampOrderPartnerEnvelope\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x1b\n" +
 	"\tbank_name\x18\x02 \x01(\tR\bbankName\x12!\n" +
