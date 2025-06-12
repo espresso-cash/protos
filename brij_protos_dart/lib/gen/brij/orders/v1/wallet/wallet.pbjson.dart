@@ -168,6 +168,8 @@ const GetQuoteResponse$json = {
     {'1': 'wallet_total_fee', '3': 11, '4': 1, '5': 1, '10': 'walletTotalFee'},
     {'1': 'platform_total_fee', '3': 12, '4': 1, '5': 1, '10': 'platformTotalFee'},
     {'1': 'partner_total_fee', '3': 13, '4': 1, '5': 1, '10': 'partnerTotalFee'},
+    {'1': 'wallet_fee_address', '3': 14, '4': 1, '5': 9, '10': 'walletFeeAddress'},
+    {'1': 'platform_fee_address', '3': 15, '4': 1, '5': 9, '10': 'platformFeeAddress'},
   ],
 };
 
@@ -184,7 +186,8 @@ final $typed_data.Uint8List getQuoteResponseDescriptor = $convert.base64Decode(
     'dG90YWxGZWUSJQoOcGFydG5lcl9hbW91bnQYCiABKAFSDXBhcnRuZXJBbW91bnQSKAoQd2FsbG'
     'V0X3RvdGFsX2ZlZRgLIAEoAVIOd2FsbGV0VG90YWxGZWUSLAoScGxhdGZvcm1fdG90YWxfZmVl'
     'GAwgASgBUhBwbGF0Zm9ybVRvdGFsRmVlEioKEXBhcnRuZXJfdG90YWxfZmVlGA0gASgBUg9wYX'
-    'J0bmVyVG90YWxGZWU=');
+    'J0bmVyVG90YWxGZWUSLAoSd2FsbGV0X2ZlZV9hZGRyZXNzGA4gASgJUhB3YWxsZXRGZWVBZGRy'
+    'ZXNzEjAKFHBsYXRmb3JtX2ZlZV9hZGRyZXNzGA8gASgJUhJwbGF0Zm9ybUZlZUFkZHJlc3M=');
 
 @$core.Deprecated('Use getBestQuoteRequestDescriptor instead')
 const GetBestQuoteRequest$json = {
@@ -223,6 +226,8 @@ const GetBestQuoteResponse$json = {
     {'1': 'wallet_total_fee', '3': 11, '4': 1, '5': 1, '10': 'walletTotalFee'},
     {'1': 'platform_total_fee', '3': 12, '4': 1, '5': 1, '10': 'platformTotalFee'},
     {'1': 'partner_total_fee', '3': 13, '4': 1, '5': 1, '10': 'partnerTotalFee'},
+    {'1': 'wallet_fee_address', '3': 14, '4': 1, '5': 9, '10': 'walletFeeAddress'},
+    {'1': 'platform_fee_address', '3': 15, '4': 1, '5': 9, '10': 'platformFeeAddress'},
   ],
 };
 
@@ -239,7 +244,9 @@ final $typed_data.Uint8List getBestQuoteResponseDescriptor = $convert.base64Deco
     'KAFSCHRvdGFsRmVlEiUKDnBhcnRuZXJfYW1vdW50GAogASgBUg1wYXJ0bmVyQW1vdW50EigKEH'
     'dhbGxldF90b3RhbF9mZWUYCyABKAFSDndhbGxldFRvdGFsRmVlEiwKEnBsYXRmb3JtX3RvdGFs'
     'X2ZlZRgMIAEoAVIQcGxhdGZvcm1Ub3RhbEZlZRIqChFwYXJ0bmVyX3RvdGFsX2ZlZRgNIAEoAV'
-    'IPcGFydG5lclRvdGFsRmVl');
+    'IPcGFydG5lclRvdGFsRmVlEiwKEndhbGxldF9mZWVfYWRkcmVzcxgOIAEoCVIQd2FsbGV0RmVl'
+    'QWRkcmVzcxIwChRwbGF0Zm9ybV9mZWVfYWRkcmVzcxgPIAEoCVIScGxhdGZvcm1GZWVBZGRyZX'
+    'Nz');
 
 @$core.Deprecated('Use rampFeeDescriptor instead')
 const RampFee$json = {

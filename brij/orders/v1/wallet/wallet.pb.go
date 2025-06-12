@@ -551,22 +551,24 @@ func (x *GetQuoteRequest) GetFiatCurrency() string {
 }
 
 type GetQuoteResponse struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	CryptoAmount     float64                `protobuf:"fixed64,1,opt,name=crypto_amount,json=cryptoAmount,proto3" json:"crypto_amount,omitempty"`
-	FiatAmount       float64                `protobuf:"fixed64,2,opt,name=fiat_amount,json=fiatAmount,proto3" json:"fiat_amount,omitempty"`
-	FiatCurrency     string                 `protobuf:"bytes,3,opt,name=fiat_currency,json=fiatCurrency,proto3" json:"fiat_currency,omitempty"`
-	RampType         common.RampType        `protobuf:"varint,4,opt,name=ramp_type,json=rampType,proto3,enum=brij.orders.v1.common.RampType" json:"ramp_type,omitempty"`
-	ConversionRate   float64                `protobuf:"fixed64,5,opt,name=conversion_rate,json=conversionRate,proto3" json:"conversion_rate,omitempty"`
-	PartnerFee       *RampFee               `protobuf:"bytes,6,opt,name=partner_fee,json=partnerFee,proto3" json:"partner_fee,omitempty"`
-	WalletFee        *RampFee               `protobuf:"bytes,7,opt,name=wallet_fee,json=walletFee,proto3" json:"wallet_fee,omitempty"`
-	PlatformFee      *RampFee               `protobuf:"bytes,8,opt,name=platform_fee,json=platformFee,proto3" json:"platform_fee,omitempty"`
-	TotalFee         float64                `protobuf:"fixed64,9,opt,name=total_fee,json=totalFee,proto3" json:"total_fee,omitempty"`
-	PartnerAmount    float64                `protobuf:"fixed64,10,opt,name=partner_amount,json=partnerAmount,proto3" json:"partner_amount,omitempty"`
-	WalletTotalFee   float64                `protobuf:"fixed64,11,opt,name=wallet_total_fee,json=walletTotalFee,proto3" json:"wallet_total_fee,omitempty"`
-	PlatformTotalFee float64                `protobuf:"fixed64,12,opt,name=platform_total_fee,json=platformTotalFee,proto3" json:"platform_total_fee,omitempty"`
-	PartnerTotalFee  float64                `protobuf:"fixed64,13,opt,name=partner_total_fee,json=partnerTotalFee,proto3" json:"partner_total_fee,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	CryptoAmount       float64                `protobuf:"fixed64,1,opt,name=crypto_amount,json=cryptoAmount,proto3" json:"crypto_amount,omitempty"`
+	FiatAmount         float64                `protobuf:"fixed64,2,opt,name=fiat_amount,json=fiatAmount,proto3" json:"fiat_amount,omitempty"`
+	FiatCurrency       string                 `protobuf:"bytes,3,opt,name=fiat_currency,json=fiatCurrency,proto3" json:"fiat_currency,omitempty"`
+	RampType           common.RampType        `protobuf:"varint,4,opt,name=ramp_type,json=rampType,proto3,enum=brij.orders.v1.common.RampType" json:"ramp_type,omitempty"`
+	ConversionRate     float64                `protobuf:"fixed64,5,opt,name=conversion_rate,json=conversionRate,proto3" json:"conversion_rate,omitempty"`
+	PartnerFee         *RampFee               `protobuf:"bytes,6,opt,name=partner_fee,json=partnerFee,proto3" json:"partner_fee,omitempty"`
+	WalletFee          *RampFee               `protobuf:"bytes,7,opt,name=wallet_fee,json=walletFee,proto3" json:"wallet_fee,omitempty"`
+	PlatformFee        *RampFee               `protobuf:"bytes,8,opt,name=platform_fee,json=platformFee,proto3" json:"platform_fee,omitempty"`
+	TotalFee           float64                `protobuf:"fixed64,9,opt,name=total_fee,json=totalFee,proto3" json:"total_fee,omitempty"`
+	PartnerAmount      float64                `protobuf:"fixed64,10,opt,name=partner_amount,json=partnerAmount,proto3" json:"partner_amount,omitempty"`
+	WalletTotalFee     float64                `protobuf:"fixed64,11,opt,name=wallet_total_fee,json=walletTotalFee,proto3" json:"wallet_total_fee,omitempty"`
+	PlatformTotalFee   float64                `protobuf:"fixed64,12,opt,name=platform_total_fee,json=platformTotalFee,proto3" json:"platform_total_fee,omitempty"`
+	PartnerTotalFee    float64                `protobuf:"fixed64,13,opt,name=partner_total_fee,json=partnerTotalFee,proto3" json:"partner_total_fee,omitempty"`
+	WalletFeeAddress   string                 `protobuf:"bytes,14,opt,name=wallet_fee_address,json=walletFeeAddress,proto3" json:"wallet_fee_address,omitempty"`
+	PlatformFeeAddress string                 `protobuf:"bytes,15,opt,name=platform_fee_address,json=platformFeeAddress,proto3" json:"platform_fee_address,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *GetQuoteResponse) Reset() {
@@ -690,6 +692,20 @@ func (x *GetQuoteResponse) GetPartnerTotalFee() float64 {
 	return 0
 }
 
+func (x *GetQuoteResponse) GetWalletFeeAddress() string {
+	if x != nil {
+		return x.WalletFeeAddress
+	}
+	return ""
+}
+
+func (x *GetQuoteResponse) GetPlatformFeeAddress() string {
+	if x != nil {
+		return x.PlatformFeeAddress
+	}
+	return ""
+}
+
 type GetBestQuoteRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	Country         string                 `protobuf:"bytes,1,opt,name=country,proto3" json:"country,omitempty"`
@@ -767,22 +783,24 @@ func (x *GetBestQuoteRequest) GetFiatCurrency() string {
 }
 
 type GetBestQuoteResponse struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	CryptoAmount     float64                `protobuf:"fixed64,1,opt,name=crypto_amount,json=cryptoAmount,proto3" json:"crypto_amount,omitempty"`
-	FiatAmount       float64                `protobuf:"fixed64,2,opt,name=fiat_amount,json=fiatAmount,proto3" json:"fiat_amount,omitempty"`
-	FiatCurrency     string                 `protobuf:"bytes,3,opt,name=fiat_currency,json=fiatCurrency,proto3" json:"fiat_currency,omitempty"`
-	RampType         common.RampType        `protobuf:"varint,4,opt,name=ramp_type,json=rampType,proto3,enum=brij.orders.v1.common.RampType" json:"ramp_type,omitempty"`
-	ConversionRate   float64                `protobuf:"fixed64,5,opt,name=conversion_rate,json=conversionRate,proto3" json:"conversion_rate,omitempty"`
-	PartnerFee       *RampFee               `protobuf:"bytes,6,opt,name=partner_fee,json=partnerFee,proto3" json:"partner_fee,omitempty"`
-	WalletFee        *RampFee               `protobuf:"bytes,7,opt,name=wallet_fee,json=walletFee,proto3" json:"wallet_fee,omitempty"`
-	PlatformFee      *RampFee               `protobuf:"bytes,8,opt,name=platform_fee,json=platformFee,proto3" json:"platform_fee,omitempty"`
-	TotalFee         float64                `protobuf:"fixed64,9,opt,name=total_fee,json=totalFee,proto3" json:"total_fee,omitempty"`
-	PartnerAmount    float64                `protobuf:"fixed64,10,opt,name=partner_amount,json=partnerAmount,proto3" json:"partner_amount,omitempty"`
-	WalletTotalFee   float64                `protobuf:"fixed64,11,opt,name=wallet_total_fee,json=walletTotalFee,proto3" json:"wallet_total_fee,omitempty"`
-	PlatformTotalFee float64                `protobuf:"fixed64,12,opt,name=platform_total_fee,json=platformTotalFee,proto3" json:"platform_total_fee,omitempty"`
-	PartnerTotalFee  float64                `protobuf:"fixed64,13,opt,name=partner_total_fee,json=partnerTotalFee,proto3" json:"partner_total_fee,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	CryptoAmount       float64                `protobuf:"fixed64,1,opt,name=crypto_amount,json=cryptoAmount,proto3" json:"crypto_amount,omitempty"`
+	FiatAmount         float64                `protobuf:"fixed64,2,opt,name=fiat_amount,json=fiatAmount,proto3" json:"fiat_amount,omitempty"`
+	FiatCurrency       string                 `protobuf:"bytes,3,opt,name=fiat_currency,json=fiatCurrency,proto3" json:"fiat_currency,omitempty"`
+	RampType           common.RampType        `protobuf:"varint,4,opt,name=ramp_type,json=rampType,proto3,enum=brij.orders.v1.common.RampType" json:"ramp_type,omitempty"`
+	ConversionRate     float64                `protobuf:"fixed64,5,opt,name=conversion_rate,json=conversionRate,proto3" json:"conversion_rate,omitempty"`
+	PartnerFee         *RampFee               `protobuf:"bytes,6,opt,name=partner_fee,json=partnerFee,proto3" json:"partner_fee,omitempty"`
+	WalletFee          *RampFee               `protobuf:"bytes,7,opt,name=wallet_fee,json=walletFee,proto3" json:"wallet_fee,omitempty"`
+	PlatformFee        *RampFee               `protobuf:"bytes,8,opt,name=platform_fee,json=platformFee,proto3" json:"platform_fee,omitempty"`
+	TotalFee           float64                `protobuf:"fixed64,9,opt,name=total_fee,json=totalFee,proto3" json:"total_fee,omitempty"`
+	PartnerAmount      float64                `protobuf:"fixed64,10,opt,name=partner_amount,json=partnerAmount,proto3" json:"partner_amount,omitempty"`
+	WalletTotalFee     float64                `protobuf:"fixed64,11,opt,name=wallet_total_fee,json=walletTotalFee,proto3" json:"wallet_total_fee,omitempty"`
+	PlatformTotalFee   float64                `protobuf:"fixed64,12,opt,name=platform_total_fee,json=platformTotalFee,proto3" json:"platform_total_fee,omitempty"`
+	PartnerTotalFee    float64                `protobuf:"fixed64,13,opt,name=partner_total_fee,json=partnerTotalFee,proto3" json:"partner_total_fee,omitempty"`
+	WalletFeeAddress   string                 `protobuf:"bytes,14,opt,name=wallet_fee_address,json=walletFeeAddress,proto3" json:"wallet_fee_address,omitempty"`
+	PlatformFeeAddress string                 `protobuf:"bytes,15,opt,name=platform_fee_address,json=platformFeeAddress,proto3" json:"platform_fee_address,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *GetBestQuoteResponse) Reset() {
@@ -904,6 +922,20 @@ func (x *GetBestQuoteResponse) GetPartnerTotalFee() float64 {
 		return x.PartnerTotalFee
 	}
 	return 0
+}
+
+func (x *GetBestQuoteResponse) GetWalletFeeAddress() string {
+	if x != nil {
+		return x.WalletFeeAddress
+	}
+	return ""
+}
+
+func (x *GetBestQuoteResponse) GetPlatformFeeAddress() string {
+	if x != nil {
+		return x.PlatformFeeAddress
+	}
+	return ""
 }
 
 type RampFee struct {
@@ -1094,7 +1126,7 @@ const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	"\x11wallet_public_key\x18\x02 \x01(\tR\x0fwalletPublicKey\x12#\n" +
 	"\rcrypto_amount\x18\x03 \x01(\x01R\fcryptoAmount\x12<\n" +
 	"\tramp_type\x18\x04 \x01(\x0e2\x1f.brij.orders.v1.common.RampTypeR\brampType\x12#\n" +
-	"\rfiat_currency\x18\x05 \x01(\tR\ffiatCurrency\"\xef\x04\n" +
+	"\rfiat_currency\x18\x05 \x01(\tR\ffiatCurrency\"\xcf\x05\n" +
 	"\x10GetQuoteResponse\x12#\n" +
 	"\rcrypto_amount\x18\x01 \x01(\x01R\fcryptoAmount\x12\x1f\n" +
 	"\vfiat_amount\x18\x02 \x01(\x01R\n" +
@@ -1112,13 +1144,15 @@ const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	" \x01(\x01R\rpartnerAmount\x12(\n" +
 	"\x10wallet_total_fee\x18\v \x01(\x01R\x0ewalletTotalFee\x12,\n" +
 	"\x12platform_total_fee\x18\f \x01(\x01R\x10platformTotalFee\x12*\n" +
-	"\x11partner_total_fee\x18\r \x01(\x01R\x0fpartnerTotalFee\"\xe3\x01\n" +
+	"\x11partner_total_fee\x18\r \x01(\x01R\x0fpartnerTotalFee\x12,\n" +
+	"\x12wallet_fee_address\x18\x0e \x01(\tR\x10walletFeeAddress\x120\n" +
+	"\x14platform_fee_address\x18\x0f \x01(\tR\x12platformFeeAddress\"\xe3\x01\n" +
 	"\x13GetBestQuoteRequest\x12\x18\n" +
 	"\acountry\x18\x01 \x01(\tR\acountry\x12*\n" +
 	"\x11wallet_public_key\x18\x02 \x01(\tR\x0fwalletPublicKey\x12#\n" +
 	"\rcrypto_amount\x18\x03 \x01(\x01R\fcryptoAmount\x12<\n" +
 	"\tramp_type\x18\x04 \x01(\x0e2\x1f.brij.orders.v1.common.RampTypeR\brampType\x12#\n" +
-	"\rfiat_currency\x18\x05 \x01(\tR\ffiatCurrency\"\xf3\x04\n" +
+	"\rfiat_currency\x18\x05 \x01(\tR\ffiatCurrency\"\xd3\x05\n" +
 	"\x14GetBestQuoteResponse\x12#\n" +
 	"\rcrypto_amount\x18\x01 \x01(\x01R\fcryptoAmount\x12\x1f\n" +
 	"\vfiat_amount\x18\x02 \x01(\x01R\n" +
@@ -1136,7 +1170,9 @@ const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	" \x01(\x01R\rpartnerAmount\x12(\n" +
 	"\x10wallet_total_fee\x18\v \x01(\x01R\x0ewalletTotalFee\x12,\n" +
 	"\x12platform_total_fee\x18\f \x01(\x01R\x10platformTotalFee\x12*\n" +
-	"\x11partner_total_fee\x18\r \x01(\x01R\x0fpartnerTotalFee\"M\n" +
+	"\x11partner_total_fee\x18\r \x01(\x01R\x0fpartnerTotalFee\x12,\n" +
+	"\x12wallet_fee_address\x18\x0e \x01(\tR\x10walletFeeAddress\x120\n" +
+	"\x14platform_fee_address\x18\x0f \x01(\tR\x12platformFeeAddress\"M\n" +
 	"\aRampFee\x12\x1b\n" +
 	"\tfixed_fee\x18\x01 \x01(\x01R\bfixedFee\x12%\n" +
 	"\x0epercentage_fee\x18\x02 \x01(\x01R\rpercentageFee\"X\n" +

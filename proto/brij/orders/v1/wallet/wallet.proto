@@ -91,6 +91,8 @@ message GetQuoteResponse {
   double wallet_total_fee = 11;
   double platform_total_fee = 12;
   double partner_total_fee = 13;
+  string wallet_fee_address = 14;
+  string platform_fee_address = 15;
 }
 
 message GetBestQuoteRequest {
@@ -115,6 +117,8 @@ message GetBestQuoteResponse {
   double wallet_total_fee = 11;
   double platform_total_fee = 12;
   double partner_total_fee = 13;
+  string wallet_fee_address = 14;
+  string platform_fee_address = 15;
 }
 
 message RampFee {
