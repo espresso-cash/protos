@@ -550,7 +550,7 @@ func (x *GetQuoteRequest) GetFiatCurrency() string {
 	return ""
 }
 
-type GetQuoteResponse struct {
+type Quote struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	CryptoAmount       float64                `protobuf:"fixed64,1,opt,name=crypto_amount,json=cryptoAmount,proto3" json:"crypto_amount,omitempty"`
 	FiatAmount         float64                `protobuf:"fixed64,2,opt,name=fiat_amount,json=fiatAmount,proto3" json:"fiat_amount,omitempty"`
@@ -566,13 +566,164 @@ type GetQuoteResponse struct {
 	PlatformTotalFee   float64                `protobuf:"fixed64,12,opt,name=platform_total_fee,json=platformTotalFee,proto3" json:"platform_total_fee,omitempty"`
 	PartnerTotalFee    float64                `protobuf:"fixed64,13,opt,name=partner_total_fee,json=partnerTotalFee,proto3" json:"partner_total_fee,omitempty"`
 	PlatformFeeAddress string                 `protobuf:"bytes,14,opt,name=platform_fee_address,json=platformFeeAddress,proto3" json:"platform_fee_address,omitempty"`
+	PartnerPublicKey   string                 `protobuf:"bytes,15,opt,name=partner_public_key,json=partnerPublicKey,proto3" json:"partner_public_key,omitempty"`
+	WalletPublicKey    string                 `protobuf:"bytes,16,opt,name=wallet_public_key,json=walletPublicKey,proto3" json:"wallet_public_key,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
 
+func (x *Quote) Reset() {
+	*x = Quote{}
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Quote) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Quote) ProtoMessage() {}
+
+func (x *Quote) ProtoReflect() protoreflect.Message {
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Quote.ProtoReflect.Descriptor instead.
+func (*Quote) Descriptor() ([]byte, []int) {
+	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *Quote) GetCryptoAmount() float64 {
+	if x != nil {
+		return x.CryptoAmount
+	}
+	return 0
+}
+
+func (x *Quote) GetFiatAmount() float64 {
+	if x != nil {
+		return x.FiatAmount
+	}
+	return 0
+}
+
+func (x *Quote) GetFiatCurrency() string {
+	if x != nil {
+		return x.FiatCurrency
+	}
+	return ""
+}
+
+func (x *Quote) GetRampType() common.RampType {
+	if x != nil {
+		return x.RampType
+	}
+	return common.RampType(0)
+}
+
+func (x *Quote) GetConversionRate() float64 {
+	if x != nil {
+		return x.ConversionRate
+	}
+	return 0
+}
+
+func (x *Quote) GetPartnerFee() *RampFee {
+	if x != nil {
+		return x.PartnerFee
+	}
+	return nil
+}
+
+func (x *Quote) GetWalletFee() *RampFee {
+	if x != nil {
+		return x.WalletFee
+	}
+	return nil
+}
+
+func (x *Quote) GetPlatformFee() *RampFee {
+	if x != nil {
+		return x.PlatformFee
+	}
+	return nil
+}
+
+func (x *Quote) GetTotalFee() float64 {
+	if x != nil {
+		return x.TotalFee
+	}
+	return 0
+}
+
+func (x *Quote) GetPartnerAmount() float64 {
+	if x != nil {
+		return x.PartnerAmount
+	}
+	return 0
+}
+
+func (x *Quote) GetWalletTotalFee() float64 {
+	if x != nil {
+		return x.WalletTotalFee
+	}
+	return 0
+}
+
+func (x *Quote) GetPlatformTotalFee() float64 {
+	if x != nil {
+		return x.PlatformTotalFee
+	}
+	return 0
+}
+
+func (x *Quote) GetPartnerTotalFee() float64 {
+	if x != nil {
+		return x.PartnerTotalFee
+	}
+	return 0
+}
+
+func (x *Quote) GetPlatformFeeAddress() string {
+	if x != nil {
+		return x.PlatformFeeAddress
+	}
+	return ""
+}
+
+func (x *Quote) GetPartnerPublicKey() string {
+	if x != nil {
+		return x.PartnerPublicKey
+	}
+	return ""
+}
+
+func (x *Quote) GetWalletPublicKey() string {
+	if x != nil {
+		return x.WalletPublicKey
+	}
+	return ""
+}
+
+type GetQuoteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Quote         *Quote                 `protobuf:"bytes,1,opt,name=quote,proto3" json:"quote,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
 func (x *GetQuoteResponse) Reset() {
 	*x = GetQuoteResponse{}
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[9]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -584,7 +735,7 @@ func (x *GetQuoteResponse) String() string {
 func (*GetQuoteResponse) ProtoMessage() {}
 
 func (x *GetQuoteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[9]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -597,105 +748,14 @@ func (x *GetQuoteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetQuoteResponse.ProtoReflect.Descriptor instead.
 func (*GetQuoteResponse) Descriptor() ([]byte, []int) {
-	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{9}
+	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *GetQuoteResponse) GetCryptoAmount() float64 {
+func (x *GetQuoteResponse) GetQuote() *Quote {
 	if x != nil {
-		return x.CryptoAmount
-	}
-	return 0
-}
-
-func (x *GetQuoteResponse) GetFiatAmount() float64 {
-	if x != nil {
-		return x.FiatAmount
-	}
-	return 0
-}
-
-func (x *GetQuoteResponse) GetFiatCurrency() string {
-	if x != nil {
-		return x.FiatCurrency
-	}
-	return ""
-}
-
-func (x *GetQuoteResponse) GetRampType() common.RampType {
-	if x != nil {
-		return x.RampType
-	}
-	return common.RampType(0)
-}
-
-func (x *GetQuoteResponse) GetConversionRate() float64 {
-	if x != nil {
-		return x.ConversionRate
-	}
-	return 0
-}
-
-func (x *GetQuoteResponse) GetPartnerFee() *RampFee {
-	if x != nil {
-		return x.PartnerFee
+		return x.Quote
 	}
 	return nil
-}
-
-func (x *GetQuoteResponse) GetWalletFee() *RampFee {
-	if x != nil {
-		return x.WalletFee
-	}
-	return nil
-}
-
-func (x *GetQuoteResponse) GetPlatformFee() *RampFee {
-	if x != nil {
-		return x.PlatformFee
-	}
-	return nil
-}
-
-func (x *GetQuoteResponse) GetTotalFee() float64 {
-	if x != nil {
-		return x.TotalFee
-	}
-	return 0
-}
-
-func (x *GetQuoteResponse) GetPartnerAmount() float64 {
-	if x != nil {
-		return x.PartnerAmount
-	}
-	return 0
-}
-
-func (x *GetQuoteResponse) GetWalletTotalFee() float64 {
-	if x != nil {
-		return x.WalletTotalFee
-	}
-	return 0
-}
-
-func (x *GetQuoteResponse) GetPlatformTotalFee() float64 {
-	if x != nil {
-		return x.PlatformTotalFee
-	}
-	return 0
-}
-
-func (x *GetQuoteResponse) GetPartnerTotalFee() float64 {
-	if x != nil {
-		return x.PartnerTotalFee
-	}
-	return 0
-}
-
-func (x *GetQuoteResponse) GetPlatformFeeAddress() string {
-	if x != nil {
-		return x.PlatformFeeAddress
-	}
-	return ""
 }
 
 type GetBestQuoteRequest struct {
@@ -711,7 +771,7 @@ type GetBestQuoteRequest struct {
 
 func (x *GetBestQuoteRequest) Reset() {
 	*x = GetBestQuoteRequest{}
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[10]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -723,7 +783,7 @@ func (x *GetBestQuoteRequest) String() string {
 func (*GetBestQuoteRequest) ProtoMessage() {}
 
 func (x *GetBestQuoteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[10]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -736,7 +796,7 @@ func (x *GetBestQuoteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBestQuoteRequest.ProtoReflect.Descriptor instead.
 func (*GetBestQuoteRequest) Descriptor() ([]byte, []int) {
-	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{10}
+	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetBestQuoteRequest) GetCountry() string {
@@ -775,28 +835,15 @@ func (x *GetBestQuoteRequest) GetFiatCurrency() string {
 }
 
 type GetBestQuoteResponse struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	CryptoAmount       float64                `protobuf:"fixed64,1,opt,name=crypto_amount,json=cryptoAmount,proto3" json:"crypto_amount,omitempty"`
-	FiatAmount         float64                `protobuf:"fixed64,2,opt,name=fiat_amount,json=fiatAmount,proto3" json:"fiat_amount,omitempty"`
-	FiatCurrency       string                 `protobuf:"bytes,3,opt,name=fiat_currency,json=fiatCurrency,proto3" json:"fiat_currency,omitempty"`
-	RampType           common.RampType        `protobuf:"varint,4,opt,name=ramp_type,json=rampType,proto3,enum=brij.orders.v1.common.RampType" json:"ramp_type,omitempty"`
-	ConversionRate     float64                `protobuf:"fixed64,5,opt,name=conversion_rate,json=conversionRate,proto3" json:"conversion_rate,omitempty"`
-	PartnerFee         *RampFee               `protobuf:"bytes,6,opt,name=partner_fee,json=partnerFee,proto3" json:"partner_fee,omitempty"`
-	WalletFee          *RampFee               `protobuf:"bytes,7,opt,name=wallet_fee,json=walletFee,proto3" json:"wallet_fee,omitempty"`
-	PlatformFee        *RampFee               `protobuf:"bytes,8,opt,name=platform_fee,json=platformFee,proto3" json:"platform_fee,omitempty"`
-	TotalFee           float64                `protobuf:"fixed64,9,opt,name=total_fee,json=totalFee,proto3" json:"total_fee,omitempty"`
-	PartnerAmount      float64                `protobuf:"fixed64,10,opt,name=partner_amount,json=partnerAmount,proto3" json:"partner_amount,omitempty"`
-	WalletTotalFee     float64                `protobuf:"fixed64,11,opt,name=wallet_total_fee,json=walletTotalFee,proto3" json:"wallet_total_fee,omitempty"`
-	PlatformTotalFee   float64                `protobuf:"fixed64,12,opt,name=platform_total_fee,json=platformTotalFee,proto3" json:"platform_total_fee,omitempty"`
-	PartnerTotalFee    float64                `protobuf:"fixed64,13,opt,name=partner_total_fee,json=partnerTotalFee,proto3" json:"partner_total_fee,omitempty"`
-	PlatformFeeAddress string                 `protobuf:"bytes,14,opt,name=platform_fee_address,json=platformFeeAddress,proto3" json:"platform_fee_address,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Quote         *Quote                 `protobuf:"bytes,1,opt,name=quote,proto3" json:"quote,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetBestQuoteResponse) Reset() {
 	*x = GetBestQuoteResponse{}
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[11]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -808,7 +855,7 @@ func (x *GetBestQuoteResponse) String() string {
 func (*GetBestQuoteResponse) ProtoMessage() {}
 
 func (x *GetBestQuoteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[11]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -821,105 +868,14 @@ func (x *GetBestQuoteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBestQuoteResponse.ProtoReflect.Descriptor instead.
 func (*GetBestQuoteResponse) Descriptor() ([]byte, []int) {
-	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{11}
+	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{12}
 }
 
-func (x *GetBestQuoteResponse) GetCryptoAmount() float64 {
+func (x *GetBestQuoteResponse) GetQuote() *Quote {
 	if x != nil {
-		return x.CryptoAmount
-	}
-	return 0
-}
-
-func (x *GetBestQuoteResponse) GetFiatAmount() float64 {
-	if x != nil {
-		return x.FiatAmount
-	}
-	return 0
-}
-
-func (x *GetBestQuoteResponse) GetFiatCurrency() string {
-	if x != nil {
-		return x.FiatCurrency
-	}
-	return ""
-}
-
-func (x *GetBestQuoteResponse) GetRampType() common.RampType {
-	if x != nil {
-		return x.RampType
-	}
-	return common.RampType(0)
-}
-
-func (x *GetBestQuoteResponse) GetConversionRate() float64 {
-	if x != nil {
-		return x.ConversionRate
-	}
-	return 0
-}
-
-func (x *GetBestQuoteResponse) GetPartnerFee() *RampFee {
-	if x != nil {
-		return x.PartnerFee
+		return x.Quote
 	}
 	return nil
-}
-
-func (x *GetBestQuoteResponse) GetWalletFee() *RampFee {
-	if x != nil {
-		return x.WalletFee
-	}
-	return nil
-}
-
-func (x *GetBestQuoteResponse) GetPlatformFee() *RampFee {
-	if x != nil {
-		return x.PlatformFee
-	}
-	return nil
-}
-
-func (x *GetBestQuoteResponse) GetTotalFee() float64 {
-	if x != nil {
-		return x.TotalFee
-	}
-	return 0
-}
-
-func (x *GetBestQuoteResponse) GetPartnerAmount() float64 {
-	if x != nil {
-		return x.PartnerAmount
-	}
-	return 0
-}
-
-func (x *GetBestQuoteResponse) GetWalletTotalFee() float64 {
-	if x != nil {
-		return x.WalletTotalFee
-	}
-	return 0
-}
-
-func (x *GetBestQuoteResponse) GetPlatformTotalFee() float64 {
-	if x != nil {
-		return x.PlatformTotalFee
-	}
-	return 0
-}
-
-func (x *GetBestQuoteResponse) GetPartnerTotalFee() float64 {
-	if x != nil {
-		return x.PartnerTotalFee
-	}
-	return 0
-}
-
-func (x *GetBestQuoteResponse) GetPlatformFeeAddress() string {
-	if x != nil {
-		return x.PlatformFeeAddress
-	}
-	return ""
 }
 
 type RampFee struct {
@@ -932,7 +888,7 @@ type RampFee struct {
 
 func (x *RampFee) Reset() {
 	*x = RampFee{}
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[12]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -944,7 +900,7 @@ func (x *RampFee) String() string {
 func (*RampFee) ProtoMessage() {}
 
 func (x *RampFee) ProtoReflect() protoreflect.Message {
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[12]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -957,7 +913,7 @@ func (x *RampFee) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RampFee.ProtoReflect.Descriptor instead.
 func (*RampFee) Descriptor() ([]byte, []int) {
-	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{12}
+	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *RampFee) GetFixedFee() float64 {
@@ -984,7 +940,7 @@ type GenerateTransactionRequest struct {
 
 func (x *GenerateTransactionRequest) Reset() {
 	*x = GenerateTransactionRequest{}
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[13]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -996,7 +952,7 @@ func (x *GenerateTransactionRequest) String() string {
 func (*GenerateTransactionRequest) ProtoMessage() {}
 
 func (x *GenerateTransactionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[13]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1009,7 +965,7 @@ func (x *GenerateTransactionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenerateTransactionRequest.ProtoReflect.Descriptor instead.
 func (*GenerateTransactionRequest) Descriptor() ([]byte, []int) {
-	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{13}
+	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GenerateTransactionRequest) GetOrderId() string {
@@ -1035,7 +991,7 @@ type GenerateTransactionResponse struct {
 
 func (x *GenerateTransactionResponse) Reset() {
 	*x = GenerateTransactionResponse{}
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[14]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1047,7 +1003,7 @@ func (x *GenerateTransactionResponse) String() string {
 func (*GenerateTransactionResponse) ProtoMessage() {}
 
 func (x *GenerateTransactionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[14]
+	mi := &file_brij_orders_v1_wallet_wallet_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1060,7 +1016,7 @@ func (x *GenerateTransactionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenerateTransactionResponse.ProtoReflect.Descriptor instead.
 func (*GenerateTransactionResponse) Descriptor() ([]byte, []int) {
-	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{14}
+	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GenerateTransactionResponse) GetTransaction() string {
@@ -1110,8 +1066,8 @@ const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	"\x11wallet_public_key\x18\x02 \x01(\tR\x0fwalletPublicKey\x12#\n" +
 	"\rcrypto_amount\x18\x03 \x01(\x01R\fcryptoAmount\x12<\n" +
 	"\tramp_type\x18\x04 \x01(\x0e2\x1f.brij.orders.v1.common.RampTypeR\brampType\x12#\n" +
-	"\rfiat_currency\x18\x05 \x01(\tR\ffiatCurrency\"\xa1\x05\n" +
-	"\x10GetQuoteResponse\x12#\n" +
+	"\rfiat_currency\x18\x05 \x01(\tR\ffiatCurrency\"\xf0\x05\n" +
+	"\x05Quote\x12#\n" +
 	"\rcrypto_amount\x18\x01 \x01(\x01R\fcryptoAmount\x12\x1f\n" +
 	"\vfiat_amount\x18\x02 \x01(\x01R\n" +
 	"fiatAmount\x12#\n" +
@@ -1129,32 +1085,19 @@ const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	"\x10wallet_total_fee\x18\v \x01(\x01R\x0ewalletTotalFee\x12,\n" +
 	"\x12platform_total_fee\x18\f \x01(\x01R\x10platformTotalFee\x12*\n" +
 	"\x11partner_total_fee\x18\r \x01(\x01R\x0fpartnerTotalFee\x120\n" +
-	"\x14platform_fee_address\x18\x0e \x01(\tR\x12platformFeeAddress\"\xe3\x01\n" +
+	"\x14platform_fee_address\x18\x0e \x01(\tR\x12platformFeeAddress\x12,\n" +
+	"\x12partner_public_key\x18\x0f \x01(\tR\x10partnerPublicKey\x12*\n" +
+	"\x11wallet_public_key\x18\x10 \x01(\tR\x0fwalletPublicKey\"F\n" +
+	"\x10GetQuoteResponse\x122\n" +
+	"\x05quote\x18\x01 \x01(\v2\x1c.brij.orders.v1.wallet.QuoteR\x05quote\"\xe3\x01\n" +
 	"\x13GetBestQuoteRequest\x12\x18\n" +
 	"\acountry\x18\x01 \x01(\tR\acountry\x12*\n" +
 	"\x11wallet_public_key\x18\x02 \x01(\tR\x0fwalletPublicKey\x12#\n" +
 	"\rcrypto_amount\x18\x03 \x01(\x01R\fcryptoAmount\x12<\n" +
 	"\tramp_type\x18\x04 \x01(\x0e2\x1f.brij.orders.v1.common.RampTypeR\brampType\x12#\n" +
-	"\rfiat_currency\x18\x05 \x01(\tR\ffiatCurrency\"\xa5\x05\n" +
-	"\x14GetBestQuoteResponse\x12#\n" +
-	"\rcrypto_amount\x18\x01 \x01(\x01R\fcryptoAmount\x12\x1f\n" +
-	"\vfiat_amount\x18\x02 \x01(\x01R\n" +
-	"fiatAmount\x12#\n" +
-	"\rfiat_currency\x18\x03 \x01(\tR\ffiatCurrency\x12<\n" +
-	"\tramp_type\x18\x04 \x01(\x0e2\x1f.brij.orders.v1.common.RampTypeR\brampType\x12'\n" +
-	"\x0fconversion_rate\x18\x05 \x01(\x01R\x0econversionRate\x12?\n" +
-	"\vpartner_fee\x18\x06 \x01(\v2\x1e.brij.orders.v1.wallet.RampFeeR\n" +
-	"partnerFee\x12=\n" +
-	"\n" +
-	"wallet_fee\x18\a \x01(\v2\x1e.brij.orders.v1.wallet.RampFeeR\twalletFee\x12A\n" +
-	"\fplatform_fee\x18\b \x01(\v2\x1e.brij.orders.v1.wallet.RampFeeR\vplatformFee\x12\x1b\n" +
-	"\ttotal_fee\x18\t \x01(\x01R\btotalFee\x12%\n" +
-	"\x0epartner_amount\x18\n" +
-	" \x01(\x01R\rpartnerAmount\x12(\n" +
-	"\x10wallet_total_fee\x18\v \x01(\x01R\x0ewalletTotalFee\x12,\n" +
-	"\x12platform_total_fee\x18\f \x01(\x01R\x10platformTotalFee\x12*\n" +
-	"\x11partner_total_fee\x18\r \x01(\x01R\x0fpartnerTotalFee\x120\n" +
-	"\x14platform_fee_address\x18\x0e \x01(\tR\x12platformFeeAddress\"M\n" +
+	"\rfiat_currency\x18\x05 \x01(\tR\ffiatCurrency\"J\n" +
+	"\x14GetBestQuoteResponse\x122\n" +
+	"\x05quote\x18\x01 \x01(\v2\x1c.brij.orders.v1.wallet.QuoteR\x05quote\"M\n" +
 	"\aRampFee\x12\x1b\n" +
 	"\tfixed_fee\x18\x01 \x01(\x01R\bfixedFee\x12%\n" +
 	"\x0epercentage_fee\x18\x02 \x01(\x01R\rpercentageFee\"X\n" +
@@ -1185,7 +1128,7 @@ func file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP() []byte {
 	return file_brij_orders_v1_wallet_wallet_proto_rawDescData
 }
 
-var file_brij_orders_v1_wallet_wallet_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_brij_orders_v1_wallet_wallet_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_brij_orders_v1_wallet_wallet_proto_goTypes = []any{
 	(*CreateOnRampOrderRequest)(nil),    // 0: brij.orders.v1.wallet.CreateOnRampOrderRequest
 	(*CreateOnRampOrderResponse)(nil),   // 1: brij.orders.v1.wallet.CreateOnRampOrderResponse
@@ -1196,46 +1139,45 @@ var file_brij_orders_v1_wallet_wallet_proto_goTypes = []any{
 	(*GetOrdersRequest)(nil),            // 6: brij.orders.v1.wallet.GetOrdersRequest
 	(*GetOrdersResponse)(nil),           // 7: brij.orders.v1.wallet.GetOrdersResponse
 	(*GetQuoteRequest)(nil),             // 8: brij.orders.v1.wallet.GetQuoteRequest
-	(*GetQuoteResponse)(nil),            // 9: brij.orders.v1.wallet.GetQuoteResponse
-	(*GetBestQuoteRequest)(nil),         // 10: brij.orders.v1.wallet.GetBestQuoteRequest
-	(*GetBestQuoteResponse)(nil),        // 11: brij.orders.v1.wallet.GetBestQuoteResponse
-	(*RampFee)(nil),                     // 12: brij.orders.v1.wallet.RampFee
-	(*GenerateTransactionRequest)(nil),  // 13: brij.orders.v1.wallet.GenerateTransactionRequest
-	(*GenerateTransactionResponse)(nil), // 14: brij.orders.v1.wallet.GenerateTransactionResponse
-	(common.RampType)(0),                // 15: brij.orders.v1.common.RampType
+	(*Quote)(nil),                       // 9: brij.orders.v1.wallet.Quote
+	(*GetQuoteResponse)(nil),            // 10: brij.orders.v1.wallet.GetQuoteResponse
+	(*GetBestQuoteRequest)(nil),         // 11: brij.orders.v1.wallet.GetBestQuoteRequest
+	(*GetBestQuoteResponse)(nil),        // 12: brij.orders.v1.wallet.GetBestQuoteResponse
+	(*RampFee)(nil),                     // 13: brij.orders.v1.wallet.RampFee
+	(*GenerateTransactionRequest)(nil),  // 14: brij.orders.v1.wallet.GenerateTransactionRequest
+	(*GenerateTransactionResponse)(nil), // 15: brij.orders.v1.wallet.GenerateTransactionResponse
+	(common.RampType)(0),                // 16: brij.orders.v1.common.RampType
 }
 var file_brij_orders_v1_wallet_wallet_proto_depIdxs = []int32{
-	15, // 0: brij.orders.v1.wallet.GetOrderResponse.type:type_name -> brij.orders.v1.common.RampType
+	16, // 0: brij.orders.v1.wallet.GetOrderResponse.type:type_name -> brij.orders.v1.common.RampType
 	5,  // 1: brij.orders.v1.wallet.GetOrdersResponse.orders:type_name -> brij.orders.v1.wallet.GetOrderResponse
-	15, // 2: brij.orders.v1.wallet.GetQuoteRequest.ramp_type:type_name -> brij.orders.v1.common.RampType
-	15, // 3: brij.orders.v1.wallet.GetQuoteResponse.ramp_type:type_name -> brij.orders.v1.common.RampType
-	12, // 4: brij.orders.v1.wallet.GetQuoteResponse.partner_fee:type_name -> brij.orders.v1.wallet.RampFee
-	12, // 5: brij.orders.v1.wallet.GetQuoteResponse.wallet_fee:type_name -> brij.orders.v1.wallet.RampFee
-	12, // 6: brij.orders.v1.wallet.GetQuoteResponse.platform_fee:type_name -> brij.orders.v1.wallet.RampFee
-	15, // 7: brij.orders.v1.wallet.GetBestQuoteRequest.ramp_type:type_name -> brij.orders.v1.common.RampType
-	15, // 8: brij.orders.v1.wallet.GetBestQuoteResponse.ramp_type:type_name -> brij.orders.v1.common.RampType
-	12, // 9: brij.orders.v1.wallet.GetBestQuoteResponse.partner_fee:type_name -> brij.orders.v1.wallet.RampFee
-	12, // 10: brij.orders.v1.wallet.GetBestQuoteResponse.wallet_fee:type_name -> brij.orders.v1.wallet.RampFee
-	12, // 11: brij.orders.v1.wallet.GetBestQuoteResponse.platform_fee:type_name -> brij.orders.v1.wallet.RampFee
-	0,  // 12: brij.orders.v1.wallet.WalletService.CreateOnRampOrder:input_type -> brij.orders.v1.wallet.CreateOnRampOrderRequest
-	2,  // 13: brij.orders.v1.wallet.WalletService.CreateOffRampOrder:input_type -> brij.orders.v1.wallet.CreateOffRampOrderRequest
-	4,  // 14: brij.orders.v1.wallet.WalletService.GetOrder:input_type -> brij.orders.v1.wallet.GetOrderRequest
-	6,  // 15: brij.orders.v1.wallet.WalletService.GetOrders:input_type -> brij.orders.v1.wallet.GetOrdersRequest
-	8,  // 16: brij.orders.v1.wallet.WalletService.GetQuote:input_type -> brij.orders.v1.wallet.GetQuoteRequest
-	10, // 17: brij.orders.v1.wallet.WalletService.GetBestQuote:input_type -> brij.orders.v1.wallet.GetBestQuoteRequest
-	13, // 18: brij.orders.v1.wallet.WalletService.GenerateTransaction:input_type -> brij.orders.v1.wallet.GenerateTransactionRequest
-	1,  // 19: brij.orders.v1.wallet.WalletService.CreateOnRampOrder:output_type -> brij.orders.v1.wallet.CreateOnRampOrderResponse
-	3,  // 20: brij.orders.v1.wallet.WalletService.CreateOffRampOrder:output_type -> brij.orders.v1.wallet.CreateOffRampOrderResponse
-	5,  // 21: brij.orders.v1.wallet.WalletService.GetOrder:output_type -> brij.orders.v1.wallet.GetOrderResponse
-	7,  // 22: brij.orders.v1.wallet.WalletService.GetOrders:output_type -> brij.orders.v1.wallet.GetOrdersResponse
-	9,  // 23: brij.orders.v1.wallet.WalletService.GetQuote:output_type -> brij.orders.v1.wallet.GetQuoteResponse
-	11, // 24: brij.orders.v1.wallet.WalletService.GetBestQuote:output_type -> brij.orders.v1.wallet.GetBestQuoteResponse
-	14, // 25: brij.orders.v1.wallet.WalletService.GenerateTransaction:output_type -> brij.orders.v1.wallet.GenerateTransactionResponse
-	19, // [19:26] is the sub-list for method output_type
-	12, // [12:19] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	16, // 2: brij.orders.v1.wallet.GetQuoteRequest.ramp_type:type_name -> brij.orders.v1.common.RampType
+	16, // 3: brij.orders.v1.wallet.Quote.ramp_type:type_name -> brij.orders.v1.common.RampType
+	13, // 4: brij.orders.v1.wallet.Quote.partner_fee:type_name -> brij.orders.v1.wallet.RampFee
+	13, // 5: brij.orders.v1.wallet.Quote.wallet_fee:type_name -> brij.orders.v1.wallet.RampFee
+	13, // 6: brij.orders.v1.wallet.Quote.platform_fee:type_name -> brij.orders.v1.wallet.RampFee
+	9,  // 7: brij.orders.v1.wallet.GetQuoteResponse.quote:type_name -> brij.orders.v1.wallet.Quote
+	16, // 8: brij.orders.v1.wallet.GetBestQuoteRequest.ramp_type:type_name -> brij.orders.v1.common.RampType
+	9,  // 9: brij.orders.v1.wallet.GetBestQuoteResponse.quote:type_name -> brij.orders.v1.wallet.Quote
+	0,  // 10: brij.orders.v1.wallet.WalletService.CreateOnRampOrder:input_type -> brij.orders.v1.wallet.CreateOnRampOrderRequest
+	2,  // 11: brij.orders.v1.wallet.WalletService.CreateOffRampOrder:input_type -> brij.orders.v1.wallet.CreateOffRampOrderRequest
+	4,  // 12: brij.orders.v1.wallet.WalletService.GetOrder:input_type -> brij.orders.v1.wallet.GetOrderRequest
+	6,  // 13: brij.orders.v1.wallet.WalletService.GetOrders:input_type -> brij.orders.v1.wallet.GetOrdersRequest
+	8,  // 14: brij.orders.v1.wallet.WalletService.GetQuote:input_type -> brij.orders.v1.wallet.GetQuoteRequest
+	11, // 15: brij.orders.v1.wallet.WalletService.GetBestQuote:input_type -> brij.orders.v1.wallet.GetBestQuoteRequest
+	14, // 16: brij.orders.v1.wallet.WalletService.GenerateTransaction:input_type -> brij.orders.v1.wallet.GenerateTransactionRequest
+	1,  // 17: brij.orders.v1.wallet.WalletService.CreateOnRampOrder:output_type -> brij.orders.v1.wallet.CreateOnRampOrderResponse
+	3,  // 18: brij.orders.v1.wallet.WalletService.CreateOffRampOrder:output_type -> brij.orders.v1.wallet.CreateOffRampOrderResponse
+	5,  // 19: brij.orders.v1.wallet.WalletService.GetOrder:output_type -> brij.orders.v1.wallet.GetOrderResponse
+	7,  // 20: brij.orders.v1.wallet.WalletService.GetOrders:output_type -> brij.orders.v1.wallet.GetOrdersResponse
+	10, // 21: brij.orders.v1.wallet.WalletService.GetQuote:output_type -> brij.orders.v1.wallet.GetQuoteResponse
+	12, // 22: brij.orders.v1.wallet.WalletService.GetBestQuote:output_type -> brij.orders.v1.wallet.GetBestQuoteResponse
+	15, // 23: brij.orders.v1.wallet.WalletService.GenerateTransaction:output_type -> brij.orders.v1.wallet.GenerateTransactionResponse
+	17, // [17:24] is the sub-list for method output_type
+	10, // [10:17] is the sub-list for method input_type
+	10, // [10:10] is the sub-list for extension type_name
+	10, // [10:10] is the sub-list for extension extendee
+	0,  // [0:10] is the sub-list for field type_name
 }
 
 func init() { file_brij_orders_v1_wallet_wallet_proto_init() }
@@ -1249,7 +1191,7 @@ func file_brij_orders_v1_wallet_wallet_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_brij_orders_v1_wallet_wallet_proto_rawDesc), len(file_brij_orders_v1_wallet_wallet_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   15,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

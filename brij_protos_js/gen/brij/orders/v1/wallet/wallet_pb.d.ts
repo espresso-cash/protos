@@ -245,9 +245,9 @@ export declare type GetQuoteRequest = Message<"brij.orders.v1.wallet.GetQuoteReq
 export declare const GetQuoteRequestSchema: GenMessage<GetQuoteRequest>;
 
 /**
- * @generated from message brij.orders.v1.wallet.GetQuoteResponse
+ * @generated from message brij.orders.v1.wallet.Quote
  */
-export declare type GetQuoteResponse = Message<"brij.orders.v1.wallet.GetQuoteResponse"> & {
+export declare type Quote = Message<"brij.orders.v1.wallet.Quote"> & {
   /**
    * @generated from field: double crypto_amount = 1;
    */
@@ -317,6 +317,32 @@ export declare type GetQuoteResponse = Message<"brij.orders.v1.wallet.GetQuoteRe
    * @generated from field: string platform_fee_address = 14;
    */
   platformFeeAddress: string;
+
+  /**
+   * @generated from field: string partner_public_key = 15;
+   */
+  partnerPublicKey: string;
+
+  /**
+   * @generated from field: string wallet_public_key = 16;
+   */
+  walletPublicKey: string;
+};
+
+/**
+ * Describes the message brij.orders.v1.wallet.Quote.
+ * Use `create(QuoteSchema)` to create a new message.
+ */
+export declare const QuoteSchema: GenMessage<Quote>;
+
+/**
+ * @generated from message brij.orders.v1.wallet.GetQuoteResponse
+ */
+export declare type GetQuoteResponse = Message<"brij.orders.v1.wallet.GetQuoteResponse"> & {
+  /**
+   * @generated from field: brij.orders.v1.wallet.Quote quote = 1;
+   */
+  quote?: Quote;
 };
 
 /**
@@ -366,74 +392,9 @@ export declare const GetBestQuoteRequestSchema: GenMessage<GetBestQuoteRequest>;
  */
 export declare type GetBestQuoteResponse = Message<"brij.orders.v1.wallet.GetBestQuoteResponse"> & {
   /**
-   * @generated from field: double crypto_amount = 1;
+   * @generated from field: brij.orders.v1.wallet.Quote quote = 1;
    */
-  cryptoAmount: number;
-
-  /**
-   * @generated from field: double fiat_amount = 2;
-   */
-  fiatAmount: number;
-
-  /**
-   * @generated from field: string fiat_currency = 3;
-   */
-  fiatCurrency: string;
-
-  /**
-   * @generated from field: brij.orders.v1.common.RampType ramp_type = 4;
-   */
-  rampType: RampType;
-
-  /**
-   * @generated from field: double conversion_rate = 5;
-   */
-  conversionRate: number;
-
-  /**
-   * @generated from field: brij.orders.v1.wallet.RampFee partner_fee = 6;
-   */
-  partnerFee?: RampFee;
-
-  /**
-   * @generated from field: brij.orders.v1.wallet.RampFee wallet_fee = 7;
-   */
-  walletFee?: RampFee;
-
-  /**
-   * @generated from field: brij.orders.v1.wallet.RampFee platform_fee = 8;
-   */
-  platformFee?: RampFee;
-
-  /**
-   * @generated from field: double total_fee = 9;
-   */
-  totalFee: number;
-
-  /**
-   * @generated from field: double partner_amount = 10;
-   */
-  partnerAmount: number;
-
-  /**
-   * @generated from field: double wallet_total_fee = 11;
-   */
-  walletTotalFee: number;
-
-  /**
-   * @generated from field: double platform_total_fee = 12;
-   */
-  platformTotalFee: number;
-
-  /**
-   * @generated from field: double partner_total_fee = 13;
-   */
-  partnerTotalFee: number;
-
-  /**
-   * @generated from field: string platform_fee_address = 14;
-   */
-  platformFeeAddress: string;
+  quote?: Quote;
 };
 
 /**
