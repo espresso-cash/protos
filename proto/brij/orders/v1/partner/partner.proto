@@ -51,6 +51,7 @@ message AcceptOrderRequest {
   bytes payload = 1;
   bytes signature = 2;
   string external_id = 3;
+  string order_id = 4;
 }
 
 message AcceptOrderResponse {}

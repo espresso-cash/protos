@@ -127,6 +127,11 @@ export declare type AcceptOrderRequest = Message<"brij.orders.v1.partner.AcceptO
    * @generated from field: string external_id = 3;
    */
   externalId: string;
+
+  /**
+   * @generated from field: string order_id = 4;
+   */
+  orderId: string;
 };
 
 /**

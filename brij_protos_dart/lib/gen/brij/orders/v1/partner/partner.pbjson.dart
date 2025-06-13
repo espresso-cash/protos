@@ -65,13 +65,15 @@ const AcceptOrderRequest$json = {
     {'1': 'payload', '3': 1, '4': 1, '5': 12, '10': 'payload'},
     {'1': 'signature', '3': 2, '4': 1, '5': 12, '10': 'signature'},
     {'1': 'external_id', '3': 3, '4': 1, '5': 9, '10': 'externalId'},
+    {'1': 'order_id', '3': 4, '4': 1, '5': 9, '10': 'orderId'},
   ],
 };
 
 /// Descriptor for `AcceptOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List acceptOrderRequestDescriptor = $convert.base64Decode(
     'ChJBY2NlcHRPcmRlclJlcXVlc3QSGAoHcGF5bG9hZBgBIAEoDFIHcGF5bG9hZBIcCglzaWduYX'
-    'R1cmUYAiABKAxSCXNpZ25hdHVyZRIfCgtleHRlcm5hbF9pZBgDIAEoCVIKZXh0ZXJuYWxJZA==');
+    'R1cmUYAiABKAxSCXNpZ25hdHVyZRIfCgtleHRlcm5hbF9pZBgDIAEoCVIKZXh0ZXJuYWxJZBIZ'
+    'CghvcmRlcl9pZBgEIAEoCVIHb3JkZXJJZA==');
 
 @$core.Deprecated('Use acceptOrderResponseDescriptor instead')
 const AcceptOrderResponse$json = {

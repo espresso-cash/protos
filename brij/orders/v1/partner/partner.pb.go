@@ -214,6 +214,7 @@ type AcceptOrderRequest struct {
 	Payload       []byte `protobuf:"bytes,1,opt,name=payload,proto3" json:"payload,omitempty"`
 	Signature     []byte `protobuf:"bytes,2,opt,name=signature,proto3" json:"signature,omitempty"`
 	ExternalId    string `protobuf:"bytes,3,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
+	OrderId       string `protobuf:"bytes,4,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -265,6 +266,13 @@ func (x *AcceptOrderRequest) GetSignature() []byte {
 func (x *AcceptOrderRequest) GetExternalId() string {
 	if x != nil {
 		return x.ExternalId
+	}
+	return ""
+}
+
+func (x *AcceptOrderRequest) GetOrderId() string {
+	if x != nil {
+		return x.OrderId
 	}
 	return ""
 }
@@ -1008,12 +1016,13 @@ const file_brij_orders_v1_partner_partner_proto_rawDesc = "" +
 	" \x01(\tR\vtransaction\x12%\n" +
 	"\x0etransaction_id\x18\v \x01(\tR\rtransactionId\x12\x1f\n" +
 	"\vexternal_id\x18\f \x01(\tR\n" +
-	"externalId\"m\n" +
+	"externalId\"\x88\x01\n" +
 	"\x12AcceptOrderRequest\x12\x18\n" +
 	"\apayload\x18\x01 \x01(\fR\apayload\x12\x1c\n" +
 	"\tsignature\x18\x02 \x01(\fR\tsignature\x12\x1f\n" +
 	"\vexternal_id\x18\x03 \x01(\tR\n" +
-	"externalId\"\x15\n" +
+	"externalId\x12\x19\n" +
+	"\border_id\x18\x04 \x01(\tR\aorderId\"\x15\n" +
 	"\x13AcceptOrderResponse\"G\n" +
 	"\x12RejectOrderRequest\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x16\n" +

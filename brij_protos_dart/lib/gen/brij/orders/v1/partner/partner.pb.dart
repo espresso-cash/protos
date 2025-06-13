@@ -293,6 +293,7 @@ class AcceptOrderRequest extends $pb.GeneratedMessage {
     $core.List<$core.int>? payload,
     $core.List<$core.int>? signature,
     $core.String? externalId,
+    $core.String? orderId,
   }) {
     final $result = create();
     if (payload != null) {
@@ -304,6 +305,9 @@ class AcceptOrderRequest extends $pb.GeneratedMessage {
     if (externalId != null) {
       $result.externalId = externalId;
     }
+    if (orderId != null) {
+      $result.orderId = orderId;
+    }
     return $result;
   }
   AcceptOrderRequest._() : super();
@@ -314,6 +318,7 @@ class AcceptOrderRequest extends $pb.GeneratedMessage {
     ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'payload', $pb.PbFieldType.OY)
     ..a<$core.List<$core.int>>(2, _omitFieldNames ? '' : 'signature', $pb.PbFieldType.OY)
     ..aOS(3, _omitFieldNames ? '' : 'externalId')
+    ..aOS(4, _omitFieldNames ? '' : 'orderId')
     ..hasRequiredFields = false
   ;
 
@@ -365,6 +370,15 @@ class AcceptOrderRequest extends $pb.GeneratedMessage {
   $core.bool hasExternalId() => $_has(2);
   @$pb.TagNumber(3)
   void clearExternalId() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get orderId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set orderId($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasOrderId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearOrderId() => $_clearField(4);
 }
 
 class AcceptOrderResponse extends $pb.GeneratedMessage {
