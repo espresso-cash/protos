@@ -701,7 +701,6 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
     $core.double? walletTotalFee,
     $core.double? platformTotalFee,
     $core.double? partnerTotalFee,
-    $core.String? walletFeeAddress,
     $core.String? platformFeeAddress,
   }) {
     final $result = create();
@@ -744,9 +743,6 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
     if (partnerTotalFee != null) {
       $result.partnerTotalFee = partnerTotalFee;
     }
-    if (walletFeeAddress != null) {
-      $result.walletFeeAddress = walletFeeAddress;
-    }
     if (platformFeeAddress != null) {
       $result.platformFeeAddress = platformFeeAddress;
     }
@@ -770,8 +766,7 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
     ..a<$core.double>(11, _omitFieldNames ? '' : 'walletTotalFee', $pb.PbFieldType.OD)
     ..a<$core.double>(12, _omitFieldNames ? '' : 'platformTotalFee', $pb.PbFieldType.OD)
     ..a<$core.double>(13, _omitFieldNames ? '' : 'partnerTotalFee', $pb.PbFieldType.OD)
-    ..aOS(14, _omitFieldNames ? '' : 'walletFeeAddress')
-    ..aOS(15, _omitFieldNames ? '' : 'platformFeeAddress')
+    ..aOS(14, _omitFieldNames ? '' : 'platformFeeAddress')
     ..hasRequiredFields = false
   ;
 
@@ -920,22 +915,13 @@ class GetQuoteResponse extends $pb.GeneratedMessage {
   void clearPartnerTotalFee() => $_clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get walletFeeAddress => $_getSZ(13);
+  $core.String get platformFeeAddress => $_getSZ(13);
   @$pb.TagNumber(14)
-  set walletFeeAddress($core.String v) { $_setString(13, v); }
+  set platformFeeAddress($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasWalletFeeAddress() => $_has(13);
+  $core.bool hasPlatformFeeAddress() => $_has(13);
   @$pb.TagNumber(14)
-  void clearWalletFeeAddress() => $_clearField(14);
-
-  @$pb.TagNumber(15)
-  $core.String get platformFeeAddress => $_getSZ(14);
-  @$pb.TagNumber(15)
-  set platformFeeAddress($core.String v) { $_setString(14, v); }
-  @$pb.TagNumber(15)
-  $core.bool hasPlatformFeeAddress() => $_has(14);
-  @$pb.TagNumber(15)
-  void clearPlatformFeeAddress() => $_clearField(15);
+  void clearPlatformFeeAddress() => $_clearField(14);
 }
 
 class GetBestQuoteRequest extends $pb.GeneratedMessage {
@@ -1059,7 +1045,6 @@ class GetBestQuoteResponse extends $pb.GeneratedMessage {
     $core.double? walletTotalFee,
     $core.double? platformTotalFee,
     $core.double? partnerTotalFee,
-    $core.String? walletFeeAddress,
     $core.String? platformFeeAddress,
   }) {
     final $result = create();
@@ -1102,9 +1087,6 @@ class GetBestQuoteResponse extends $pb.GeneratedMessage {
     if (partnerTotalFee != null) {
       $result.partnerTotalFee = partnerTotalFee;
     }
-    if (walletFeeAddress != null) {
-      $result.walletFeeAddress = walletFeeAddress;
-    }
     if (platformFeeAddress != null) {
       $result.platformFeeAddress = platformFeeAddress;
     }
@@ -1128,8 +1110,7 @@ class GetBestQuoteResponse extends $pb.GeneratedMessage {
     ..a<$core.double>(11, _omitFieldNames ? '' : 'walletTotalFee', $pb.PbFieldType.OD)
     ..a<$core.double>(12, _omitFieldNames ? '' : 'platformTotalFee', $pb.PbFieldType.OD)
     ..a<$core.double>(13, _omitFieldNames ? '' : 'partnerTotalFee', $pb.PbFieldType.OD)
-    ..aOS(14, _omitFieldNames ? '' : 'walletFeeAddress')
-    ..aOS(15, _omitFieldNames ? '' : 'platformFeeAddress')
+    ..aOS(14, _omitFieldNames ? '' : 'platformFeeAddress')
     ..hasRequiredFields = false
   ;
 
@@ -1278,22 +1259,13 @@ class GetBestQuoteResponse extends $pb.GeneratedMessage {
   void clearPartnerTotalFee() => $_clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get walletFeeAddress => $_getSZ(13);
+  $core.String get platformFeeAddress => $_getSZ(13);
   @$pb.TagNumber(14)
-  set walletFeeAddress($core.String v) { $_setString(13, v); }
+  set platformFeeAddress($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasWalletFeeAddress() => $_has(13);
+  $core.bool hasPlatformFeeAddress() => $_has(13);
   @$pb.TagNumber(14)
-  void clearWalletFeeAddress() => $_clearField(14);
-
-  @$pb.TagNumber(15)
-  $core.String get platformFeeAddress => $_getSZ(14);
-  @$pb.TagNumber(15)
-  set platformFeeAddress($core.String v) { $_setString(14, v); }
-  @$pb.TagNumber(15)
-  $core.bool hasPlatformFeeAddress() => $_has(14);
-  @$pb.TagNumber(15)
-  void clearPlatformFeeAddress() => $_clearField(15);
+  void clearPlatformFeeAddress() => $_clearField(14);
 }
 
 class RampFee extends $pb.GeneratedMessage {
