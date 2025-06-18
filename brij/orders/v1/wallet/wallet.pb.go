@@ -923,10 +923,11 @@ func (x *RampFee) GetPercentageFee() float64 {
 }
 
 type GenerateTransactionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	OrderId       string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	OrderId         string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
+	FeePayerAddress string                 `protobuf:"bytes,2,opt,name=fee_payer_address,json=feePayerAddress,proto3" json:"fee_payer_address,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *GenerateTransactionRequest) Reset() {
@@ -962,6 +963,13 @@ func (*GenerateTransactionRequest) Descriptor() ([]byte, []int) {
 func (x *GenerateTransactionRequest) GetOrderId() string {
 	if x != nil {
 		return x.OrderId
+	}
+	return ""
+}
+
+func (x *GenerateTransactionRequest) GetFeePayerAddress() string {
+	if x != nil {
+		return x.FeePayerAddress
 	}
 	return ""
 }
@@ -1082,9 +1090,10 @@ const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	"\x05quote\x18\x01 \x01(\v2\x1c.brij.orders.v1.wallet.QuoteR\x05quote\"M\n" +
 	"\aRampFee\x12\x1b\n" +
 	"\tfixed_fee\x18\x01 \x01(\x01R\bfixedFee\x12%\n" +
-	"\x0epercentage_fee\x18\x02 \x01(\x01R\rpercentageFee\"7\n" +
+	"\x0epercentage_fee\x18\x02 \x01(\x01R\rpercentageFee\"c\n" +
 	"\x1aGenerateTransactionRequest\x12\x19\n" +
-	"\border_id\x18\x01 \x01(\tR\aorderId\"?\n" +
+	"\border_id\x18\x01 \x01(\tR\aorderId\x12*\n" +
+	"\x11fee_payer_address\x18\x02 \x01(\tR\x0ffeePayerAddress\"?\n" +
 	"\x1bGenerateTransactionResponse\x12 \n" +
 	"\vtransaction\x18\x01 \x01(\tR\vtransaction2\x83\x06\n" +
 	"\rWalletService\x12v\n" +

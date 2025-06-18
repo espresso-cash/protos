@@ -118,6 +118,7 @@ message RampFee {
 
 message GenerateTransactionRequest {
   string order_id = 1;
+  string fee_payer_address = 2;
 }
 
 message GenerateTransactionResponse {

@@ -1215,10 +1215,14 @@ class RampFee extends $pb.GeneratedMessage {
 class GenerateTransactionRequest extends $pb.GeneratedMessage {
   factory GenerateTransactionRequest({
     $core.String? orderId,
+    $core.String? feePayerAddress,
   }) {
     final $result = create();
     if (orderId != null) {
       $result.orderId = orderId;
+    }
+    if (feePayerAddress != null) {
+      $result.feePayerAddress = feePayerAddress;
     }
     return $result;
   }
@@ -1228,6 +1232,7 @@ class GenerateTransactionRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GenerateTransactionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.orders.v1.wallet'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'orderId')
+    ..aOS(2, _omitFieldNames ? '' : 'feePayerAddress')
     ..hasRequiredFields = false
   ;
 
@@ -1260,6 +1265,15 @@ class GenerateTransactionRequest extends $pb.GeneratedMessage {
   $core.bool hasOrderId() => $_has(0);
   @$pb.TagNumber(1)
   void clearOrderId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get feePayerAddress => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set feePayerAddress($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasFeePayerAddress() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFeePayerAddress() => $_clearField(2);
 }
 
 class GenerateTransactionResponse extends $pb.GeneratedMessage {

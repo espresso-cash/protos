@@ -427,6 +427,11 @@ export declare type GenerateTransactionRequest = Message<"brij.orders.v1.wallet.
    * @generated from field: string order_id = 1;
    */
   orderId: string;
+
+  /**
+   * @generated from field: string fee_payer_address = 2;
+   */
+  feePayerAddress: string;
 };
 
 /**
