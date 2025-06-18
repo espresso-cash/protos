@@ -251,14 +251,10 @@ class CreateOffRampOrderResponse extends $pb.GeneratedMessage {
 class GetOrderRequest extends $pb.GeneratedMessage {
   factory GetOrderRequest({
     $core.String? orderId,
-    $core.String? externalId,
   }) {
     final $result = create();
     if (orderId != null) {
       $result.orderId = orderId;
-    }
-    if (externalId != null) {
-      $result.externalId = externalId;
     }
     return $result;
   }
@@ -268,7 +264,6 @@ class GetOrderRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetOrderRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.orders.v1.wallet'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'orderId')
-    ..aOS(2, _omitFieldNames ? '' : 'externalId')
     ..hasRequiredFields = false
   ;
 
@@ -301,15 +296,6 @@ class GetOrderRequest extends $pb.GeneratedMessage {
   $core.bool hasOrderId() => $_has(0);
   @$pb.TagNumber(1)
   void clearOrderId() => $_clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get externalId => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set externalId($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasExternalId() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearExternalId() => $_clearField(2);
 }
 
 class GetOrderResponse extends $pb.GeneratedMessage {
@@ -1229,14 +1215,10 @@ class RampFee extends $pb.GeneratedMessage {
 class GenerateTransactionRequest extends $pb.GeneratedMessage {
   factory GenerateTransactionRequest({
     $core.String? orderId,
-    $core.String? externalId,
   }) {
     final $result = create();
     if (orderId != null) {
       $result.orderId = orderId;
-    }
-    if (externalId != null) {
-      $result.externalId = externalId;
     }
     return $result;
   }
@@ -1246,7 +1228,6 @@ class GenerateTransactionRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GenerateTransactionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.orders.v1.wallet'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'orderId')
-    ..aOS(2, _omitFieldNames ? '' : 'externalId')
     ..hasRequiredFields = false
   ;
 
@@ -1279,15 +1260,6 @@ class GenerateTransactionRequest extends $pb.GeneratedMessage {
   $core.bool hasOrderId() => $_has(0);
   @$pb.TagNumber(1)
   void clearOrderId() => $_clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get externalId => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set externalId($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasExternalId() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearExternalId() => $_clearField(2);
 }
 
 class GenerateTransactionResponse extends $pb.GeneratedMessage {
