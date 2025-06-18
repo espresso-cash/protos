@@ -97,11 +97,6 @@ export declare type GetOrderRequest = Message<"brij.orders.v1.wallet.GetOrderReq
    * @generated from field: string order_id = 1;
    */
   orderId: string;
-
-  /**
-   * @generated from field: string external_id = 2;
-   */
-  externalId: string;
 };
 
 /**
@@ -434,9 +429,9 @@ export declare type GenerateTransactionRequest = Message<"brij.orders.v1.wallet.
   orderId: string;
 
   /**
-   * @generated from field: string external_id = 2;
+   * @generated from field: string fee_payer_address = 2;
    */
-  externalId: string;
+  feePayerAddress: string;
 };
 
 /**

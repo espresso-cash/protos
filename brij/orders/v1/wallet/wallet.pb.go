@@ -219,7 +219,6 @@ func (x *CreateOffRampOrderResponse) GetOrderId() string {
 type GetOrderRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	OrderId       string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
-	ExternalId    string                 `protobuf:"bytes,2,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -257,13 +256,6 @@ func (*GetOrderRequest) Descriptor() ([]byte, []int) {
 func (x *GetOrderRequest) GetOrderId() string {
 	if x != nil {
 		return x.OrderId
-	}
-	return ""
-}
-
-func (x *GetOrderRequest) GetExternalId() string {
-	if x != nil {
-		return x.ExternalId
 	}
 	return ""
 }
@@ -931,11 +923,11 @@ func (x *RampFee) GetPercentageFee() float64 {
 }
 
 type GenerateTransactionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	OrderId       string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
-	ExternalId    string                 `protobuf:"bytes,2,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	OrderId         string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
+	FeePayerAddress string                 `protobuf:"bytes,2,opt,name=fee_payer_address,json=feePayerAddress,proto3" json:"fee_payer_address,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *GenerateTransactionRequest) Reset() {
@@ -975,9 +967,9 @@ func (x *GenerateTransactionRequest) GetOrderId() string {
 	return ""
 }
 
-func (x *GenerateTransactionRequest) GetExternalId() string {
+func (x *GenerateTransactionRequest) GetFeePayerAddress() string {
 	if x != nil {
-		return x.ExternalId
+		return x.FeePayerAddress
 	}
 	return ""
 }
@@ -1040,11 +1032,9 @@ const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	"\apayload\x18\x01 \x01(\fR\apayload\x12\x1c\n" +
 	"\tsignature\x18\x02 \x01(\fR\tsignature\"7\n" +
 	"\x1aCreateOffRampOrderResponse\x12\x19\n" +
-	"\border_id\x18\x01 \x01(\tR\aorderId\"M\n" +
+	"\border_id\x18\x01 \x01(\tR\aorderId\",\n" +
 	"\x0fGetOrderRequest\x12\x19\n" +
-	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x1f\n" +
-	"\vexternal_id\x18\x02 \x01(\tR\n" +
-	"externalId\"\xb8\x03\n" +
+	"\border_id\x18\x01 \x01(\tR\aorderId\"\xb8\x03\n" +
 	"\x10GetOrderResponse\x12!\n" +
 	"\fuser_payload\x18\x01 \x01(\fR\vuserPayload\x12%\n" +
 	"\x0euser_signature\x18\x02 \x01(\fR\ruserSignature\x12'\n" +
@@ -1100,11 +1090,10 @@ const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	"\x05quote\x18\x01 \x01(\v2\x1c.brij.orders.v1.wallet.QuoteR\x05quote\"M\n" +
 	"\aRampFee\x12\x1b\n" +
 	"\tfixed_fee\x18\x01 \x01(\x01R\bfixedFee\x12%\n" +
-	"\x0epercentage_fee\x18\x02 \x01(\x01R\rpercentageFee\"X\n" +
+	"\x0epercentage_fee\x18\x02 \x01(\x01R\rpercentageFee\"c\n" +
 	"\x1aGenerateTransactionRequest\x12\x19\n" +
-	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x1f\n" +
-	"\vexternal_id\x18\x02 \x01(\tR\n" +
-	"externalId\"?\n" +
+	"\border_id\x18\x01 \x01(\tR\aorderId\x12*\n" +
+	"\x11fee_payer_address\x18\x02 \x01(\tR\x0ffeePayerAddress\"?\n" +
 	"\x1bGenerateTransactionResponse\x12 \n" +
 	"\vtransaction\x18\x01 \x01(\tR\vtransaction2\x83\x06\n" +
 	"\rWalletService\x12v\n" +

@@ -71,14 +71,12 @@ const GetOrderRequest$json = {
   '1': 'GetOrderRequest',
   '2': [
     {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
-    {'1': 'external_id', '3': 2, '4': 1, '5': 9, '10': 'externalId'},
   ],
 };
 
 /// Descriptor for `GetOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getOrderRequestDescriptor = $convert.base64Decode(
-    'Cg9HZXRPcmRlclJlcXVlc3QSGQoIb3JkZXJfaWQYASABKAlSB29yZGVySWQSHwoLZXh0ZXJuYW'
-    'xfaWQYAiABKAlSCmV4dGVybmFsSWQ=');
+    'Cg9HZXRPcmRlclJlcXVlc3QSGQoIb3JkZXJfaWQYASABKAlSB29yZGVySWQ=');
 
 @$core.Deprecated('Use getOrderResponseDescriptor instead')
 const GetOrderResponse$json = {
@@ -256,14 +254,14 @@ const GenerateTransactionRequest$json = {
   '1': 'GenerateTransactionRequest',
   '2': [
     {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
-    {'1': 'external_id', '3': 2, '4': 1, '5': 9, '10': 'externalId'},
+    {'1': 'fee_payer_address', '3': 2, '4': 1, '5': 9, '10': 'feePayerAddress'},
   ],
 };
 
 /// Descriptor for `GenerateTransactionRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List generateTransactionRequestDescriptor = $convert.base64Decode(
     'ChpHZW5lcmF0ZVRyYW5zYWN0aW9uUmVxdWVzdBIZCghvcmRlcl9pZBgBIAEoCVIHb3JkZXJJZB'
-    'IfCgtleHRlcm5hbF9pZBgCIAEoCVIKZXh0ZXJuYWxJZA==');
+    'IqChFmZWVfcGF5ZXJfYWRkcmVzcxgCIAEoCVIPZmVlUGF5ZXJBZGRyZXNz');
 
 @$core.Deprecated('Use generateTransactionResponseDescriptor instead')
 const GenerateTransactionResponse$json = {
