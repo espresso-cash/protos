@@ -44,7 +44,6 @@ message CreateOffRampOrderResponse {
 
 message GetOrderRequest {
   string order_id = 1;
-  string external_id = 2;
 }
 
 message GetOrderResponse {
@@ -119,7 +118,6 @@ message RampFee {
 
 message GenerateTransactionRequest {
   string order_id = 1;
-  string external_id = 2;
 }
 
 message GenerateTransactionResponse {
