@@ -39,6 +39,7 @@ type OnRampOrderUserEnvelope struct {
 	PlatformFeeAmount  float64 `protobuf:"fixed64,13,opt,name=platform_fee_amount,json=platformFeeAmount,proto3" json:"platform_fee_amount,omitempty"`
 	// Exact crypto amount that partner will spend, which may differ from the crypto_amount due to fees.
 	PartnerCryptoAmount float64 `protobuf:"fixed64,14,opt,name=partner_crypto_amount,json=partnerCryptoAmount,proto3" json:"partner_crypto_amount,omitempty"`
+	Country             string  `protobuf:"bytes,15,opt,name=country,proto3" json:"country,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -164,6 +165,13 @@ func (x *OnRampOrderUserEnvelope) GetPartnerCryptoAmount() float64 {
 	return 0
 }
 
+func (x *OnRampOrderUserEnvelope) GetCountry() string {
+	if x != nil {
+		return x.Country
+	}
+	return ""
+}
+
 type OffRampOrderUserEnvelope struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	OrderId          string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
@@ -183,6 +191,7 @@ type OffRampOrderUserEnvelope struct {
 	PlatformFeeAmount  float64 `protobuf:"fixed64,13,opt,name=platform_fee_amount,json=platformFeeAmount,proto3" json:"platform_fee_amount,omitempty"`
 	// Exact crypto amount that partner will receive, which may differ from the crypto_amount due to fees.
 	PartnerCryptoAmount float64 `protobuf:"fixed64,14,opt,name=partner_crypto_amount,json=partnerCryptoAmount,proto3" json:"partner_crypto_amount,omitempty"`
+	Country             string  `protobuf:"bytes,15,opt,name=country,proto3" json:"country,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -315,6 +324,13 @@ func (x *OffRampOrderUserEnvelope) GetPartnerCryptoAmount() float64 {
 	return 0
 }
 
+func (x *OffRampOrderUserEnvelope) GetCountry() string {
+	if x != nil {
+		return x.Country
+	}
+	return ""
+}
+
 type OnRampOrderPartnerEnvelope struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	OrderId       string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
@@ -431,7 +447,7 @@ var File_brij_orders_v1_common_envelopes_proto protoreflect.FileDescriptor
 
 const file_brij_orders_v1_common_envelopes_proto_rawDesc = "" +
 	"\n" +
-	"%brij/orders/v1/common/envelopes.proto\x12\x15brij.orders.v1.common\"\xc2\x04\n" +
+	"%brij/orders/v1/common/envelopes.proto\x12\x15brij.orders.v1.common\"\xdc\x04\n" +
 	"\x17OnRampOrderUserEnvelope\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12,\n" +
 	"\x12partner_public_key\x18\x02 \x01(\tR\x10partnerPublicKey\x12#\n" +
@@ -447,7 +463,8 @@ const file_brij_orders_v1_common_envelopes_proto_rawDesc = "" +
 	"\x11wallet_fee_amount\x18\v \x01(\x01R\x0fwalletFeeAmount\x120\n" +
 	"\x14platform_fee_address\x18\f \x01(\tR\x12platformFeeAddress\x12.\n" +
 	"\x13platform_fee_amount\x18\r \x01(\x01R\x11platformFeeAmount\x122\n" +
-	"\x15partner_crypto_amount\x18\x0e \x01(\x01R\x13partnerCryptoAmount\"\xe9\x04\n" +
+	"\x15partner_crypto_amount\x18\x0e \x01(\x01R\x13partnerCryptoAmount\x12\x18\n" +
+	"\acountry\x18\x0f \x01(\tR\acountry\"\x83\x05\n" +
 	"\x18OffRampOrderUserEnvelope\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12,\n" +
 	"\x12partner_public_key\x18\x02 \x01(\tR\x10partnerPublicKey\x12#\n" +
@@ -464,7 +481,8 @@ const file_brij_orders_v1_common_envelopes_proto_rawDesc = "" +
 	"\x11wallet_fee_amount\x18\v \x01(\x01R\x0fwalletFeeAmount\x120\n" +
 	"\x14platform_fee_address\x18\f \x01(\tR\x12platformFeeAddress\x12.\n" +
 	"\x13platform_fee_amount\x18\r \x01(\x01R\x11platformFeeAmount\x122\n" +
-	"\x15partner_crypto_amount\x18\x0e \x01(\x01R\x13partnerCryptoAmount\"w\n" +
+	"\x15partner_crypto_amount\x18\x0e \x01(\x01R\x13partnerCryptoAmount\x12\x18\n" +
+	"\acountry\x18\x0f \x01(\tR\acountry\"w\n" +
 	"\x1aOnRampOrderPartnerEnvelope\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x1b\n" +
 	"\tbank_name\x18\x02 \x01(\tR\bbankName\x12!\n" +

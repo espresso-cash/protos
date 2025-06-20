@@ -30,6 +30,7 @@ class OnRampOrderUserEnvelope extends $pb.GeneratedMessage {
     $core.String? platformFeeAddress,
     $core.double? platformFeeAmount,
     $core.double? partnerCryptoAmount,
+    $core.String? country,
   }) {
     final $result = create();
     if (orderId != null) {
@@ -71,6 +72,9 @@ class OnRampOrderUserEnvelope extends $pb.GeneratedMessage {
     if (partnerCryptoAmount != null) {
       $result.partnerCryptoAmount = partnerCryptoAmount;
     }
+    if (country != null) {
+      $result.country = country;
+    }
     return $result;
   }
   OnRampOrderUserEnvelope._() : super();
@@ -91,6 +95,7 @@ class OnRampOrderUserEnvelope extends $pb.GeneratedMessage {
     ..aOS(12, _omitFieldNames ? '' : 'platformFeeAddress')
     ..a<$core.double>(13, _omitFieldNames ? '' : 'platformFeeAmount', $pb.PbFieldType.OD)
     ..a<$core.double>(14, _omitFieldNames ? '' : 'partnerCryptoAmount', $pb.PbFieldType.OD)
+    ..aOS(15, _omitFieldNames ? '' : 'country')
     ..hasRequiredFields = false
   ;
 
@@ -234,6 +239,15 @@ class OnRampOrderUserEnvelope extends $pb.GeneratedMessage {
   $core.bool hasPartnerCryptoAmount() => $_has(12);
   @$pb.TagNumber(14)
   void clearPartnerCryptoAmount() => $_clearField(14);
+
+  @$pb.TagNumber(15)
+  $core.String get country => $_getSZ(13);
+  @$pb.TagNumber(15)
+  set country($core.String v) { $_setString(13, v); }
+  @$pb.TagNumber(15)
+  $core.bool hasCountry() => $_has(13);
+  @$pb.TagNumber(15)
+  void clearCountry() => $_clearField(15);
 }
 
 class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
@@ -252,6 +266,7 @@ class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
     $core.String? platformFeeAddress,
     $core.double? platformFeeAmount,
     $core.double? partnerCryptoAmount,
+    $core.String? country,
   }) {
     final $result = create();
     if (orderId != null) {
@@ -296,6 +311,9 @@ class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
     if (partnerCryptoAmount != null) {
       $result.partnerCryptoAmount = partnerCryptoAmount;
     }
+    if (country != null) {
+      $result.country = country;
+    }
     return $result;
   }
   OffRampOrderUserEnvelope._() : super();
@@ -317,6 +335,7 @@ class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
     ..aOS(12, _omitFieldNames ? '' : 'platformFeeAddress')
     ..a<$core.double>(13, _omitFieldNames ? '' : 'platformFeeAmount', $pb.PbFieldType.OD)
     ..a<$core.double>(14, _omitFieldNames ? '' : 'partnerCryptoAmount', $pb.PbFieldType.OD)
+    ..aOS(15, _omitFieldNames ? '' : 'country')
     ..hasRequiredFields = false
   ;
 
@@ -469,6 +488,15 @@ class OffRampOrderUserEnvelope extends $pb.GeneratedMessage {
   $core.bool hasPartnerCryptoAmount() => $_has(13);
   @$pb.TagNumber(14)
   void clearPartnerCryptoAmount() => $_clearField(14);
+
+  @$pb.TagNumber(15)
+  $core.String get country => $_getSZ(14);
+  @$pb.TagNumber(15)
+  set country($core.String v) { $_setString(14, v); }
+  @$pb.TagNumber(15)
+  $core.bool hasCountry() => $_has(14);
+  @$pb.TagNumber(15)
+  void clearCountry() => $_clearField(15);
 }
 
 class OnRampOrderPartnerEnvelope extends $pb.GeneratedMessage {

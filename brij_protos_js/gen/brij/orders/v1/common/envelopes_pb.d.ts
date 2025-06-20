@@ -84,6 +84,11 @@ export declare type OnRampOrderUserEnvelope = Message<"brij.orders.v1.common.OnR
    * @generated from field: double partner_crypto_amount = 14;
    */
   partnerCryptoAmount: number;
+
+  /**
+   * @generated from field: string country = 15;
+   */
+  country: string;
 };
 
 /**
@@ -171,6 +176,11 @@ export declare type OffRampOrderUserEnvelope = Message<"brij.orders.v1.common.Of
    * @generated from field: double partner_crypto_amount = 14;
    */
   partnerCryptoAmount: number;
+
+  /**
+   * @generated from field: string country = 15;
+   */
+  country: string;
 };
 
 /**

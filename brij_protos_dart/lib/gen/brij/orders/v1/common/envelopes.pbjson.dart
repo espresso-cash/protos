@@ -30,6 +30,7 @@ const OnRampOrderUserEnvelope$json = {
     {'1': 'platform_fee_address', '3': 12, '4': 1, '5': 9, '10': 'platformFeeAddress'},
     {'1': 'platform_fee_amount', '3': 13, '4': 1, '5': 1, '10': 'platformFeeAmount'},
     {'1': 'partner_crypto_amount', '3': 14, '4': 1, '5': 1, '10': 'partnerCryptoAmount'},
+    {'1': 'country', '3': 15, '4': 1, '5': 9, '10': 'country'},
   ],
 };
 
@@ -45,7 +46,7 @@ final $typed_data.Uint8List onRampOrderUserEnvelopeDescriptor = $convert.base64D
     'dhbGxldF9mZWVfYW1vdW50GAsgASgBUg93YWxsZXRGZWVBbW91bnQSMAoUcGxhdGZvcm1fZmVl'
     'X2FkZHJlc3MYDCABKAlSEnBsYXRmb3JtRmVlQWRkcmVzcxIuChNwbGF0Zm9ybV9mZWVfYW1vdW'
     '50GA0gASgBUhFwbGF0Zm9ybUZlZUFtb3VudBIyChVwYXJ0bmVyX2NyeXB0b19hbW91bnQYDiAB'
-    'KAFSE3BhcnRuZXJDcnlwdG9BbW91bnQ=');
+    'KAFSE3BhcnRuZXJDcnlwdG9BbW91bnQSGAoHY291bnRyeRgPIAEoCVIHY291bnRyeQ==');
 
 @$core.Deprecated('Use offRampOrderUserEnvelopeDescriptor instead')
 const OffRampOrderUserEnvelope$json = {
@@ -65,6 +66,7 @@ const OffRampOrderUserEnvelope$json = {
     {'1': 'platform_fee_address', '3': 12, '4': 1, '5': 9, '10': 'platformFeeAddress'},
     {'1': 'platform_fee_amount', '3': 13, '4': 1, '5': 1, '10': 'platformFeeAmount'},
     {'1': 'partner_crypto_amount', '3': 14, '4': 1, '5': 1, '10': 'partnerCryptoAmount'},
+    {'1': 'country', '3': 15, '4': 1, '5': 9, '10': 'country'},
   ],
 };
 
@@ -81,7 +83,7 @@ final $typed_data.Uint8List offRampOrderUserEnvelopeDescriptor = $convert.base64
     'GAsgASgBUg93YWxsZXRGZWVBbW91bnQSMAoUcGxhdGZvcm1fZmVlX2FkZHJlc3MYDCABKAlSEn'
     'BsYXRmb3JtRmVlQWRkcmVzcxIuChNwbGF0Zm9ybV9mZWVfYW1vdW50GA0gASgBUhFwbGF0Zm9y'
     'bUZlZUFtb3VudBIyChVwYXJ0bmVyX2NyeXB0b19hbW91bnQYDiABKAFSE3BhcnRuZXJDcnlwdG'
-    '9BbW91bnQ=');
+    '9BbW91bnQSGAoHY291bnRyeRgPIAEoCVIHY291bnRyeQ==');
 
 @$core.Deprecated('Use onRampOrderPartnerEnvelopeDescriptor instead')
 const OnRampOrderPartnerEnvelope$json = {

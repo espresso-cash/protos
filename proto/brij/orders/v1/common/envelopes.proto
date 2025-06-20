@@ -21,6 +21,7 @@ message OnRampOrderUserEnvelope {
   double platform_fee_amount = 13;
   // Exact crypto amount that partner will spend, which may differ from the crypto_amount due to fees.
   double partner_crypto_amount = 14;
+  string country = 15;
 }
 
 message OffRampOrderUserEnvelope {
@@ -41,6 +42,7 @@ message OffRampOrderUserEnvelope {
   double platform_fee_amount = 13;
   // Exact crypto amount that partner will receive, which may differ from the crypto_amount due to fees.
   double partner_crypto_amount = 14;
+  string country = 15;
 }
 
 message OnRampOrderPartnerEnvelope {
