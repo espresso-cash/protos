@@ -268,13 +268,14 @@ const GenerateTransactionResponse$json = {
   '1': 'GenerateTransactionResponse',
   '2': [
     {'1': 'transaction', '3': 1, '4': 1, '5': 9, '10': 'transaction'},
+    {'1': 'reference', '3': 2, '4': 1, '5': 9, '10': 'reference'},
   ],
 };
 
 /// Descriptor for `GenerateTransactionResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List generateTransactionResponseDescriptor = $convert.base64Decode(
     'ChtHZW5lcmF0ZVRyYW5zYWN0aW9uUmVzcG9uc2USIAoLdHJhbnNhY3Rpb24YASABKAlSC3RyYW'
-    '5zYWN0aW9u');
+    '5zYWN0aW9uEhwKCXJlZmVyZW5jZRgCIAEoCVIJcmVmZXJlbmNl');
 
 const $core.Map<$core.String, $core.dynamic> WalletServiceBase$json = {
   '1': 'WalletService',

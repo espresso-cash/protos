@@ -977,6 +977,7 @@ func (x *GenerateTransactionRequest) GetFeePayerAddress() string {
 type GenerateTransactionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Transaction   string                 `protobuf:"bytes,1,opt,name=transaction,proto3" json:"transaction,omitempty"`
+	Reference     string                 `protobuf:"bytes,2,opt,name=reference,proto3" json:"reference,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1014,6 +1015,13 @@ func (*GenerateTransactionResponse) Descriptor() ([]byte, []int) {
 func (x *GenerateTransactionResponse) GetTransaction() string {
 	if x != nil {
 		return x.Transaction
+	}
+	return ""
+}
+
+func (x *GenerateTransactionResponse) GetReference() string {
+	if x != nil {
+		return x.Reference
 	}
 	return ""
 }
@@ -1093,9 +1101,10 @@ const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	"\x0epercentage_fee\x18\x02 \x01(\x01R\rpercentageFee\"c\n" +
 	"\x1aGenerateTransactionRequest\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12*\n" +
-	"\x11fee_payer_address\x18\x02 \x01(\tR\x0ffeePayerAddress\"?\n" +
+	"\x11fee_payer_address\x18\x02 \x01(\tR\x0ffeePayerAddress\"]\n" +
 	"\x1bGenerateTransactionResponse\x12 \n" +
-	"\vtransaction\x18\x01 \x01(\tR\vtransaction2\x83\x06\n" +
+	"\vtransaction\x18\x01 \x01(\tR\vtransaction\x12\x1c\n" +
+	"\treference\x18\x02 \x01(\tR\treference2\x83\x06\n" +
 	"\rWalletService\x12v\n" +
 	"\x11CreateOnRampOrder\x12/.brij.orders.v1.wallet.CreateOnRampOrderRequest\x1a0.brij.orders.v1.wallet.CreateOnRampOrderResponse\x12y\n" +
 	"\x12CreateOffRampOrder\x120.brij.orders.v1.wallet.CreateOffRampOrderRequest\x1a1.brij.orders.v1.wallet.CreateOffRampOrderResponse\x12[\n" +

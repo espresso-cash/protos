@@ -952,6 +952,7 @@ func (x *GenerateTransactionRequest) GetExternalId() string {
 type GenerateTransactionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Transaction   string                 `protobuf:"bytes,1,opt,name=transaction,proto3" json:"transaction,omitempty"`
+	Reference     string                 `protobuf:"bytes,2,opt,name=reference,proto3" json:"reference,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -989,6 +990,13 @@ func (*GenerateTransactionResponse) Descriptor() ([]byte, []int) {
 func (x *GenerateTransactionResponse) GetTransaction() string {
 	if x != nil {
 		return x.Transaction
+	}
+	return ""
+}
+
+func (x *GenerateTransactionResponse) GetReference() string {
+	if x != nil {
+		return x.Reference
 	}
 	return ""
 }
@@ -1061,9 +1069,10 @@ const file_brij_orders_v1_partner_partner_proto_rawDesc = "" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x124\n" +
 	"\x16funding_wallet_address\x18\x02 \x01(\tR\x14fundingWalletAddress\x12\x1f\n" +
 	"\vexternal_id\x18\x03 \x01(\tR\n" +
-	"externalId\"?\n" +
+	"externalId\"]\n" +
 	"\x1bGenerateTransactionResponse\x12 \n" +
-	"\vtransaction\x18\x01 \x01(\tR\vtransaction2\xd6\x06\n" +
+	"\vtransaction\x18\x01 \x01(\tR\vtransaction\x12\x1c\n" +
+	"\treference\x18\x02 \x01(\tR\treference2\xd6\x06\n" +
 	"\x0ePartnerService\x12]\n" +
 	"\bGetOrder\x12'.brij.orders.v1.partner.GetOrderRequest\x1a(.brij.orders.v1.partner.GetOrderResponse\x12f\n" +
 	"\vAcceptOrder\x12*.brij.orders.v1.partner.AcceptOrderRequest\x1a+.brij.orders.v1.partner.AcceptOrderResponse\x12f\n" +

@@ -448,6 +448,11 @@ export declare type GenerateTransactionResponse = Message<"brij.orders.v1.wallet
    * @generated from field: string transaction = 1;
    */
   transaction: string;
+
+  /**
+   * @generated from field: string reference = 2;
+   */
+  reference: string;
 };
 
 /**

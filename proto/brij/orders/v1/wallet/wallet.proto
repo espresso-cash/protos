@@ -123,4 +123,5 @@ message GenerateTransactionRequest {
 
 message GenerateTransactionResponse {
   string transaction = 1;
+  string reference = 2;
 }

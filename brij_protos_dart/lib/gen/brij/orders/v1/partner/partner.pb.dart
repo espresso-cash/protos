@@ -1158,10 +1158,14 @@ class GenerateTransactionRequest extends $pb.GeneratedMessage {
 class GenerateTransactionResponse extends $pb.GeneratedMessage {
   factory GenerateTransactionResponse({
     $core.String? transaction,
+    $core.String? reference,
   }) {
     final $result = create();
     if (transaction != null) {
       $result.transaction = transaction;
+    }
+    if (reference != null) {
+      $result.reference = reference;
     }
     return $result;
   }
@@ -1171,6 +1175,7 @@ class GenerateTransactionResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GenerateTransactionResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.orders.v1.partner'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'transaction')
+    ..aOS(2, _omitFieldNames ? '' : 'reference')
     ..hasRequiredFields = false
   ;
 
@@ -1203,6 +1208,15 @@ class GenerateTransactionResponse extends $pb.GeneratedMessage {
   $core.bool hasTransaction() => $_has(0);
   @$pb.TagNumber(1)
   void clearTransaction() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get reference => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set reference($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasReference() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearReference() => $_clearField(2);
 }
 
 class PartnerServiceApi {
