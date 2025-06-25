@@ -491,12 +491,21 @@ class GetOrderResponse extends $pb.GeneratedMessage {
 }
 
 class GetOrdersRequest extends $pb.GeneratedMessage {
-  factory GetOrdersRequest() => create();
+  factory GetOrdersRequest({
+    $core.String? walletPublicKey,
+  }) {
+    final $result = create();
+    if (walletPublicKey != null) {
+      $result.walletPublicKey = walletPublicKey;
+    }
+    return $result;
+  }
   GetOrdersRequest._() : super();
   factory GetOrdersRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetOrdersRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetOrdersRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'brij.orders.v1.wallet'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'walletPublicKey', protoName: 'walletPublicKey')
     ..hasRequiredFields = false
   ;
 
@@ -520,6 +529,15 @@ class GetOrdersRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static GetOrdersRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetOrdersRequest>(create);
   static GetOrdersRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get walletPublicKey => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set walletPublicKey($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasWalletPublicKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearWalletPublicKey() => $_clearField(1);
 }
 
 class GetOrdersResponse extends $pb.GeneratedMessage {

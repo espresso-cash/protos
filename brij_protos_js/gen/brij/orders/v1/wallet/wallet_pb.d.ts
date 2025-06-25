@@ -179,6 +179,10 @@ export declare const GetOrderResponseSchema: GenMessage<GetOrderResponse>;
  * @generated from message brij.orders.v1.wallet.GetOrdersRequest
  */
 export declare type GetOrdersRequest = Message<"brij.orders.v1.wallet.GetOrdersRequest"> & {
+  /**
+   * @generated from field: string walletPublicKey = 1;
+   */
+  walletPublicKey: string;
 };
 
 /**

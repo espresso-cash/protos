@@ -387,9 +387,10 @@ func (x *GetOrderResponse) GetTransactionId() string {
 }
 
 type GetOrdersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	WalletPublicKey string                 `protobuf:"bytes,1,opt,name=walletPublicKey,proto3" json:"walletPublicKey,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *GetOrdersRequest) Reset() {
@@ -420,6 +421,13 @@ func (x *GetOrdersRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use GetOrdersRequest.ProtoReflect.Descriptor instead.
 func (*GetOrdersRequest) Descriptor() ([]byte, []int) {
 	return file_brij_orders_v1_wallet_wallet_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetOrdersRequest) GetWalletPublicKey() string {
+	if x != nil {
+		return x.WalletPublicKey
+	}
+	return ""
 }
 
 type GetOrdersResponse struct {
@@ -1055,8 +1063,9 @@ const file_brij_orders_v1_wallet_wallet_proto_rawDesc = "" +
 	"\x04type\x18\t \x01(\x0e2\x1f.brij.orders.v1.common.RampTypeR\x04type\x12 \n" +
 	"\vtransaction\x18\n" +
 	" \x01(\tR\vtransaction\x12%\n" +
-	"\x0etransaction_id\x18\v \x01(\tR\rtransactionId\"\x12\n" +
-	"\x10GetOrdersRequest\"T\n" +
+	"\x0etransaction_id\x18\v \x01(\tR\rtransactionId\"<\n" +
+	"\x10GetOrdersRequest\x12(\n" +
+	"\x0fwalletPublicKey\x18\x01 \x01(\tR\x0fwalletPublicKey\"T\n" +
 	"\x11GetOrdersResponse\x12?\n" +
 	"\x06orders\x18\x01 \x03(\v2'.brij.orders.v1.wallet.GetOrderResponseR\x06orders\"\xf3\x01\n" +
 	"\x0fGetQuoteRequest\x12,\n" +

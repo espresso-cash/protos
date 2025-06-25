@@ -110,11 +110,15 @@ final $typed_data.Uint8List getOrderResponseDescriptor = $convert.base64Decode(
 @$core.Deprecated('Use getOrdersRequestDescriptor instead')
 const GetOrdersRequest$json = {
   '1': 'GetOrdersRequest',
+  '2': [
+    {'1': 'walletPublicKey', '3': 1, '4': 1, '5': 9, '10': 'walletPublicKey'},
+  ],
 };
 
 /// Descriptor for `GetOrdersRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getOrdersRequestDescriptor = $convert.base64Decode(
-    'ChBHZXRPcmRlcnNSZXF1ZXN0');
+    'ChBHZXRPcmRlcnNSZXF1ZXN0EigKD3dhbGxldFB1YmxpY0tleRgBIAEoCVIPd2FsbGV0UHVibG'
+    'ljS2V5');
 
 @$core.Deprecated('Use getOrdersResponseDescriptor instead')
 const GetOrdersResponse$json = {
