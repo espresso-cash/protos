@@ -62,7 +62,9 @@ message GetOrderResponse {
   string transaction_id = 11;
 }
 
-message GetOrdersRequest {}
+message GetOrdersRequest {
+  string walletPublicKey = 1;
+}
 
 message GetOrdersResponse {
   repeated GetOrderResponse orders = 1;
